@@ -37,4 +37,4 @@
 
 - テキスト: [docs.md](https://github.com/jigintern/intern-dev-tutorial/blob/main/git-tutorial/docs.md)
 - スライド: [slide.md](https://github.com/jigintern/intern-dev-tutorial/blob/main/git-tutorial/slide.md)
-- 補足: [part_ex/](https://github.com/jigintern/intern-dev-tutorial/blob/main/git-tutorial/part_ex/)
+- 補足: [part-ex/](https://github.com/jigintern/intern-dev-tutorial/blob/main/git-tutorial/part-ex)
