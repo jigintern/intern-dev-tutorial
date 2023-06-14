@@ -110,7 +110,7 @@ Github Desktopでは、以下のように操作することで、クローンの
 ![](./imgs/screen-shots/04_view_with_vscode.png)
 
 </details>
-<br>
+
 
 ### 2-2. branch: 作業を枝分かれさせよう
 
@@ -155,7 +155,7 @@ Github Desktopでは、以下のように操作することで、ブランチを
 4. 新しいブランチができるので、作業に取り掛かることができます。
 
 </details>
-<br>
+
 
 
 ### 2-3. commit: 作業前と後の**差分を記録**しよう
@@ -196,7 +196,7 @@ Github Desktopでは、以下のように操作することで、コミットの
 ![](./imgs/screen-shots/11_input_commit_message.png)
 
 </details>
-<br>
+
 
 ### 2-4. log: 作業の履歴を確認しよう
 
@@ -213,7 +213,7 @@ Github Desktopでは、以下のように操作することで、ログを確認
 ![](./imgs/screen-shots/12_view_history.png)
 
 </details>
-<br>
+
 
 ### 2-5. push: 作業の成果をGithubにアップロードして共有しよう
 
@@ -234,7 +234,7 @@ Github Desktopでは、以下のように操作することで、プッシュの
 ![](./imgs/screen-shots/14_confirm_publish.png)
 
 </details>
-<br>
+
 
 ### 2-6. Pull Request: 枝分かれした成果を結合しよう
 
@@ -295,7 +295,7 @@ SlackやGithub上でのコメントなど、適宜チーム内で決定した方
 8. `main`ブランチを確認して、変更内容が正しく取り込まれていることを確認します
 
 </details>
-<br>
+
 
 ### 2-7. fetch / pull: Githubリポジトリの変更部分をダウンロードしよう
 
