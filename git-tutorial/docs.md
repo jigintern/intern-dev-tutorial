@@ -23,6 +23,23 @@ Gitでは一つのアプリケーション開発につき、一つのリポジ�
 
 > Topic: **差分を記録**することで、「`program.c`, `program(1).c`, `program(2).c`, `program(3)_これが最終版.c`, `program_提出用.c`...」のような形でのバックアップを取る必要が無くなります。
 
+```mermaid
+%%{init: { 'theme': 'forest' } }%%
+
+gitGraph
+    commit id: "initial commit"
+    branch feature/topicA
+    checkout feature/topicA
+    commit id: "Add: index.htmlの基幹部分を実装"
+    commit id: "Update: ログインフォームを実装"
+    checkout main
+    merge feature/topicA
+    commit id: "Merge pull request #1 ..."
+    branch feature/topicB
+    checkout feature/topicB
+    commit id: "..."
+```
+
 ### 1-2. Githubとは何か？
 
 > GitHub（ギットハブ）は、ソフトウェア開発のプラットフォームであり、ソースコードをホスティングする。コードのバージョン管理システムにはGitを使用する。  
@@ -57,6 +74,13 @@ Gitは多くの場合、CUI（文字のみでコンピュータに命令を送�
 
 ### 2-1. clone: Githubリポジトリを丸ごとダウンロードしよう
 
+```mermaid
+%%{init: { 'theme': 'forest' } }%%
+
+gitGraph
+    commit id: "initial commit"
+```
+
 `clone`（クローン）は、リポジトリを**丸ごと**、PCにダウンロードするための操作です。  
 Githubにアップロードされているリポジトリを丸ごと取得し、内部の全ファイルも同時にダウンロードします。  
 
@@ -89,6 +113,16 @@ Github Desktopでは、以下のように操作することで、クローンの
 <br>
 
 ### 2-2. branch: 作業を枝分かれさせよう
+
+```mermaid
+%%{init: { 'theme': 'forest' } }%%
+
+gitGraph
+    commit id: "initial commit"
+    branch feature/topicA
+    checkout feature/topicA
+    commit id: "..."
+```
 
 `branch`（ブランチ）は、リポジトリ内で作業を行う際、他の開発者と作業を**枝分かれ**させる機能です。  
 このように、作業を枝分かれさせることを、慣習的に「ブランチを切る」「ブランチを生やす」と言います。
@@ -125,6 +159,16 @@ Github Desktopでは、以下のように操作することで、ブランチを
 
 
 ### 2-3. commit: 作業前と後の**差分を記録**しよう
+```mermaid
+%%{init: { 'theme': 'forest' } }%%
+
+gitGraph
+    commit id: "initial commit"
+    branch feature/topicA
+    checkout feature/topicA
+    commit id: "Add: index.htmlの基幹部分を実装"
+    commit id: "Update: ログインフォームを実装"
+```
 
 `commit`（コミット）は、作業前と作業後の**差分を記録**する操作です。  
 作業が一段落したタイミングでコミットを行うことで、作業内容の明文化や、バグ発生時の巻き戻し等で役立ちます。  
@@ -193,6 +237,21 @@ Github Desktopでは、以下のように操作することで、プッシュの
 <br>
 
 ### 2-6. Pull Request: 枝分かれした成果を結合しよう
+
+```mermaid
+%%{init: { 'theme': 'forest' } }%%
+
+
+gitGraph
+    commit id: "initial commit"
+    branch feature/topicA
+    checkout feature/topicA
+    commit id: "Add: index.htmlの基幹部分を実装"
+    commit id: "Update: ログインフォームを実装"
+    checkout main
+    merge feature/topicA
+    commit id: "Merge pull request #1 ..."
+```
 
 `Pull Request`（プルリクエスト）は、Githubの機能の一つで、ブランチ機能で分岐した作業を大本のブランチへと結合するための機能です。  
 この結合作業を`merge`（マージ）と呼びます。この操作はローカルでも行うことができますが、ブランチの結合操作は**他開発者に確認してもらうのが望ましい**ため、Github上で行います。
