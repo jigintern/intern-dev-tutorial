@@ -105,7 +105,7 @@ Github Desktopでは、以下のように操作することで、クローンの
 以下のような画面になっていれば、問題ありません
 ![](./imgs/screen-shots/03_confirm_clone_repository.png)
 
-5. 「Open in Visual Studio Code」をクリックして、リポジトリをVisual Studio Codeで開きます
+5. 「Open in Visual Studio Code」をクリックして、リポジトリをVisual Studio Codeで開きます  
 問題無く、Githubにアップロードされていたファイルが取り込めているようです。
 ![](./imgs/screen-shots/04_view_with_vscode.png)
 
@@ -280,7 +280,7 @@ Github上で、以下のように操作することで、Pull Requestの作成�
 4. 「Create pull request」をクリックすると、Pull Requestが作成されます
 ![](./imgs/screen-shots/16_write_pull_request.png)
 
-5. 他開発者に、Pull Requestの確認を依頼します
+5. 他開発者に、Pull Requestの確認を依頼します  
 SlackやGithub上でのコメントなど、適宜チーム内で決定した方法で依頼しましょう
 
 6. 確認を依頼された人は、Pull Requestの変更内容等を確認して、問題箇所があればコメント等で指摘します  
