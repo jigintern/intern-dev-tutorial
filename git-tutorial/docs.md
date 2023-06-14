@@ -62,7 +62,31 @@ Githubにアップロードされているリポジトリを丸ごと取得し�
 
 基本的には、開発の最初に各開発者が一度ずつ行う操作です。  
 
-Github Desktopでは、以下のように操作することで、クローンの操作を行うことができます。
+Github Desktopでは、以下のように操作することで、クローンの操作を行うことができます。  
+例として、`git-tutorial-2023`のリポジトリで作業してみましょう。 
+
+<details>
+<summary>練習: Github Desktopでクローンしてみよう</summary>
+
+1. 下記URLにアクセスして、「<> Code」のボタンをクリックします
+> repository: https://github.com/jigintern/git-tutorial-2023
+
+2. 表示されたウィンドウの「Open with Github Desktop」をクリックして、Github Desktopを開きます
+![](./imgs/screen-shots/01_github_open_with_github_desktop.png)
+
+3. 「Local Path」にPC上での保存先を設定し、「Clone」をクリックします
+![](./imgs/screen-shots/02_clone_repository_github_desktop.png)
+
+4. リポジトリがクローンできたことを確認します  
+以下のような画面になっていれば、問題ありません
+![](./imgs/screen-shots/03_confirm_clone_repository.png)
+
+5. 「Open in Visual Studio Code」をクリックして、リポジトリをVisual Studio Codeで開きます
+問題無く、Githubにアップロードされていたファイルが取り込めているようです。
+![](./imgs/screen-shots/04_view_with_vscode.png)
+
+</details>
+<br>
 
 ### 2-2. branch: 作業を枝分かれさせよう
 
@@ -80,6 +104,26 @@ Github Desktopでは、以下のように操作することで、クローンの
 
 Github Desktopでは、以下のように操作することで、ブランチを切る操作を行うことができます。
 
+<details>
+<summary>練習: ブランチを切ってみよう</summary>
+
+1. ブランチ操作用のフォームを開きます
+
+2. 「New Branch」をクリックして、新規ブランチの作成ウィンドウを開きます
+![](./imgs/screen-shots/05_branch_form.png)
+
+3. 新規ブランチの名前を入力して、「Create Branch」をクリックします  
+ブランチの名前は他の参加者と重複しないよう、自分の名前等で設定してください。
+![](./imgs/screen-shots/06_branch_name.png)
+既にブランチに変更を加えている場合は、以下のような画面が表示されるので、「Bring my changes to ...」を選択してください
+![](./imgs/screen-shots/07_branch_bring_changes.png)
+
+4. 新しいブランチができるので、作業に取り掛かることができます。
+
+</details>
+<br>
+
+
 ### 2-3. commit: 作業前と後の**差分を記録**しよう
 
 `commit`（コミット）は、作業前と作業後の**差分を記録**する操作です。  
@@ -88,13 +132,44 @@ Github Desktopでは、以下のように操作することで、ブランチを
 
 Github Desktopでは、以下のように操作することで、コミットの操作を行うことができます。
 
+<details>
+<summary>練習: 作業してコミットしてみよう</summary>
+
+1. Visual Studio Codeを開いて、ファイルを新規作成します  
+ファイルの名前は他の参加者と重複しないよう、自分の名前等で半角英数字で設定してください
+![](./imgs/screen-shots/08_create_file.png)
+
+2. 作成したファイルに、適当なプログラムを書き込みます
+![](./imgs/screen-shots/09_write_python_code.png)
+
+3. Github Desktopを開いて、差分が表示されていること、その差分が正しいことを確認します
+![](./imgs/screen-shots/10_view_changes.png)
+
+4. 画面左下のフォームから、変更内容についての説明文（コミットメッセージ）を記載します
+
+5. 「Commit to ...」をクリックします
+これでコミットが完了します
+![](./imgs/screen-shots/11_input_commit_message.png)
+
+</details>
+<br>
+
 ### 2-4. log: 作業の履歴を確認しよう
 
 `log`（ログ）は、コミットの履歴を確認する操作です。  
 現在作業中のブランチでのコミットの履歴を確認し、作業内容を確認することができます。  
-作業を始める前など、作業の開始地点が正しいかなどの確認のために用います。
+作業を始める前やコミットが正しく完了したか、作業の開始地点が正しいかなどの確認のために用います。
 
 Github Desktopでは、以下のように操作することで、ログを確認することができます。
+
+<details>
+<summary>練習: コミットの履歴を確認しよう</summary>
+
+1. 「History」をクリックして、コミットの履歴が表示されることを確認します
+![](./imgs/screen-shots/12_view_history.png)
+
+</details>
+<br>
 
 ### 2-5. push: 作業の成果をGithubにアップロードして共有しよう
 
@@ -102,6 +177,20 @@ Github Desktopでは、以下のように操作することで、ログを確認
 他の開発者に作業内容を共有する時、作業が一段落して、ブランチの内容を元のブランチに結合したい時などに行います（後述。ブランチの結合操作は他開発者に確認してもらうのが望ましいため、Github上で行います）。
 
 Github Desktopでは、以下のように操作することで、プッシュの操作を行うことができます。
+
+<details>
+<summary>練習: 作業内容をプッシュしてみよう</summary>
+
+1. 「Changes」をクリックして、元の画面に戻ります
+
+2. 「Publish branch」をクリックして、変更内容をプッシュします
+![](./imgs/screen-shots/13_publish_branch.png)
+
+3. ブラウザでGithubを開き、プッシュしたブランチが正しく反映されていることを確認します
+![](./imgs/screen-shots/14_confirm_publish.png)
+
+</details>
+<br>
 
 ### 2-6. Pull Request: 枝分かれした成果を結合しよう
 
@@ -113,10 +202,41 @@ Github Desktopでは、以下のように操作することで、プッシュの
 ブランチの結合作業は、以下の順序で行います。  
 1. 作業ブランチの内容をGithubにアップロード（push: プッシュ）する。
 2. 作業ブランチから元のブランチへの結合用の`Pull Request`を作成する。
-3. 他開発者が作業内容を確認して、問題点を指摘する。問題点が無い場合、確認した旨をコメントする。
+3. 他開発者（レビュワー）が作業内容を確認して、問題点を指摘する。問題点が無い場合、確認した旨をコメントする。
 4. ブランチを結合（merge: マージ）する。
 
-Github上で、以下のように操作することで、Pull Requestを作成することができます。
+Github上で、以下のように操作することで、Pull Requestの作成〜結合までを行うことができます。  
+
+<details>
+<summary>練習: プッシュした新規ブランチを、元のブランチに結合してみよう</summary>
+
+1. Githubで「Pull requests」のタブをクリック
+
+2. 「New pull request」をクリックします
+![](./imgs/screen-shots/15_new_pull_request.png)
+
+3. 新規ブランチの名前、Pull Requestのタイトル、本文を入力します  
+他の開発者に確認してもらうものなので、作業内容が理解しやすい内容にすると良いです
+
+4. 「Create pull request」をクリックすると、Pull Requestが作成されます
+![](./imgs/screen-shots/16_write_pull_request.png)
+
+5. 他開発者に、Pull Requestの確認を依頼します
+SlackやGithub上でのコメントなど、適宜チーム内で決定した方法で依頼しましょう
+
+6. 確認を依頼された人は、Pull Requestの変更内容等を確認して、問題箇所があればコメント等で指摘します  
+問題箇所が無い場合は、LGTM（Looks Good To Me: 私は良いと思います）等のコメントをつけて確認したことを報告しましょう
+![](./imgs/screen-shots/17_view_pull_request.png)
+![](./imgs/screen-shots/18_review_lgtm.png)
+
+7. Pull Requestの作成者は、「Merge pull request」をクリックして、Pull Requestを元のブランチに結合します
+![](./imgs/screen-shots/19_merge_pull_request.png)
+![](./imgs/screen-shots/20_merged_pull_request.png)
+
+8. `main`ブランチを確認して、変更内容が正しく取り込まれていることを確認します
+
+</details>
+<br>
 
 ### 2-7. fetch / pull: Githubリポジトリの変更部分をダウンロードしよう
 
@@ -126,3 +246,23 @@ Github上で、以下のように操作することで、Pull Requestを作成�
 一見すると違いがありませんが、`fetch`で行うのは変更が行われているかの確認のみで、実際にPC上のファイルの内容が書き換わることはありません。対して、`pull`を行った場合、変更内容がPC上のファイルに反映され、書き換えられます。
 
 Github Desktopでは、以下のように操作することで、これらの操作を行うことができます。
+
+<details>
+<summary>練習: fetch / pullで変更後のGithubの内容を取り込もう</summary>
+
+1. `main`ブランチに移動します
+![](./imgs/screen-shots/21_checkout_main.png)
+
+2. 画面上部の「Fetch origin」をクリックします  
+これだけでは変更内容は取り込まれませんが、Github上で変更があったことをGithub Desktopが認識します  
+（Github Desktopの自動更新がONになっている場合、既に変更が取り込まれている場合があります）
+![](./imgs/screen-shots/22_fetch_origin.png)
+
+3. 画面上部の「Pull origin」をクリックします  
+これで変更内容が取り込まれ、PC上のファイルが更新されます
+![](./imgs/screen-shots/23_pull_origin.png)
+
+4. 変更内容が取り込まれていることを、「History」から確認します
+![](./imgs/screen-shots/24_results.png)
+
+</details>
