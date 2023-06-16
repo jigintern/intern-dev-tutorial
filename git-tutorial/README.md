@@ -12,7 +12,7 @@
 ### 0-2. Visual Studio Code をインストールする
 
 開発に利用するエディタが無い場合は、**Visual Studio Code** をインストールしてください。  
-使い慣れたエディタがある場合は、そちらを利用していただいて問題ありません。
+使い慣れたエディタがある場合は、そちらを利用していただいて問題ありませんが、導入を推奨します。
 
 - [Visual Studio Installation](https://code.visualstudio.com/)
 
