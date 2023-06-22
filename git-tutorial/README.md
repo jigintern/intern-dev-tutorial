@@ -35,9 +35,5 @@
 
 ## 2. URL
 
-- テキスト: [docs.md](https://github.com/jigintern/intern-dev-tutorial/blob/main/git-tutorial/docs.md)
-- スライド:
-    - [プレゼンテーション表示](https://jigintern.github.io/intern-dev-tutorial/github-desktop-slide.html)
-    - [一覧表示](https://jigintern.github.io/intern-dev-tutorial/github-desktop-slide.pdf)
-
-- 補足: [part-ex/](https://github.com/jigintern/intern-dev-tutorial/blob/main/git-tutorial/part-ex)
+- テキスト: [資料](https://github.com/jigintern/intern-dev-tutorial/blob/main/git-tutorial/docs.md)
+- スライド: [プレゼンテーション表示](https://jigintern.github.io/intern-dev-tutorial/github-desktop-slide.html)， [一覧表示](https://jigintern.github.io/intern-dev-tutorial/github-desktop-slide.pdf)

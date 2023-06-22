@@ -2,8 +2,8 @@ name: marp-github-actions
 
 on: 
   push:
-    # branches:
-    #   - main
+    branches:
+      - main
 
 permissions:
   contents: read
