@@ -33,8 +33,11 @@
     - 2-7. fetch / pull: Githubリポジトリの変更部分をダウンロードしよう
 
 
-## 2. フォルダ構成
+## 2. URL
 
 - テキスト: [docs.md](https://github.com/jigintern/intern-dev-tutorial/blob/main/git-tutorial/docs.md)
-- スライド: [slide.md](https://github.com/jigintern/intern-dev-tutorial/blob/main/git-tutorial/slide.md)
+- スライド:
+    - [プレゼンテーション表示](https://jigintern.github.io/intern-dev-tutorial/github-desktop-slide.html)
+    - [一覧表示](https://jigintern.github.io/intern-dev-tutorial/github-desktop-slide.pdf)
+
 - 補足: [part-ex/](https://github.com/jigintern/intern-dev-tutorial/blob/main/git-tutorial/part-ex)
