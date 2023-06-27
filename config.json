@@ -1,4 +1,6 @@
-{
-    "directory": "git-tutorial",
-    "output_name": "github-desktop-slide"
-}
+[
+    {
+        "directory": "git-tutorial",
+        "output_name": "github-desktop-slide"
+    }
+]

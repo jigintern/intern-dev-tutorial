@@ -27,31 +27,23 @@ jobs:
       - name: Setup Packages
         run: sudo apt-get update & sudo apt-get install jq
       
-      - name: Read Conigs
-        run: |
-          directory=$(cat config.json | jq -r .directory)
-          output_name=$(cat config.json | jq -r .output_name)
-          echo "::set-output name=DIRECTORY::${directory}"
-          echo "::set-output name=OUTPUT_NAME::${output_name}"
-        id: config
-
       - name: Make Directory
-        run: mkdir dest & cp -r ./git-tutorial/imgs ./dest/imgs
+        run: mkdir dest & cp -r ./git-tutorial/imgs ./dest
 
       - name: Setup Permission
         run: chmod -R 777 $(pwd)
 
-      - name: Build Marp PDF
+      - name: Build Marp git-tutorial PDF
         run: docker run --rm -u root --init -v "$(pwd):/home/marp/app/" 
-              -e LANG="ja_JP.UTF-8" marpteam/marp-cli ${{steps.config.outputs.DIRECTORY}}/slide.md 
+              -e LANG="ja_JP.UTF-8" marpteam/marp-cli $(cat config.json | jq -r .[0].directory)/slide.md 
               --pdf
-              -o ./dest/${{steps.config.outputs.OUTPUT_NAME}}.pdf
+              -o ./dest/$(cat config.json | jq -r .[0].output_name).pdf
               --allow-local-files
-      - name: Build Marp HTML
+      - name: Build Marp git-tutorial HTML
         run: docker run --rm -u root --init -v "$(pwd):/home/marp/app/" 
-              -e LANG="ja_JP.UTF-8" marpteam/marp-cli ${{steps.config.outputs.DIRECTORY}}/slide.md 
+              -e LANG="ja_JP.UTF-8" marpteam/marp-cli $(cat config.json | jq -r .[0].directory)/slide.md 
               --html 
-              -o ./dest/${{steps.config.outputs.OUTPUT_NAME}}.html
+              -o ./dest/$(cat config.json | jq -r .[0].output_name).html
               --allow-local-files
 
       - name: Upload Files Pages
