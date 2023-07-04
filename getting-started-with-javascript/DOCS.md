@@ -74,3 +74,30 @@ console.log('Hello, World !');
   処理の塊をまるごとコメントにしたい場合に便利です。
 */
 ```
+
+### 3. 演算
+やはりプログラムでやらせるものといえば計算でしょう。  
+以下に簡単な四則演算のコードを示します、それぞれ実行して動作を確かめてください。
+
+| code | 出力結果 |
+| ---- | ---- |
+| `1 + 1;` | ![plus](imgs/plus-operator.png) |
+| `1 - 1;` | ![minus](imgs/minus-operator.png) |
+| `2 * 2;` | ![multi](imgs/multiple-operator.png) |
+| `2 / 2;` | ![divide](imgs/divide-operator.png) |
+
+これらを用いて以下の2次方程式の解を求めてください。ただし、2次方程式の解の公式 $ x = {-b \pm \sqrt{b^2-4ac} \over 2a}$ を使って良いものとします
+> Q1.) $ 2x^2 + 4x + 4 = 0 $
+
+<details>
+  <summary>A1.)</summary>
+
+  $ x = {-4 \pm \sqrt{4^2 - 4 \times 2 \times 2} \over 2 \times 2} $
+  $ x = {-4 \over 4} = -1 $
+</details>
+
+### 3. 変数
+> [JSPrimer 変数と宣言](https://jsprimer.net/basic/variables/)
+
+
+
