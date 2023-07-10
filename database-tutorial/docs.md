@@ -37,6 +37,38 @@
 MySQLは、RDBMS（**R**elational **D**ata**B**ase **M**anagement **S**ystem: 関係データベース管理システム）の一つです。  
 ライセンスさえ守れば無料で利用できる上に、利用事例も多いため、インターネット上でも容易に情報を手に入れることができます。  
 
+MySQLでは、以下のような形式でデータを保存します。  
+各種用語と併せて以下に示します。
+
+| 用語 | 意味 |
+| -- | -- |
+| DATABASE: データベース | 複数のTABLEを持つ。<br> 基本的にはデータ同士の関連付けはデータベースを跨がずに行う。 |
+| TABLE: テーブル | 複数のRECORDを持つ。表。<br> STUDENTテーブル、CLASS_ROOMテーブル等、データの種類ごとにテーブルを分ける。 |
+| COLUMN: カラム | テーブルのデータ項目。列。<br> STUDENTテーブルなら `id, class_room_id, name` などのそれぞれの項目（縦列）を指す。 |
+| RECORD: レコード | テーブルに保存されるデータ。行。<br> STUDENTテーブルなら `id, class_room_id, name` などのひとかたまりのデータ（横行）を指す。 |
+
+![](./imgs/materials/school_database_simple.jpg)
+
+CLASS_ROOM - STUDENTのそれぞれのテーブルの関係を図に示すと以下のようになります。  
+一つのクラスに対して複数の学生が紐付く形で、STUDENTテーブルからCLASS_ROOMを参照できるように `class_room_id` カラムにCLASS_ROOMテーブルのレコードの `id` を保存しています。
+
+```mermaid
+erDiagram
+    CLASS_ROOM {
+        id int
+        grade int
+        name char
+    }
+    STUDENT {
+        id int
+        class_room_id int
+        name char
+        admission_date datetime
+        graduation_date datetime
+    }
+    CLASS_ROOM ||--o{ STUDENT : one_to_zero-or-more
+```
+
 ### 1-3. MySQL　Workbenchとは何か？
 
 > MySQL Workbench は、データベースアーキテクト、開発者、DBA のための統合ビジュアルツールです。
@@ -50,7 +82,268 @@ SQL文に対するシンタックスハイライトや、SQL文の構築を手�
 
 *MySQLを実際に使ってみよう！*
 
+### 2-0. MySQLにログインしよう
+
+今回はMySQLの環境構築等の工程はスキップし、一部データについても挿入済みのデータベースをサーバ上に予め用意しました。このデータベースにアクセスして、MySQLの操作を学習しましょう。  
+データベースへのログインのための認証情報をお渡ししますので、MySQL Workbenchを起動して認証情報を入力してください。
+
+<details>
+<summary>練習: MySQL Workbenchでデータベースに接続してみよう</summary>
+
+1. MySQL Workbenchを起動します
+
+2. 「+」ボタンをクリックして、アクセス情報の入力ウィンドウを開きます
+
+3. ウィンドウ上部の「Connection Name」を入力します。これはアプリ上での表示名なので、任意のもので問題ありません
+
+> 悩むようなら `jig-intern-db` 等にしておきましょう
+
+4. Hostname, Port, Username, Passwordを入力します。Passwordは「Store in Keychain...」から入力してください
+![](./imgs/screen-shots/02_mysql_workbench_connection.png)
+
+5. ウィンドウ右下の「Test Connection」をクリックして、「Successfully made the MySQL connection」の表示を確認します
+
+> 「Failed to Connect...」と表示されると失敗です。入力内容が正しいか、再度確認してください
+
+6. 「OK」をクリックして設定を完了します
+
+7. 追加されたコネクションをクリックして、データベースに接続します
+![](./imgs/screen-shots/03_mysql_workbench_connected.png)
+
+</details>
+
 ### 2-1. SELECT: データを取得してみよう
+
+| id | class_room_id | name | admission_date | graduation_date |
+| -- | -- | -- | -- | -- |
+| 1 | 2 | 山田 | 2022-04-01 00:00:00 | 2027-03-31 23:59:59 |
+| 2 | 3 | 佐藤 | 2021-04-01 00:00:00 | 2026-03-31 23:59:59 |
+| 3 | 3 | 鈴木 | 2021-04-01 00:00:00 | 2026-03-31 23:59:59 |
+| 4 | 1 | じぐ太郎 | 2023-04-01 00:00:00 | 2023-03-31 23:59:59 |
+
+`SELECT` は、レコードを取得するためのSQL文です。  
+指定したテーブルからレコードを取得することができます。  
+以下に基本的な取得方法等を示します。
+
+> Topic: SQLの命令文のことを「クエリ」と呼ぶこともあります。
+
+#### 2-1-1. レコードを全件取得する
+最も基本的な `SELECT` です。データベースの中身を確認する時などに真っ先に実行することになります。  
+
+> Topic: MySQL Workbenchでは、レコード取得時に最大取得数1000件の制限がかかるようになっています。
+> 必要であれば制限を解除することもできますが、膨大なデータを取得しようとして通信が終わらなくなることがあるので、制限をかけておくことを推奨します。
+
+<details>
+<summary>練習: レコードを全件取得してみよう</summary>
+
+1. studentテーブルのレコードを取得してみましょう。
+まずはテーブルの構成を確認します
+```sql
+DESC student;
+```
+
+2. レコードを全件取得してみましょう。  
+以下のクエリを実行することで、studentテーブルのid, nameが取得できます。
+```sql
+# 任意のカラムを取得
+SELECT id, name FROM student;
+```
+
+3. 全カラムを取得対象とすることもできます。  
+以下のクエリを実行することで、studentテーブルの全カラム・全レコードを取得できます。
+```sql
+# 全カラムを取得
+SELECT * FROM student;
+```
+
+4. レコードの取得時に表示順序のソートを行うことができます。  
+`ORDER BY` 句を使用してみましょう。
+```sql
+# idで昇順ソート
+SELECT * FROM student ORDER BY id ASC;
+
+# idで降順ソート
+SELECT * FROM student ORDER BY id DESC;
+```
+
+</details>
+
+
+#### 2-1-2. レコードを条件付きで取得する
+`WHERE` 句によって、レコードを条件付きで取得できます。  
+この機能は、特定の条件のデータのみを抽出したい時などに活用されます。
+
+> Topic: SQL文は複数行に跨って書くことも可能です。セミコロン（`;`）が命令の終了を示します。
+
+<details>
+<summary>練習: レコードを条件付きで取得してみよう</summary>
+
+1. レコードを条件付きで取得してみましょう。  
+以下のクエリを実行することで、名前が「山田」の学生のみを抽出できます。
+```sql
+# あるカラムが特定の値のレコードのみ取得
+SELECT * FROM student WHERE name = "山田";
+
+# -> nameが"山田"のもののみ取得
+```
+
+2. `WHERE` の後に書く内容は、条件式であれば何でも問題ありません。  
+2022年以降に入学した学生のレコードを抽出してみましょう。
+```sql
+# あるカラムが特定の値より大きいレコードのみ取得
+SELECT * FROM student WHERE admission_date >= "2022-01-01 00:00:00";
+
+# -> idが3より大きいもののみ取得
+```
+
+3. `LIKE` 句を使用すれば、部分一致でのレコードの抽出も可能です。  
+以下のクエリを実行してみましょう。
+```sql
+# あるカラムが特定の値と部分一致するレコードのみ取得
+SELECT * FROM student WHERE name LIKE "%藤"
+
+# -> nameが"藤"、"佐藤"、"後藤"などのレコードを取得
+```
+
+4. `IN` 句を使用すれば、リスト内の値と一致するかでレコードを抽出できます。
+以下のクエリを実行してみましょう。
+```sql
+# あるカラムがIN以降のリストに含まれるレコードのみ取得
+SELECT * FROM student WHERE name IN ("佐藤", "鈴木");
+
+# -> nameが"佐藤"、"鈴木"の場合のみ取得
+```
+
+5. `AND` や `OR` 等で条件式を複数使用することもできます。
+```sql
+# 複数の条件で絞り込む
+SELECT * FROM student
+WHERE name IN ("佐藤", "鈴木")
+AND admission_date >= "2022-01-01 00:00:00";
+
+# -> 2022年以降に入学した、"佐藤"、"鈴木"のみを取得
+```
+</details>
+
+#### 2-1-3. 集計結果の取得
+集計関数を使用することで、取得結果の合計値等を求めることができます。  
+集計関数には様々な種類があり、例として以下のようなものが挙げられます。
+
+| SQL | 機能 |
+| -- | -- |
+| `COUNT` | レコードの件数を数える |
+| `SUM` | 値の合計値を算出する |
+| `AVG` | 値の平均値を算出する |
+| `MAX` | 値の最大値を算出する |
+| `MIN` | 値の最小値を算出する |
+
+<details>
+<summary>練習: レコードを取得した後で集計してみよう</summary>
+
+1. exam（試験結果）のテーブルで、集計関数を使ってみましょう。  
+まずはテーブルの構成を確認します。
+```sql
+DESC exam;
+```
+
+2. `COUNT` を使ってレコードの件数を確認しましょう。
+```sql
+# 取得したレコードの件数取得
+SELECT COUNT(*) FROM exam;
+```
+
+2. `SUM` を使って取得したレコードの点数の合計値を確認しましょう。
+```sql
+# 取得した値の合計の取得
+SELECT SUM(score) FROM exam;
+
+# 絞り込んでから集計することも可能
+SELECT SUM(score) FROM exam WHERE student_id = 3;
+```
+
+3. `AVG` を使って取得したレコードの点数の平均値を確認しましょう。
+```sql
+# 取得した値の平均値の取得
+SELECT AVG(score) FROM exam;
+```
+
+4. `MAX`、`MIN` を使って取得したレコードの点数の最大値・最小値を確認しましょう。
+```sql
+# 最大値・最小値の取得
+SELECT MAX(score) FROM exam;
+SELECT MIN(score) FROM exam;
+```
+
+</details>
+
+#### 2-1-4. 種別分けした集計結果の取得
+集計関数を使用する際、集計を種別ごとに分離して行いたい場合があります。  
+そんな時は、`GROUP BY` 句を使用しましょう。これによって種別ごとの集計結果を取得できます。
+
+<details>
+<summary>練習: レコードを取得した後で種別分けして集計してみよう</summary>
+
+1. 以下のクエリで、学生ごとの平均得点を取得してみましょう。
+```sql
+# 学生ごとの、今までの試験の点数の平均値を取得
+SELECT student_id, AVG(*) FROM exam
+GROUP BY student_id;
+```
+
+</details>
+
+#### 2-1-5. テーブルの結合とサブクエリ
+関連付いたテーブル同士を結合して取得することも可能です。  
+`LEFT JOIN ~ ON ~` 句を使用することで結合済みのデータを取得することができます。
+また、あるクエリの結果を元に更に条件を絞り込んで取得することも可能です。この条件等の中に記載するクエリをサブクエリと呼びます。  
+
+双方共に、複数のテーブルを参照してデータを取得することができます。  
+多くの場合、テーブルの結合を使用する方が高速に処理することができますが、サブクエリを使用する方が効率的な場合や、SQL文が簡潔に書ける場合はサブクエリを使用しても問題ありません。
+
+<details>
+<summary>練習: レコードを取得した後で種別分けして集計してみよう</summary>
+
+1. 引き続きstudentテーブル、examテーブルを使用する他、追加でclass_roomテーブルを使用します。
+class_roomテーブルの構成を確認しましょう。
+```sql
+DESC class_room;
+```
+
+2. `LEFT JOIN ~ ON ~` を使用して、テーブルを結合して取得してみましょう。
+```sql
+# テーブル同士を結合して取得
+SELECT * FROM student LEFT JOIN class_room
+ON student.class_room_id = class_room.id;
+```
+
+3. テーブルを結合する際、`WHERE` 句を併用することで取得するレコードを絞り込むことも可能です。
+```sql
+# 条件付きでも取得できる
+SELECT * FROM student1 LEFT JOIN student2
+ON student1.student2_id = student2.id
+WHERE student2.id = 100;
+```
+
+4. 次はサブクエリを使用してみます。以下のクエリでは、山田さん、鈴木さんの所属するクラスのデータを取得できます。
+```sql
+# サブクエリを条件に含めて検索
+SELECT * FROM class_room
+WHERE id IN (
+    # ここがサブクエリ
+    SELECT class_room_id FROM student WHERE name IN ("山田", "鈴木")
+);
+```
+
+4. `GROUP BY` 句を併用して、前項「4. 種別分けした集計結果の取得」の練習で実行した内容を修正してみます。  
+以下のクエリを実行することで、学生ごとの平均得点を再取得してみましょう。
+
+```sql
+SELECT student.id, student.name, SUM(exam.score) FROM exam
+LEFT JOIN student ON exam.student_id = student
+GROUP BY student.id;
+```
+
+</details>
 
 ### 2-2. CREATE TABLE: テーブルを作ってみよう
 
