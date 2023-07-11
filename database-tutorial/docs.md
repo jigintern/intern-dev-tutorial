@@ -347,6 +347,59 @@ GROUP BY student.id;
 
 ### 2-2. CREATE TABLE: テーブルを作ってみよう
 
+`CREATE TABLE` は、テーブルを新規作成するためのSQL文です。指定した定義でテーブルを作成することができます。
+`CREATE TABLE` は以下のような形式で記述します。
+
+```sql
+CREATE TABLE new_table_name (
+    column_name_01 column_type_01,
+    column_name_02 column_type_02,
+    ...
+);
+
+# 例: studentテーブルの定義
+CREATE TABLE student (
+    # 空欄禁止, 自動でid更新
+    id int NOT NULL AUTO INCREMENT,
+    class_room_id int NOT NULL,
+    name varchar NOT NULL,
+    addmission_date datetime NOT NULL,
+    graduation_date datetime NOT NULL
+);
+```
+
+<details>
+<summary>練習: CREATE TABLEを用いてテーブルを新規作成してみよう</summary>
+
+1. teacherテーブルを作成してみましょう。  
+操作するテーブルの名前が重複しないように、テーブルの名前は「teacher_自分の名前」にしておいてください。
+```sql
+CREATE TABLE teacher_自分の名前 (
+    id int NOT NULL AUTO INCREMENT,
+    name varchar NOT NULL,
+    class_room_id int
+);
+
+# 入力例
+CREATE TABLE teacher_futaba (
+    id int NOT NULL AUTO INCREMENT,
+    name varchar NOT NULL,
+    class_room_id int
+)
+```
+
+2. 新規作成したテーブルの構成を確認してみましょう。
+```sql
+# 構成確認
+DESC teacher_自分の名前;
+
+# レコードが空になっていることを確認
+SELECT * FROM teacher_自分の名前;
+```
+
+</details>
+
+
 ### 2-3. INSERT: データを新規作成してみよう
 
 ### 2-4. UPDATE: データを更新してみよう
