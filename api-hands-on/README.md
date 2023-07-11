@@ -13,14 +13,14 @@ Application Programming Interfaceの略。
 # 実際にAPIを叩いてみる
 サンプルコードにボタンを追加し、そのボタンを叩いたらサーバの`/welcome-message`[エンドポイント](#TIPS:エンドポイント)を叩くコードを用意する。  
 
-まずは以下のコードを`/public/index.html`に追加し、`click me`と書かれたボタンを用意する。  
+まずは以下のコードを`/public/index.html`に追加し、`message(click me)`と書かれたボタンを用意する。  
  
 
 ```html
-<body>
-  <h1 id="welcomeMessage"></h1>
-  <button id="welcome-button">message(click me)</button>
-</body>
+  <div>
+    <h1 id="welcome_message"></h1>
+    <button id="welcome_button">message(click me)</button>
+  </div>
 ```
 
 サーバで用意したAPIのエンドポイントを叩くには **fetch API**を使用する。  
@@ -32,10 +32,10 @@ Application Programming Interfaceの略。
 bodyタグの中に以下を追加する。  
 ```html
   <script type="module">
-    document.querySelector("#welcome-button").addEventListener('click',  async (event) => {
+    welcome_button.onclick = async () => {
       const response = await fetch("/welcome-message");
-      document.querySelector("#welcomeMessage").innerText = await response.text();
-    });
+      welcome_message.innerText = await response.text();
+    };
   </script>
 ```
 
@@ -88,24 +88,30 @@ APIの叩き方がわかったところで、今度はサーバー側に手を�
 </head>
 
 <body>
-  <h1 id="welcomeMessage"></h1>
-  <button id="welcome-button">message(click me)</button>
+  <div>
+    <h1 id="welcome_message"></h1>
+    <button id="welcome_button">message(click me)</button>
+  </div>
 
   <!-- /greetingのAPIを叩く用のボタン -->
-  <button id="greeting">Hello</button>
-  Server:<span id="server-response"></span>
+  <div>
+    <button id="greeting">Hello</button>
+  </div>
+
+  Server:<span id="server_response"></span>
 
   <script type="module">
-    document.querySelector("#welcome-button").addEventListener('click',  async (event) => {
-      const response = await fetch("/welcome-message");
-      document.querySelector("#welcomeMessage").innerText = await response.text();
-    });
 
+    welcome_button.onclick = async () => {
+      const response = await fetch("/welcome-message");
+      welcome_message.innerText = await response.text();
+    };
+    
     // greetingを叩くためのjavascriptの実装
-    document.querySelector("#greeting").addEventListener('click', async(event) => {
+    greeting.onclick = async () => {
       const response = await fetch("/greeting");
-      document.querySelector("#server-response").innerText = await response.text();
-    });
+      server_response.innerText = await response.text();
+    };
   </script>
 </body>
 
@@ -151,18 +157,18 @@ const param = new URL(req.url).searchParams.get("クエリパラメータ名");
 
 ```html
   <input type="text" id="name">
-  <button id="greeting-me"> greeting me </button>
+  <button id="greeting_me"> greeting me </button>
 ```
 
 入力された内容をクエリパラメータとして、GETリクエストを送るコードを用意する。
 
 ```javascript
-    document.querySelector("#greeting-me").addEventListener('click', async(event) => {
+    // greeting_meを叩くためのjavascriptの実装
+    greeting_me.onclick = async () => {
       const name = document.getElementById("name").value;
-      console.log(name);
       const response = await fetch("/greeting_me?name=" + name);
-      document.querySelector("#server-response").innerText = await response.text();
-    })
+      server_response.innerText = await response.text();
+    };
 ```
 
 ここまで実装したら、動作確認を行う。  
@@ -245,59 +251,60 @@ fetch APIでPOSTメソッドを利用する場合、第二引数のオプショ�
 
 <body>
   <div>
-  <h1 id="welcomeMessage"></h1>
-  <button id="welcome-button">message(click me)</button>
+    <h1 id="welcome_message"></h1>
+    <button id="welcome_button">message(click me)</button>
   </div>
 
   <!-- /greetingのAPIを叩く用のボタン -->
   <div>
-  <button id="greeting">Hello</button>
+    <button id="greeting">Hello</button>
   </div>
 
   <!-- /greeting_meのAPIを叩く用のボタン -->
   <div>
-  <input type="text" id="name" placeholder="deno">
-  <button id="greeting-me"> greeting me </button>
+    <input type="text" id="name">
+    <button id="greeting_me"> greeting me </button>
   </div>
 
   <!-- /authのAPIを叩く用のボタンと入力欄 -->
   <div>
-  <input type="password" id="password">
-  <button id="auth">Authentication</button>
+    <input type="password" id="password">
+    <button id="auth">Authentication</button>
   </div>
 
-  Server:<span id="server-response"></span>
+  Server:<span id="server_response"></span>
 
 
   <script type="module">
-    document.querySelector("#welcome-button").addEventListener('click',  async (event) => {
-      const response = await fetch("/welcome-message");
-      document.querySelector("#welcomeMessage").innerText = await response.text();
-    });
 
+    welcome_button.onclick = async () => {
+      const response = await fetch("/welcome-message");
+      welcome_message.innerText = await response.text();
+    };
+    
     // greetingを叩くためのjavascriptの実装
-    document.querySelector("#greeting").addEventListener('click', async(event) => {
+    greeting.onclick = async () => {
       const response = await fetch("/greeting");
-      document.querySelector("#server-response").innerText = await response.text();
-    });
+      server_response.innerText = await response.text();
+    };
 
     // greeting_meを叩くためのjavascriptの実装
-    document.querySelector("#greeting-me").addEventListener('click', async(event) => {
+    greeting_me.onclick = async () => {
       const name = document.getElementById("name").value;
       const response = await fetch("/greeting_me?name=" + name);
-      document.querySelector("#server-response").innerText = await response.text();
-    });
+      server_response.innerText = await response.text();
+    };
 
     // authを叩くためのjavascriptの実装
-    document.querySelector("#auth").addEventListener('click', async(event) => {
+    auth.onclick = async () => {
       const pass = document.getElementById("password").value;
       const response = await fetch("/auth",{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({pass: pass})
       });
-      document.querySelector("#server-response").innerText = await response.text();
-    })
+      server_response.innerText = await response.text();
+    };
   </script>
 </body>
 
