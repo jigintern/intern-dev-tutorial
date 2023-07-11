@@ -440,10 +440,10 @@ INSERT INTO teacher_自分の名前 (
 SELECT * FROM teacher_自分の名前;
 ```
 
-3. 更にレコードを追加します。1年生のあるクラスの担任の"じぇいぴー先生"を追加してみましょう。
+3. 更にレコードを追加します。1年生のAクラス担任の"じぇいぴー先生"を追加してみましょう。
 ```sql
-# 1年生のクラスのidを確認
-SELECT * FROM class_room WHERE grade = 1;
+# 1年生のAクラスのidを確認
+SELECT * FROM class_room WHERE grade = 1 AND name = "A";
 
 # 1年生のあるクラス担任のレコードを追加する
 INSERT INTO teacher_自分の名前 (
@@ -461,5 +461,45 @@ SELECT * FROM teacher_自分の名前;
 </details>
 
 ### 2-4. UPDATE: データを更新してみよう
+
+`UPDATE` は、テーブルのレコードを編集するためのSQL文です。  
+
+`UPDATE` を行う際は、**更新対象のレコードの条件式を必ず記述**するように注意してください。  
+条件式を記述せずに `UPDATE` を実行した場合、対象のテーブルの全レコードの値が書き換わってしまいます。  
+バックアップがなければ修正は困難なため、細心の注意を払いましょう。
+
+> Topic: `SELECT` で対象のレコードのidを確認して、idで条件を絞って更新するのがおすすめです。
+
+`UPDATE` は以下のような形式で記述します。
+
+```sql
+UPDATE table_name
+SET column_name_1=column_1_value, column_name_2=column_2_value, ...
+WHERE 条件式;
+```
+
+<details>
+<summary>練習: UPDATEを用いてレコードを編集してみよう</summary>
+
+1. 担任を持っていなかったじぐ先生が、1年生のBクラスの担任になることになりました。対象のレコードにclass_room_idを割り当ててみましょう。
+```sql
+# 1年生のBクラスのidを確認
+SELECT * FROM class_room WHERE grade = 1 AND name = "B";
+
+# じぐ先生のidを確認
+SELECT * FROM teacher_自分の名前 WHERE name = "じぐ先生";
+
+# じぐ先生を1年生のBクラスの担任に割当
+UPDATE teacher_自分の名前
+SET class_room_id = 1年生のBクラスのid
+WHERE id = じぐ先生のid
+```
+
+2. `SELECT` で上手くレコードが編集されたか確認します
+```sql
+SELECT * FROM teacher_自分の名前;
+```
+
+</details>
 
 ### 2-5. DELETE: データを削除してみよう
