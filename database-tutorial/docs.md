@@ -503,3 +503,37 @@ SELECT * FROM teacher_自分の名前;
 </details>
 
 ### 2-5. DELETE: データを削除してみよう
+
+`DELETE` は、テーブルのレコードを削除するためのSQL文です。  
+
+`DELETE` を行う際は、**削除対象のレコードの条件式を必ず記述**するように注意してください。  
+条件式を記述せずに `DELETE` を実行した場合、対象のテーブルの全レコードが削除されます。 
+バックアップがなければ修正は困難なため、細心の注意を払いましょう。
+
+> Topic: `SELECT` で対象のレコードのidを確認して、idで条件を絞って削除するのがおすすめです。
+
+`DELETE` は以下のような形式で記述します。
+
+```sql
+DELETE FROM table_name
+WHERE 条件式;
+```
+
+<details>
+<summary>練習: DELETEを用いてレコードを編集してみよう</summary>
+
+1. じぇいぴー先生が、教職を引退することになりました。対象のレコードを削除しましょう。
+```sql
+# じぇいぴー先生のidを確認
+SELECT * FROM teacher_自分の名前 WHERE name = "じぇいぴー先生";
+
+# じぇいぴー先生を削除
+DELETE FROM teacher_自分の名前 WHERE id = じぇいぴー先生のid;
+```
+
+2. `SELECT` で上手くレコードが削除されたか確認します
+```sql
+SELECT * FROM teacher_自分の名前;
+```
+
+</details>
