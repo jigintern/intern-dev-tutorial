@@ -376,16 +376,18 @@ CREATE TABLE student (
 ```sql
 CREATE TABLE teacher_自分の名前 (
     id int NOT NULL AUTO INCREMENT,
+    class_room_id int,
     name varchar NOT NULL,
-    class_room_id int
+    joining_date datetime NOT NULL
 );
 
 # 入力例
 CREATE TABLE teacher_futaba (
-    id int NOT NULL AUTO INCREMENT,
-    name varchar NOT NULL,
-    class_room_id int
-)
+    id int NOT NULL AUTO INCREMENT,  # id
+    class_room_id int,               # 担任を受け持つクラスのID
+    name varchar NOT NULL,           # 名前
+    joining_date datetime NOT NULL   # 着任日時
+);
 ```
 
 2. 新規作成したテーブルの構成を確認してみましょう。
@@ -401,6 +403,62 @@ SELECT * FROM teacher_自分の名前;
 
 
 ### 2-3. INSERT: データを新規作成してみよう
+
+`INSERT` は、テーブルにレコードを追加するためのSQL文です。  
+`INSERT` は以下のような形式で記述します。
+
+```sql
+INSERT INTO table_name (
+    # テーブルのカラム名を羅列
+    column_name_1,
+    column_name_2,
+    ...
+) VALUES (
+    # 追加するレコードのデータをカラムと同順で羅列
+    column_1_value,
+    column_2_value,
+    ...
+);
+```
+
+<details>
+<summary>練習: INSERTを用いてレコードを追加してみよう</summary>
+
+1. teacherテーブルにレコードを追加します。担任のクラスは無い想定で、class_room_idは入力しません。
+また、idには`AUTO INCREMENT`を指定したので、自動で`1`が割り当てられます。
+```sql
+# 2023年4月に着任したじぐ先生のレコードを追加
+INSERT INTO teacher_自分の名前 (
+    name, joining_date
+) VALUES (
+    "じぐ先生", "2023-04-01 00:00:00"
+);
+```
+
+2. `SELECT` で上手くレコードが追加されたか確認します
+```sql
+SELECT * FROM teacher_自分の名前;
+```
+
+3. 更にレコードを追加します。1年生のあるクラスの担任の"じぇいぴー先生"を追加してみましょう。
+```sql
+# 1年生のクラスのidを確認
+SELECT * FROM class_room WHERE grade = 1;
+
+# 1年生のあるクラス担任のレコードを追加する
+INSERT INTO teacher_自分の名前 (
+    class_room_id, name, joining_date
+) VALUES (
+    調べたID, "じぇいぴー先生", "2022-04-01 00:00:00"
+);
+```
+
+4. `SELECT` で上手くレコードが追加されたか確認します
+```sql
+SELECT * FROM teacher_自分の名前;
+```
+
+</details>
 
 ### 2-4. UPDATE: データを更新してみよう
 
