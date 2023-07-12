@@ -136,6 +136,11 @@ SQL文に対するシンタックスハイライトや、SQL文の構築を手�
 <details>
 <summary>練習: レコードを全件取得してみよう</summary>
 
+0. 以降のハンズオンで使用するデータベースを使用することを宣言します。
+```sql
+USE mysql_handson
+```
+
 1. studentテーブルのレコードを取得してみましょう。
 まずはテーブルの構成を確認します
 ```sql
@@ -536,4 +541,63 @@ DELETE FROM teacher_自分の名前 WHERE id = じぇいぴー先生のid;
 SELECT * FROM teacher_自分の名前;
 ```
 
+</details>
+
+### 2-6. ALTER TABLE: テーブルの定義を修正する
+
+`ALTER TABLE` は、テーブルの定義を書き換えるためのSQL文です。  
+`CREATE TABLE` 時に指定した定義を後から書き換えることができます。
+
+> Topic: 既にテーブルの中にレコードが保存されている場合、テーブルの定義変更によって保存されている値が不適切なものにならないか、よく確認する必要があります。
+
+`ALTER TABLE` は以下のような形式で記述します。
+
+```sql
+# テーブル名の変更
+ALTER TABLE before_table_name
+RENAME TO after_table_name;
+
+# テーブルのカラム名の変更
+ALTER TABLE table_name
+RENAME COLUMN before_column_name TO after_column_name;
+
+# カラム定義変更
+ALTER TABLE table_name
+MODIFY COLUMN column_name new_data_type 制約;
+
+# カラム追加
+ALTER TABLE table_name
+ADD COLUMN new_column_name column_type 制約;
+
+# カラム削除
+ALTER TABLE table_name
+DROP COLUMN column_name;
+```
+
+<details>
+<summary>練習: ALTER TABLEを用いて、よく使用するテーブルの定義変更を行ってみよう</summary>
+
+1. teacherテーブルに登録されるレコード数が将来的にintの上限である2^31-1を超えることを考慮して、型をbigint型に変更してみましょう。bigintの上限は2^63-1です。
+
+> Topic: 新任の先生が一年に3人増えたとして、約715827882年でintの上限に到達します。
+
+```sql
+# 定義を変更
+ALTER TABLE teacher_自分の名前
+MODIFY COLUMN id bigint NOT NULL AUTO INCREMENT;
+
+# 定義を確認
+DESC teacher_自分の名前;
+```
+
+2. teacherテーブルに、性別の記録用のgenderカラムを追加します。
+```sql
+# カラムを追加
+ALTER TABLE teacher_自分の名前
+ADD COLUMN gender varchar;
+
+# 定義を確認
+DESC teacher_自分の名前;
+SELECT * FROM teacher_自分の名前;
+```
 </details>
