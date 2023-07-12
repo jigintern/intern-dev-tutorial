@@ -99,7 +99,7 @@ SQL文に対するシンタックスハイライトや、SQL文の構築を手�
 > 悩むようなら `jig-intern-db` 等にしておきましょう
 
 4. Hostname, Port, Username, Passwordを入力します。Passwordは「Store in Keychain...」から入力してください
-![](./imgs/screen-shots/02_mysql_workbench_connection.png)
+![](./imgs/screen-shots/01_mysql_workbench_connection.png)
 
 5. ウィンドウ右下の「Test Connection」をクリックして、「Successfully made the MySQL connection」の表示を確認します
 
@@ -108,7 +108,7 @@ SQL文に対するシンタックスハイライトや、SQL文の構築を手�
 6. 「OK」をクリックして設定を完了します
 
 7. 追加されたコネクションをクリックして、データベースに接続します
-![](./imgs/screen-shots/03_mysql_workbench_connected.png)
+![](./imgs/screen-shots/02_mysql_workbench_connected.png)
 
 </details>
 
