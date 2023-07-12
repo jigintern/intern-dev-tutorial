@@ -164,11 +164,11 @@ SELECT * FROM student;
 4. レコードの取得時に表示順序のソートを行うことができます。  
 `ORDER BY` 句を使用してみましょう。
 ```sql
-# idで昇順ソート
-SELECT * FROM student ORDER BY id ASC;
+# 入学日時で昇順ソート
+SELECT * FROM student ORDER BY addmission_date ASC;
 
-# idで降順ソート
-SELECT * FROM student ORDER BY id DESC;
+# 入学日時で降順ソート
+SELECT * FROM student ORDER BY addmission_date DESC;
 ```
 
 </details>
@@ -188,24 +188,20 @@ SELECT * FROM student ORDER BY id DESC;
 ```sql
 # あるカラムが特定の値のレコードのみ取得
 SELECT * FROM student WHERE name = "山田";
-
-# -> nameが"山田"のもののみ取得
 ```
 
 2. `WHERE` の後に書く内容は、条件式であれば何でも問題ありません。  
 2022年以降に入学した学生のレコードを抽出してみましょう。
 ```sql
 # あるカラムが特定の値より大きいレコードのみ取得
-SELECT * FROM student WHERE admission_date >= "2022-01-01 00:00:00";
-
-# -> idが3より大きいもののみ取得
+SELECT * FROM student WHERE addmission_date >= "2022-01-01 00:00:00";
 ```
 
 3. `LIKE` 句を使用すれば、部分一致でのレコードの抽出も可能です。  
 以下のクエリを実行してみましょう。
 ```sql
 # あるカラムが特定の値と部分一致するレコードのみ取得
-SELECT * FROM student WHERE name LIKE "%藤"
+SELECT * FROM student WHERE name LIKE "%藤";
 
 # -> nameが"藤"、"佐藤"、"後藤"などのレコードを取得
 ```
@@ -324,9 +320,9 @@ ON student.class_room_id = class_room.id;
 3. テーブルを結合する際、`WHERE` 句を併用することで取得するレコードを絞り込むことも可能です。
 ```sql
 # 条件付きでも取得できる
-SELECT * FROM student1 LEFT JOIN student2
-ON student1.student2_id = student2.id
-WHERE student2.id = 100;
+SELECT * FROM student LEFT JOIN class_room
+ON student.class_room_id = class_room.id
+WHERE student.id = 5;
 ```
 
 4. 次はサブクエリを使用してみます。以下のクエリでは、山田さん、鈴木さんの所属するクラスのデータを取得できます。
@@ -344,7 +340,7 @@ WHERE id IN (
 
 ```sql
 SELECT student.id, student.name, SUM(exam.score) FROM exam
-LEFT JOIN student ON exam.student_id = student
+LEFT JOIN student ON exam.student_id = student.id
 GROUP BY student.id;
 ```
 
@@ -353,24 +349,28 @@ GROUP BY student.id;
 ### 2-2. CREATE TABLE: テーブルを作ってみよう
 
 `CREATE TABLE` は、テーブルを新規作成するためのSQL文です。指定した定義でテーブルを作成することができます。
+作成の際には一意な `PRIMARY KEY` を設定しなければなりません。この値は同一テーブルの複数のレコードで重複してはいけません。  
+
 `CREATE TABLE` は以下のような形式で記述します。
+
+> Topic: `DEFAULT CHARSET=utf8` で文字化け等を防止できます
 
 ```sql
 CREATE TABLE new_table_name (
     column_name_01 column_type_01,
     column_name_02 column_type_02,
     ...
-);
+) DEFAULT CHARSET=utf8;
 
 # 例: studentテーブルの定義
 CREATE TABLE student (
-    # 空欄禁止, 自動でid更新
-    id int NOT NULL AUTO INCREMENT,
+    id int NOT NULL AUTO_INCREMENT,
     class_room_id int NOT NULL,
-    name varchar NOT NULL,
+    name varchar(255) NOT NULL,
     addmission_date datetime NOT NULL,
-    graduation_date datetime NOT NULL
-);
+    graduation_date datetime NOT NULL,
+    PRIMARY KEY (id)
+) DEFAULT CHARSET=utf8;
 ```
 
 <details>
@@ -380,19 +380,21 @@ CREATE TABLE student (
 操作するテーブルの名前が重複しないように、テーブルの名前は「teacher_自分の名前」にしておいてください。
 ```sql
 CREATE TABLE teacher_自分の名前 (
-    id int NOT NULL AUTO INCREMENT,
+    id int NOT NULL AUTO_INCREMENT,
     class_room_id int,
-    name varchar NOT NULL,
-    joining_date datetime NOT NULL
-);
+    name varchar(255) NOT NULL,
+    joining_date datetime NOT NULL,
+    PRIMARY KEY (id)
+) DEFAULT CHARSET=utf8;
 
 # 入力例
 CREATE TABLE teacher_futaba (
-    id int NOT NULL AUTO INCREMENT,  # id
+    id int NOT NULL AUTO_INCREMENT,  # id
     class_room_id int,               # 担任を受け持つクラスのID
-    name varchar NOT NULL,           # 名前
-    joining_date datetime NOT NULL   # 着任日時
-);
+    name varchar(255) NOT NULL,      # 名前
+    joining_date datetime NOT NULL,  # 着任日時
+    PRIMARY KEY (id)
+) DEFAULT CHARSET=utf8;
 ```
 
 2. 新規作成したテーブルの構成を確認してみましょう。
@@ -584,7 +586,7 @@ DROP COLUMN column_name;
 ```sql
 # 定義を変更
 ALTER TABLE teacher_自分の名前
-MODIFY COLUMN id bigint NOT NULL AUTO INCREMENT;
+MODIFY COLUMN id bigint NOT NULL AUTO_INCREMENT;
 
 # 定義を確認
 DESC teacher_自分の名前;
@@ -594,7 +596,7 @@ DESC teacher_自分の名前;
 ```sql
 # カラムを追加
 ALTER TABLE teacher_自分の名前
-ADD COLUMN gender varchar;
+ADD COLUMN gender varchar(255) AFTER name;
 
 # 定義を確認
 DESC teacher_自分の名前;
