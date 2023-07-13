@@ -125,7 +125,7 @@ SQL文に対するシンタックスハイライトや、SQL文の構築を手�
 指定したテーブルからレコードを取得することができます。  
 以下に基本的な取得方法等を示します。
 
-> Topic: SQLの命令文のことを「クエリ」と呼ぶこともあります。
+> Topic: SQLの検索を行う命令文のことを「クエリ」と呼ぶこともあります。
 
 #### 2-1-1. レコードを全件取得する
 最も基本的な `SELECT` です。データベースの中身を確認する時などに真っ先に実行することになります。  
@@ -148,7 +148,7 @@ DESC student;
 ```
 
 2. レコードを全件取得してみましょう。  
-以下のクエリを実行することで、studentテーブルのid, nameが取得できます。
+以下のSQLを実行することで、studentテーブルのid, nameが取得できます。
 ```sql
 # 任意のカラムを取得
 SELECT id, name FROM student;
@@ -602,4 +602,163 @@ ADD COLUMN gender varchar(255) AFTER name;
 DESC teacher_自分の名前;
 SELECT * FROM teacher_自分の名前;
 ```
+</details>
+
+## 3. DenoからMySQLにアクセスしてみよう
+
+*Denoでデータベースを操作してみよう*
+
+### 3-1. 環境変数を使ってみよう
+
+MySQLの認証情報（idやパスワード等）は、ソースコードに直に記述したままGithub等にアップすると、認証情報が第三者に漏洩してしまいます。  
+データベース内部の情報の漏洩・改竄を防ぐため、ソースコードに認証情報を記述することは避けるべきです。  
+
+これらの情報は環境変数と呼ばれる、OS上でのみ利用されて外部に公開されない変数に格納する手法が一般的です。  
+MySQLの認証情報以外にも、外部サービスへのアクセス時の暗号鍵などを登録することも多いです。
+
+ここでは、環境変数ファイル `.env` を用いて認証情報をプログラムに渡す方法を紹介します。
+以下に `.env` ファイルの記述例を示します。
+
+> Topic: 認証情報を記載する都合上、`.env` ファイルはGithub等にアップしてはいけません。Git管理下から特定のファイルを除外する場合、除外するファイルの名前を `.gitignore` に記載します。
+
+```env
+MYSQL_HOSTNAME=xxx
+MYSQL_USER=xxx
+MYSQL_PASSWORD=xxx
+MYSQL_DBNAME=xxx
+```
+
+`.env`ファイルの中に登録された変数は、以下のライブラリを用いることで読み込むことができます。
+
+```js
+// .envファイルを読み込む
+import "https://deno.land/std@0.193.0/dotenv/load.ts"
+
+// HOGEHOGE_ENVを取得
+console.log(Deno.env.get("HOGEHOGE_ENV"))
+```
+
+<details>
+<summary>練習: 環境変数を読み込んでみよう</summary>
+
+1. 以下URLのリポジトリをGithubからクローンしてください。
+> https://github.com/jigintern/deno-with-mysql-tutorial-2023
+
+2. リポジトリをVSCodeで開いてください。
+
+3. `.env.example` ファイルを開いてみましょう。設定が必要な環境変数一通り記載されているため、このファイルをコピーして `.env` ファイルを作ります。
+![](./imgs/screen-shots/03_dotenv_example_file.png)
+![](./imgs/screen-shots/04_create_dotenv_file.png)
+
+4. 環境変数を記載します。予め配布したMySQLのデータベースの認証情報を記載してください。
+
+5. `.gitignore` を開いてみましょう。`.gitignore` はGit管理下に置かないファイルを指定する場所で、今回は `.env` をGit管理下に置きたくない（Githubにアップしたくない）ため、`.env` が指定されています。
+
+6. `envCheck.js` を開いてみましょう。環境変数を読み込んで出力するだけのDenoのスクリプトファイルです。  
+確認したら、実行してみましょう。
+```sh
+# --allow-env: 環境変数を読み込む権限。.envから読みだした環境変数を取得するのに必要。
+# --allow-env: ファイルを読み込む権限。.envを読み込むのに必要。
+deno run --allow-env --allow-read envCheck.js
+```
+
+</details>
+
+### 3-2. DenoからMySQLの命令を発行してみよう
+
+DenoからMySQLの操作を行うライブラリを用いて、SQLを発行して実行してみましょう。  
+この操作には以下のライブラリを使用します。
+
+```js
+// mysqlの操作用ライブラリを取得
+import { Client } from "https://deno.land/x/mysql@v2.11.0/mod.ts"
+
+// MySQLのDBにアクセスして、操作用のクライアントを生成
+const mySqlClient = await new Client().connect({
+  hostname: MYSQL_HOSTNAME,
+  username: MYSQL_USER,
+  password: MYSQL_PASSWORD,
+  db: MYSQL_DBNAME
+})
+
+// SELECTなど、取得用SQLを実行する
+const selectResult = await mySqlClient.query(`SELECT * FROM table_name;`)
+console.log(selectResult)
+
+// INSERTなど、書込用SQLを実行する
+const insertResult = await mySqlClient.execute(`
+    INSERT INTO teacher_自分の名前 (
+        name, joining_date
+    ) VALUES (
+        ??, ??
+    );
+`, [
+    "じぐ美先生",
+    new Date()
+    ]
+)
+```
+
+SQLを実行する際、以下のような方法でクエリを実行しないように注意しなければなりません。  
+SQLインジェクションと呼ばれる攻撃によって、データベースの値を不正に読み取られたり、改竄されたりする可能性があります。
+
+```js
+// ...
+// table_nameを受け取る処理...
+// ...
+
+await mySqlClient.query("SELECT * FROM" + table_name + ";")
+// ↓
+// table_nameの中身が "student" などであれば問題無さそう
+// table_nameの中身が "student; INSERT INTO class_room (...) VALUES (...)" などになっていた場合、SQLが不正に実行される
+
+await mySqlClient.query("SELECT * FROM ??;", [table_name])
+// ↓
+// ライブラリが自動的にSQLインジェクション攻撃を検知してくれる
+// JavaScriptのDate等の値もよしなに入力してくれる
+```
+
+テーブル名、カラム名等は `??`、値は `?` で置換するようになっています。
+
+<details>
+<summary>練習: DenoからMySQLを実行してみよう</summary>
+
+1. `mysqlClient.js` を開いてみましょう。環境変数を読み込んでMySQLに接続し、studentテーブルに対して全件取得の `SELECT` を発行するプログラムです。
+確認したら、実行してみましょう。
+```sh
+# --allow-env: 環境変数を読み込む権限。.envから読みだした環境変数を取得するのに必要。
+# --allow-env: ファイルを読み込む権限。.envを読み込むのに必要。
+# --allow-net: 通信を行う権限。MySQLのサーバに接続するのに必要。
+deno run --allow-env --allow-read --allow-net mysqlClient.js
+```
+
+2. `INSERT` のSQLを実行してみましょう。teacherテーブルにレコードを追加する処理を実装します。  
+`mysqlClient.js` を編集して、24行目に以下の内容を追加しましょう。
+```js
+const insertResult = await mySqlClient.execute(`
+    INSERT INTO teacher_自分の名前 (
+        ??, ??
+    ) VALUES (
+        ?, ?
+    );
+`, [
+    "name",
+    "joining_date",
+    "じぐ美先生",
+    new Date()
+    ]
+)
+console.log(insertResult)
+```
+
+3. 処理を追記した後で、再度スクリプトを実行してみます。
+```sh
+deno run --allow-env --allow-read --allow-net mysqlClient.js
+```
+
+4. MySQL Workbenchを開いて、値が正常に挿入されていることを確認します。
+```sql
+SELECT * FROM teacher_自分の名前;
+```
+
 </details>
