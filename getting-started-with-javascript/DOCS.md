@@ -87,16 +87,40 @@ console.log('Hello, World !');
 | `2 / 2;` | ![divide](imgs/divide-operator.png) |
 
 これらを用いて以下の2次方程式の解を求めてください。ただし、2次方程式の解の公式 $ x = {-b \pm \sqrt{b^2-4ac} \over 2a}$ を使って良いものとします
-> Q1.) $ 2x^2 + 4x + 4 = 0 $
+なお、JavaScriptでは $\sqrt x$ は `Math.sqrt(x)`、 $x^2$ は `Math.pow(x, 2)` と表せます。
+<details>
+  <summary>ヒント</summary>
+  
+  ２次方程式の解の公式はJavaScriptでは以下のようにして表せます。
+  ```JavaScript
+  (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a)
+  (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a)
+  ```
+</details>
+
+##### 練習問題
+**Q1.)** $ 2x^2 + 4x + 2 = 0 $
 
 <details>
   <summary>A1.)</summary>
 
   $ x = {-4 \pm \sqrt{4^2 - 4 \times 2 \times 2} \over 2 \times 2} $
   $ x = {-4 \over 4} = -1 $
+
+  よって、 $x = -1$ (重解)
 </details>
 
-### 3. 変数
+**Q2.)** $ 4x^2 - 4 = 0 $
+
+<details>
+  <summary>A2.)</summary>
+  
+  $ x = {-0 \pm \sqrt(0^2 -4 \times 4 \times -4) \ over 2 \times 4}$
+  $ x = {\pm \sqrt(64) \over 8}$
+  $ x = \pm 1$
+</details>
+
+### 4. 変数
 > [JSPrimer 変数と宣言](https://jsprimer.net/basic/variables/)
 
 
