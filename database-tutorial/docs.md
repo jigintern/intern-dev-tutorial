@@ -3,23 +3,21 @@
 本項では、OSS（**O**pen **S**ource **S**oftware: オープンソースソフトウェア）として提供されるリレーショナル・データベース管理システム [MySQL](https://www.mysql.com/jp/) を利用した開発手法について解説します。  
 簡略化のため、MySQLのセットアップ方法については解説せず、既に環境を用意しています。
 
-また、基本的にはスライドで解説を進めるので、本項は必要に応じて参照してください。
-
 ## 1. 導入編
 
 *データベースやMySQLについて知ろう！*
 
 ### 1-1. データベースとは何か？
 
-> データベースとは、構造化した情報またはデータの組織的な集合であり、通常はコンピューター・システムに電子的に格納されています。
+> データベースとは、構造化した情報またはデータの組織的な集合であり、通常はコンピューター・システムに電子的に格納されています。  
 > 出典: https://www.oracle.com/jp/database/what-is-database/
 
 データベースは、データを後続化して保存するためのシステムです。  
 データの保存が必要となる多くのアプリケーションで使用されています。ファイル等に単純に保存する場合と比較してデータが扱いやすくなっています。  
 
-その中でも、ここではリレーショナルデータベースについて解説します。
+その中でも、ここではリレーショナル・データベース（**R**elational **D**ata**B**ase、RDB）について解説します。
 
-> Topic: relational／【形容詞】親類の、関係を示す、関係の、相関的な
+> Topic: relational／【形容詞】親類の、関係を示す、関係の、相関的な  
 > 出典: https://eow.alc.co.jp/search?q=relational
 
 リレーショナル・データベースでは単純なデータ以外に、データ同士の関連情報を保存します。  
@@ -27,11 +25,11 @@
 
 1. 整合性が保たれます。データの重複、本来存在するべきデータが削除されてしまう、等の問題を回避できます
 2. データ構造の追加が容易です。新規データ構造を追加した際、既存のデータとの関連情報を追加するのみで参照等が可能になります
-3. SQL言語が使用できます。SQL言語という専用の言語でデータの取得や編集を行うことができ、多くの技術者が利用できます
+3. データベースの操作用の言語であるSQLが使用できます。MySQLやPostgreSQLなど、互いに制御用の基本構文が同じデータベースを利用したことのある技術者であれば、比較的容易に導入が可能です
 
 ### 1-2. MySQLとは何か？
 
-> MySQL（マイ・エスキューエル、海外ではマイ・シークェルとも）は、オープンソースのリレーショナルデータベース管理システム (RDBMS) である。その名前は、共同設立者のミカエル・ウィデニウスの娘の名前である「My」と、Structured Query Languageの略称である「SQL」を組み合わせたものである。
+> MySQL（マイ・エスキューエル、海外ではマイ・シークェルとも）は、オープンソースのリレーショナルデータベース管理システム (RDBMS) である。その名前は、共同設立者のミカエル・ウィデニウスの娘の名前である「My」と、Structured Query Languageの略称である「SQL」を組み合わせたものである。  
 > 出典: https://ja.wikipedia.org/wiki/MySQL
 
 MySQLは、RDBMS（**R**elational **D**ata**B**ase **M**anagement **S**ystem: 関係データベース管理システム）の一つです。  
@@ -50,7 +48,12 @@ MySQLでは、以下のような形式でデータを保存します。
 ![](./imgs/materials/school_database_simple.jpg)
 
 CLASS_ROOM - STUDENTのそれぞれのテーブルの関係を図に示すと以下のようになります。  
-一つのクラスに対して複数の学生が紐付く形で、STUDENTテーブルからCLASS_ROOMを参照できるように `class_room_id` カラムにCLASS_ROOMテーブルのレコードの `id` を保存しています。
+一つのクラスに対して複数の学生が紐付いています。クラスに対して学生が一人も紐付いていない場合もあります。  
+STUDENTテーブルに `class_room_id` カラムを定義し、CLASS_ROOMテーブルのレコードの `id` を保存することでレコード同士を紐づけています。
+
+> Topic: 以下の図はER図と呼ばれ、リレーショナル・データベースのデータ構造を示すために用いられます。  
+> 掲載した図では、CLASS_ROOMテーブルとSTUDENTテーブルが一対多の関係で紐づいていることを示しています。  
+> ER図の記述方法については省略しますが、気になる方は各自、調べてみてください。
 
 ```mermaid
 erDiagram
@@ -71,7 +74,7 @@ erDiagram
 
 ### 1-3. MySQL　Workbenchとは何か？
 
-> MySQL Workbench は、データベースアーキテクト、開発者、DBA のための統合ビジュアルツールです。
+> MySQL Workbench は、データベースアーキテクト、開発者、DBA のための統合ビジュアルツールです。  
 > 出典: https://www.mysql.com/jp/products/workbench/
 
 MySQL WorkbenchはMySQLに対する操作を行うことができるアプリケーションです。  
@@ -120,12 +123,13 @@ SQL文に対するシンタックスハイライトや、SQL文の構築を手�
 | 2 | 3 | 佐藤 | 2021-04-01 00:00:00 | 2026-03-31 23:59:59 |
 | 3 | 3 | 鈴木 | 2021-04-01 00:00:00 | 2026-03-31 23:59:59 |
 | 4 | 1 | じぐ太郎 | 2023-04-01 00:00:00 | 2023-03-31 23:59:59 |
+| ︙ |  |  |  |  |
 
 `SELECT` は、レコードを取得するためのSQL文です。  
 指定したテーブルからレコードを取得することができます。  
 以下に基本的な取得方法等を示します。
 
-> Topic: SQLの検索を行う命令文のことを「クエリ」と呼ぶこともあります。
+> Topic: SQLの命令文のことを「クエリ」と呼ぶこともあります。
 
 #### 2-1-1. レコードを全件取得する
 最も基本的な `SELECT` です。データベースの中身を確認する時などに真っ先に実行することになります。  
@@ -136,14 +140,15 @@ SQL文に対するシンタックスハイライトや、SQL文の構築を手�
 <details>
 <summary>練習: レコードを全件取得してみよう</summary>
 
-0. 以降のハンズオンで使用するデータベースを使用することを宣言します。
+0. 以降のハンズオンで使用するデータベース `mysql_handson` を使用することを宣言します。
 ```sql
 USE mysql_handson
 ```
 
-1. studentテーブルのレコードを取得してみましょう。
-まずはテーブルの構成を確認します
+1. 新任教師用の学生名簿を作るために、在籍している学生のデータを確認しなければならなくなりました。早速、studentテーブルのレコードを取得してみましょう。  
+まずはテーブルの構成を確認します。`DESC` 句を使用すれば、テーブルの構成（カラムごとの型情報、入力されるデータの制約など）を閲覧することができます。
 ```sql
+# テーブルの構成を確認
 DESC student;
 ```
 
@@ -335,7 +340,7 @@ WHERE id IN (
 );
 ```
 
-4. `GROUP BY` 句を併用して、前項「4. 種別分けした集計結果の取得」の練習で実行した内容を修正してみます。  
+5. `GROUP BY` 句を併用して、前項「2-1-4. [種別分けした集計結果の取得](#2-1-4-種別分けした集計結果の取得)」の練習で実行した内容を修正してみます。  
 以下のクエリを実行することで、学生ごとの平均得点を再取得してみましょう。
 
 ```sql
@@ -353,14 +358,14 @@ GROUP BY student.id;
 
 `CREATE TABLE` は以下のような形式で記述します。
 
-> Topic: `DEFAULT CHARSET=utf8` で文字化け等を防止できます
+> Topic: `DEFAULT CHARSET=uft8mb4` で文字化け等を防止できます
 
 ```sql
 CREATE TABLE new_table_name (
     column_name_01 column_type_01,
     column_name_02 column_type_02,
     ...
-) DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=uft8mb4;
 
 # 例: studentテーブルの定義
 CREATE TABLE student (
@@ -370,7 +375,7 @@ CREATE TABLE student (
     addmission_date datetime NOT NULL,
     graduation_date datetime NOT NULL,
     PRIMARY KEY (id)
-) DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=uft8mb4;
 ```
 
 <details>
@@ -385,7 +390,7 @@ CREATE TABLE teacher_自分の名前 (
     name varchar(255) NOT NULL,
     joining_date datetime NOT NULL,
     PRIMARY KEY (id)
-) DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=uft8mb4;
 
 # 入力例
 CREATE TABLE teacher_futaba (
@@ -394,7 +399,7 @@ CREATE TABLE teacher_futaba (
     name varchar(255) NOT NULL,      # 名前
     joining_date datetime NOT NULL,  # 着任日時
     PRIMARY KEY (id)
-) DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=uft8mb4;
 ```
 
 2. 新規作成したテーブルの構成を確認してみましょう。
