@@ -178,7 +178,48 @@ Q2.を解くために値を代入して、解の公式を再度実行するこ�
 > ※ chromeのconsoleタブでは↑↓キーでそれまでの命令を参照して実行することが出来ます。
 > ![](../getting-started-with-javascript/imgs/arrow-key.gif)
 
-### 5. 関数
+### データ型とリテラル
+
+変数を使っていく上で切っても切り離せないのが型の概念とそれぞれの記法(リテラル)です。
+JavaScriptは**動的型付け言語**といって変数に対し明示的に型を指定しません。が、変数そのものやコード中に登場する値には型があります。
+この値の型のことを**データ型**と言い、データ型には以下に示す**7つのプリミティブ型**と**オブジェクト**があります。
+ある値がどのデータ型を持つのかを調べるには `typoof` 演算子を利用します。
+
+#### プリミティブ型
+それぞれの型の名前と意味、`typeof`の実行結果を示します。
+
+| 型名 | 意味 | `typeof`実行結果 |
+| ---- | ---- | ---- |
+| null | null (*=値が存在しないこと*) を意味するデータ型・キーワード | ![](imgs/typeof_null.png) |
+| undeifned | 値が未定義であること を意味するデータ型 | ![](imgs/typeof_undefined.png) |
+| Boolean | 論理値 `true` または `false` をとるデータ型 | ![](imgs/typeof_boolean.png) |
+| Number | 整数もしくは浮動小数点数をとるデータ型 | ![](imgs/typeof_number.png) |
+| BigInt | 任意の精度の整数をとるデータ型 | ![](imgs/typeof_bigint.png) |
+| String | 0字以上の文字または文字列をとるデータ型 | ![](imgs/typeof_string.png)) |
+| Symbol | 実体が一意で不変な値を取るデータ型 | ![](imgs/typeof_symbol.png) |
+
+#### オブジェクト
+JavaScriptで利用されるもののうち、↑のプリミティブ型以外はすべてオブジェクトに分類されます。
+
+<wip>
+
+<details>
+  <summary>0, null, undeifnedの違い</summary>
+  
+  一般にこの３つをわかりやすく説明するため、トイレットペーパーを用いた説明がなされます。
+  | 0 | null | undefined |
+  | ---- | ---- | ---- |
+  | 芯はある | ペーパーホルダーはある | ペーパーホルダーもない |
+  | ![](https://1.bp.blogspot.com/-LGyamrN9Z84/Xdtt7sxKD5I/AAAAAAABWOA/UcQOWNL7Tf0yxEWPzlHYrznZQ8dtWugJACNcBGAsYHQ/s300/toilet_paper5_shin.png) | ![](https://1.bp.blogspot.com/-nQS0NkGyjPg/Xdtt7OA3x0I/AAAAAAABWN8/E0DpYRNlZd4S-VLyyieA2MHR5LhhDEy7gCNcBGAsYHQ/s300/toilet_paper4_kara.png) |  |
+  > 画像引用元: [いらすとや](https://www.irasutoya.com/)
+
+  これらはすべてfalsy(論理値としてfalseになる性質がある)な値ですが、これは「この状態で用を足したあと拭けるか」と聞かれるとムリ、と思うと覚えやすいです。
+  また、芯に紙を巻き直すことはできること、芯がないとかホルダーがないとかでは紙を巻き直す操作も出来ないことを考えると、感覚的にこれらの値・型の意味をとらえやすいでしょう。
+</details>
+
+### オブジェクトと配列
+
+### 関数
 > [JSPrimer 関数と宣言](https://jsprimer.net/basic/function-declaration/)
 
 ここまではブラウザのconsoleタブで↑↓キーを押すことで押すことで命令を再利用しました。
