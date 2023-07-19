@@ -33,14 +33,16 @@ irm https://deno.land/install.ps1 | iex
 このフォルダの中にあるコードをまずは色々実行してみよう！
 
 ## 下準備
-1. VScodeの拡張機能で「`Deno`」を検索してインストールしよう
-2. VScodeの上のタブの「`表示`」から「`コマンドパレット(Command Palette)`」を押して、「`Deno: Initialize Workspace Configuration`」を選択して、すべて`yes`を選択して、Denoを使用できるようにする
+1. このプロジェクトを`clone`しよう
+2. VScodeの拡張機能のタブから「`Deno`」を検索してインストールしよう
+3. VScodeの上のヘッダーの「`表示`」から「`コマンドパレット(Command Palette)`」を押して、「`Deno: Initialize Workspace Configuration`」を選択して、すべて`yes`を選択して、Denoを使用できるようにしよう
+4. VScodeの上のヘッダーの「`ターミナル`」から「`new Terminal`」を押して、ターミナルを表示しておこう
 
-これを行うと`.vscode`というフォルダが作成されて、中に`settings.json`というファイルが作成されると思います。
+3を行うと現在のフォルダに`.vscode`というフォルダが作成されて、中に`settings.json`というファイルが作成されると思います。
 
 今回はVScodeで`Deno`を快適に使用できるようにするためにこのような設定をします。
 
-こちら`VScode`を使用する上で様々な設定を登録できますが、一旦`settings.json`の中身は以下のようなもので問題ないです。
+`settings.json`で`VScode`を使用する上で様々な設定を登録できますが、一旦中身は以下のようなもので問題ないです。
 
 ```settings.json
 {
@@ -48,7 +50,6 @@ irm https://deno.land/install.ps1 | iex
   "deno.lint": true
 }
 ```
-
 
 ## コードを実行してみよう
 
@@ -63,7 +64,7 @@ Task start deno run --watch --allow-net --allow-read server.js
 Watcher Process started.
 Listening on http://localhost:8000/
 ```
-のようなテキストが表示されたので、ブラウザを開いてURLの欄に`http://localhost:8000/`を入力してみよう。
+のようなテキストが表示されるので、ブラウザを開いてURLの欄に`http://localhost:8000/`を入力してみよう。
 
 画面に「Jig.jpインターンへようこそ」の文言が表示されれば成功です！
 
@@ -71,16 +72,16 @@ Listening on http://localhost:8000/
 
 先ほどの流れでいったい何が起こったのか説明しようと思います。
 
-まず`deno task ***`で`deno.json`の中にある`tasks`に登録してあるコマンドが実行します。
+まず`deno task ***`で`deno.json`の中にある`tasks`に登録してあるコマンドが実行されます。
 
-この場合`deno task start`なので、`tasks`に登録してある`start`の項目が実行されました。
+今回の場合、`deno task start`なので`deno.json`の`tasks`に登録してある`start`の項目が実行されました。
 
-`start`には`deno run --watch --allow-net --allow-read server.js`紐付けられていて、つまりは
+`start`には`deno run --watch --allow-net --allow-read server.js`が紐付けられていて、つまりは
 
 ```txt
 deno task start
 
-↓ 実際には下のコマンドが実行されていた！
+↓ 実際には下のコマンドが実行されていました。
 
 deno run --watch --allow-net --allow-read server.js
 ```
@@ -101,31 +102,33 @@ deno run --watch --allow-net --allow-read server.js
 ```txt
 deno run server.js
 ```
-のような`deno run ***`は`JavaScript`ファイルを実行する基本的なコマンドになります。
+のような`deno run ***`は`Deno`で`JavaScript`ファイルを実行する基本的なコマンドになります。
 
-では、`--watch --allow-net --allow-read`この部分は何？ということですが、こちらは`index.js`を実行する際の**オプション指定**になります。一つずつ見ていきましょう。
+では、`--watch --allow-net --allow-read`は何？ということですが、こちらは`index.js`を実行する際の**オプション指定**になります。一つずつ見ていきましょう。
 
 `--watch`は`server.js`をもし書き換えたときに再度`deno run server.js`をし直さなくても、ファイルを書き換えて保存した時にそれを検知して勝手に再度実行し直してくれるように指定するものです。
 
-`--allow-net`, `--allow-read`は`Deno`の重要な機能の一つである**セキュリティに関するオプション**です。デフォルトでは`deno run server.js`を実行したときに通信やファイルの読み込み/書き込みなどを遮断します。
+`--allow-net`, `--allow-read`は`Deno`の重要な機能の一つである**セキュリティに関するオプション**です。デフォルトでは`deno run server.js`を実行したときにネットワーク通信やファイルの読み込み/書き込みなどを遮断します。
 
 `deno run server.js`を実行する時には以下の項目からそのファイルではどの範囲までアクセスを許可するかを指定して実行します。
 
-よく使用するパーミッション
+よく使用するパーミッションのオプション指定
 - `--allow-net`: ネットワークへのアクセス
 - `--allow-read`: ファイルの読み込み
 - `--allow-write`: ファイルへの書き込み
 - `--allow-env`: 環境変数へのアクセス
 - `--allow-all, -A`: すべて許可
 
-このことを踏まえて改めて、`deno run --watch --allow-net --allow-read server.js`を見てみると、`--allow-net  --allow-read`のパーミッションが指定されているので、ネットワークへのアクセスとファイルの読み込みが許可されています。後ほど背致命しますが、`server.js`内では、ブラウザからアクセスされた時に、`public`フォルダにあるファイルを読み込んで返す処理を行っているため、その際に必要なパーミッションが指定されていそうです。
+このことを踏まえて改めて、`deno run --watch --allow-net --allow-read server.js`を見てみましょう。
+
+`--allow-net  --allow-read`のパーミッションが指定されているので、`ネットワークへのアクセス`と`ファイルの読み込み`が許可されています。後ほど説明しますが`server.js`内では、ブラウザからアクセスされた時に`public`フォルダにあるファイルを読み込んで返す処理を行っているため、その際に必要な`ネットワークへのアクセス`と`ファイルの読み込み`を許可しているということになります。
 
 試しに
 ```txt
 deno run --watch server.js
 ```
 
-と`--allow-net  --allow-read`をはじして実行してみると
+と`--allow-net  --allow-read`を外して、ターミナルで実行してみると
 
 ```txt
 ┌ ⚠️  Deno requests net access to "0.0.0.0:8000".
@@ -133,17 +136,21 @@ deno run --watch server.js
 ├ Run again with --allow-net to bypass this prompt.
 └ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all net permissions)
 ```
-のように「許可しますか？」のエラーが出ることが確認できると思います。(この場合は`Y`を押して一時的に許可できます)
+のように警告文が表示されることが確認できると思います。(この場合は`Y`を押して一時的に許可できます)
 
 このパーミッション指定は`Deno`の機能の中でも重要なものの一つとなっています。
 
-以上で「**コードを実行する**」ことについてのあれこれを学びました。
-`index.js`の中身は後に見ていきます。
+このセクションでは「**コードを実行する**」ことについての以下の内容を学びました。
+
+- `Deno`で`JavaScript`ファイルを実行する方法
+- ファイルの内容が更新されたときに自動で再読み込みしてくれるようにする`--watch`オプション
+- 実行する際のパーミッション指定
 
 ## リントを走らせてみよう
 
-`Deno`には`Linter`が表示で備わっています。
-`Linter`というのは、「`Lint`を行うツールの総称」、`Lint`とは、「潜在的にバグとなりうるかもしれないソースコードをcheckすること」です。
+`Deno`には`Linter`が標準で備わっています。
+
+`Linter`というのは、「`Lintを行うツールの総称`」で`Lint`とは、「`潜在的にバグとなりうるかもしれないソースコードをcheckすること`」です。
 
 例えば
 - ソースコード内に未使用の変数が存在する
@@ -184,14 +191,16 @@ Checked 3 files
 
 こちらのサンプルコードでは[公式の設定そのまま](https://deno.land/manual@v1.35.0/getting_started/configuration_file)を使用しています。
 
-しかし、`rules`の`tags`の位置に`recommended`が指定されていると思いますが、`recommended`ルールは「`公式に推奨されたルール`」なのでこのままでも十分に使用できます。
+`rules`の`tags`の位置に`recommended`が指定されていると思いますが、`recommended`ルールは,
+[ESLint](https://eslint.org/) や [typescript-eslint](https://typescript-eslint.io/) で `recommended` として扱われているルールの多くをサポートしています。
 
-このコードをcheckする機能(`リント`)をすぐに使用できるのもDenoの魅力の一つです。
+`Deno`はコードをcheckする機能(`リント`)をすぐに使用できます。
 
 ## フォーマッタを使ってみよう
 
 `Deno`には`フォーマッタ`も標準の機能として備わっています。
-`フォーマッタ`はリントの「潜在的にバグとなりうるかもしれないコードをcheckする」とは違い、「コードの形を整える」ものです。
+
+`フォーマッタ`はリントの「潜在的にバグとなりうるかもしれないコードをcheckする」とは違い、「`コードの形を整える`」ものです。
 
 実際に使ってみましょう！
 
@@ -210,6 +219,7 @@ Checked 3 files
 おそらくないはずです。
 
 なぜならもうすでにフォーマット(整形)してあるからです。
+
 では試しに、`deno.json`の`fmt`の項目を見て、`semiColons`の部分を`true`, `singleQuote`の部分を`false`に書き換えてみましょう。
 
 そして再度、
@@ -225,12 +235,15 @@ deno fmt
 
 コードを整形する際の項目については`deno.json`の`fmt`の部分から設定できます。
 
+設定できるフォーマッ他の種類については[公式サイト](https://deno.land/manual@v1.35.1/tools/formatter)から確認できます。
+
 このように`Deno`にはコードを整形してくれるフォーマッタも標準で備わっています。
 
 ## テストを実行してみよう
 
 Denoには`テスト`を実行する環境も標準で備わっています。
-では早速テストを実行してみましょう。
+
+では早速テストコードを実行してみましょう。
 
 ターミナルに
 ```txt
@@ -292,7 +305,7 @@ FAILED | 0 passed | 1 failed (24ms)
 
 error: Test failed
 ```
-のように`コケたテスト`と`なぜコケたか`を報告してくれます。
+のように`失敗したテスト`と`なぜ失敗したか`を報告してくれます。
 
 このように`Deno`では、テストを行える環境が標準で備わっています。
 
