@@ -146,7 +146,7 @@ const param = new URL(req.url).searchParams.get("クエリパラメータ名");
 以下に実装の一例を示す。
 
 ```javascript
-  if( req.method === "GET" && pathname === "/greeting_me"){
+  if( req.method === "GET" && pathname === "/greeting_me" ){
     const param = new URL(req.url).searchParams.get("name");
     return new Response("Hello, " + param);
   }
