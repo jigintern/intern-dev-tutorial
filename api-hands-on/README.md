@@ -32,9 +32,9 @@ Application Programming Interfaceの略。
 bodyタグの中に以下を追加する。  
 ```html
   <script type="module">
-    welcome_button.onclick = async () => {
+    document.getElementById("welcome_button").onclick = async () => {
       const response = await fetch("/welcome-message");
-      welcome_message.innerText = await response.text();
+      document.getElementById("welcome_message").innerText = await response.text();
     };
   </script>
 ```
@@ -102,15 +102,15 @@ APIの叩き方がわかったところで、今度はサーバー側に手を�
 
   <script type="module">
 
-    welcome_button.onclick = async () => {
+    document.getElementById("welcome_button").onclick = async () => {
       const response = await fetch("/welcome-message");
-      welcome_message.innerText = await response.text();
+      document.getElementById("welcome_message").innerText = await response.text();
     };
     
     // greetingを叩くためのjavascriptの実装
-    greeting.onclick = async () => {
+    document.getElementById("greeting").onclick = async () => {
       const response = await fetch("/greeting");
-      server_response.innerText = await response.text();
+      document.getElementById("server_response").innerText = await response.text();
     };
   </script>
 </body>
@@ -131,7 +131,7 @@ APIの叩き方がわかったところで、今度はサーバー側に手を�
 次にGETメソッドをクエリパラメータ付きで叩くAPIを実装する。  
 先ほど作ったAPIは消さずに追加していく。
 
-仕様としては`/greeting_me`というエンドポイントを作成。  
+仕様としては`/greeting-me`というエンドポイントを作成。  
 これにクエリパラメータ`name`をつけて送信すると`Hello, {name}`を返す。  
 クライアント側ではテキストボックスとボタンを表示し、ボタンが押されたら入力された値をクエリパラメータとして送信する。
 
@@ -163,11 +163,11 @@ const param = new URL(req.url).searchParams.get("クエリパラメータ名");
 入力された内容をクエリパラメータとして、GETリクエストを送るコードを用意する。
 
 ```javascript
-    // greeting_meを叩くためのjavascriptの実装
-    greeting_me.onclick = async () => {
+    // greeting-meを叩くためのjavascriptの実装
+    document.getElementById("greeting_me").onclick = async () => {
       const name = document.getElementById("name").value;
-      const response = await fetch("/greeting_me?name=" + name);
-      server_response.innerText = await response.text();
+      const response = await fetch("/greeting-me?name=" + name);
+      document.getElementById("server_response").innerText = await response.text();
     };
 ```
 
@@ -277,33 +277,33 @@ fetch APIでPOSTメソッドを利用する場合、第二引数のオプショ�
 
   <script type="module">
 
-    welcome_button.onclick = async () => {
+    document.getElementById("welcome_button").onclick = async () => {
       const response = await fetch("/welcome-message");
-      welcome_message.innerText = await response.text();
+      document.getElementById("welcome_message").innerText = await response.text();
     };
     
     // greetingを叩くためのjavascriptの実装
-    greeting.onclick = async () => {
+    document.getElementById("greeting").onclick = async () => {
       const response = await fetch("/greeting");
-      server_response.innerText = await response.text();
+      document.getElementById("server_response").innerText = await response.text();
     };
 
     // greeting_meを叩くためのjavascriptの実装
-    greeting_me.onclick = async () => {
+    document.getElementById("greeting_me").onclick = async () => {
       const name = document.getElementById("name").value;
-      const response = await fetch("/greeting_me?name=" + name);
-      server_response.innerText = await response.text();
+      const response = await fetch("/greeting-me?name=" + name);
+      document.getElementById("server_response").innerText = await response.text();
     };
 
     // authを叩くためのjavascriptの実装
-    auth.onclick = async () => {
+    document.getElementById("auth").onclick = async () => {
       const pass = document.getElementById("password").value;
       const response = await fetch("/auth",{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({pass: pass})
       });
-      server_response.innerText = await response.text();
+      document.getElementById("server_response").innerText = await response.text();
     };
   </script>
 </body>
@@ -331,7 +331,7 @@ serve(async (req) => {
     return new Response("Hello!!")
   }
 
-  if( req.method === "GET" && pathname === "/greeting_me"){
+  if( req.method === "GET" && pathname === "/greeting-me"){
     const param = new URL(req.url).searchParams.get("name");
     return new Response("Hello, " + param);
   }
