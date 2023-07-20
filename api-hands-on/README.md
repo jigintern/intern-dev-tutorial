@@ -63,7 +63,7 @@ APIの叩き方がわかったところで、今度はサーバー側に手を�
 
 ```javascript
 
-  if( req.method === "GET" && pathname === "/greeting"){
+  if( req.method === "GET" && pathname === "/greeting" ){
     return new Response("Hello!!")
   }
 ```
