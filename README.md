@@ -319,19 +319,19 @@ error: Test failed
 
 - `deno.json`
   - `Deno`であれこれ続行させるときに必要な設定ファイル
-  - `task`, `lint`, `fmt`, `test`などの様ざな設定ができます。
+  - `task`, `lint`, `fmt`, `test`などの様々な設定ができます。
   - `imports`に関しては後ほど説明
 - `server.js`
   - このサンプルプロジェクトのサーバー部分。
   - ブラウザからのアクセスに対して、表示させたいファイルや文言を返す処理が書かれています。
-  - 先ほど`deno task start`で実行させていたファイルです。
+  - 先ほど`deno task start`で実行させていたファイル
 - `sample.test.js`
   - テストコードが書かれたファイル
   - `deno test`で実行させていたファイル
 - `public/`
   - ブラウザからリクエストが来た時に、返すファイル一式が入っています。
   - `index.html`
-    - ブラウザに表示するファイル。
+    - ブラウザに表示するファイル
   - `styles.css`
     - スタイリングを指定するファイル
   - `index.js`
@@ -351,7 +351,8 @@ import { serveDir } from "http/file_server.ts";
 
 があります。
 こちらはこのファイルで必要になる関数を外部から取り込んでいます。
-`Deno`ではこの「`外部から取り込む`」書き方は`ESModule`という方法を採用しています。
+
+`Deno`で「`ファイルを外部から取り込む`」時は`ESModule`というファイルの読み込みの仕組みを採用しています。
 
 `ESModule`の特徴は
 - `import`, `export`を用いて取り入れ/公開を制御
@@ -366,6 +367,32 @@ import { serveDir } from "http/file_server.ts";
 ```
 のように`type="module"`をつけることを忘れないようにしましょう。
 
+次に、`from`の続きに注目してみましょう。
+
+```js
+// https://deno.land/std@0.194.0/http/server.ts?s=serve
+import { serve } from "http/server.ts";
+```
+
+こちらは
+```js
+import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
+```
+のように書いてもいいのですが、`import maps`という仕組みを利用しています。
+
+`deno.json`の`import`部分を見てみると、
+```json
+  "imports": {
+    "http/": "https://deno.land/std@0.194.0/http/",
+    "testing/": "https://deno.land/std@0.193.0/testing/"
+  },
+```
+のようになっています。
+こちらは、「`from`で外部のファイルを取り入れるときに、`https://deno.land/std@0.194.0/http/`の部分を`http/`で、`https://deno.land/std@0.193.0/testing/`の部分を`testing/`で置き換えられます」といった指定をしています。
+
+だから、`from "https://deno.land/std@0.194.0/http/server.ts"`を`from "http/server.ts"`で簡略化しています。
+
+これは`http`モジュールをいろんなところで使用している場合に毎度`https`から下記必要がなくなったり、`deno.json`の`import`分をみることで、このプロジェクトで使用されているモジュールを一発で確認することができます。
 
 続きをみていきましょう。
 ```js
@@ -382,7 +409,6 @@ serve((req) => {
 ```js
   // URLのパスを取得
   const pathname = new URL(req.url).pathname;
-  console.log(pathname);
   // パスが"/welcome-message"だったら「"jigインターンへようこそ！"」の文字を返す
   if (req.method === "GET" && pathname === "/welcome-message") {
     return new Response("jig.jpインターンへようこそ！👍");
@@ -400,9 +426,9 @@ APIリクエストには`method`というものがあり
 また`path`というものは、
 `http://localhost:8000/welcome-message`の`/welcome-message`部分を指します。
 
-このコードでは、受け付けたAPIリクエストの`method`が`GET`で`path`が`/welcome-message`の時に「"jig.jpインターンへようこそ！👍"」のメッセージを返しています。
+このコードでは、受け付けたAPIリクエストの`method`が`GET`で、`path`が`/welcome-message`の時に「"jig.jpインターンへようこそ！👍"」のメッセージを返しています。
 
-それ以外の時、例えば`http://localhost:8000/`にアクセスした時は、pathが`/`で
+それ以外の時、例えば`http://localhost:8000/`にアクセスした時は、pathが`/`なので
 
 ```js
   // publicフォルダ内にあるファイルを返す
@@ -415,7 +441,7 @@ APIリクエストには`method`というものがあり
 ```
 
 のコードを実行しています。
-こちらのコードは、`public`フォルダ内にあるファイルを返しています。
+こちらのコードでは、`public`フォルダ内にあるファイルを返しています。
 
 よって、`deno task run`を実行してから、`http://localhost:8000/`にアクセスすると`public`内の`index.html`のページが表示されるんですね。
 
@@ -448,7 +474,7 @@ window.onload = async () => {
   ...
 };
 ```
-この部分は「画面がロードされたら中のコードを実行する」というものです。
+この部分は「`画面がロードされたら中のコードを実行する`」というものです。
 中のコードを見ていきます。
 
 ```js
@@ -457,7 +483,7 @@ const response = await fetch("/welcome-message");
 では`fetch`関数を使用しています。
 `fetch`関数は引数で`path`を指定して、サーバーにリクエストを送ります。
 
-この場合引数が`/welcome-message`をなっているので、現在開いているドメインの`http://localhost:8000/`にpathの`/welcome-message`をくっ付けて`http://localhost:8000/welcome-message`にアクセスします。
+この場合引数が`/welcome-message`をなっているので、現在開いているアドレスの`http://localhost:8000/`にpathの`/welcome-message`をくっ付けて`http://localhost:8000/welcome-message`にアクセスします。
 
 このリクエストを先ほどの`server.js`で説明した、
 ```js
@@ -473,7 +499,7 @@ document.querySelector("#welcomeMessage").innerText = await response.text();
 ```
 にあたります。
 
-`index.html`内にある`id="welcomeMessage"`の要素を探して、そこに返ってきた文字を入力しています。
+`index.html`内にある`id="welcomeMessage"`の要素を探して、そこの要素に返ってきた文字を入力しています。
 
 これで`http://localhost:8000/`にアクセスした時に、「jig.jpインターンへようこそ！👍」の文言が画面に表示されるサンプルプロジェクトの流れを追うことができました。
 
