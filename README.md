@@ -507,10 +507,14 @@ document.querySelector("#welcomeMessage").innerText = await response.text();
 
 [公式サイト](https://deno.land/)
 
+これまでサンプルプロジェクトを通じて`Deno`について触れてきました。
+
+ここで`Deno`について、再度まとめてみます。
+
 「**Deno**」は、`JavaScriptやTypeScript`を実行する環境です。
 `.js/.ts`の拡張子のファイルを実行させるためにはいくつか方法がありますが、その中でも**より手軽に、より便利に実行できる環境**といった感じです。
 
-「Deno」 は V8 JavaScriptエンジンをベースに実装されたJavaScript/TypeScriptランタイムです。
+`Deno`の特徴は
 
 - TypeScriptを**標準で**サポートしている
 - ファイルの読み書きやネットワーク通信等がデフォルトで無効となっており、実行する際に明示的に権限を与える必要があり、**高いセキュリティ**が期待できる
@@ -519,3 +523,5 @@ document.querySelector("#welcomeMessage").innerText = await response.text();
 - **ES Modulesベース**のモジュールシステムを前提としているため、何らかのライブラリを使用したい時には`import文`から取得することができる。
 - `npmパッケージ`もサポートされているため、使用したいライブラリが[`deno.land`](https://deno.land/x)にない時には、`import文`のURLを`npm:{パッケージ名}@{バージョン}`のような形にすることで、Denoが探してきてくれます。
 - 最新のJavaScript使用に準拠しています。
+
+このように`Deno`には標準で様々な機能が備わっているため、ぜひ使用してみてください！
