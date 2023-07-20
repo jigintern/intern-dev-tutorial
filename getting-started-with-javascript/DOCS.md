@@ -200,8 +200,19 @@ JavaScriptは**動的型付け言語**といって変数に対し明示的に型
 
 #### オブジェクト
 JavaScriptで利用されるもののうち、↑のプリミティブ型以外はすべてオブジェクトに分類されます。
+オブジェクトに分類されるものの例を以下に示します。
 
-<wip>
+| 種類 | 定義 | `typeof`実行結果 |
+| ---- | ---- | ---- |
+| オブジェクト | `const obj = {};` |  |
+| 配列 | `const arr = [];` |  |
+| 関数 | `const func = () => {};` |  |
+| クラス | `class myClass {}` |  |
+| 正規表現 | `onst re = new RegExp('/ab+c/');` |  |
+
+
+
+<!-- koko -->
 
 <details>
   <summary>0, null, undeifnedの違い</summary>
