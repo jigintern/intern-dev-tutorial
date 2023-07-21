@@ -18,10 +18,13 @@
     1. 非同期処理の使い方
     2. ファイル読み込み
     3. 位置情報API
+
 </details>
 
 ## 1. JavaScript に触れてみよう
+
 ### 0. ブラウザの開発者用ツールを開こう
+
 ※ Google Chrome を利用することを前提としています
 
 chromeの開発者ツールを利用します。
@@ -38,7 +41,8 @@ chromeの開発者ツールを利用します。
 
 今回の資料では↑の `Console` タブを利用します。他のタブは適宜他の資料で説明される予定です 🙏
 
-### 1. Hello, World !
+### 1. Hello, World
+>
 > [console](https://developer.mozilla.org/ja/docs/Web/API/console)
 
 最初にやることといえばこれでしょう。以下のコードを先程の `Console` タブに入力してEnterで実行してみてください。
@@ -59,6 +63,7 @@ console.log('Hello, World !');
 | `console.table({'this': 'table'})` | ![table](imgs/console-table-sample.png) | オブジェクトを見やすく表示したいときに便利 |
 
 ### 2. コメント
+
 > JavaScript Comments [w3c](https://www.w3schools.com/js/js_comments.asp)
 
 おおよそのプログラミング言語にはコメントという機能があります。
@@ -76,6 +81,7 @@ console.log('Hello, World !');
 ```
 
 ### 3. 四則演算
+
 やはりプログラムでやらせるものといえば計算でしょう。  
 以下に簡単な四則演算のコードを示します、それぞれ実行して動作を確かめてください。
 
@@ -92,14 +98,17 @@ console.log('Hello, World !');
   <summary>ヒント</summary>
   
   ２次方程式の解の公式はJavaScriptでは以下のようにして表せます。
+
   ```JavaScript
   (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
   (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
   ```
+
   ↑の中のa, b, cを数値に置き換えて実行してみてください。
 </details>
 
 ##### 練習問題
+
 **Q1.)** $ 2x^2 + 4x + 2 = 0 $
 
 <details>
@@ -128,6 +137,7 @@ console.log('Hello, World !');
 </details>
 
 ### 4. 変数
+
 > [JSPrimer 変数と宣言](https://jsprimer.net/basic/variables/)
 
 *3. 演算* で使った2次方程式の解の公式ですが、先程の練習問題では我々がa, b, cに我々が数値を代入して計算を行わせる形で利用しました。  
@@ -161,17 +171,21 @@ const constant = 1; // 再代入不可能な変数として constant を宣言�
 この性質から、`const`で宣言した変数は**定数**と呼ばれることもあります。
 
 ではようやく冒頭の話題に戻り、より楽に計算を行いましょう。
+
 ```JavaScript
 (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
 (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
 ```
+
 ↑の式ですが、`a`,`b`,`c`をそれぞれ変数として宣言し、変数に問題から与えられる値を代入すれば↑の計算を再実行するだけでよくなります。
 Q1.を解くコードは↓のようになるでしょう。
+
 ```JavaScript
 let a = 2, b = 4, c = 2;
 (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
 (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
 ```
+
 ![](../getting-started-with-javascript/imgs/q1-with-variables.png)
 
 Q2.を解くために値を代入して、解の公式を再度実行することで楽に計算できます。
@@ -186,6 +200,7 @@ JavaScriptは**動的型付け言語**といって変数に対し明示的に型
 ある値がどのデータ型を持つのかを調べるには `typoof` 演算子を利用します。
 
 #### プリミティブ型
+
 それぞれの型の名前と意味、`typeof`の実行結果を示します。
 
 | 型名 | 意味 | `typeof`実行結果 |
@@ -199,18 +214,17 @@ JavaScriptは**動的型付け言語**といって変数に対し明示的に型
 | Symbol | 実体が一意で不変な値を取るデータ型 | ![](imgs/typeof_symbol.png) |
 
 #### オブジェクト
+
 JavaScriptで利用されるもののうち、↑のプリミティブ型以外はすべてオブジェクトに分類されます。
 オブジェクトに分類されるものの例を以下に示します。
 
 | 種類 | 定義 | `typeof`実行結果 |
 | ---- | ---- | ---- |
-| オブジェクト | `const obj = {};` |  |
+| オブジェクト | `const obj = {};` | ![](imgs/typeof_object.png) |
 | 配列 | `const arr = [];` |  |
 | 関数 | `const func = () => {};` |  |
 | クラス | `class myClass {}` |  |
 | 正規表現 | `onst re = new RegExp('/ab+c/');` |  |
-
-
 
 <!-- koko -->
 
@@ -231,6 +245,7 @@ JavaScriptで利用されるもののうち、↑のプリミティブ型以外�
 ### オブジェクトと配列
 
 ### 関数
+>
 > [JSPrimer 関数と宣言](https://jsprimer.net/basic/function-declaration/)
 
 ここまではブラウザのconsoleタブで↑↓キーを押すことで押すことで命令を再利用しました。
@@ -240,7 +255,9 @@ JavaScriptでの関数とは、ある一連の処理をひとつにまとめた�
 ここでは`solveQuadraticEquations(a, b, c);`として先程の解の公式を一つの命令に`a`, `b`, `c`を引数として渡すだけで解を求めて返す関数を実装してみましょう。
 
 #### 関数宣言
+
 関数の宣言には複数の方法があります。まずは`function`キーワードを使用した関数宣言のサンプルを示します。
+
 ```JavaScript
 function solveQuadraticEquations(a, b, c) {
   const ans1 = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
@@ -249,6 +266,7 @@ function solveQuadraticEquations(a, b, c) {
 }
 solveQuadricEquations(2, 4, 2);
 ```
+
 ↑のコードでは1行目の `solveQuadraticEquations` が**関数名**となり。この名前を用いて6行目のように処理を呼び出すことが可能になります。
 
 1行目の関数名のあとに続く `(a, b, c)` は関数の呼び出し時に処理に使う値を渡すための **仮引数** というものです。
@@ -258,5 +276,3 @@ solveQuadricEquations(2, 4, 2);
 
 4行目の `return [ans1, ans2]` は関数が呼び出されたときに処理の結果として呼び出し元に値を返す処理です。
 `[ans1, ans2]` はans1, ans2を*配列*としてひとまとめにしています。配列は変数の羅列で、*インデックス*という配列中の順番を指定することでひとつの値を取り出せます。
-
-
