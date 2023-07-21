@@ -107,7 +107,7 @@ console.log('Hello, World !');
   ↑の中のa, b, cを数値に置き換えて実行してみてください。
 </details>
 
-##### 練習問題
+#### 練習問題
 
 **Q1.)** $ 2x^2 + 4x + 2 = 0 $
 
@@ -150,7 +150,7 @@ const constant = 1; // 再代入不可能な変数として constant を宣言�
 ```
 
 <details>
-  <summary>※ 代入演算子</summary>
+  <summary>【※補足】代入演算子</summary>
   
   ↑のコードで `const constant = 1;` の行で登場した `=` を代入演算子と呼びます。  
   演算子の左側にある変数に対して値を代入するものです。
@@ -159,12 +159,12 @@ const constant = 1; // 再代入不可能な変数として constant を宣言�
 これで `variable`,`constant` という名前の変数が宣言されて、consoleで利用可能になりました。
 試しに `console.log(variable, constant);`として出力を確認してください。
 
-![](../getting-started-with-javascript/imgs/variable-constant-sample.png)
+![宣言した変数をlogで出力する](../getting-started-with-javascript/imgs/variable-constant-sample.png)
 
 ここでは`variable`は値が代入されていないため `undefined`(未定義) となり、`const`は初期値`1`を代入しているので`1`が出力されます。
 では `let` と `const` により違いを見て見るため、両方に `2` を代入してみましょう。
 
-![](../getting-started-with-javascript/imgs/assign-to-variables.png)
+![変数に値を代入する](../getting-started-with-javascript/imgs/assign-to-variables.png)
 
 `let`は再代入可能な変数を宣言するため`variable`には`2`が代入できています。  
 しかし、`const`は再代入不可能な変数を宣言するため、`const`に`2`を代入しようとしたときには`Assignment to constant variable.`とエラーが表示されています。
@@ -186,11 +186,11 @@ let a = 2, b = 4, c = 2;
 (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
 ```
 
-![](../getting-started-with-javascript/imgs/q1-with-variables.png)
+![コード実行結果](../getting-started-with-javascript/imgs/q1-with-variables.png)
 
 Q2.を解くために値を代入して、解の公式を再度実行することで楽に計算できます。
 > ※ chromeのconsoleタブでは↑↓キーでそれまでの命令を参照して実行することが出来ます。
-> ![](../getting-started-with-javascript/imgs/arrow-key.gif)
+> ![上下キー入力のようす](../getting-started-with-javascript/imgs/arrow-key.gif)
 
 ### データ型とリテラル
 
@@ -205,13 +205,13 @@ JavaScriptは**動的型付け言語**といって変数に対し明示的に型
 
 | 型名 | 意味 | `typeof`実行結果 |
 | ---- | ---- | ---- |
-| null | null (*=値が存在しないこと*) を意味するデータ型・キーワード | ![](imgs/typeof_null.png) |
-| undeifned | 値が未定義であること を意味するデータ型 | ![](imgs/typeof_undefined.png) |
-| Boolean | 論理値 `true` または `false` をとるデータ型 | ![](imgs/typeof_boolean.png) |
-| Number | 整数もしくは浮動小数点数をとるデータ型 | ![](imgs/typeof_number.png) |
-| BigInt | 任意の精度の整数をとるデータ型 | ![](imgs/typeof_bigint.png) |
-| String | 0字以上の文字または文字列をとるデータ型 | ![](imgs/typeof_string.png)) |
-| Symbol | 実体が一意で不変な値を取るデータ型 | ![](imgs/typeof_symbol.png) |
+| null | null (*=値が存在しないこと*) を意味するデータ型・キーワード | ![nullのデータ型はobject](imgs/typeof_null.png) |
+| undefined | 値が未定義であること を意味するデータ型 | ![undefinedのデータ型はundefined](imgs/typeof_undefined.png) |
+| Boolean | 論理値 `true` または `false` をとるデータ型 | ![Booleanのデータ型はboolean](imgs/typeof_boolean.png) |
+| Number | 整数もしくは浮動小数点数をとるデータ型 | ![Numberのデータ型はnumber](imgs/typeof_number.png) |
+| BigInt | 任意の精度の整数をとるデータ型 | ![BigIntのデータ型はbigint](imgs/typeof_bigint.png) |
+| String | 0字以上の文字または文字列をとるデータ型 | ![Stringのデータ型はstring](imgs/typeof_string.png)) |
+| Symbol | 実体が一意で不変な値を取るデータ型 | ![Symbolのデータ型はsymbol](imgs/typeof_symbol.png) |
 
 #### オブジェクト
 
@@ -220,7 +220,7 @@ JavaScriptで利用されるもののうち、↑のプリミティブ型以外�
 
 | 種類 | 定義 | `typeof`実行結果 |
 | ---- | ---- | ---- |
-| オブジェクト | `const obj = {};` | ![](imgs/typeof_object.png) |
+| オブジェクト | `const obj = {};` | ![Objectの型はobject](imgs/typeof_object.png) |
 | 配列 | `const arr = [];` |  |
 | 関数 | `const func = () => {};` |  |
 | クラス | `class myClass {}` |  |
@@ -235,7 +235,7 @@ JavaScriptで利用されるもののうち、↑のプリミティブ型以外�
   | 0 | null | undefined |
   | ---- | ---- | ---- |
   | 芯はある | ペーパーホルダーはある | ペーパーホルダーもない |
-  | ![](https://1.bp.blogspot.com/-LGyamrN9Z84/Xdtt7sxKD5I/AAAAAAABWOA/UcQOWNL7Tf0yxEWPzlHYrznZQ8dtWugJACNcBGAsYHQ/s300/toilet_paper5_shin.png) | ![](https://1.bp.blogspot.com/-nQS0NkGyjPg/Xdtt7OA3x0I/AAAAAAABWN8/E0DpYRNlZd4S-VLyyieA2MHR5LhhDEy7gCNcBGAsYHQ/s300/toilet_paper4_kara.png) |  |
+  | ![芯はある](https://1.bp.blogspot.com/-LGyamrN9Z84/Xdtt7sxKD5I/AAAAAAABWOA/UcQOWNL7Tf0yxEWPzlHYrznZQ8dtWugJACNcBGAsYHQ/s300/toilet_paper5_shin.png) | ![ペーパーホルダーはある](https://1.bp.blogspot.com/-nQS0NkGyjPg/Xdtt7OA3x0I/AAAAAAABWN8/E0DpYRNlZd4S-VLyyieA2MHR5LhhDEy7gCNcBGAsYHQ/s300/toilet_paper4_kara.png) |  |
   > 画像引用元: [いらすとや](https://www.irasutoya.com/)
 
   これらはすべてfalsy(論理値としてfalseになる性質がある)な値ですが、これは「この状態で用を足したあと拭けるか」と聞かれるとムリ、と思うと覚えやすいです。
