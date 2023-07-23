@@ -62,7 +62,7 @@ console.log('Hello, World !');
 | `console.error('this is error')` | ![error](imgs/console-error-sample.png) | 赤い出力になって見つけやすい<br>致命的なエラーに使うとよい |
 | `console.table({'this': 'table'})` | ![table](imgs/console-table-sample.png) | オブジェクトを見やすく表示したいときに便利 |
 
-### 2. コメント
+### 2. コメントと命名
 
 > JavaScript Comments [w3c](https://www.w3schools.com/js/js_comments.asp)
 
@@ -79,6 +79,31 @@ console.log('Hello, World !');
   処理の塊をまるごとコメントにしたい場合に便利です。
 */
 ```
+
+コメントと同様にコードの処理や糸をわかりやすくできる部分として、後述する変数や関数などに対する**命名**があります。変数や関数を利用するときに、その内容が名前から明確に読み取れるほうが望ましく、またそのような変数・関数の宣言にはコメントがなくても問題になりにくいです。
+
+<details>
+  <summary>コード中の日本語</summary>
+
+  JavaScriptのコードそのものはunicodeで解釈されます。そのため、変数名・関数名に日本語を利用することが可能です。以下のコードを実行してみてください。
+
+  ```javascript
+  function コンソール出力(出力文字列) {
+    console.log(出力文字列);
+  }
+  コンソール出力("テスト");
+  ```
+
+  ![日本語関数名](imgs/japanese-function-name.png)
+
+  このように、問題なく動作することがわかります。
+  しかし、一般に日本語をコード中に使用することはコメントを除き望ましくないとされています。
+  が、その理由は主に感情的なもので、コードの可読性を向上させられるメリットを考えると、日本語による命名も十分一考の余地があるものになっていると筆者は個人的に思っています。
+  非ASCII文字を解釈できない言語を利用する場合にはこのような議論の余地はありませんが、JavaScriptには選択肢が与えられていることを頭の片隅においておくといいことがあるかもしれませんね。
+</details>
+
+特にチーム開発では、コードの処理内容や意図が伝わっていないことがバグなどの原因になりやすいです。
+上記のコメントを利用したり、わかりやすい命名をすることでバグを避けて開発することが可能になります。
 
 ### 3. 四則演算
 
@@ -220,11 +245,18 @@ JavaScriptで利用されるもののうち、↑のプリミティブ型以外�
 
 | 種類 | 定義 | `typeof`実行結果 |
 | ---- | ---- | ---- |
-| オブジェクト | `const obj = {};` | ![Objectの型はobject](imgs/typeof_object.png) |
-| 配列 | `const arr = [];` |  |
-| 関数 | `const func = () => {};` |  |
-| クラス | `class myClass {}` |  |
-| 正規表現 | `onst re = new RegExp('/ab+c/');` |  |
+| オブジェクト | `const obj = {};` | ![Objectのデータ型はobject](imgs/typeof_object.png) |
+| 配列 | `const arr = [];` | ![Arrayのデータ型はObject](imgs/typeof_array.png) |
+| 関数 | `const func = () => {};` | ![Functionのデータ型はfunction](imgs/typeof_function.png) |
+| クラス | `class myClass {}` | ![Classの型はfunction](imgs/typeof_class.png) |
+| 正規表現 | `const re = new RegExp('/ab+c/');` | ![RegExpの型はobject](imgs/typeof_regexp.png) |
+| Dateオブジェクト | `const now = new Date();` | ![Dateの型はobject](imgs/typeof_date.png) |
+
+<details>
+  <summary>なぜその値のデータ型がそれなの...?と思ったあなたへ</summary>
+
+  
+</details>
 
 <!-- koko -->
 
