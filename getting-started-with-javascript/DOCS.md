@@ -217,7 +217,7 @@ Q2.を解くために値を代入して、解の公式を再度実行するこ�
 > ※ chromeのconsoleタブでは↑↓キーでそれまでの命令を参照して実行することが出来ます。
 > ![上下キー入力のようす](../getting-started-with-javascript/imgs/arrow-key.gif)
 
-### データ型とリテラル
+### データ型
 
 変数を使っていく上で切っても切り離せないのが型の概念とそれぞれの記法(リテラル)です。
 JavaScriptは**動的型付け言語**といって変数に対し明示的に型を指定しません。が、変数そのものやコード中に登場する値には型があります。
@@ -238,6 +238,20 @@ JavaScriptは**動的型付け言語**といって変数に対し明示的に型
 | String | 0字以上の文字または文字列をとるデータ型 | ![Stringのデータ型はstring](imgs/typeof_string.png)) |
 | Symbol | 実体が一意で不変な値を取るデータ型 | ![Symbolのデータ型はsymbol](imgs/typeof_symbol.png) |
 
+<details>
+  <summary>0, null, undeifnedの違い</summary>
+  
+  一般にこの３つをわかりやすく説明するため、トイレットペーパーを用いた説明がなされます。
+  | 0 | null | undefined |
+  | ---- | ---- | ---- |
+  | 芯はある | ペーパーホルダーはある | ペーパーホルダーもない |
+  | ![芯はある](https://1.bp.blogspot.com/-LGyamrN9Z84/Xdtt7sxKD5I/AAAAAAABWOA/UcQOWNL7Tf0yxEWPzlHYrznZQ8dtWugJACNcBGAsYHQ/s300/toilet_paper5_shin.png) | ![ペーパーホルダーはある](https://1.bp.blogspot.com/-nQS0NkGyjPg/Xdtt7OA3x0I/AAAAAAABWN8/E0DpYRNlZd4S-VLyyieA2MHR5LhhDEy7gCNcBGAsYHQ/s300/toilet_paper4_kara.png) |  |
+  > 画像引用元: [いらすとや](https://www.irasutoya.com/)
+
+  これらはすべてfalsy(論理値としてfalseになる性質がある)な値ですが、これは「この状態で用を足したあと拭けるか」と聞かれるとムリ、と思うと覚えやすいです。
+  また、芯に紙を巻き直すことはできること、芯がないとかホルダーがないとかでは紙を巻き直す操作も出来ないことを考えると、感覚的にこれらの値・型の意味をとらえやすいでしょう。
+</details>
+
 #### オブジェクト
 
 JavaScriptで利用されるもののうち、↑のプリミティブ型以外はすべてオブジェクトに分類されます。
@@ -252,27 +266,22 @@ JavaScriptで利用されるもののうち、↑のプリミティブ型以外�
 | 正規表現 | `const re = new RegExp('/ab+c/');` | ![RegExpの型はobject](imgs/typeof_regexp.png) |
 | Dateオブジェクト | `const now = new Date();` | ![Dateの型はobject](imgs/typeof_date.png) |
 
+##### 関数オブジェクト
+JavaScriptの関数は内部的にはコンストラクター関数`Function()`で生成されるオブジェクトで、このオブジェクトを関数オブジェクトと呼ぶこともあります。`typeof`演算子のアルゴリズムでは[このように](https://xn--ecmascript2020-tt9vf572amitfjlc.com/expressions/#h-typeof-operator)オブジェクトのメンバに`[[call]]`を持っている場合に`'function'`を返します。
+
 <details>
   <summary>なぜその値のデータ型がそれなの...?と思ったあなたへ</summary>
 
-  
+  - null  
+  ↑のプリミティブ型にある `null` が `object` をデータ型に持つのは不自然に思うかもしれません。これはあるブラウザでJavaScriptが実装されたときに`tyopeof null === "object"`となるバグがあったためで、この挙動に依存した処理がうまくいかなくなることを回避するためにこのバグは仕様になりました。
+  - クラス
+  [クラスは特別な関数として実装されているため`typeof`では`'function'`が返されます。](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Classes#%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E5%AE%9A%E7%BE%A9)
 </details>
 
-<!-- koko -->
+### リテラル
+リテラルとは一般にプログラム中に記述された**値**のことを指します。よりわかりやすく言うとプログラムに正しく値を伝えるための表現のことです。
 
-<details>
-  <summary>0, null, undeifnedの違い</summary>
-  
-  一般にこの３つをわかりやすく説明するため、トイレットペーパーを用いた説明がなされます。
-  | 0 | null | undefined |
-  | ---- | ---- | ---- |
-  | 芯はある | ペーパーホルダーはある | ペーパーホルダーもない |
-  | ![芯はある](https://1.bp.blogspot.com/-LGyamrN9Z84/Xdtt7sxKD5I/AAAAAAABWOA/UcQOWNL7Tf0yxEWPzlHYrznZQ8dtWugJACNcBGAsYHQ/s300/toilet_paper5_shin.png) | ![ペーパーホルダーはある](https://1.bp.blogspot.com/-nQS0NkGyjPg/Xdtt7OA3x0I/AAAAAAABWN8/E0DpYRNlZd4S-VLyyieA2MHR5LhhDEy7gCNcBGAsYHQ/s300/toilet_paper4_kara.png) |  |
-  > 画像引用元: [いらすとや](https://www.irasutoya.com/)
-
-  これらはすべてfalsy(論理値としてfalseになる性質がある)な値ですが、これは「この状態で用を足したあと拭けるか」と聞かれるとムリ、と思うと覚えやすいです。
-  また、芯に紙を巻き直すことはできること、芯がないとかホルダーがないとかでは紙を巻き直す操作も出来ないことを考えると、感覚的にこれらの値・型の意味をとらえやすいでしょう。
-</details>
+リテラルには
 
 ### オブジェクトと配列
 
