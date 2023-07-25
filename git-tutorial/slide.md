@@ -314,8 +314,7 @@ header: 2-2. branch: 作業を枝分かれさせよう
 ---
 
 ###### 枝分かれすると、複数人で同じファイルを触っても（ちょっと）安心です
-
-![height:400px](https://kroki.io/mermaid/svg/eNpTVa3OzMsssVKoVlAvyUjNTVW3UlBPyy9KLS5RV6hVqFVV5eJKzyxxL0osyOBSAILk_NzczBKFzBQrBSWQzszEHKiYEoZ8kKuji6-rXm7K46ZJL1bMeLGnE6ImqSgxLzlDIS01saS0KFW_JL8gM9kRp4wTxNyM1OTs_NISbLqQ7dTT01PCo8EJQ8OjhmVKAMOCVY0=)
+![height:400px](./imgs/materials/04_mermaid_branch.svg)
 
 ---
 
@@ -376,7 +375,7 @@ header: 2-3. commit: 作業前と後の**差分を記録**しよう
 
 ###### データの保存時には、作業前と後の**差分を記録**する
 
-![height:400px](https://kroki.io/mermaid/svg/eNpTVa3OzMsssVKoVlAvyUjNTVW3UlBPyy9KLS5RV6hVqFVV5eJKzyxxL0osyOBSAILk_NzczBKFzBQrBSWQzszEHKiYElg-qSgxLzlDIS01saS0KFW_JL8gM9kRojMjNTk7v7QEqxySqY4pQDIzLyW1Qi-jJDfnceO6p_N3Pd2582XziqcdbY-bJj1dN__F4lYlDI2hBSmJJalWCo-b1z5u2vC4acnj5s2Pm6c-blr5uHnP4-YFCK0ACaVjCg==)
+![height:400px](./imgs/materials/05_mermaid_commit.svg)
 
 ---
 
@@ -631,4 +630,4 @@ section {
 ### これでGit入門は完璧です
 お疲れ様でした！
 
-![bg height:550px brightness:50%](https://kroki.io/mermaid/svg/eNpTVa3OzMsssVKoVlAvyUjNTVW3UlBPyy9KLS5RV6hVqFVV5eJKzyxxL0osyOBSAILk_NzczBKFzBQrBSWQzszEHKiYElg-qSgxLzlDIS01saS0KFW_JL8gM9kRojMjNTk7v7QEqxySqY4pQDIzLyW1Qi-jJDfnceO6p_N3Pd2582XziqcdbY-bJj1dN__F4lYlDI2hBSmJJalWCo-b1z5u2vC4acnj5s2Pm6c-blr5uHnP4-YF6Fph7slNzMwDi-SmFqWnEnKeL1hRQWlOjkJRamEpMKAUlA0V9PT0cPvfCY__nTAsABkFACSqlM4=)
+![bg height:550px brightness:50%](./imgs/materials/06_mermaid_all.svg)
