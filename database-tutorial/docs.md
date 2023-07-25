@@ -358,14 +358,14 @@ GROUP BY student.id;
 
 `CREATE TABLE` は以下のような形式で記述します。
 
-> Topic: `DEFAULT CHARSET=uft8mb4` で文字化け等を防止できます
+> Topic: `DEFAULT CHARSET=utf8mb4` で文字化け等を防止できます
 
 ```sql
 CREATE TABLE new_table_name (
     column_name_01 column_type_01,
     column_name_02 column_type_02,
     ...
-) DEFAULT CHARSET=uft8mb4;
+) DEFAULT CHARSET=utf8mb4;
 
 # 例: studentテーブルの定義
 CREATE TABLE student (
@@ -375,7 +375,7 @@ CREATE TABLE student (
     addmission_date datetime NOT NULL,
     graduation_date datetime NOT NULL,
     PRIMARY KEY (id)
-) DEFAULT CHARSET=uft8mb4;
+) DEFAULT CHARSET=utf8mb4;
 ```
 
 <details>
@@ -390,7 +390,7 @@ CREATE TABLE teacher_自分の名前 (
     name varchar(255) NOT NULL,
     joining_date datetime NOT NULL,
     PRIMARY KEY (id)
-) DEFAULT CHARSET=uft8mb4;
+) DEFAULT CHARSET=utf8mb4;
 
 # 入力例
 CREATE TABLE teacher_futaba (
@@ -399,7 +399,7 @@ CREATE TABLE teacher_futaba (
     name varchar(255) NOT NULL,      # 名前
     joining_date datetime NOT NULL,  # 着任日時
     PRIMARY KEY (id)
-) DEFAULT CHARSET=uft8mb4;
+) DEFAULT CHARSET=utf8mb4;
 ```
 
 2. 新規作成したテーブルの構成を確認してみましょう。
