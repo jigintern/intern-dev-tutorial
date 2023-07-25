@@ -15,6 +15,8 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  LANG: "ja_JP.UTF-8"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,23 +28,22 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Setup Packages
-        run: sudo apt-get update & sudo apt-get install jq
+        run: sudo apt-get update & sudo apt-get install jq npm fonts-noto
+
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli
       
       - name: Make Directory
-        run: mkdir dest & cp -r ./git-tutorial/imgs ./dest
-
-      - name: Setup Permission
-        run: chmod -R 777 $(pwd)
+        run: mkdir dest && cp -r ./git-tutorial/imgs ./dest/imgs
 
       - name: Build Marp git-tutorial PDF
-        run: docker run --rm -u root --init -v "$(pwd):/home/marp/app/" 
-              -e LANG="ja_JP.UTF-8" marpteam/marp-cli $(cat config.json | jq -r .[0].directory)/slide.md 
+        run: marp $(cat config.json | jq -r .[0].directory)/slide.md 
               --pdf
               -o ./dest/$(cat config.json | jq -r .[0].output_name).pdf
               --allow-local-files
+
       - name: Build Marp git-tutorial HTML
-        run: docker run --rm -u root --init -v "$(pwd):/home/marp/app/" 
-              -e LANG="ja_JP.UTF-8" marpteam/marp-cli $(cat config.json | jq -r .[0].directory)/slide.md 
+        run: marp $(cat config.json | jq -r .[0].directory)/slide.md 
               --html 
               -o ./dest/$(cat config.json | jq -r .[0].output_name).html
               --allow-local-files
