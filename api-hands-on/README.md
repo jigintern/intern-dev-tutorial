@@ -323,15 +323,15 @@ serve(async (req) => {
   const pathname = new URL(req.url).pathname;
   console.log(pathname);
 
-  if (req.method === "GET" && pathname === "/welcome-message") {
+  if ( req.method === "GET" && pathname === "/welcome-message" ) {
     return new Response("jigインターンへようこそ！");
   }
 
-  if( req.method === "GET" && pathname === "/greeting"){
+  if( req.method === "GET" && pathname === "/greeting" ){
     return new Response("Hello!!")
   }
 
-  if( req.method === "GET" && pathname === "/greeting-me"){
+  if( req.method === "GET" && pathname === "/greeting-me" ){
     const param = new URL(req.url).searchParams.get("name");
     return new Response("Hello, " + param);
   }
