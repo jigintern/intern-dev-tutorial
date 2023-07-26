@@ -13,7 +13,7 @@ Application Programming Interfaceの略。
 # 実際にAPIを叩いてみる
 サンプルコードにボタンを追加し、そのボタンを押したらサーバの`/welcome-message`[エンドポイント](#tips%E3%82%A8%E3%83%B3%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88)を叩くコードを用意する。  
 
-まずは以下のコードを`/public/index.html`に追加し、`message(click me)`と書かれたボタンを用意する。  
+まずは以下のコードを`/public/index.html`のbodyタグ中に追加し、`message(click me)`と書かれたボタンを用意する。  
  
 
 ```html
@@ -29,7 +29,7 @@ Application Programming Interfaceの略。
 なお、`fetch`は非同期処理を行うので、通信が終了するまで(データが返ってくるまで)待ちたい場合は`await`をつける必要がある。  
 ボタンがクリックされたらAPIを叩き、戻り値を先ほど用意した、`welcome_message`のidを持つh1タグに表示する。  
 
-bodyタグの中に以下を追加する。  
+先ほど追加したコードの下に以下のコードを追加する
 ```html
   <script type="module">
     document.getElementById("welcome_button").onclick = async () => {
