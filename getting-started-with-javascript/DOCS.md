@@ -7,7 +7,7 @@
 
   1. JavaScript に触れてみよう
      1. ブラウザの開発者ツールを見よう
-     2. Hello, World!
+     2. Hello, World! しよう
      3. 読みやすいコードを書くために
         1. 厳格モード
         2. コメント
@@ -33,12 +33,14 @@
      1. 関数
      2. オブジェクト
      3. クラス
+
 </details>
 
 ## JavaScript に触れてみよう
+
 ### ブラウザの開発者ツールを見よう
 
-### Hello, World!
+### Hello, World! しよう
 
 ### 読みやすいコードを書くために
 
@@ -52,11 +54,10 @@
 
 ## JavaScript で計算させよう
 
-
-## ブラウザの標準APiを使ってみよう
-
+## ブラウザの標準APIを使ってみよう
 
 ## 参考文献
-- mdn web docs: https://developer.mozilla.org/ja/docs/Web/JavaScript
-- JSPrimer: https://jsprimer.net/
-- ECMAScript2020言語仕様　私的日本語訳: https://xn--ecmascript2020-tt9vf572amitfjlc.com/
+
+- mdn web docs: <https://developer.mozilla.org/ja/docs/Web/JavaScript>
+- JSPrimer: <https://jsprimer.net/>
+- ECMAScript2020言語仕様　私的日本語訳: <https://xn--ecmascript2020-tt9vf572amitfjlc.com/>
