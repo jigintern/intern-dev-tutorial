@@ -30,14 +30,14 @@
 chromeの開発者ツールを利用します。
 ↓の画像のように右上のケバブメニューから開くことが出来ます。
 
-![ケバブメニューからの開きかた](../getting-started-with-javascript/imgs/chrome-open-devtools-from-kebab-menu.png)
+![ケバブメニューからの開きかた](../getting-started-with-javascript/imgs_old/chrome-open-devtools-from-kebab-menu.png)
 
 > ショートカットキー
 > Windows / Linux / ChromeOS : `Ctrl + Shift + I`
 > macOS: `⌥ + ⌘ + I`
 
 ↓のような表示になっていれば開けています。(開発者ツールの幅は適当に調節してください)
-![開発者ツールを開いたときの見た目](imgs/chrome-opened-devtools-firstview.png)
+![開発者ツールを開いたときの見た目](imgs_old/chrome-opened-devtools-firstview.png)
 
 今回の資料では↑の `Console` タブを利用します。他のタブは適宜他の資料で説明される予定です 🙏
 
@@ -51,16 +51,16 @@ chromeの開発者ツールを利用します。
 console.log('Hello, World !');
 ```
 
-![実行結果](imgs/console-hello-world.png)
+![実行結果](imgs_old/console-hello-world.png)
 このようにして `Console` タブ上に任意のデータを出力することが出来ます。
 ここで使った `console.log()` の仲間に↓のようなものがあります。後で使えるかもしれないのでそれぞれ試してみてほしいです。
 
 | code | 出力結果 | 使い所 |
 | ---- | ---- | ---- |
-| `console.log('multiple', 'args)` | ![multiple-args](imgs/console-log-multi-arg.png) | 複数の値をいっぺんに確認したいとき |
-| `console.warn('this is warn')` | ![warn](imgs/console-warn-sample.png) | 黄色い出力になって見つけやすい<br>被致命のエラーに使うとよい |
-| `console.error('this is error')` | ![error](imgs/console-error-sample.png) | 赤い出力になって見つけやすい<br>致命的なエラーに使うとよい |
-| `console.table({'this': 'table'})` | ![table](imgs/console-table-sample.png) | オブジェクトを見やすく表示したいときに便利 |
+| `console.log('multiple', 'args)` | ![multiple-args](imgs_old/console-log-multi-arg.png) | 複数の値をいっぺんに確認したいとき |
+| `console.warn('this is warn')` | ![warn](imgs_old/console-warn-sample.png) | 黄色い出力になって見つけやすい<br>被致命のエラーに使うとよい |
+| `console.error('this is error')` | ![error](imgs_old/console-error-sample.png) | 赤い出力になって見つけやすい<br>致命的なエラーに使うとよい |
+| `console.table({'this': 'table'})` | ![table](imgs_old/console-table-sample.png) | オブジェクトを見やすく表示したいときに便利 |
 
 ### 2. コメントと命名
 
@@ -94,7 +94,7 @@ console.log('Hello, World !');
   コンソール出力("テスト");
   ```
 
-  ![日本語関数名](imgs/japanese-function-name.png)
+  ![日本語関数名](imgs_old/japanese-function-name.png)
 
   このように、問題なく動作することがわかります。
   しかし、一般に日本語をコード中に使用することはコメントを除き望ましくないとされています。
@@ -112,10 +112,10 @@ console.log('Hello, World !');
 
 | code | 出力結果 |
 | ---- | ---- |
-| `1 + 1;` | ![plus](imgs/plus-operator.png) |
-| `1 - 1;` | ![minus](imgs/minus-operator.png) |
-| `2 * 2;` | ![multi](imgs/multiple-operator.png) |
-| `2 / 2;` | ![divide](imgs/divide-operator.png) |
+| `1 + 1;` | ![plus](imgs_old/plus-operator.png) |
+| `1 - 1;` | ![minus](imgs_old/minus-operator.png) |
+| `2 * 2;` | ![multi](imgs_old/multiple-operator.png) |
+| `2 / 2;` | ![divide](imgs_old/divide-operator.png) |
 
 これらを用いて以下の2次方程式の解を求めてください。ただし、2次方程式の解の公式 $ x = {-b \pm \sqrt{b^2-4ac} \over 2a}$ を使って良いものとします
 なお、JavaScriptでは $\sqrt x$ は `Math.sqrt(x)`、 $x^2$ は `Math.pow(x, 2)` と表せます。
@@ -144,7 +144,7 @@ console.log('Hello, World !');
 
   よって、 $x = -1$ (重解)
 
-  ![q1実行結果](../getting-started-with-javascript/imgs/quadratic-equation-q1.png)
+  ![q1実行結果](../getting-started-with-javascript/imgs_old/quadratic-equation-q1.png)
 </details>
 
 **Q2.)** $ 4x^2 - 4 = 0 $
@@ -158,7 +158,7 @@ console.log('Hello, World !');
 
   よって、 $x = \pm 1$
 
-  ![q2実行結果](../getting-started-with-javascript/imgs/quadratic-equation-q2.png)
+  ![q2実行結果](../getting-started-with-javascript/imgs_old/quadratic-equation-q2.png)
 </details>
 
 ### 4. 変数
@@ -184,12 +184,12 @@ const constant = 1; // 再代入不可能な変数として constant を宣言�
 これで `variable`,`constant` という名前の変数が宣言されて、consoleで利用可能になりました。
 試しに `console.log(variable, constant);`として出力を確認してください。
 
-![宣言した変数をlogで出力する](../getting-started-with-javascript/imgs/variable-constant-sample.png)
+![宣言した変数をlogで出力する](../getting-started-with-javascript/imgs_old/variable-constant-sample.png)
 
 ここでは`variable`は値が代入されていないため `undefined`(未定義) となり、`const`は初期値`1`を代入しているので`1`が出力されます。
 では `let` と `const` により違いを見て見るため、両方に `2` を代入してみましょう。
 
-![変数に値を代入する](../getting-started-with-javascript/imgs/assign-to-variables.png)
+![変数に値を代入する](../getting-started-with-javascript/imgs_old/assign-to-variables.png)
 
 `let`は再代入可能な変数を宣言するため`variable`には`2`が代入できています。  
 しかし、`const`は再代入不可能な変数を宣言するため、`const`に`2`を代入しようとしたときには`Assignment to constant variable.`とエラーが表示されています。
@@ -211,11 +211,11 @@ let a = 2, b = 4, c = 2;
 (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
 ```
 
-![コード実行結果](../getting-started-with-javascript/imgs/q1-with-variables.png)
+![コード実行結果](../getting-started-with-javascript/imgs_old/q1-with-variables.png)
 
 Q2.を解くために値を代入して、解の公式を再度実行することで楽に計算できます。
 > ※ chromeのconsoleタブでは↑↓キーでそれまでの命令を参照して実行することが出来ます。
-> ![上下キー入力のようす](../getting-started-with-javascript/imgs/arrow-key.gif)
+> ![上下キー入力のようす](../getting-started-with-javascript/imgs_old/arrow-key.gif)
 
 ### データ型
 
@@ -230,13 +230,13 @@ JavaScriptは**動的型付け言語**といって変数に対し明示的に型
 
 | 型名 | 意味 | `typeof`実行結果 |
 | ---- | ---- | ---- |
-| null | null (*=値が存在しないこと*) を意味するデータ型・キーワード | ![nullのデータ型はobject](imgs/typeof_null.png) |
-| undefined | 値が未定義であること を意味するデータ型 | ![undefinedのデータ型はundefined](imgs/typeof_undefined.png) |
-| Boolean | 論理値 `true` または `false` をとるデータ型 | ![Booleanのデータ型はboolean](imgs/typeof_boolean.png) |
-| Number | 整数もしくは浮動小数点数をとるデータ型 | ![Numberのデータ型はnumber](imgs/typeof_number.png) |
-| BigInt | 任意の精度の整数をとるデータ型 | ![BigIntのデータ型はbigint](imgs/typeof_bigint.png) |
-| String | 0字以上の文字または文字列をとるデータ型 | ![Stringのデータ型はstring](imgs/typeof_string.png)) |
-| Symbol | 実体が一意で不変な値を取るデータ型 | ![Symbolのデータ型はsymbol](imgs/typeof_symbol.png) |
+| null | null (*=値が存在しないこと*) を意味するデータ型・キーワード | ![nullのデータ型はobject](imgs_old/typeof_null.png) |
+| undefined | 値が未定義であること を意味するデータ型 | ![undefinedのデータ型はundefined](imgs_old/typeof_undefined.png) |
+| Boolean | 論理値 `true` または `false` をとるデータ型 | ![Booleanのデータ型はboolean](imgs_old/typeof_boolean.png) |
+| Number | 整数もしくは浮動小数点数をとるデータ型 | ![Numberのデータ型はnumber](imgs_old/typeof_number.png) |
+| BigInt | 任意の精度の整数をとるデータ型 | ![BigIntのデータ型はbigint](imgs_old/typeof_bigint.png) |
+| String | 0字以上の文字または文字列をとるデータ型 | ![Stringのデータ型はstring](imgs_old/typeof_string.png)) |
+| Symbol | 実体が一意で不変な値を取るデータ型 | ![Symbolのデータ型はsymbol](imgs_old/typeof_symbol.png) |
 
 <details>
   <summary>0, null, undeifnedの違い</summary>
@@ -259,12 +259,12 @@ JavaScriptで利用されるもののうち、↑のプリミティブ型以外�
 
 | 種類 | 定義 | `typeof`実行結果 |
 | ---- | ---- | ---- |
-| オブジェクト | `const obj = {};` | ![Objectのデータ型はobject](imgs/typeof_object.png) |
-| 配列 | `const arr = [];` | ![Arrayのデータ型はObject](imgs/typeof_array.png) |
-| 関数 | `const func = () => {};` | ![Functionのデータ型はfunction](imgs/typeof_function.png) |
-| クラス | `class myClass {}` | ![Classの型はfunction](imgs/typeof_class.png) |
-| 正規表現 | `const re = new RegExp('/ab+c/');` | ![RegExpの型はobject](imgs/typeof_regexp.png) |
-| Dateオブジェクト | `const now = new Date();` | ![Dateの型はobject](imgs/typeof_date.png) |
+| オブジェクト | `const obj = {};` | ![Objectのデータ型はobject](imgs_old/typeof_object.png) |
+| 配列 | `const arr = [];` | ![Arrayのデータ型はObject](imgs_old/typeof_array.png) |
+| 関数 | `const func = () => {};` | ![Functionのデータ型はfunction](imgs_old/typeof_function.png) |
+| クラス | `class myClass {}` | ![Classの型はfunction](imgs_old/typeof_class.png) |
+| 正規表現 | `const re = new RegExp('/ab+c/');` | ![RegExpの型はobject](imgs_old/typeof_regexp.png) |
+| Dateオブジェクト | `const now = new Date();` | ![Dateの型はobject](imgs_old/typeof_date.png) |
 
 ##### 関数オブジェクト
 JavaScriptの関数は内部的にはコンストラクター関数`Function()`で生成されるオブジェクトで、このオブジェクトを関数オブジェクトと呼ぶこともあります。`typeof`演算子のアルゴリズムでは[このように](https://xn--ecmascript2020-tt9vf572amitfjlc.com/expressions/#h-typeof-operator)オブジェクトのメンバに`[[call]]`を持っている場合に`'function'`を返します。
