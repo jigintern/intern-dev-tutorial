@@ -14,13 +14,15 @@
         2. コメント
         3. 命名
         4. インデント
-  2. JavaScript で計算させよう
+  2. JavaScript で処理させよう
      1. 四則演算
      2. その他の算術演算
-     3. 計算をひとまとめにする
+     3. 文字列の処理
+     4. 論理演算
   3. 条件によって処理を変えよう
-     1. if文
-     2. 三項演算子
+     1. 比較演算子
+     2. if文
+     3. 三項演算子
   4. 繰り返し処理をさせよう
      1. for文
      2. `Array.prototype.forEach()`
@@ -153,7 +155,69 @@ function myFunc () {
 }
 ```
 
-## JavaScript で計算させよう
+## 2. JavaScript で処理させよう
+
+ここでは様々な計算や処理をJSにやってもらう方法を説明します。
+
+### 2-1. 四則演算
+
+計算といえばな四則演算からです。それぞれ以下のようにして記述することができます。
+
+| 演算 | 記述 | 実行結果 |
+| ---- | ---- | ---- |
+| 加法 | `1 + 1` | ![加法演算](imgs/calc-plus.png) |
+| 減法 | `1 - 1` | ![減法演算](imgs/calc-minus.png) |
+| 乗法 | `2 * 2` | ![乗法演算](imgs/calc-multi.png) |
+| 除法 | `2 / 2` | ![除法演算](imgs/calc-divide.png) |
+| 剰余 | `3 % 2` | ![剰余演算](imgs/calc-remainder.png) |
+
+この他に`+=`、`-=`のように二項演算子の後ろに`=`をつけることで左オペランドと右オペランドの計算結果を左オペランドに代入する加算代入演算子や減算代入演算子などもあります。
+
+### 2-2. その他の算術演算
+
+四則演算以外でも頻繁につかう演算がありますよね？
+プログラム中で特に利用するインクリメントやデクリメントなどは演算子が用意されています。
+また、三角関数のような高度な演算はJSでは `Math` という名前の組み込みオブジェクトから呼び出せます。
+
+以下にいくつか例を示します。
+
+| 演算 | 記述 | 実行結果 | 補足 |
+| ---- | ---- | ---- | ---- | 
+| インクリメント | 後置インクリメント:`x++`<br>前置インクリメント:`++x` | ![後置インクリメント処理](imgs/calc-after-increment.png)<br>![前置インクリメント処理](imgs/calc-before-increment.png) | 後置:先に評価結果を返して加算を行う<br>前置:先に加算を行って評価結果を返す |
+| デクリメント | 後置デクリメント:`x--`<br>前置デクリメント:`--x` | ![後置デクリメント処理](imgs/calc-after-decrement.png)<br>![前置デクリメント処理](imgs/calc-before-decrement.png) | 後置:先に評価結果を返して減算を行う<br>前置:先に減算を行って評価結果を返す |
+| べき乗 | `2 ** 2`<br>`Math.pow(2,2)` | ![べき乗演算子](imgs/calc-power-operator.png)<br>![Mathオブジェクトを利用](imgs/calc-power-mathobj.png) | べき乗演算子`**`が後に実装された |
+| 円周率 | `Math.PI` | ![円周率](imgs/math-pi.png) |  |
+| 正弦 | `Math.sin(θ)` | ![正弦](imgs/math-sin.png) |  |
+| 余弦 | `Math.cos(θ)` | ![余弦](imgs/math-cos.png) |  |
+
+その他のMathオブジェクトのプロパティやメソッドは[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math)から確認できます。
+
+### 2-3. 文字列の処理
+
+文字列はJSではStringオブジェクトとして扱われ、様々な操作を行うことができます。連結、分割、置き換えなどの一部操作の方法を以下に示します。
+
+| 操作 | 記述 | 実行結果 |
+| ---- | ---- | ---- |
+| 結合 | `'jig' + '.' + 'jp'` | ![結合](imgs/str-binding.png) |
+| 結合 | `str += otherStr` | ![結合](imgs/str-bind-assign.png)
+| 文字の取り出し | `'jig.jp'.charAt(1)` | ![文字取り出し](imgs/str-charat.png) |
+| 分割 | `'jig.jp'.split('.')` | ![分割](imgs/str-split.png) |
+| 文字列の切り出し | `'jig.jp'.slice(1, 4)` | ![文字列の切り出し](imgs/str-slice.png) |
+| 文字列の置き換え | `'jig.jp'.replace('ji', 'じぇいあい')` | ![文字列の置き換え](imgs/str-replace.png) |
+| 文字列の長さ | `'jig.jp'.length` | ![文字列の長さ](imgs/str-length.png) |
+| 文字列の位置 | `'jig.jp'.indexOf('jp')` | ![文字列の位置](imgs/str-indexof.png) |
+
+その他のStringオブジェクトのプロパティやメソッドは[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String)から確認できます。
+
+### 2-4. 論理演算
+
+論理演算はプログラムで頻出する演算の一つです。それぞれの演算は以下のように表せます。
+
+| 演算 | 記述 | 実行結果 |
+| ---- | ---- | ---- |
+| AND | `a && b` | ![and](imgs/calc-and.png) |
+| OR | `a || b` | ![or](imgs/calc-or.png) |
+| NOT | `!a` | ![not](imgs/calc-not.png) |
 
 ## ブラウザの標準APIを使ってみよう
 
