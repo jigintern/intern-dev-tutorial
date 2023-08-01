@@ -339,6 +339,32 @@ console.log(res);
 
 ![三項演算子](imgs/conditional-operator-1.png)![三項演算子](imgs/consitional-operator-2.png)
 
+## 4. 繰り返し処理をさせよう
+
+### 4-1. for文
+
+### 4-2. `Array.prototype.forEach()`
+
+## 5. 非同期処理を使おう
+
+### 5-1. `Promise`/`then()`
+
+### 5-2. `async`/`await`
+
+## 6. ブラウザの標準APIを使ってみよう
+
+### 6-1. ファイルAPI
+
+### 6-2. 位置情報API
+
+## 7. コードをまとめてわかりやすくしよう
+
+### 7-1. 関数
+
+### 7-2. オブジェクト
+
+### 7-3. クラス
+
 ## 参考文献
 
 - mdn web docs: <https://developer.mozilla.org/ja/docs/Web/JavaScript>
