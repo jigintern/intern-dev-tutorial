@@ -24,8 +24,9 @@
      2. if文
      3. 三項演算子
   4. 繰り返し処理をさせよう
-     1. for文
-     2. `Array.prototype.forEach()`
+     1. 配列
+     2. for文
+     3. `Array.prototype.forEach()`
   5. 非同期処理を使おう
      1. `Promise`/`then()`
      2. `async`/`await`
@@ -341,9 +342,121 @@ console.log(res);
 
 ## 4. 繰り返し処理をさせよう
 
-### 4-1. for文
+複数回処理をするとき、何度も同じコードを書くのは面倒です。ですよね？
+JSには同じ処理を複数回行うための文法があります。ここではその文法 `for`文について説明します。
 
-### 4-2. `Array.prototype.forEach()`
+### 4-1. 配列
+
+繰り返し処理と関連の深い値として配列があります。
+配列とは、変数が列になって連なったようなもので、以下のような記述で利用できます。
+
+```javascript
+const array = [1, 2, 3, 4, 5];
+console.log(array[0]); // 1
+console,log(array[3]); // 4
+```
+
+![配列のサンプル](imgs/array-sample.png)
+
+配列は `[]` で囲まれ `,` で区切られた一連の値で表現されます。
+個々の値にアクセスするには配列名の後ろに`[index]`と書くことで取り出せます。この`index`とは配列の中の順番のことで、0番から順に番号が振られます。
+
+### 4-2. for文
+
+先程の配列を使って繰り返し処理の実例を見てみましょう。
+ここでは第10項までのフィボナッチ数列を作ることを考えます。
+
+`for`文は実はしれっとすでに資料中で登場していますが、以下のような記述で使うことができます。
+
+```javascript
+for (<ループ初期条件>; <ループ終了条件>; <ループごとの変数の値>) {
+  <繰り返す処理内容>
+}
+```
+
+`i`, `j`, `k`を`for`文での制御変数として利用し、初期条件で`let i = 0;`などとして変数宣言と初期値の代入を行うことが多いです。ループ終了条件部は、評価結果が偽になったときにループを抜けるものです。ループごとの変数の値には`i++`のようにインクリメントが用いられることが多いです。
+
+では具体的なフィボナッチ数列の生成コードを見てみましょう。
+
+```javascript
+let fibonacciSeries = [];
+for (let i = 1; i <= 10; i++) {
+  const len = fibonacciSeries.length;
+  if (len < 2) {
+    fibonacciSeries.push(1);
+  } else {
+    fibonacciSeries.push(fibonacciSeries[len - 2] + fibonacciSeries[len - 1]);
+  }
+}
+console.log(fibonacciSeries); // [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+```
+
+![実行結果](imgs/for-calc-fibonacci.png)
+
+このように面倒な手順を繰り返し処理で簡単に記述できました。
+
+<details>
+  <summary>負の値をインデックスに使いたい</summary>
+
+  Pythonなど一部言語では配列のインデックスに負の値を入力することで配列の後側から値を取り出すことができます。JSでは通常の`array[index]`ではこの記法が利用できませんが、`Array`オブジェクトの`at()`メソッドを利用することで同様の処理が可能です。
+
+  ```javascript
+  let fibonacciSeries = [];
+  for (let i = 1; i <= 10; i++) {
+    if (fibonacciSeries.length < 2) {
+      fibonacciSeries.push(1);
+    } else {
+      fibonacciSeries.push(fibonacciSeries.at(-2) + fibonacciSeries.at(-1));
+    }
+  }
+  console.log(fibonacciSeries);
+  ```
+
+  個人的にはこの書き方のほうが行数も減って直感的にわかりやすくて好みです。適宜つか分けられると良いでしょう。
+</details>
+
+### 4-3. `Array.prototype.forEach()`
+
+配列には`.forEach()`というメソッドがあります。これは配列の1要素ごとに繰り返し処理を行うためのもので以下のようにして利用できます。
+
+```javascript
+let array = [];
+for (let i = 0; i < 10; i++) {
+  array.push(Math.floor(Math.random() * 10 * i));
+}
+
+array.forEach((value) => {
+  if(value % 2 === 0) {
+    console.log(`${value} is even.`);
+  } else {
+    console.log(`${value} is odd.`);
+  }
+});
+```
+
+このコードは10個の乱数を生成して配列にしたあと、それぞれに対して偶数か奇数かを判定するものです。
+`(value) => {}`と渡している処理をコールバック関数と呼びます。このようにJSでは関数の引数に関数を渡すことがあります。
+
+同様の処理は通常のfor文でも記述できますが、インデックスによるアクセスが発生し混乱のもとになりやすいです。(特に配列のインデックスが0から始まることを忘れているとバグの元になります。)
+
+```javascript
+let array = [];
+for (let i = 0; i < 10; i++) {
+    array.push(Math.floor(Math.random() * 10 * i));
+}
+
+for (let i = 0; i < 10; i++) {
+    if(array[i] % 2 === 0) {
+        console.log(`${array[i]} is even.`);
+    } else {
+        console.log(`${array[i]} is odd.`);
+    }
+}
+```
+
+![foreach](imgs/calc-evenodd-foreach.png) ![index](imgs/calc-evenodd-index.png)
+
+for文中の処理の最初で`array[i]`を別の変数(例えば`value`)に代入するような操作をしても良いですが、それと同様のことが`forEach()`では`(value) => {...}`とするだけでかけます。またfor文での処理と違い配列の長さを気にせず処理を行えるのも便利な特徴です。適宜使い分けると良いでしょう。
 
 ## 5. 非同期処理を使おう
 
