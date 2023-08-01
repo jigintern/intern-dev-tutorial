@@ -59,11 +59,10 @@ DID とは分散型 ID のことでブロックチェーン（ビットコイン
 まずは登録ボタンをクリックしたことを通知するために onclick メソッドを `<script>` タグ内に追加しましょう。
 
 ```html
-// index.html
-
+<!-- index.html -->
 <script type="module">
   // 送信時の処理
-  document.getElementById("submit").onclick = async () => {
+  document.getElementById("submit").onclick = async (event) => {
     event.preventDefault();
     // 名前が入力されていなければエラー
     const name = document.getElementById("name").value;
@@ -124,7 +123,7 @@ serve(async (req) => {
 サーバーから DB に接続してクエリを叩く処理は `db-controller.js` にまとめます。
 
 ```js
-// `serve.js`
+// serve.js
 // ユーザー新規登録API
 if (req.method === "POST" && pathname === "/users/register") {
   const json = await req.json();
@@ -204,11 +203,21 @@ export async function addDID(did, userName) {
 サーバーから成功ステータスが返ってきたら DID、password、name をローカルストレージに保存する処理を追加します。
 
 ```js
+// index.html
 // 公開鍵・名前・電子署名をサーバーに渡す
 try {
-  const resp = await fetch("/users/register", {});
-  // サーバーから成功ステータスが返ってこないときの処理
+  const resp = await fetch("/users/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name,
+      did,
+      sign,
+      message,
+    }),
+  });
 
+  // サーバーから成功ステータスが返ってこないときの処理
   if (!resp.ok) {
     const errMsg = await resp.text();
     document.getElementById("error").innerText = "エラー：" + errMsg;
@@ -249,6 +258,7 @@ try {
 まずはフロントエンドから実装します。今回は DID とパスワードの入力は `pem` ファイルをインポートすることとします。また DID とパスワードの組み合わせの検証は [`DIDAuth` モジュール](https://jigintern.github.io/did-login/auth/DIDAuth.js)の `getDIDAndPasswordFromPem()` 内で行っています。
 
 ```js
+// login.html
 // pemファイルを受け取って、DIDとパスワードを取得する
 const pemFile = document.getElementById("pemFile").files[0];
 if (!pemFile) {
