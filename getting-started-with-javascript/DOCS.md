@@ -32,7 +32,7 @@
      2. オブジェクト
      3. クラス
   6. 非同期処理を使おう
-     1. `Promise`/`then()`
+     1. `Promise`/`then()`/`catch()`
      2. `async`/`await`
   7. ブラウザの標準APIを使ってみよう
      1. ファイルAPI
@@ -714,20 +714,105 @@ const myClass = new MyClass('my text');
 
   JSの処理は基本的にシングルスレッドで、実際には↑の図のような形にはなりづらいです。(実現する方法はあります。)
   非同期処理は並列に処理される(同時の2つの処理が行われる)わけではなく平行に処理されます(一つの処理の流れの中で2つの処理が行われる)。イメージとしては人間二人が一つずつの作業を行うわけではなく、人間一人が順序をつけて2つの作業を行う感じです。
-  JSにおける非同期処理は、サーバーからもらうデータが必要などの理由で今すぐに実行することができない処理を一旦後回しにして、必要なデータが揃ったものから処理していくという認識が妥当に思います。
+  JSにおける非同期処理は、サーバーからもらうデータが必要などの理由で、*今すぐに実行することができない処理を一旦後回しにして、必要なデータが揃ったものから処理していく*という認識が妥当に思います。
 
   詳しくは[こちらのページ](https://jsprimer.net/basic/async/)がわかりやすいです。
 </details>
 
-### 6-1. `Promise`/`then()`
+### 6-1. `Promise`/`then()`/`catch()`
 
 ここでは非同期処理の状態や結果を扱うことのできる`Promise`オブジェクトについて説明します。
 
 ```javascript
+const randomDelay = () => new Promise((resolve, reject) => {
+  const delay = Math.floor(Math.random() * 1000);
+  if (delay % 2 === 0) {
+    setTimeout(resolve(`${delay} is even.`), delay);
+  } else {
+    setTimeout(reject(`${delay} is odd.`), delay);
+  }
+});
 
+randomDelay()
+  .then(v => console.log(v))
+  .catch(e => console.log(e));
 ```
 
+↑のコードではランダムな0~1000ミリ秒後に、待機時間が偶数秒なら`resolve`で解決され、奇数秒なら`reject`で拒否される`Promise`インスタンスを返す関数 `randomDelay` を宣言しています。
+その後、`randomDelay()`でインスタンス生成、受け取って`then()`/`catch()`で`Promise`の解決・拒否を処理しています。
+
+![Promiseサンプル実行結果](imgs/promise-random-delay.gif)
+
 ### 6-2. `async`/`await`
+
+`async`はAsync Function(直訳: 非同期関数)を定義するための構文です。これは必ず`Promise`インスタンスを返す関数で通常の関数定義の構文とは異なります。
+それに対して`await`は`Promise`インスタンスを右辺にとり、その状態が解決もしくは拒否されるまでその場で待機するものです。
+
+これらを用いて 6-1. の`randomDelay`を実装すると次のようになります。
+
+```javascript
+async function randomDelay () {
+  const now = new Date();
+  const delay = Math.floor(Math.random() * 1000);
+  while (true) {
+    if (now.getTime() + delay < (new Date().getTime())) break;
+  }
+  if (delay % 2 === 0) {
+    return `${delay} is even.`;
+  } else {
+    return Promise.reject(`${delay} is odd.`);
+  }
+}
+
+try {
+  console.log(await randomDelay());
+} catch (e) {
+  console.log(e);
+}
+```
+
+ここで `try` ~ `catch` という構文が登場しますが、これは例外処理のための文です。
+`Promise` ~ `then` ~ `catch` では例外を `catch` がひろってくれるのですが、`await`式を用いた実装では例外は明示的に処理しなければなりません。そのため、この記述が必要になります。
+
+![asyncサンプル実行結果](imgs/async-random-delay.gif)
+
+<details>
+  <summary>JSで処理を一時待機させる方法</summary>
+
+  ↑のコードでは関数が呼ばれた時刻を保持して、`while`文を利用して現在時刻と比較し続けて`delay`秒経過したら`break`で`while`ループを抜ける処理になっています。
+  この方法は処理の負荷が非常に高いため、普通まずやってはいけない処理です。
+
+  ではどのような方法で実装できるかというと、以下の定義で`sleep`関数を用意することができます。
+
+  ```javascript
+  const sleep = delay => new Promise(resolve => setTimeout(resolve, delay));
+  ```
+
+  これを使うことで以下のようにコードを書き直せます。
+
+  ```javascript
+  async function randomDelay () {
+    const delay = Math.floor(Math.random() * 1000);
+    await sleep(delay);
+    if (delay % 2 === 0) {
+      return `${delay} is even.`;
+    } else {
+      return Promise.reject(`${delay} is odd.`);
+    }
+  }
+
+  try {
+    console.log(await randomDelay());
+  } catch (e) {
+    console.log(e);
+  }
+  ```
+
+  ではなぜ非推奨なコードをサンプルで書いたのかというと、関数定義を一つだけにしたい、`await`の使用箇所を一つにしたいという理由のために使用しました。
+  特別な事情がないかぎり、`sleep`関数を定義して利用するのが良いでしょう
+</details>
+
+処理によって`Promise`~`then`を利用するか`async`/`await`を利用するか、どちらが読みやすいかを考えながら使い分けられると良いですね。
 
 ## 7. ブラウザの標準APIを使ってみよう
 
