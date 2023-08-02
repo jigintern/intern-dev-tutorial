@@ -2,6 +2,7 @@
 
 > 想定時間: 90分
 > 動作環境: Google Chrome
+<!-- Author: Yamaji Toshiyuki (@haruyuki-16278) -->
 
 <details>
   <summary>TOC</summary>
@@ -35,8 +36,10 @@
      1. `Promise`/`then()`/`catch()`
      2. `async`/`await`
   7. ブラウザの標準APIを使ってみよう
-     1. ファイルAPI
+     1. Web Storage API
      2. 位置情報API
+  8. 終わりに
+  9. 参考文献
 
 </details>
 
@@ -458,7 +461,6 @@ for (let i = 0; i < 10; i++) {
 
 for文中の処理の最初で`array[i]`を別の変数(例えば`value`)に代入するような操作をしても良いですが、それと同様のことが`forEach()`では`(value) => {...}`とするだけでかけます。またfor文での処理と違い配列の長さを気にせず処理を行えるのも便利な特徴です。適宜使い分けると良いでしょう。
 
-
 ## 5. コードをまとめてわかりやすくしよう
 
 ここまででJSでの基本的な処理の説明を行ってきました。
@@ -701,7 +703,6 @@ const myClass = new MyClass('my text');
 
 ![クラスのサンプルコード実行結果](imgs/class-sample.png)
 
-
 ## 6. 非同期処理を使おう
 
 非同期処理とはその名の通りプログラム中で非同期的な処理を行うことで、例えばサーバーへのリクエストを送ってレスポンスを受けとりたいときなどに使用されます。
@@ -816,11 +817,81 @@ try {
 
 ## 7. ブラウザの標準APIを使ってみよう
 
-### 7-1. ファイルAPI
+さて、最後にweb開発を助けてくれるブラウザの機能についてです。
+我々が普段使うブラウザには様々なAPIが用意されています。特に有用な2つを使ってみましょう。
+
+### 7-1. Web Storage API
+
+Web Storage API はブラウザにキーと値の対を保存できるAPIです。
+その中でも特に `localStorage` について説明します。
+
+`localstorage`は以下のようにして利用できます。
+
+```javascript
+// 値のセット
+localStorage.setItem('name', 'jig太郎');
+// 値の取り出し
+console.log(localStorage.getItem('name'));
+// ローカルストレージに保存されている値の数
+console.log(localStorage.length); // 1
+// 値の削除
+localStorage.removeItem('name');
+
+console.log(localStorage.getItem('name')); // null
+
+localStorage.setItem('name', 'jig太郎');
+localStorage.setItem('age', '20');
+// ローカルストレージを空にする
+localStorage.clear();
+
+console.log(localStorage.length); // 0
+```
+
+![localStorageサンプル](imgs/localstorage.png)
+
+注意する点として、`localStorage`に保存する値はすべて文字列になることが挙げられます。
+例えば、`localStorage.setItem('age', 20);`としてnumber型で保存できたと思っても、`getItem`で取り出したときには`'20'`として文字列で返ってきます。このあと数値として扱いたい場合には`Number(<文字列>)`としてnumber型に変換する必要があります。
+
+また、`localStorage`への操作はパフォーマンスが悪いという問題もあります。あまりにも多用するのは問題ですが、その扱いの容易さ故に許容されがちです。気をつけて利用するようにしましょう。
 
 ### 7-2. 位置情報API
 
-## 参考文献
+インターネットにアクセスできる環境下で便利なものの一つが位置情報でしょう。手元の小さな端末が自分の位置を正確に取得してくれるおかげで我々は迷子になることが減りました。
+
+そんな位置情報を取得するためのAPIがブラウザにも実装されています。以下のようにして自分の緯度経度を取得することができます。
+
+```javascript
+// 位置情報が利用可能か確認する
+if ('geolocation' in navigator) {
+  const geolocation = navigator.geolocation;
+  geolocation.getCurrentPosition((position) => {
+    console.log(`latitude: ${position.coords.latitude}, longitude: ${position.coords.longitude}`);
+  });
+} else {
+  console.error('this browser has not support geolocation.');
+}
+```
+
+↑のコードを実行すると↓のようなポップアップが表示されます。「許可する」をクリックして位置情報を利用できるようにしてください。
+![位置情報利用許可](imgs/geolocation-authority.png)
+
+![実行結果](imgs/geolocation-sample.png)
+
+↑のように緯度経度が出力されれば問題なく実行できています。
+
+[地図](https://fukuno.jig.jp/app/map/latlng/)で調べて見ると若干のズレはあるもののおおよその位置はあっていました
+
+![位置情報から地図](imgs/geolocation-map.png)
+
+位置情報の応用は[こちらの記事](https://hackmd.io/@haruyuki16278/Hk2Tmh7b3)や[mdn web docs](https://developer.mozilla.org/ja/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples)を確認してみてください。
+
+## 8. 終わりに
+
+ここまででこの記事ではJSの初歩〜ブラウザのAPIを利用するまでを駆け足で説明してきました。
+が、簡単のために省略した部分や実際の内容とは異なる解説をしている部分もあるため、理解しきれてない部分もあるかもしれません。
+わからないところ、詳しく知りたいところは筆者やメンターに聞いたり、参考文献から調べたりしてみてください。
+
+## 9. 参考文献
 
 - mdn web docs: <https://developer.mozilla.org/ja/docs/Web/JavaScript>
 - JSPrimer: <https://jsprimer.net/>
