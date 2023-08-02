@@ -27,16 +27,16 @@
      1. 配列
      2. for文
      3. `Array.prototype.forEach()`
-  5. 非同期処理を使おう
-     1. `Promise`/`then()`
-     2. `async`/`await`
-  6. ブラウザの標準APIを使ってみよう
-     1. ファイルAPI
-     2. 位置情報API
-  7. コードをまとめてわかりやすくしよう
+  5. コードをまとめてわかりやすくしよう
      1. 関数
      2. オブジェクト
      3. クラス
+  6. 非同期処理を使おう
+     1. `Promise`/`then()`
+     2. `async`/`await`
+  7. ブラウザの標準APIを使ってみよう
+     1. ファイルAPI
+     2. 位置情報API
 
 </details>
 
@@ -458,25 +458,282 @@ for (let i = 0; i < 10; i++) {
 
 for文中の処理の最初で`array[i]`を別の変数(例えば`value`)に代入するような操作をしても良いですが、それと同様のことが`forEach()`では`(value) => {...}`とするだけでかけます。またfor文での処理と違い配列の長さを気にせず処理を行えるのも便利な特徴です。適宜使い分けると良いでしょう。
 
-## 5. 非同期処理を使おう
 
-### 5-1. `Promise`/`then()`
+## 5. コードをまとめてわかりやすくしよう
 
-### 5-2. `async`/`await`
+ここまででJSでの基本的な処理の説明を行ってきました。
+それらの組み合わせで多種多様な処理を作っていくわけですが、処理のたびに毎回同じコードを書くのは気が引けますよね？一連の処理に名前をつけて呼び出せたら...それを実現する愉快な仲間たちを紹介します。
 
-## 6. ブラウザの標準APIを使ってみよう
+> ※ このセクションは全体的にだいぶ端折った説明をしています。
+> より詳細な説明は参考文献からmdn web docsやJSPrimerの該当箇所を読んでください。
 
-### 6-1. ファイルAPI
+### 5-1. 関数
 
-### 6-2. 位置情報API
+#### 5-1-1. 関数
 
-## 7. コードをまとめてわかりやすくしよう
+すでに関数の呼び出しは試料中にたくさん登場しています。例えば`console.log()`は立派な関数呼び出しです。このように`関数名(引数)`という形で関数は呼び出せます。
 
-### 7-1. 関数
+では関数はどのようにプログラム中で記述できるのかというと、基本的に以下のようにして記述できます。
 
-### 7-2. オブジェクト
+```javascript
+function <関数名> (<引数>) {
+  <処理内容>
+  return <返り値>;
+}
+```
 
-### 7-3. クラス
+具体的に二次方程式の解を求める関数を作成してみます。(ただし、JSは標準では虚数を表現できません)
+
+```javascript
+function solveQuadtraticEquation (a, b, c) {
+  const d = b ** 2 - 4 * a * c;
+  if (d === 0) {
+    return {
+      type: '重解',
+      ans: [b / (2 * a)]
+    };
+  } else if (d > 0) {
+    return {
+      type: '実数解',
+      ans: [
+        (b + Math.sqrt(d)) / (2 * a),
+        (b - Math.sqrt(d)) / (2 * a)
+      ]
+    };
+  } else {
+    return {
+      type: '虚数解'
+      ans: [
+        `(${b} ± √${Math.abs(d)}i) / ${2 * a}`
+      ]
+    };
+  }
+}
+```
+
+ここで `a`, `b`, `c` は**仮引数**と呼ばれ、関数の呼び出し時に`()`の中の対応する位置に与えられた値(**引数**)を参照できます。その後`return`で関数の処理結果を**返り値**として返しています。
+この`return`文は値を返す必要がない関数では省略可能です。また、`return`は値を返す、つまり関数の処理を終えたことを意味するため上記の処理のように
+
+#### 5-1-2. 無名関数
+
+JSで頻出する関数の書き方には名前はないけど関数として宣言されて実行されるものがあります。以下のようなものが無名関数と呼ばれます。
+
+```javascript
+function (msg) {
+  console.log(msg);
+};
+
+(msg) => {
+  console.log(msg);
+};
+```
+
+後者は特別に*アロー関数*と呼ばれる場合もあります。これらは返り値として関数を返します。
+そのため、変数に関数を代入して変数名の後ろに`()`をつけることで代入した関数を呼び出すことができます。
+
+```javascript
+const log = function (msg) {
+  console.log();
+};
+log('test');
+```
+
+このことから、JSの関数は値として扱うことができるのがわかります。
+また、この性質を利用してコールバックという処理方法を取れます。`setTimeout(callback, delay)`の`callback`のように関数を値として渡すことで特別な処理がしやすくなります。
+
+```javascript
+setTimeout(() => {
+  const now = new Date();
+  console.log(now);
+}, 5 * 1000);
+```
+
+![setInterval](imgs/set-interval.gif)
+
+<details>
+  <summary>setInterval</summary>
+
+  `setInterval`は`setTimeout(callback, delay)`のように2つの引数を取ります。
+  `callback`はコールバック関数で`delay`ミリ秒後に実行されます。
+  また、返り値として正の整数値を返します。これは登録されたtimeoutのIDで、`setTimeout`が呼ばれてから`delay`ミリ秒の間に`clearTimeout(timeoutID)`とすることで登録されたコールバック関数の実行をキャンセルできます。
+</details>
+
+### 5-2. オブジェクト
+
+#### 5-2-1. 定義とアクセス
+
+オブジェクトの名はここまでにも登場していますが、あらためて説明します。
+JSにおけるオブジェクトとは、キーと値が対になった**プロパティの集合**です。
+以下の文法で定義・アクセスできます。
+
+```javascript
+let obj = {
+  key1: 'value1',
+  key2: 'value2'
+};
+
+console.log(obj.key1, obj['key2']);
+```
+
+![オブジェクトのサンプル実行結果](imgs/object-sample.png)
+
+このとき、`[]`(ブラケット記法)を利用したアクセスではプロパティ名を文字列として記述するほうが望ましいです。例えば↑のサンプルで仮に`obj[key2]`としてアクセスしようとしたとき、`key2`が変数として解釈されて未定義のためエラーが発生します。
+これに対して、`.`(ドット記法)を利用してアクセスするときには、使えないプロパティ名があることに注意が必要です。数字で始まるプロパティ名やハイフンを含んだプロパティ名はブラケット記法でアクセスする必要があります。
+
+#### 5-2-2. プロパティの追加と存在確認
+
+JSのオブジェクトは、一度作成したあとその値自体を変更できる特性を持ちます。これは`const`を利用して宣言したときも同様です。
+そのため、以下のようにしてオブジェクトにプロパティを追加できます。
+
+```javascript
+const obj = {};
+
+obj.key1 = 'value1';
+obj['key2'] = 'value2';
+
+console.log(obj.key1, obj[key2]);
+```
+
+![オブジェクトにプロパティを追加](imgs/objectr-add-property.png)
+
+またこの特性から、オブジェクトにないプロパティも参照しようとできてしまいます(`undefined`が帰ってくる)。この挙動によるバグを回避するためにいくつかの方法でオブジェクトに目的のプロパティが存在するかを確認することができます。ここでは最も使いやすい手法として**Optional Chaining演算子**`?.`を用いた方法を以下に示します。
+
+```javascript
+const obj = {
+  prop1: {
+    key1: 'value1'
+  },
+  key2: 'value2'
+};
+
+console.log(obj.key1); // これはundefinedになる
+console.log(obj.key2); // 'value2'
+console.log(obj.prop1); // {key1: 'value1'}
+console.log(obj.prop1.key1); // 'value1'
+console.log(obj.prop1.key2); // これはundefinedになる
+console.log(obj.prop2); // これはundefinedになる
+console.log(obj.prop2.key1); // undefinedに対して更にプロパティにアクセスしようとしたためエラー
+console.log(obj.prop2.key2); // undefinedに対して更にプロパティにアクセスしようとしたためエラー
+
+// optional chaining
+// `?.`のつなげられたプロパティが存在するかを確認して
+//   存在すれば`?.`でつながったプロパティにアクセスする
+//   存在しなければundefinedを返す
+console.log(obj.prop2?.key1); // これはundefinedになる
+console.log(obj?.prop2.key1); // これはエラーになる(obj?.prop2 が undefinedになり、undefined.key1と同じ意味になる)
+```
+
+例えば、APIリクエストのレスポンスにあったりなかったりするプロパティがある時や、入力が必須でない項目があるフォームなどを扱うときに重宝する機能です。覚えていると良いことがあるかもしれません。
+
+<details>
+  <summary>オブジェクトのプロパティに関数を</summary>
+
+  JSの関数は値として扱える、という話をしましたが、ならばキーと値が対になったプロパティに関数を使うこともできそうですよね？できます。
+
+  ```javascript
+  const basicArithmeticOperations = {
+    sum: (a, b) => a + b,
+    diff: (a, b) => a - b,
+    multi: (a, b) => a * b,
+    div: (a, b) => a / b
+  };
+
+  console.log(basicArithmeticOperations.sum(1, 1));
+  console.log(basicArithmeticOperations.diff(1, 1));
+  console.log(basicArithmeticOperations.multi(2, 2));
+  console.log(basicArithmeticOperations.div(2, 2));
+  ```
+
+  ![関数をプロパティに](imgs/object-function.png)
+</details>
+
+### 5-3. クラス
+
+クラスは以下のような文で定義し、インスタンスを生成してメソッドやプロパティにアクセスできます。
+
+```javascript
+class <クラス名> {
+  <プロパティの宣言>
+
+  constructor (<コンストラクタ引数>) {
+    <コンストラクタ関数での処理>
+    <※ コンストラクタ関数では`return`は基本的にしない>
+  }
+
+  <メソッド(関数)の定義>
+}
+
+<const / let> <インスタンス変数名> = new <クラス名>();
+
+<インスタンス変数名>.<プロパティ/メソッド>
+```
+
+↑の疑似コードでは分かりづらい部分もあるので具体的に
+
+- クラス名: `MyClass`
+  - 文字列を与えて初期化できる（与えなくても初期値をもつ）
+  - `printText`メソッドを呼び出すことで自身が持つ文字列を出力する
+
+というクラスを実装してみます。
+
+```javascript
+class MyClass {
+  text = 'initial text';
+  
+  constructor (text) {
+    if (text) this.text = text;
+  }
+
+  printText () {
+    console.log(this.text);
+  }
+}
+```
+
+これがクラスです。クラスは設計書のようなもので、これをもとに実体(**インスタンス**)を生成します。
+
+```javascript
+const myClass = new MyClass('my text');
+```
+
+これで自身の文字列として`'my text'`を持つ`MyClass`のインスタンスを生成して`myClass`に代入できました。
+`myClass`から`printText`メソッドを呼び出せば`'my text'`と出力されるはずです。
+
+![クラスのサンプルコード実行結果](imgs/class-sample.png)
+
+
+## 6. 非同期処理を使おう
+
+非同期処理とはその名の通りプログラム中で非同期的な処理を行うことで、例えばサーバーへのリクエストを送ってレスポンスを受けとりたいときなどに使用されます。
+ここまでのコードはすべて同期処理で、非同期処理とは対称的に書いてあるコードが上から順に処理されて行きます。しかし、同期処理ではサーバーへのリクエストを送ったあとレスポンスが帰ってくるまで何もすることができず（正確には「レスポンスを待つ」ことが処理になっているため次の処理に移れず）、処理にかかる時間が大幅に伸びてしまったりします。この待ち時間を解消するための仕組みが非同期処理です。
+
+[![同期処理のイメージ](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIEg6IOODquOCr-OCqOOCueODiFxuICBOb3RlIHJpZ2h0IG9mIEM6IOW-heOBoeaZgumWk1xuICBIIC0tPj4tIEM6IOODrOOCueODneODs-OCuVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIEg6IOODquOCr-OCqOOCueODiFxuICBOb3RlIHJpZ2h0IG9mIEM6IOW-heOBoeaZgumWk1xuICBIIC0tPj4tIEM6IOODrOOCueODneODs-OCuVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)[![非同期処理のイメージ](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IFAgYXMg6Z2e5ZCM5pyf5Yem55CGXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIFA6IOWHpueQhueZu-mMslxuICBQIC0-PisgSDog44Oq44Kv44Ko44K544OIXG4gIE5vdGUgcmlnaHQgb2YgQzog5LuW44Gu5Yem55CGXG4gIEggLS0-Pi0gUDog44Os44K544Od44Oz44K5XG4gIFAgLS0-Pi0gQzog44Kz44O844Or44OQ44OD44Kv5ZG844Gz5Ye644GXIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IFAgYXMg6Z2e5ZCM5pyf5Yem55CGXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIFA6IOWHpueQhueZu-mMslxuICBQIC0-PisgSDog44Oq44Kv44Ko44K544OIXG4gIE5vdGUgcmlnaHQgb2YgQzog5LuW44Gu5Yem55CGXG4gIEggLS0-Pi0gUDog44Os44K544Od44Oz44K5XG4gIFAgLS0-Pi0gQzog44Kz44O844Or44OQ44OD44Kv5ZG844Gz5Ye644GXIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
+
+<details>
+  <summary>JSにおける非同期処理の捉え方</summary>
+
+  JSの処理は基本的にシングルスレッドで、実際には↑の図のような形にはなりづらいです。(実現する方法はあります。)
+  非同期処理は並列に処理される(同時の2つの処理が行われる)わけではなく平行に処理されます(一つの処理の流れの中で2つの処理が行われる)。イメージとしては人間二人が一つずつの作業を行うわけではなく、人間一人が順序をつけて2つの作業を行う感じです。
+  JSにおける非同期処理は、サーバーからもらうデータが必要などの理由で今すぐに実行することができない処理を一旦後回しにして、必要なデータが揃ったものから処理していくという認識が妥当に思います。
+
+  詳しくは[こちらのページ](https://jsprimer.net/basic/async/)がわかりやすいです。
+</details>
+
+### 6-1. `Promise`/`then()`
+
+ここでは非同期処理の状態や結果を扱うことのできる`Promise`オブジェクトについて説明します。
+
+```javascript
+
+```
+
+### 6-2. `async`/`await`
+
+## 7. ブラウザの標準APIを使ってみよう
+
+### 7-1. ファイルAPI
+
+### 7-2. 位置情報API
 
 ## 参考文献
 
