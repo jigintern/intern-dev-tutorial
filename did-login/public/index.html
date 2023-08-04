@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DID Login Sample</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/"> 新規登録 </a>
+
+          <a class="navbar-item" href="/login.html"> ログイン </a>
+        </div>
+      </div>
+    </nav>
+    <section class="section">
+      <div class="container">
+        <h1 class="title has-text-centered">DID Login Sample</h1>
+        <h3 class="subtitle has-text-centered">新規登録</h3>
+        <form id="form">
+          <div class="container mb-4">
+            <p id="error" class="has-text-danger"></p>
+          </div>
+
+          <div class="field">
+            <label class="label">名前</label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                id="name"
+                placeholder="名前を入力してください"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">DID</label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                id="did"
+                placeholder="DID"
+                disabled
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">パスワード</label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                id="password"
+                placeholder="パスワード"
+                disabled
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">電子署名</label>
+            <div class="control">
+              <textarea
+                class="textarea"
+                id="sign"
+                placeholder="Signature"
+                disabled
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">message</label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                id="message"
+                placeholder="message"
+                disabled
+              />
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" id="submit">登録</button>
+            </div>
+            <div class="control">
+              <button class="button is-primary" id="saveBtn">
+                DIDとパスワードを保存
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script type="module"></script>
+  </body>
+</html>
