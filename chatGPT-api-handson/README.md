@@ -217,7 +217,7 @@ const res = await fetchConversation(json.messages, null, true);
 
 role は、`user` がユーザー、ChatGPT からの返答が `assistant` となっています。
 
-```json
+```js
 {
   messages: [
     { role: "user", content: "こんにちは" },
