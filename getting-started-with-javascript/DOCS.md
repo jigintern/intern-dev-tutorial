@@ -763,10 +763,10 @@ randomDelay()
 
 ```javascript
 async function randomDelay () {
-  const now = new Date();
+  const startedAt = new Date();
   const delay = Math.floor(Math.random() * 1000);
   while (true) {
-    if (now.getTime() + delay < (new Date().getTime())) break;
+    if (startedAt.getTime() + delay < (new Date().getTime())) break;
   }
   if (delay % 2 === 0) {
     return `${delay} is even.`;
