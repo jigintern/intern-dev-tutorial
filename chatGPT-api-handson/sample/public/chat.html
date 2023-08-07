@@ -5,21 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-  <title>fetchConversation</title>
+  <title>fetchChat</title>
 </head>
 
 <body>
   <section class="section">
     <div class="container">
-      <h1 class="title">fetchConversation</h1>
-      <h2>ChatGPTに過去の会話も含めて送る</h2>
+      <h1 class="title">fetchChat</h1>
+      <h2>ChatGPTにメッセージ単体を送るバージョン</h2>
       <div class="field">
         <div class="control">
-          <a href="./chat.html" target="_blank">
-            <button class="button is-link">メッセージ単体を送る、fetchChat を試す場合はこちら</button>
+          <a href="./index.html" target="_blank">
+            <button class="button is-link">会話ごと送る、fetchConversation を試す場合はこちら</button>
           </a>
         </div>
-      </div>      
+      </div>
       <form id="input-form">
         <div class="field">
           <label class="label">メッセージを入力してください</label>
@@ -53,10 +53,27 @@
       messages.push({ role: 'user', content: userMessage });
       renderChat();
 
-      const assistantResponse = await sendToServer(messages);
+      const assistantResponse = await sendToServer(userMessage);
       messages.push({ role: 'assistant', content: assistantResponse });
       renderChat();
     });
+
+    async function sendToServer(message) {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: message })
+      });
+
+      if (!response.ok) {
+        return 'Error: ' + response.status;
+      }
+
+      const data = await response.json();
+      return data.message;
+    }
 
     function renderChat() {
       chatContainer.innerHTML = ''; // Clear the chat
@@ -68,24 +85,6 @@
         messageDiv.innerHTML = `${message.role}: ${formattedContent}`;
         chatContainer.appendChild(messageDiv);
       }
-    }
-
-
-    async function sendToServer(messages) {
-      const response = await fetch('/api/conversation', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ messages: messages })
-      });
-
-      if (!response.ok) {
-        return 'Error: ' + response.status;
-      }
-
-      const data = await response.json();
-      return data.message;
     }
   </script>
 </body>
