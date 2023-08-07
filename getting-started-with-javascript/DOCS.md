@@ -230,7 +230,7 @@ function myFunc () {
 | 演算 | 記述 | 実行結果 |
 | ---- | ---- | ---- |
 | AND | `a && b` | ![and](imgs/calc-and.png) |
-| OR | `a || b` | ![or](imgs/calc-or.png) |
+| OR | `a \|\| b` | ![or](imgs/calc-or.png) |
 | NOT | `!a` | ![not](imgs/calc-not.png) |
 
 ## 3. 条件によって処理を変えよう
