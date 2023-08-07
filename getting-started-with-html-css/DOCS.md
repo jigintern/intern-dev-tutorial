@@ -15,9 +15,7 @@
          4. VisBugを使ってみよう
       2. Hello, World! しよう
    2. ページを作ってみよう
-      1. HTMLを知ろう
-      2. `<head>`タグの中に書くことを知ろう
-      3. 
+      1. 
    3. レイアウトを考えよう
       1. CSSについて知ろう
       2. 
@@ -81,6 +79,42 @@ VisBug の起動時に自動で開くツールがガイドツールです。こ�
 ここで紹介した開発者ツールと拡張機能は何かと使えると便利なので頭の片隅にでもおいておいてください。
 
 ## 2. ページを作ってみよう
+
+では実際にWebページの開発を始めてみましょう！  
+ここでは [StackBlitz](https://stackblitz.com/?starters=vanilla) というWeb IDEを使います。
+
+![StackBlitzスタートページ](imgs/stackblitz-start-page.png)
+
+GitHubアカウントでログイン可能なので右上の「Sign in」からログインしておいてください。(制作物の保存に必要です)
+ログインが成功すると↓のような画面に遷移します。
+
+![stackblitzダッシュボード](imgs/stackblitz-dashboard.png)
+
+「New Project」をクリックすると新規プロジェクトダイアログが開くので、Vanillaタブにある Static をクリックしてください。
+
+![stackblitz新規プロジェクト](imgs/stackblitz-create-new-project.png)
+
+↓の画像のようにエディタとエミュレータが表示された状態に遷移するはずです。
+
+![stackblitz新規プロジェクト初期状態](imgs/stackblits-opened-static-ide.png)
+
+ではファイルビューアーにあるファイルをすべて削除して準備完了です。
+
+### 2-1. HTMLをはじめよう
+
+では空になったファイルビューアーの右上にカーソルをホバーして、アイコンからファイルの追加をクリックします。最初に作るHTMLファイルは `index.html` とします。以下の内容を`index.html`に書き込んでください。
+
+```HTML
+<p>Hello, World !</p>
+```
+
+StackBlitzのエミュレータに↓のように表示されていることを確認してください。
+
+![htmlにhelloする](imgs/html-hello-world.png)
+
+このとき↑のコードの`<p>`,`</p>`を**タグ**といい、HTMLでは文字列をタグで囲むことで表示を指定することができます。ここで使用しているpタグは paragraph のpをとった段落を示すタグです。
+
+他にも様々なタグがあります。以下で重要なものについて説明していきます。
 
 ## 3. レイアウトを考えよう
 
