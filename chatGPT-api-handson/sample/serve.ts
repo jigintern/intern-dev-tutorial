@@ -4,27 +4,27 @@ import { fetchConversation } from "https://code4fukui.github.io/ai_chat/fetchCon
 import { serveDir } from "https://deno.land/std@0.180.0/http/file_server.ts";
 import { serve } from "https://deno.land/std@0.180.0/http/server.ts";
 
-serve(async (req) => {
-  const pathname = new URL(req.url).pathname;
+serve(async (request) => {
+  const pathname = new URL(request.url).pathname;
   console.log(pathname);
 
-  if (pathname === "/api/conversation" && req.method === "POST") {
-    const json = await req.json();
+  if (pathname === "/api/conversation" && request.method === "POST") {
+    const json = await request.json();
     console.log(json);
-    const res = await fetchConversation(json.messages, null, true);
-    console.log(res);
-    return new Response(JSON.stringify({ message: res }));
+    const response = await fetchConversation(json.messages, null, true);
+    console.log(response);
+    return new Response(JSON.stringify({ message: response }));
   }
 
-  if (pathname ==="/api/chat" && req.method === "POST") {
-    const json = await req.json();
+  if (pathname ==="/api/chat" && request.method === "POST") {
+    const json = await request.json();
     console.log(json);
-    const res = await fetchChat(json.message);
-    console.log(res);
-    return new Response(JSON.stringify({ message: res }));
+    const response = await fetchChat(json.message);
+    console.log(response);
+    return new Response(JSON.stringify({ message: response }));
   }
 
-  return serveDir(req, {
+  return serveDir(request, {
     fsRoot: "public",
     urlRoot: "",
     showDirListing: true,
