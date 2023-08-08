@@ -22,8 +22,8 @@
     "useTabs": false,
     "lineWidth": 80,
     "indentWidth": 2,
-    "semiColons": true,
-    "singleQuote": false,
+    "semiColons": false,
+    "singleQuote": true,
     "proseWrap": "preserve",
     "include": ["./**/*.js"]
   },
