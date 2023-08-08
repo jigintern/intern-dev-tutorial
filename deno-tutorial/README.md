@@ -22,7 +22,7 @@
 
 サンプルプロジェクトを通じて`Deno`について触れていきます。
 
-「**Deno**」は、`JavaScriptやTypeScript`を実行する環境です。
+「**Deno**」は、`JavaScript`や`TypeScript`を実行する環境です。
 `.js/.ts`の拡張子のファイルを実行させるためにはいくつか方法がありますが、その中でも**より手軽に、より便利に実行できる環境**といった感じです。
 
 `Deno`の特徴は
@@ -48,7 +48,7 @@
 
 `ターミナル`を準備してから、公式サイトのコマンドをコピーしてターミナルに貼り付けてインストールしてみましょう。
 
-`ターミナル`は`Windows`なら`powershell`、`mac`なら`zsh`などがありますが、なんでも大丈夫です。
+`ターミナル`は`Windows`なら`powershell`、`mac`なら`ターミナル`などがありますが、なんでも大丈夫です。
 
 `mac`の人は`homebrew`というパッケージ管理ツールをインストールして、その`homebrew`を使用して`Deno`をインストールすると今後も便利そうです。
 
@@ -79,6 +79,8 @@
 ```
 
 ## JavaScriptのコードを実行してみよう
+
+まずカレントディレクトリを`intern-dev-tutorial/deno-tutorial`に移動しましょう。
 
 ターミナルで以下のテキストを入力してEnterを押してみましょう
 ```
@@ -265,7 +267,7 @@ deno fmt
 
 コードを整形する際の項目については`deno.json`の`fmt`の部分から設定できます。
 
-設定できるフォーマッ他の種類については[公式サイト](https://deno.land/manual@v1.35.1/tools/formatter)から確認できます。
+設定できるフォーマッタの種類については[公式サイト](https://deno.land/manual@v1.35.1/tools/formatter)から確認できます。
 
 このように`Deno`にはコードを整形してくれるフォーマッタも標準で備わっています。
 
@@ -423,7 +425,7 @@ import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
 だから、`from "https://deno.land/std@0.194.0/http/server.ts"`を`from "http/server.ts"`で簡略化しています。
 
 `import maps`という仕組みを利用するメリットとしては
-- URLを描かなくて済むため
+- URLを書かなくて済むため
   - 書く量が少なくなりわかりやすいこと
   - ライブラリのバージョンなどの入力ミスを防げること
 - `deno.json`の`import`箇所をみることで、このプロジェクトで使用されているモジュールを一発で確認できる
@@ -515,7 +517,7 @@ window.onload = async () => {
 ```js
 const response = await fetch("/welcome-message");
 ```
-では`fetch`関数を使用しています。
+ここでは`fetch`APIを使用しています。
 `fetch`関数は引数で`path`を指定して、サーバーにリクエストを送ります。
 
 この場合引数が`/welcome-message`をなっているので、現在開いているアドレスの`http://localhost:8000/`にpathの`/welcome-message`をくっ付けて`http://localhost:8000/welcome-message`にアクセスします。
