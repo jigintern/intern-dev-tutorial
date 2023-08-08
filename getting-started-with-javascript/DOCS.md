@@ -738,9 +738,9 @@ const myClass = new MyClass('my text');
 const randomDelay = () => new Promise((resolve, reject) => {
   const delay = Math.floor(Math.random() * 1000);
   if (delay % 2 === 0) {
-    setTimeout(resolve(`${delay} is even.`), delay);
+    setTimeout(() => resolve(`${delay} is even.`), delay);
   } else {
-    setTimeout(reject(`${delay} is odd.`), delay);
+    setTimeout(() => reject(`${delay} is odd.`), delay);
   }
 });
 
