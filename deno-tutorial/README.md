@@ -1,6 +1,7 @@
 # intern-dev-tutorial
 
 # 目次
+- [Denoって何？](#denoって何)
 - [Denoをインストールしよう](#deno-をインストールしよう)
 - [Denoのサンプルプロジェクトを触ってよう](#サンプルプロジェクトを触ってみよう)
   - [下準備](#下準備)
@@ -13,7 +14,29 @@
   - [ファイル構造を見てみよう](#ファイル構造)
   - [server.jsを読んでみよう](#serverjsを読んでみよう)
   - [public/index.jsを読んでみよう](#publicindexjsを読んでみよう)
-- [まとめ (Denoって何？)](#まとめ-denoって何)
+- [まとめ](#まとめ)
+
+# Denoって何？
+
+[公式サイト](https://deno.land/)
+
+サンプルプロジェクトを通じて`Deno`について触れていきます。
+
+「**Deno**」は、`JavaScriptやTypeScript`を実行する環境です。
+`.js/.ts`の拡張子のファイルを実行させるためにはいくつか方法がありますが、その中でも**より手軽に、より便利に実行できる環境**といった感じです。
+
+`Deno`の特徴は
+
+- TypeScriptを**標準で**サポートしている
+- ファイルの読み書きやネットワーク通信等がデフォルトで無効となっており、実行する際に明示的に権限を与える必要があり、**高いセキュリティ**が期待できる
+- 普段の開発で基本的に使われている機能を**デフォルトで**提供しています。
+- ブラウザとの通信を強く意識しており、多くの機能が[Web標準](https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web/The_web_and_web_standards)をベースに実装されています。
+- **ES Modulesベース**のモジュールシステムを前提としているため、何らかのライブラリを使用したい時には`import文`から取得することができる。
+- `npmパッケージ`もサポートされているため、使用したいライブラリが[`deno.land`](https://deno.land/x)にない時には、`import文`のURLを`npm:{パッケージ名}@{バージョン}`のような形にすることで、Denoが探してきてくれます。
+- 最新のJavaScript使用に準拠しています。
+
+が挙げられます。
+これからこれらの特徴について実際に動かして学んでいきましょう。
 
 # Deno をインストールしよう
 
@@ -25,7 +48,7 @@
 
 `ターミナル`を準備してから、公式サイトのコマンドをコピーしてターミナルに貼り付けてインストールしてみましょう。
 
-`ターミナル`は`windows`なら`powershell`、`mac`なら`zsh`などがありますが、なんでも大丈夫です。
+`ターミナル`は`Windows`なら`powershell`、`mac`なら`zsh`などがありますが、なんでも大丈夫です。
 
 `mac`の人は`homebrew`というパッケージ管理ツールをインストールして、その`homebrew`を使用して`Deno`をインストールすると今後も便利そうです。
 
@@ -96,9 +119,9 @@ deno run --watch --allow-net --allow-read server.js
 
 この後で説明する機能の設定も全てそこに記載してあります。
 
-では次に`deno run --watch --allow-net --allow-read server.js`を紐どいていきましょう。
+では次に実際に実行されていた`deno run --watch --allow-net --allow-read server.js`について説明していきます。
 
-`deno run server.js`で「`server.js`を実行(`run`)する」という処理を行います。
+`deno run server.js`では「`server.js`を実行(`run`)する」という処理を行います。
 
 実際に先ほどブラウザの画面に「Jig.jpインターンへようこそ」の文言が表示されましたが、その文言を表示させるための処理が`server.js`に書かれていて、それを実行したわけです。
 
@@ -108,7 +131,7 @@ deno run server.js
 ```
 のような`deno run ***`は`Deno`で`JavaScript`ファイルを実行する基本的なコマンドになります。
 
-では、`--watch --allow-net --allow-read`は何？ということですが、こちらは`index.js`を実行する際の**オプション指定**になります。一つずつ見ていきましょう。
+では、`--watch --allow-net --allow-read`は何？ということですが、こちらは`server.js`を実行する際の**オプション指定**になります。一つずつ見ていきましょう。
 
 `--watch`は`server.js`をもし書き換えたときに再度`deno run server.js`をし直さなくても、ファイルを書き換えて保存した時にそれを検知して勝手に再度実行し直してくれるように指定するものです。
 
@@ -121,11 +144,14 @@ deno run server.js
 - `--allow-read`: ファイルの読み込み
 - `--allow-write`: ファイルへの書き込み
 - `--allow-env`: 環境変数へのアクセス
+
+基本的にパーミッションは必要なものだけを許可するようにしたほうが良いですが、**全て許可する**というオプション指定もあります。
 - `--allow-all, -A`: すべて許可
 
 このことを踏まえて改めて、`deno run --watch --allow-net --allow-read server.js`を見てみましょう。
 
-`--allow-net  --allow-read`のパーミッションが指定されているので、`ネットワークへのアクセス`と`ファイルの読み込み`が許可されています。後ほど説明しますが`server.js`内では、ブラウザからアクセスされた時に`public`フォルダにあるファイルを読み込んで返す処理を行っているため、その際に必要な`ネットワークへのアクセス`と`ファイルの読み込み`を許可しているということになります。
+`--allow-net  --allow-read`のオプション指定がされています。    
+後ほど説明しますが`server.js`内では、「ブラウザからアクセスされた時に`public`フォルダにあるファイルを読み込んでクライアント側へ送信する処理」を行っているため、その際に必要な`ネットワークへのアクセス`と`ファイルの読み込み`の権限を`--allow-net  --allow-read`許可しています。
 
 試しに
 ```txt
@@ -396,7 +422,12 @@ import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
 
 だから、`from "https://deno.land/std@0.194.0/http/server.ts"`を`from "http/server.ts"`で簡略化しています。
 
-これは`http`モジュールをいろんなところで使用している場合に毎度`https`から下記必要がなくなったり、`deno.json`の`import`分をみることで、このプロジェクトで使用されているモジュールを一発で確認することができます。
+`import maps`という仕組みを利用するメリットとしては
+- URLを描かなくて済むため
+  - 書く量が少なくなりわかりやすいこと
+  - ライブラリのバージョンなどの入力ミスを防げること
+- `deno.json`の`import`箇所をみることで、このプロジェクトで使用されているモジュールを一発で確認できる
+
 
 続きをみていきましょう。
 ```js
@@ -489,15 +520,17 @@ const response = await fetch("/welcome-message");
 
 この場合引数が`/welcome-message`をなっているので、現在開いているアドレスの`http://localhost:8000/`にpathの`/welcome-message`をくっ付けて`http://localhost:8000/welcome-message`にアクセスします。
 
-このリクエストを先ほどの`server.js`で説明した、
+`server.js`で、このクライアントからのリクエストを処理する形になっていて
+
 ```js
 if (req.method === "GET" && pathname === "/welcome-message") {
   return new Response("jig.jpインターンへようこそ！👍");
 }
 ```
-の部分でキャッチして`"jig.jpインターンへようこそ！👍"`という文字を返却するという流れになります。
+の部分でクライアント側に`"jig.jpインターンへようこそ！👍"`という文字を返しています。
 
-サーバーにリクエストを送って、返って文字を表示する流れが
+サーバー側から返ってきた文字列をクライアント側のブラウザに表示する処理は`public`フォルダ内の`index.js`で行っています。
+
 ```js
 document.querySelector("#welcomeMessage").innerText = await response.text();
 ```
@@ -507,25 +540,19 @@ document.querySelector("#welcomeMessage").innerText = await response.text();
 
 これで`http://localhost:8000/`にアクセスした時に、「jig.jpインターンへようこそ！👍」の文言が画面に表示されるサンプルプロジェクトの流れを追うことができました。
 
-# まとめ (Denoって何？)
+# まとめ
 
-[公式サイト](https://deno.land/)
+このセクションで学んだことを整理してみましょう。
 
-これまでサンプルプロジェクトを通じて`Deno`について触れてきました。
-
-ここで`Deno`について、再度まとめてみます。
-
-「**Deno**」は、`JavaScriptやTypeScript`を実行する環境です。
-`.js/.ts`の拡張子のファイルを実行させるためにはいくつか方法がありますが、その中でも**より手軽に、より便利に実行できる環境**といった感じです。
-
-`Deno`の特徴は
-
-- TypeScriptを**標準で**サポートしている
-- ファイルの読み書きやネットワーク通信等がデフォルトで無効となっており、実行する際に明示的に権限を与える必要があり、**高いセキュリティ**が期待できる
-- 普段の開発で基本的に使われている機能を**デフォルトで**提供しています。
-- ブラウザとの通信を強く意識しており、多くの機能が[Web標準](https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web/The_web_and_web_standards)をベースに実装されています。
-- **ES Modulesベース**のモジュールシステムを前提としているため、何らかのライブラリを使用したい時には`import文`から取得することができる。
-- `npmパッケージ`もサポートされているため、使用したいライブラリが[`deno.land`](https://deno.land/x)にない時には、`import文`のURLを`npm:{パッケージ名}@{バージョン}`のような形にすることで、Denoが探してきてくれます。
-- 最新のJavaScript使用に準拠しています。
-
-このように`Deno`には標準で様々な機能が備わっているため、ぜひ使用してみてください！
+- `Deno`について
+  - `deno task **`
+  - `deno run **`
+  - `deno lint`
+  - `deno fmt`
+  - `deno test`
+  - `deno run`のオプション指定
+  - `import map`について
+- サンプルプロジェクトについて
+  - `ESModule`の形でのファイルの読み込み
+  - `server.js`から、クライアント側からのリクエストに対してファイルを返したり、文字列を返したりする処理
+  - サーバー側へリクエストを送る`fetch()`API
