@@ -695,7 +695,7 @@ const insertResult = await mySqlClient.execute(`
     INSERT INTO teacher_自分の名前 (
         name, joining_date
     ) VALUES (
-        ??, ??
+        ?, ?
     );
 `, [
     "じぐ美先生",
