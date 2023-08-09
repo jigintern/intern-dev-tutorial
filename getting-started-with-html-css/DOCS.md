@@ -568,25 +568,238 @@ UAスタイルシートやCSS初期値に対して、オーサースタイルシ
   webアプリケーション開発などで重宝することもあるので頭の片隅にでもおいておいてください。
 </details>
 
-### 3-4. 思いどおりの見た目を作ろう
+### 3-4. セレクタでもっと限定的にスタイルを適用できるようになろう
+
+3-1.で説明した通り、CSSはセレクタを指定することでそのセレクタ以下に見た目を設定します。ここではセレクタについて詳しく説明します。
+セレクタに以下のものがあります。
+
+- 全称セレクタ
+  - 全ての要素を選択するセレクタ
+  - `*`で表します。
+- 要素型セレクタ
+  - あるHTML要素を選択するセレクタ
+  - `<h1>`要素なら`h1`と表します。
+- クラスセレクタ
+  - `class="<クラス名>"`とclass属性が指定された要素を選択するセレクタ
+  - クラス名が`class-name`なら`.class-name`と表します。
+- IDセレクタ
+  - HTML要素に`id="<id名>"`とid属性を指定することで、`#<id名>`としてid属性が指定されたすべての要素を選択します
+  - id名は重複してはいけません
+- 属性セレクタ
+  - HTML要素に付与された任意の属性`attr`に対して、`[attr]`や、属性に特定の値が指定されているものを`[attr=value]`などとして、その属性が付与された要素を選択できます
+- グループ化セレクタ
+  - `,`でこれまでのセレクタをつなげる、例えば`header, footer`とすることで、`<header>`要素と`<footer>`要素の両方を選択します
+
+これらのセレクタと以下の結合子を用いることで要素をより限定できます。
+結合子はこれ以外にもありますが、使用機会が少ないため省きます。知りたい方は[こちらへ](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_selectors#%E7%B5%90%E5%90%88%E5%AD%90)
+
+- 子孫結合子
+  - ` `(スペース)
+  - `p span`として指定すると、`<p>`要素の *子孫にある* 全ての`<span>`要素を選択します
+- 子結合子
+  - `>`
+  - `p>span`として指定すると、`<p>`要素の *子にある* 全ての`<span>`要素を選択します。
+
+### 3-5. 思いどおりの見た目を作ろう
 
 ここまで長い前置きでしたね。いよいよ楽しい楽しいCSSの始まりです！
 
-#### 3-4-1. CSSカスタムプロパティを使おう
+#### 3-5-1. CSSカスタムプロパティを使おう
 
-CSSにもJSでいう変数のようなカスタムプロパティというものがあります。↓のようにして宣言できます。
+CSSには(JSでいう定数のような)設定して特定の値として利用できるカスタムプロパティというものがあります。↓のようにして宣言できます。
 
 ```css
 :root {
-  <プロパティ名>: <値>
+  <カスタムプロパティ名>: <値>
 }
 ```
 
-#### 3-4-2. 文字の見た目を変更しよう
+カスタムプロパティ名は`--`から始まる必要があることに注意してください。
+ここでセレクタとして`:root`疑似要素を使用しています。これはルート要素セレクタと同等の働きをします。このように宣言することで文書中の適当な場所からもカスタムプロパティを利用できるようになります。
+また、カラーコードやキーワードでの指定に比べて、色の持つ意味等もカスタムプロパティ名で伝えられるので、可読性に良い影響を与えるでしょう。
 
-#### 3-4-3. 要素の見た目を変更しよう
+```css
+:root {
+  --color-greeting: #668844;
+}
 
-### 3-5. 擬似クラスと疑似要素を使いこなそう
+h1 {
+  color: var(--color-greeting);
+}
+```
+
+↑のように、設定したカスタムプロパティに`var(<カスタムプロパティ名>);`とすることで値にアクセスできます。
+
+![カスタムプロパティ](imgs/css-custom-property.png)
+
+#### 3-5-2. 文字の見た目を変更しよう
+
+ここまででも文字色の変更はやってますね。あんなふうに文字の見た目を変更するプロパティを紹介します。
+
+| プロパティ | 影響箇所 | 実行結果 |
+| ---- | ---- | ---- |
+| `color` | 色 | ![色](imgs/css-color-sample.png) |
+| `font-size` | 文字の大きさ | ![大きさ](imgs/css-font-size-sample.png) |
+| `font-weight` | 文字の太さ | ![太さ](imgs/css-font-weight-sample.png) |
+| `font-style` | 書体(斜体) | ![斜体](imgs/css-font-style-sample.png) |
+| `text-decoration` | 線 | ![下線](imgs/css-text-decoration-sample.png) |
+| `font-family` | フォント | ![フォント](igms/../imgs/css-font-family-smple.png) |
+
+↑の例以外のプロパティや値もたくさんあるので、[mdn web docs](https://developer.mozilla.org/ja/docs/Web/CSS)やGoogle先生に聞いたりして調べて使ってください。
+
+#### 3-5-3. 要素の見た目を変更しよう
+
+ここで言う要素の見た目は例えば境界線や要素の背景、見かけの形のことです。
+
+##### 背景と境界線
+
+要素の背景や境界線に関するプロパティと実行結果を表に示します。
+
+| プロパティ | 影響箇所 | 実行結果 |
+| ---- | ---- | ---- |
+| `background-color` | 背景色 | ![背景色の指定](imgs/css-background-color-sample.png) |
+| `background-image` | 背景画像 | ![背景画像の指定](imgs/css-background-image-sample.png) |
+| `background-size` | 背景画像の大きさ | ![背景画像の大きさ](imgs/css-background-size-sample.png) |
+| `background-repeat` | 背景画像の繰り返し | ![背景画像の繰り返し](imgs/css-background-repeat-sample.png) |
+| `background-position` | 背景画像の位置 | ![背景画像の位置](imgs/css-background-position-sample.png) |
+| `background-blend-mode` | 背景色と背景画像の混色 | ![背景色との混色法](imgs/css-background-blend-mode-sample.png) |
+| `border` | 境界線 | ![境界線](imgs/css-border-sample.png) |
+| `border-radius` | 境界線の角の丸め | ![境界線の角の丸め](imgs/css-border-radius-sample.png) |
+
+文字の見た目と同様に、背景や境界線に関するプロパティや値ももっとたくさんあります。↑に示したのは一例なので、実際に使うときに調べながら開発してください。
+
+##### 形をかえよう
+
+↓に見かけ上の形を変えるサンプルをいくつか置いておきます。（サンプルのように書かなければならない、というものではないです。）
+
+- <details>
+  <summary>楕円</summary>
+
+  ```css
+    div {
+      width: 300px;
+      height: 200px;
+
+      background-color: lightblue;
+
+      border-radius: 50%;
+    }
+  ```
+</details>
+
+- <details>
+  <summary>角丸四角形</summary>
+ 
+  ```css
+    div {
+      width: 300px;
+      height: 200px;
+
+      background-color: lightblue;
+
+      border-radius: 100vh;
+    }
+  ```
+</details>
+
+- <details>
+  <summary>吹き出し(1)</summary>
+  
+  ```css
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      width: 300px;
+      height: 200px;
+
+      position: relative;
+
+      background-color: #add8e6;
+
+      border: 5px solid midnightblue;
+      border-radius: 20px;
+    }
+
+    div::before {
+      position: absolute;
+      top: calc(200px - 5px * 2 - 5px);
+      left: 20px;
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-color: midnightblue;
+      transform: rotate(45deg);
+      z-index: -1;
+    }
+
+    div::after {
+      position: absolute;
+      top: calc(200px - 5px * 2 - 11px);
+      left: 20px;
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-color: lightblue;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+
+    span {
+      font-family: cursive;
+    }
+  ```
+</details>
+
+- <details>
+  <summary>吹き出し(2)</summary>
+  
+  ```css
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      width: 300px;
+      height: 200px;
+
+      position: relative;
+
+      background-color: #add8e6;
+
+      border: 5px solid midnightblue;
+      border-radius: 20px;
+    }
+
+    div::before {
+      box-sizing: border-box;
+      content: '';
+      position: absolute;
+      top: 195px;
+      left: 20px;
+      border: 10px solid;
+      border-color: midnightblue transparent transparent transparent;
+    }
+
+    div::after {
+      box-sizing: border-box;
+      content: '';
+      position: absolute;
+      top: 190px;
+      left: 22px;
+      border: 8px solid;
+      border-color: lightblue transparent transparent transparent;
+    }
+
+    span {
+      font-family: cursive;
+    }
+  ```
+</details>
+
+CSSをうまく使うと様々な図形を作れます。自分の想像力次第なのでぜひ気合で頑張ってみてください。
+![サンプル](imgs/css-balloon-sample.png)
 
 ## 4. 動的にページに変更を加えよう
 
