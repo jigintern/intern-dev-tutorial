@@ -25,7 +25,7 @@
 
 「**Deno**」は、JavaScriptやTypeScriptを実行する環境です。
 
-// TODO: 画像挿入
+<img src="./imgs/スクリーンショット 2023-08-10 16.15.00.png" alt="deno">
 
 `Deno`には様々な機能がありますが、このセクションでは以下の内容を学びます。
 
@@ -71,15 +71,23 @@
 
 2. VScodeの拡張機能のタブから「Deno」を検索してインストールしよう
 
-// TODO: 画像挿入
+<img src="./imgs/スクリーンショット 2023-08-10 16.18.15.png" alt="deno">
 
 3. VScodeの上のヘッダーの「**表示**」から「**コマンドパレット(Command Palette)**」を押して、「**Deno: Initialize Workspace Configuration**」を選択して、すべて**yes**を選択して、Denoを使用できるようにしよう
 
-// TODO: 画像挿入
+<img src="./imgs/スクリーンショット 2023-08-10 16.21.05.png" alt="deno">
+
+<img src="./imgs/スクリーンショット 2023-08-10 16.21.33.png" alt="deno">
+
+<img src="./imgs/スクリーンショット 2023-08-10 16.21.37.png" alt="deno">
+
+<img src="./imgs/スクリーンショット 2023-08-10 16.21.39.png" alt="deno">
 
 4. VScodeの上のヘッダーの「**ターミナル**」から「**new Terminal**」を押して、ターミナルを表示しておこう
 
-// TODO: 画像挿入
+<img src="./imgs/スクリーンショット 2023-08-10 16.20.38.png" alt="deno">
+
+<img src="./imgs/スクリーンショット 2023-08-10 16.26.08.png" alt="deno">
 
 3を行うと現在のフォルダに`.vscode`というフォルダが作成されて、中に`settings.json`というファイルが作成されると思います。
 
