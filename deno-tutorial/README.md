@@ -1,22 +1,25 @@
 # intern-dev-tutorial
 
 # 目次
-- [1. Denoって何？](#1denoって何)
-- [2. Denoをインストールしよう](#2deno-をインストールしよう)
-- [3. Denoのサンプルプロジェクトを触ってよう](#3サンプルプロジェクトを触ってみよう)
-  - [3-1. 下準備](#3-1下準備)
-  - [3-2. JavaScriptのコードを実行してみよう](#3-2javascriptのコードを実行してみよう)
-  - [3-3. 毎回打ち込むコマンドが長い](#3-3毎回打ち込むコマンドが長い)
-  - [3-4. JavaScriptファイルをリントしてみよう](#3-4javascriptファイルをリントしてみよう)
-  - [3-5. JavaScriptファイルをフォーマットしてみよう](#3-5javascriptファイルをフォーマットしてみよう)
-  - [3-6. JavaScriptファイルをテストしてみよう](#3-6javascriptファイルをテストしてみよう)
-- [4. サンプルプロジェクトのコードを読んでみよう](#4サンプルプロジェクトのコードを読んでみよう)
-  - [4-1. ファイル構造を見てみよう](#4-1ファイル構造を見てみよう)
-  - [4-2. server.jsを読んでみよう](#4-2serverjsを読んでみよう)
-  - [4-3. public/index.jsを読んでみよう](#4-3publicindexjsを読んでみよう)
-- [5. まとめ](#5まとめ)
+- [1. Denoって何？](#1-denoって何)
+- [2. Denoをインストールしよう](#2-deno-をインストールしよう)
+- [3. Denoのサンプルプロジェクトを触ってよう](#3-サンプルプロジェクトを触ってみよう)
+  - [3-1. 下準備](#3-1-下準備)
+  - [3-2. JavaScriptのコードを実行してみよう](#3-2-javascriptのコードを実行してみよう)
+  - [3-3. 毎回打ち込むコマンドが長い](#3-3-毎回打ち込むコマンドが長い)
+  - [3-4. JavaScriptファイルをリントしてみよう](#3-4-javascriptファイルをリントしてみよう)
+  - [3-5. JavaScriptファイルをフォーマットしてみよう](#3-5-javascriptファイルをフォーマットしてみよう)
+  - [3-6. JavaScriptファイルをテストしてみよう](#3-6-javascriptファイルをテストしてみよう)
+- [4. サンプルプロジェクトのコードを読んでみよう](#4-サンプルプロジェクトのコードを読んでみよう)
+  - [4-1. ファイル構造を見てみよう](#4-1-ファイル構造を見てみよう)
+  - [4-2. server.jsを読んでみよう](#4-2-serverjsを読んでみよう)
+    -  [4-2-1. ESModuleの形でファイルを読み込む](#4-2-1-esmoduleの形でファイルを読み込む)
+    - [4-2-2. import mapを使ってみよう](#4-2-2-import-mapを使ってみよう)
+    - [4-2-2. クライアント側からのAPIリクエストを処理](#4-2-2-クライアント側からのapiリクエストを処理)
+  - [4-3. public/index.jsを読んでみよう](#4-3-publicindexjsを読んでみよう)
+- [5. まとめ](#5-まとめ)
 
-# 1.Denoって何？
+# 1. Denoって何？
 
 [公式サイト](https://deno.land/)
 
@@ -36,10 +39,13 @@
 
 また、このセクションではサンプルプロジェクトを通じて、以下の内容も学びます。
 
+- ESModuleの形でファイルを読み込む方法
+
 - クライアント側からサーバー側へAPIリクエストを送る方法(**fetch API**)
+
 - クライアント側からのAPIリクエストに対して、ファイルや文字列を返す方法
 
-# 2.Deno をインストールしよう
+# 2. Deno をインストールしよう
 
 [公式サイト - Denoのインストール方法](https://deno.land/manual@v1.35.0/getting_started/installation)
 
@@ -56,7 +62,7 @@
 [homebrewの公式サイト](https://brew.sh/index_ja)
 
 
-# 3.サンプルプロジェクトを触ってみよう
+# 3. サンプルプロジェクトを触ってみよう
 
 サンプルプロジェクトの中のコードをDenoで実行してみよう。
 
@@ -578,100 +584,156 @@ error: Test failed
 
 ## 4-2. server.jsを読んでみよう
 
-`server.js`を開くとまず最初に
+このセクションでは`server.js`を読みながら以下のことを学んでいきましょう！
+- ESModuleの形でファイルを読み込む方法
 
-```js
-// https://deno.land/std@0.194.0/http/server.ts?s=serve
-import { serve } from "http/server.ts";
-// https://deno.land/std@0.194.0/http/file_server.ts?s=serveDir
-import { serveDir } from "http/file_server.ts";
-```
+- import mapを使う方法
 
-があります。
-こちらはこのファイルで必要になる関数を外部から取り込んでいます。
+- クライアント側からのAPIリクエストに対して、ファイルや文字列を返す方法
 
-`Deno`で「`ファイルを外部から取り込む`」時は`ESModule`というファイルの読み込みの仕組みを採用しています。
+## 4-2-1. ESModuleの形でファイルを読み込む
 
-`ESModule`の特徴は
+まずは「ESModuleの形でファイルを読み込む方法」について学んでいきます。
+
+Denoで「ファイルを外部から取り込む」時は**ESModule**というファイルの読み込みの仕組みを採用しています。
+
+**ESModule**の特徴は
 - `import`, `export`を用いて取り入れ/公開を制御
 - ファイルを実行するときに、勝手に`import`先からコードを参照するため、複数のファイルを読み込む必要がなくなります。
 
-先ほど、`deno task start`で、`server.js`だけを実行していましたが、その中で、`import`で指定された先から欲しい関数を取ってきて使ってたのです。
+以下のようにしてそのJavaScriptファイルに必要な外部の変数やメソッドを取り込むことができます。
 
-ちなみにhtmlファイルからアクセスするときは
+```ts
+import { <変数>, <メソッド> } from "JavaScriptファイルのPathやUrl"
+```
+
+また、`html`ファイルからJavScriptファイルを読み込みたい時がありますが、  
+その場合は`type="module"`を付与して以下のようにします。
 
 ```html
-<script type="module" src="hogehoge.js"></script>
-```
-のように`type="module"`をつけることを忘れないようにしましょう。
-
-次に、`from`の続きに注目してみましょう。
-
-```js
-// https://deno.land/std@0.194.0/http/server.ts?s=serve
-import { serve } from "http/server.ts";
+<script type="module" src="<JavaScriptファイルのPathやUrl>"></script>
 ```
 
-こちらは
+`server.js`の最初の行で行っているように外部の`serve`と`serveDir`メソッドを取り込むことは以下のようにしてできます。
+
 ```js
 import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
+import { serveDir } from "https://deno.land/std@0.194.0/http/file_server.ts";
 ```
-のように書いてもいいのですが、`import maps`という仕組みを利用しています。
 
-`deno.json`の`import`部分を見てみると、
+しかし、実際の`server.js`で書かれているコードは少し違っていますね。
+そのことに関しては次のセクションで学びましょう。
+
+上記のコードで書いても問題なく動くため安心してください。
+
+このセクションでは**ESModule**と言う形で外部のファイルを取り込む方法を学びました！
+
+## 4-2-2. import mapを使ってみよう
+
+前のセクションで以下のように外部の変数やメソッドを取り込む方法を学びました。
+
+```js
+import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
+import { serveDir } from "https://deno.land/std@0.194.0/http/file_server.ts";
+```
+
+全てURLを直書きで書こうとすると   
+例えば以下のように一見同じバージョンのものを取り込んでいるように見えて実際には異なることが起きてもなかなか気づきにくいです。(`0.194.0`と`0.195.0`)
+
+```js
+import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
+import { serveDir } from "https://deno.land/std@0.195.0/http/file_server.ts";
+```
+
+ここで便利なのがDenoの**import map**と言う機能です。
+
+まず`deno.json`の`import`部分をみてみると以下のようになっています。
 ```json
   "imports": {
-    "http/": "https://deno.land/std@0.194.0/http/",
-    "testing/": "https://deno.land/std@0.193.0/testing/"
+    "http/": "https://deno.land/std@0.194.0/http/"
   },
 ```
-のようになっています。
-こちらは、「`from`で外部のファイルを取り入れるときに、`https://deno.land/std@0.194.0/http/`の部分を`http/`で、`https://deno.land/std@0.193.0/testing/`の部分を`testing/`で置き換えられます」といった指定をしています。
 
-だから、`from "https://deno.land/std@0.194.0/http/server.ts"`を`from "http/server.ts"`で簡略化しています。
+この設定によってJavaScriptファイルで外部のファイルにアクセスするとき、  
+`https://deno.land/std@0.194.0/http/`は`http/`でアクセスできるようになりました。
 
-`import maps`という仕組みを利用するメリットとしては
-- URLを書かなくて済むため
-  - 書く量が少なくなりわかりやすいこと
-  - ライブラリのバージョンなどの入力ミスを防げること
-- `deno.json`の`import`箇所をみることで、このプロジェクトで使用されているモジュールを一発で確認できる
+よって以下のように書き換えることができます！
+```ts
+import { serve } from "http/server.ts";
+import { serveDir } from "http/file_server.ts";
+```
 
+スッキリして良さそうですね。
 
-続きをみていきましょう。
+**import map**と言う機能を使用することで以下のようなメリットがあります。
+- 毎回`https://`からURLを直書きする必要がなくなる
+
+- 可読性が上がる
+
+- 使用する外部のファイルのバージョンを固定できる
+
+- 逆にバーションを上げたり下げたりするときは`deno.json`の`import`部分のURLの数字を変えるだけで全てのファイルに適用される
+
+- `deno.json`の`import`部分を見るだけで、このプロジェクトで使用されているライブラリの一覧が見れる
+
+ぜひ使ってみましょう！
+
+このセクションでは**import map**と言う機能の使い方や使用するメリットを学びました。
+
+## 4-2-3. クライアント側からのAPIリクエストを処理
+
+このセクションではクライアント側からのAPIリクエストに対する以下のような処理を学びましょう！
+- APIリクエストの種類を判別する処理
+
+- ファイルを返す処理
+
+- 文字列を返す処理
+
+まずクライアント側からのAPIリクエストを受け付ける処理は以下のように`serve`関数で行います
+
 ```js
 /**
  * APIリクエストを処理する
  */
 serve((req) => {
-  // code
+  // リクエストに対する処理の中身
 });
 ```
 
-ここの部分はブラウザからのAPIリクエストがあったときに、関数内で登録してある処理を実行します。
+この`req`変数を用いてAPIリクエストの`method`部分と`path`部分を見ていきます。
+
+APIリクエストには`method`というものがあり
+
+- GET (取得)
+
+- POST (送る)
+
+- PUT (置き換え)
+
+- DELETE (削除)
+
+があります。
+
+またAPIリクエストの**path**というものはmethodが「GET」であるとした時に  
+`GET http://localhost:8000/welcome-message`の`/welcome-message`部分を指します
+
+サンプルプロジェクトの`serve.js`では  
+受け付けたAPIリクエストの`method`が`GET`で、`path`が`/welcome-message`の時に`return new Response(<文言>)`で文言を返しています。
+
+以下の箇所で行っています。
 
 ```js
   // URLのパスを取得
   const pathname = new URL(req.url).pathname;
   // パスが"/welcome-message"だったら「"jigインターンへようこそ！"」の文字を返す
   if (req.method === "GET" && pathname === "/welcome-message") {
+    // 文言を返す
     return new Response("jig.jpインターンへようこそ！👍");
   }
 ```
 
-この部分は、APIリクエストの`method`部分と`path`部分を見ています。
-APIリクエストには`method`というものがあり
-- GET (取得)
-- POST (送る)
-- PUT (置き換え)
-- DELETE (削除)
-があります。
-
-また`path`というものは、
-`http://localhost:8000/welcome-message`の`/welcome-message`部分を指します。
-
-このコードでは、受け付けたAPIリクエストの`method`が`GET`で、`path`が`/welcome-message`の時に「"jig.jpインターンへようこそ！👍"」のメッセージを返しています。
-
-それ以外の時、例えば`http://localhost:8000/`にアクセスした時は、pathが`/`なので
+それ以外の時、例えば`http://localhost:8000/`にアクセスした時は、   
+pathが`/`なので以下のようにpublicフォルダをクライアントに返しています。
 
 ```js
   // publicフォルダ内にあるファイルを返す
@@ -683,34 +745,21 @@ APIリクエストには`method`というものがあり
   });
 ```
 
-のコードを実行しています。
-こちらのコードでは、`public`フォルダ内にあるファイルを返しています。
-
-よって、`deno task run`を実行してから、`http://localhost:8000/`にアクセスすると`public`内の`index.html`のページが表示されるんですね。
+よって、`deno run`を実行してから、`http://localhost:8000/`にアクセスすると`public`内の`index.html`のページが表示されるんですね。
 
 ## 4-3. public/index.jsを読んでみよう
 
-`public`フォルダの中の`index.js`を読んでみましょう！
+このセクションでは、`deno run`を実行してから`http://localhost:8000/`にアクセスした時にクライアント側に返されるpublicフォルダ内の`index.js`を読んでいきましょう。
 
-先ほどの「`server.js`を読んでみよう」で`http://localhost:8000/`にアクセスされた時に`public`内の`index.html`のページが表示されることを説明しましたが、`index.html`では`index.js`を読み込んでいます。
+`public`内の`index.html`のページが表示されることを説明しましたが、`index.html`では`index.js`を読み込んでいます。
 
-読み込み方法は
+読み込み方法は以下のように、ESModuleの形で読み込んでいます。
+
 ```html
 <script type="module" src="./index.js"></script>
 ```
-で`esmodule`の形で読み込んでいます。
 
-`index.js`の中身は
-```js
-/**
- * ロードが終わったら 「GET /welcome-message」でサーバーにアクセスする
- */
-window.onload = async () => {
-  const response = await fetch("/welcome-message");
-  document.querySelector("#welcomeMessage").innerText = await response.text();
-};
-```
-のようになっています。
+`index.js`をみてみましょう。
 
 ```js
 window.onload = async () => {
@@ -723,19 +772,12 @@ window.onload = async () => {
 ```js
 const response = await fetch("/welcome-message");
 ```
-ここでは`fetch`APIを使用しています。
-`fetch`関数は引数で`path`を指定して、サーバーにリクエストを送ります。
+ここでは**fetch API**を使用しています。
+fetch関数は引数で**path**を指定して、サーバーにリクエストを送ります。
 
-この場合引数が`/welcome-message`をなっているので、現在開いているアドレスの`http://localhost:8000/`にpathの`/welcome-message`をくっ付けて`http://localhost:8000/welcome-message`にアクセスします。
+この場合、引数が`/welcome-message`になっているので、現在開いているアドレスの`http://localhost:8000/`にpathの`/welcome-message`をくっ付けて`http://localhost:8000/welcome-message`にアクセスします。
 
-`server.js`で、このクライアントからのリクエストを処理する形になっていて
-
-```js
-if (req.method === "GET" && pathname === "/welcome-message") {
-  return new Response("jig.jpインターンへようこそ！👍");
-}
-```
-の部分でクライアント側に`"jig.jpインターンへようこそ！👍"`という文字を返しています。
+クライアント側に`"jig.jpインターンへようこそ！👍"`という文字を返しています。
 
 サーバー側から返ってきた文字列をクライアント側のブラウザに表示する処理は`public`フォルダ内の`index.js`で行っています。
 
@@ -750,17 +792,19 @@ document.querySelector("#welcomeMessage").innerText = await response.text();
 
 # 5. まとめ
 
-このセクションで学んだことを整理してみましょう。
+学んだことを整理してみましょう。
 
 - `Deno`について
-  - `deno task **`
   - `deno run **`
+  - `deno task **`
   - `deno lint`
   - `deno fmt`
   - `deno test`
-  - `deno run`のオプション指定
+  - `deno run`のパーミッション指定
   - `import map`について
 - サンプルプロジェクトについて
   - `ESModule`の形でのファイルの読み込み
   - `server.js`から、クライアント側からのリクエストに対してファイルを返したり、文字列を返したりする処理
   - サーバー側へリクエストを送る`fetch()`API
+
+ぜひ実際に開発を行う時にはDenoの様々な機能を活用してみてください！
