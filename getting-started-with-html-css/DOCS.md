@@ -98,7 +98,7 @@ GitHubアカウントでログイン可能なので右上の「Sign in」から�
 
 ![stackblitz新規プロジェクト初期状態](imgs/stackblits-opened-static-ide.png)
 
-ファイルビューアーにあるファイルをすべて削除して準備完了です。
+ファイルビューアにあるファイルをすべて削除して準備完了です。
 
 ### 2-1. HTMLをはじめよう
 
