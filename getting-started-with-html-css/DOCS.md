@@ -52,6 +52,7 @@
     - [4-3. CSSで要素の変化を魅せよう](#4-3-cssで要素の変化を魅せよう)
   - [5. 終わりに](#5-終わりに)
   - [6. 参考文献](#6-参考文献)
+
 </details>
 
 ## 1. HTML/CSSに触れてみよう
@@ -437,7 +438,6 @@ HTMLでも私達が普段話したり書いたりするのと同じように表�
 
 また、`<img>`要素に追加できる属性として`alt`属性があります。これは画像が取得できなかったときなどに表示される*代替テキスト*で、設定されている方が望ましいです。
 
-
 <details>
   <summary>空要素</summary>
 
@@ -481,7 +481,6 @@ webにおけるリンクと呼ばれるものは、正式にはハイパーリ�
 
 これらは、ブラウザに要素がどんなコンテンツを内包しているかをより詳細に伝えることができる要素です。
 詳細な説明は省きますが、これらの要素を適切に使うことで、よりアクセス性の良いwebコンテンツを作ることができます。
-
 
 ### 2-7. 何でもない便利要素 `<div>`
 
@@ -542,7 +541,7 @@ h1 {
 ### 3-2. ボックスモデルと`box-sizing`
 
 CSSでHTMLを装飾してページの見た目を変更していく上で、必ず知っておく必要があるものの一つがボックスモデルです。  
-CSSで表現できるものはすべてボックス、四角形の領域を持ちます。(たとえ見かけ上円形に見えてもです) 
+CSSで表現できるものはすべてボックス、四角形の領域を持ちます。(たとえ見かけ上円形に見えてもです)
 
 ![ボックスモデル](imgs/box-model.png)
 
@@ -961,10 +960,10 @@ footer {
 
 - `display: grid`
   - 指定された要素の子に対してグリッドレイアウトによる配置を適用します。
-- `grid-template: `
+- `grid-template:`
   - グリッドレイアウトでの要素の配置を指定します。
   - `grid-template-areas`、`grid-template-rows`、`grid-template-columns`を一括指定するプロパティです。
-- `grid-area: `
+- `grid-area:`
   - `grid-template-areas`で指定した文字列を指定することで、`template`中の該当文字列部分に要素が入ることを示します。
 
 グリッドレイアウトにより親しみたいあなたは[Grid Garden](https://cssgridgarden.com/#ja)に取り組んでみてください。
@@ -1284,6 +1283,7 @@ mainButton.addEventListener('click', updateMessage);
 この資料では説明しきれていないHTML要素やCSSプロパティも多数あります。それらは利用するときに適宜mdn web docsやGoogle検索などのちからを借りて調べながら書いてみてください。
 
 ## 6. 参考文献
+
 - mdn web docs
-  - html: https://developer.mozilla.org/ja/docs/Web/html
-  - css: https://developer.mozilla.org/ja/docs/Web/css
+  - html: <https://developer.mozilla.org/ja/docs/Web/html>
+  - css: <https://developer.mozilla.org/ja/docs/Web/css>
