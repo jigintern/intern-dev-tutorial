@@ -530,7 +530,6 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-
 ![foreach](imgs/calc-evenodd-foreach.png) ![index](imgs/calc-evenodd-index.png)
 
 for文中の処理の最初で`array[i]`を別の変数(例えば`value`)に代入しても良いですが、同様のことが`forEach()`では`(value) => {...}`とするだけでかけます。またfor文での処理と違い配列の長さを気にせず処理を行えるのも便利な特徴です。適宜使い分けると良いでしょう。
@@ -791,8 +790,8 @@ myClass.printText();
 
 ## 6. 非同期処理を使おう
 
-非同期処理とはその名の通りプログラム中で非同期的な処理を行うことで、例えばサーバーへのリクエストを送ってレスポンスを受けとりたいときなどに使用されます。
-ここまでのコードはすべて同期処理で、非同期処理とは対称的に書いてあるコードが上から順に処理されて行きます。しかし、同期処理ではサーバーへのリクエストを送ったあとレスポンスが帰ってくるまで何もすることができず（正確には「レスポンスを待つ」ことが処理になっているため次の処理に移れず）、処理にかかる時間が大幅に伸びてしまったりします。この待ち時間を解消するための仕組みが非同期処理です。
+非同期処理とはその名の通りプログラム中で非同期的な処理を行うことです。例えばサーバーへのリクエストを送ってレスポンスを受けとりたいときに使用されます。
+ここまでのコードはすべて同期処理で、非同期処理とは対称的に書いてあるコードが上から順に処理されて行きます。しかし、同期処理ではサーバーへのリクエストを送ったあとレスポンスが返ってくるまで何もすることができず（正確には「レスポンスを待つ」ことが処理になっているため次の処理に移れず）、処理にかかる時間が大幅に伸びてしまったりします。この待ち時間を解消するための仕組みが非同期処理です。
 
 [![同期処理のイメージ](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIEg6IOODquOCr-OCqOOCueODiFxuICBOb3RlIHJpZ2h0IG9mIEM6IOW-heOBoeaZgumWk1xuICBIIC0tPj4tIEM6IOODrOOCueODneODs-OCuVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIEg6IOODquOCr-OCqOOCueODiFxuICBOb3RlIHJpZ2h0IG9mIEM6IOW-heOBoeaZgumWk1xuICBIIC0tPj4tIEM6IOODrOOCueODneODs-OCuVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)[![非同期処理のイメージ](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IFAgYXMg6Z2e5ZCM5pyf5Yem55CGXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIFA6IOWHpueQhueZu-mMslxuICBQIC0-PisgSDog44Oq44Kv44Ko44K544OIXG4gIE5vdGUgcmlnaHQgb2YgQzog5LuW44Gu5Yem55CGXG4gIEggLS0-Pi0gUDog44Os44K544Od44Oz44K5XG4gIFAgLS0-Pi0gQzog44Kz44O844Or44OQ44OD44Kv5ZG844Gz5Ye644GXIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IFAgYXMg6Z2e5ZCM5pyf5Yem55CGXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIFA6IOWHpueQhueZu-mMslxuICBQIC0-PisgSDog44Oq44Kv44Ko44K544OIXG4gIE5vdGUgcmlnaHQgb2YgQzog5LuW44Gu5Yem55CGXG4gIEggLS0-Pi0gUDog44Os44K544Od44Oz44K5XG4gIFAgLS0-Pi0gQzog44Kz44O844Or44OQ44OD44Kv5ZG844Gz5Ye644GXIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
@@ -813,20 +812,22 @@ myClass.printText();
 ```javascript
 const randomDelay = () => new Promise((resolve, reject) => {
   const delay = Math.floor(Math.random() * 1000);
-  if (delay % 2 === 0) {
-    setTimeout(() => resolve(`${delay} is even.`), delay);
-  } else {
-    setTimeout(() => reject(`${delay} is odd.`), delay);
-  }
+  setTimeout(() => {
+    if (delay % 2 === 0) {
+      resolve(`${delay} is even.`);
+    } else {
+      reject(`${delay} is odd.`)
+    }
+  }, delay);
 });
 
 randomDelay()
-  .then(v => console.log(v))
-  .catch(e => console.log(e));
+  .then(v => console.log(`resolve: ${v}`))
+  .catch(e => console.log(`reject: ${e}`));
 ```
 
 ↑のコードではランダムな0~1000ミリ秒後に、待機時間が偶数秒なら`resolve`で解決され、奇数秒なら`reject`で拒否される`Promise`インスタンスを返す関数 `randomDelay` を宣言しています。
-その後、`randomDelay()`でインスタンス生成、受け取って`then()`/`catch()`で`Promise`の解決・拒否を処理しています。
+その後、`randomDelay()`でインスタンス生成、`Promise`を`then()`/`catch()`で受け取って解決・拒否を処理しています。
 
 ![Promiseサンプル実行結果](imgs/promise-random-delay.gif)
 
@@ -852,12 +853,14 @@ async function randomDelay () {
 }
 
 try {
-  console.log(await randomDelay());
+  const v = await randomDelay();
+  console.log(`resolve: ${v}`);
 } catch (e) {
-  console.log(e);
+  console.log(`reject: ${e}`);
 }
 ```
 
+ランダムな時間待機するコードが変わっていますが、処理内容は同様です。気になる方は以下のサマリーを確認してください。
 ここで `try` ~ `catch` という構文が登場しますが、これは例外処理のための文です。
 `Promise` ~ `then` ~ `catch` では例外を `catch` がひろってくれるのですが、`await`式を用いた実装では例外は明示的に処理しなければなりません。そのため、この記述が必要になります。
 
