@@ -14,6 +14,7 @@
   - サーバーから DB にアクセスするためのメソッドをまとめたファイル
 
 また、DB にアクセスするために `serve.js` と同じ階層に `.env` ファイルを作成し、`.env.example` をコピーして適切な値を入力してください。
+`.env` ファイルについては[こちら](https://github.com/jigintern/intern-dev-tutorial/blob/main/database-tutorial/docs.md#3-deno%E3%81%8B%E3%82%89mysql%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%97%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86)を参考にしてください。
 
 ```yml
 HOST_NAME=
@@ -21,6 +22,12 @@ SQL_USER=
 SQL_PASSWORD=
 DATABASE=
 PORT=
+```
+
+アプリの実行については下記コマンドで行いましょう。
+
+```bash
+$ deno run --watch -A serve.js
 ```
 
 実装を詳しく見たいという方は下記リポジトリをご覧ください。
