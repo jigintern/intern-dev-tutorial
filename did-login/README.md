@@ -24,10 +24,11 @@ DATABASE=
 PORT=
 ```
 
-アプリの実行については下記コマンドで行いましょう。
+denoコマンドで`serve.js`を実行して、フロントエンドの画面を表示してみましょう。
+コマンドを実行した後、<http://localhost:8000/> にアクセスすると確認できます。
 
 ```bash
-$ deno run --watch -A serve.js
+deno run --watch -A serve.js
 ```
 
 実装を詳しく見たいという方は下記リポジトリをご覧ください。
@@ -83,8 +84,12 @@ DID とは分散型 ID のことでブロックチェーン（ビットコイン
 続いて [DIDAuth モジュール](https://jigintern.github.io/did-login/auth/DIDAuth.js)を使って DID、パスワード、メッセージ、電子署名を作成します。
 
 ```js
+// DIDAuthを使うためインポート
+import { DIDAuth } from 'https://jigintern.github.io/did-login/auth/DIDAuth.js';
+
 document.getElementById("submit").onclick = async () => {
   // ...
+
   // `DIDAuth` モジュールの `createNewUser` を使って DID、パスワード、メッセージ、電子署名を取得
   const [did, password, message, sign] = DIDAuth.createNewUser(name);
 };
@@ -126,8 +131,19 @@ serve(async (req) => {
 });
 ```
 
+名前を入力して登録ボタンを押すと、サーバ側のログに`[POST] /users/register 404`と表示されます。
+ここではまだ`/users/register`の実装がないため、404になっています。
+
 さらに request の body からデータを取り出し、電子署名の検証、DB に DID が保存されているかのチェック、DB に DID を保存する処理を追加しましょう。
 サーバーから DB に接続してクエリを叩く処理は `db-controller.js` にまとめます。
+サーバーでもDIDAuthモジュールを使います。また`serve.js`から`db-controller.js`を使います。
+`serve.js`にそれぞれのインポートを追加してください。
+
+```js
+// DIDAuthとdb-controllerのインポートを追加
+import { DIDAuth } from 'https://jigintern.github.io/did-login/auth/DIDAuth.js';
+import { addDID, checkIfIdExists } from './db-controller.js';
+```
 
 ```js
 // serve.js
@@ -180,7 +196,7 @@ const connectionParam = {
   username: Deno.env.get("SQL_USER"),
   password: Deno.env.get("SQL_PASSWORD"),
   db: Deno.env.get("DATABASE"),
-  port: Deno.env.get("PORT"),
+  port: Number(Deno.env.get("PORT")),
 };
 
 // クライアントの作成

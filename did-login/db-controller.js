@@ -1,4 +1,4 @@
-import { Client } from "https://deno.land/x/mysql/mod.ts";
+import { Client } from "https://deno.land/x/mysql@v2.11.0/mod.ts";
 import "https://deno.land/std@0.192.0/dotenv/load.ts";
 
 // sqlの設定
@@ -7,7 +7,7 @@ const connectionParam = {
   username: Deno.env.get("SQL_USER"),
   password: Deno.env.get("SQL_PASSWORD"),
   db: Deno.env.get("DATABASE"),
-  port: Deno.env.get("PORT"),
+  port: Number(Deno.env.get("PORT")),
 };
 
 // クライアントの作成
