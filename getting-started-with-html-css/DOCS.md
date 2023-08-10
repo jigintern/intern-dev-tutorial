@@ -62,7 +62,7 @@ Web開発をやってみようと思ったとき、誰しもがまず目にす�
 
 #### 1-1-4. VisBugを使ってみよう
 
-ここでChromeで使える便利な拡張機能「VisBug」も紹介します。[こちら](https://chrome.google.com/webstore/detail/visbug/cdockenadnadldjbbgcallicgledbeoc?hl=ja)からインストールできます。
+ここでChromeで使える便利な拡張機能「VisBug」を紹介します。[こちら](https://chrome.google.com/webstore/detail/visbug/cdockenadnadldjbbgcallicgledbeoc?hl=ja)からインストールできます。
 
 インストールしたら `Alt`+`Shift`+`D` のショートカットでVisBugを起動できます。
 様々な機能がありますが、特に便利なガイドツールとインスペクトツールを紹介しておきます。
