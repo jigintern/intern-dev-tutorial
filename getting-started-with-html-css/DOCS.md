@@ -94,7 +94,7 @@ GitHubアカウントでログイン可能なので右上の「Sign in」から�
 
 ![stackblitz新規プロジェクト](imgs/stackblitz-create-new-project.png)
 
-↓の画像のようにエディタとエミュレータが表示された状態に遷移するはずです。
+↓の画像のようにエディタとエミュレータが表示された状態に遷移します。
 
 ![stackblitz新規プロジェクト初期状態](imgs/stackblits-opened-static-ide.png)
 
