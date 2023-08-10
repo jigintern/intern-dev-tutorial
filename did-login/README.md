@@ -27,7 +27,7 @@ PORT=
 アプリの実行については下記コマンドで行いましょう。
 
 ```bash
-$ deno run -A serve.js
+$ deno run --watch -A serve.js
 ```
 
 実装を詳しく見たいという方は下記リポジトリをご覧ください。
