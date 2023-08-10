@@ -43,9 +43,12 @@
     - [4-1. HTMLでユーザーの入力を受け取ろう](#4-1-htmlでユーザーの入力を受け取ろう)
       - [4-1-1. ボタン要素](#4-1-1-ボタン要素)
       - [4-1-2. 要素のイベントを処理する](#4-1-2-要素のイベントを処理する)
-    - [4-2. JavaScriptでHTML要素を取得しよう](#4-2-javascriptでhtml要素を取得しよう)
     - [4-２. JavaScriptで要素に変更を加えよう](#4-２-javascriptで要素に変更を加えよう)
+      - [4-2-1. コンテンツに変更を加えよう](#4-2-1-コンテンツに変更を加えよう)
+      - [4-2-2. 見た目に変更を加えよう](#4-2-2-見た目に変更を加えよう)
     - [4-3. CSSで要素の変化を魅せよう](#4-3-cssで要素の変化を魅せよう)
+  - [5. 終わりに](#5-終わりに)
+  - [6. 参考文献](#6-参考文献)
 </details>
 
 ## 1. HTML/CSSに触れてみよう
@@ -889,10 +892,20 @@ HTMLではボタン要素は以下のようにして記述できます。
 ボタンは置いただけでは何にもなりません。閲覧者による入力、例えばクリックを処理するには、JavaScriptを用いて要素のクリックを取得して処理する必要があります。
 
 まずはJavaScriptを記述する`main.js`ファイルを用意してください。  
-用意したJavaScriptファイルをHTMLから読み込むため、以下の記述をhead要素に追記して下さい。
+用意したJavaScriptファイルをHTMLから読み込みます。`index.html`を以下の内容に書き換えてください。
 
 ```HTML
-  <script src="main.js" defer></script>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>サンプルページ</title>
+    <script src="main.js" async></script>
+  </head>
+  <body>
+    <button id="main-button">ボタンです</button>
+  </body>
+</html>
 ```
 
 JavaScriptでは以下のようにしてHTML要素を取得できます。
@@ -901,11 +914,197 @@ JavaScriptでは以下のようにしてHTML要素を取得できます。
 document.querySelector("<セレクタ>")
 ```
 
-`<セレクタ>`にはCSSのセレクタを使えます。
+`<セレクタ>`にはCSSのセレクタを使えます。これを使って、ボタンがクリックされたときにアラートを出すようにします。
+以下のコードを`main.js`に書き込んでください。
 
-### 4-2. JavaScriptでHTML要素を取得しよう
+```javascript
+const mainButton = document.querySelector('#main-button');
+
+const showAlert = function () {
+  window.alert('ボタンがクリックされました。');
+}
+
+mainButton.addEventListener('click', showAlert);
+```
+
+![ボタンクリックでアラートが出るサンプル](imgs/alert-sample.gif)
+
+このように、HTML要素に対して閲覧者が特定の操作をすることを、JSでは**イベント**として扱います。
+閲覧者がボタンをクリックしたとき、`'click'`イベントが*発火*すると言います。
+この例ではid属性に`main-button`が設定されたボタンに対して、`'click'`イベントの購読を行っていて、イベントが発生したときに処理を行う**イベントハンドラ**に`showAlert`関数を呼び出すように設定しています。
+
+<details>
+  <summary>`defer`属性の意味</summary>
+
+  この`<script>`要素に追加した`defer`属性は、文書の解析語にスクリプトを実行するように遅延する意味があります。
+  `defer`属性、`async`属性か、`type="module"`属性を持たない場合、スクリプトは読み込まれた順に即時実行されます。
+  今回はページに表示される要素を取得する必要があり、実行時に要素がない（表示されていない）とエラーになってしまうため、`defer`属性を与えています。
+
+  `async`属性や`type="module"`は`defer`とは違った意味を持ちます。詳しくは[mdn web docs](https://developer.mozilla.org/ja/docs/Web/HTML/Element/script#%E5%B1%9E%E6%80%A7)を見てみてください。
+</details>
 
 ### 4-２. JavaScriptで要素に変更を加えよう
 
+ここでは、操作を受け取って処理した結果を閲覧者に見せるために、JavaScriptで要素に変更を加える方法を説明します。
+
+#### 4-2-1. コンテンツに変更を加えよう
+
+JavaScriptで取得した要素は、様々なプロパティを持つオブジェクト([HTMLElement](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement))です。コンテンツを変更するときに使用するプロパティには以下のようなものがあります。
+
+- `innerHTML`
+  - 要素内のHTMLタグを**含む**、全てのテキストを扱う
+- `innerText`
+  - 要素内のHTMLタグを**含まない**、**非表示でない**テキストを扱う
+  - `\n`で改行が表現できる
+- `textContent`
+  - 要素内のHTMLタグを**含まない**、全てのテキストを扱う
+
+今回は`innerHTML`を用いて、ボタンがクリックされるたびにクリックされた回数をページに追記するページをサンプルに示します。
+
+- HTML
+  - ```HTML
+      <html lang="ja">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>サンプルページ</title>
+          <script src="main.js" async></script>
+        </head>
+        <body>
+          <button id="main-button">ボタンです</button>
+          <p id="messages"></p>
+        </body>
+      </html>
+    ```
+- JavaScript
+  - ```javascript
+      let clickCount = 0;
+
+      const mainButton = document.querySelector('#main-button');
+      const messages = document.querySelector('#messages');
+
+      const updateMessage = function () {
+        clickCount++;
+        messages.innerText += `${clickCount}回クリックされました。\n`;
+      };
+
+      mainButton.addEventListener('click', updateMessage);
+    ```
+
+![コンテンツを変更するサンプル](imgs/edit-content.gif)
+
+#### 4-2-2. 見た目に変更を加えよう
+
+続いて、見た目にも変更を加えて見ましょう。ここでは`style`プロパティを用います。
+以下にサンプルを示します。(HTMLは4-2-1.と同じものです)
+
+```javascript
+const colorList = ['pink', 'cyan', 'yellow'];
+let clickCount = 0;
+
+const mainButton = document.querySelector('#main-button');
+const messages = document.querySelector('#messages');
+
+const updateMessage = function () {
+  clickCount++;
+  messages.innerText += `${clickCount}回クリックされました。\n`;
+  messages.style.backgroundColor = colorList[clickCount % 3];
+};
+
+mainButton.addEventListener('click', updateMessage);
+```
+
+![見た目を変更するサンプル](imgs/edit-view.gif)
+
 ### 4-3. CSSで要素の変化を魅せよう
 
+最後に説明するのは簡単なCSSでのアニメーション、`transition`プロパティを用いた見た目ものを説明しておきます。
+> 注: 一般にこれをCSSアニメーションとは言いません。CSSアニメーションについては[こちら](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_animations/Using_CSS_animations)を確認してください。
+
+以下にサンプルを示します。この例では、ボタンがクリックされるたびに移動する四角形が、移動時にアニメーションします。
+
+- HTML
+  - ```html
+      <html lang="ja">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>サンプルページ</title>
+          <script src="main.js" async></script>
+          <link rel="stylesheet" href="style.css"/>
+        </head>
+        <body>
+          <button id="main-button">ボタンです</button>
+          <div id="field">
+            <div id="box">0</box>
+          </div>
+        </body>
+      </html>
+    ```
+- CSS
+  - ```css
+      #main-button {
+        margin-bottom: 16px;
+      }
+
+      #field {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border: 2px solid gray;
+      }
+
+      #box {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100px;
+        height: 100px;
+        display: grid;
+        place-content: center;
+        background-color: pink;
+        transition: all ease 0.2s;
+      }
+    ```
+- JavaScript
+  - ```javascript
+      const colorList = ['pink', 'cyan', 'yellow'];
+      let clickCount = 0;
+
+      const mainButton = document.querySelector('#main-button');
+      const box = document.querySelector('#box');
+
+      const moveBox = function () {
+        clickCount++;
+        box.textContent = `${clickCount % 4}`;
+        box.style.top = [0, 1].includes(clickCount % 4) ? '0px' : '200px';
+        box.style.left = [0, 3].includes(clickCount % 4) ? '0px' : '200px';
+      };
+
+      mainButton.addEventListener('click', moveBox);
+    ```
+
+![transitionサンプル](imgs/transition-sample.gif)
+
+このサンプルで重要な記述は↓です
+
+```css
+  #box {
+    ...
+    transition: all ease 0.2s;
+  }
+```
+
+`transition`プロパティは、プロパティと時間を指定することで、指定したプロパティの値が切り替わったときにその変化に指定した時間かけてゆっくり行わせるものです。  
+今回は`all`で全てのプロパティに対して変化をゆるやかにするように指定し、変化には`0.2s`かけるよう指定しています。
+`ease`は変化をゆっくりはじめ、中頃は急で、終わりはまたゆっくりになるような変化をするように指定するタイミング関数というものです。他に線形的に変化する`linear`などもあります。
+
+## 5. 終わりに
+
+この記事では、HTML/CSSの初歩からJavaScriptを組み合わせた動的なページの変更までを説明しました。  
+この資料では説明しきれていないHTML要素やCSSプロパティも多数あります。それらは利用するときに適宜mdn web docsやGoogle検索などのちからを借りて調べながら書いてみてください。
+
+## 6. 参考文献
+- mdn web docs
+  - html: https://developer.mozilla.org/ja/docs/Web/html
+  - css: https://developer.mozilla.org/ja/docs/Web/css
