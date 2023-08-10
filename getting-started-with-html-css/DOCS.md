@@ -112,7 +112,13 @@ StackBlitzのエミュレータに↓のように表示されていることを�
 
 ![マーク前](imgs/html-hello-world.png)
 
-先程の`Hello, World !`の前後を`<h1>`と`</h1>`で囲んで見てください。これでエミュレータに表示されるテキストが大きくなったはずです。
+先程の`Hello, World !`の前後を`<h1>`と`</h1>`で囲んで↓のように書き換えててください。
+
+```HTML:index.html
+<h1>Hello, World !</h1>
+```
+
+これでエミュレータに表示されるテキストが大きくなったはずです。
 
 ![マーク後](imgs/html-hello-world-h1.png)
 
