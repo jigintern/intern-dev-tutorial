@@ -39,6 +39,9 @@
       - [3-5-2. 文字の見た目を変更しよう](#3-5-2-文字の見た目を変更しよう)
       - [3-5-3. 要素の見た目を変更しよう](#3-5-3-要素の見た目を変更しよう)
       - [3-5-4. 形をつくろう](#3-5-4-形をつくろう)
+    - [3-6. 思いどおりに配置しよう](#3-6-思いどおりに配置しよう)
+      - [3-4-1. グリッドレイアウト](#3-4-1-グリッドレイアウト)
+      - [3-4-2. フレックスボックス](#3-4-2-フレックスボックス)
   - [4. ページに変更を加えよう](#4-ページに変更を加えよう)
     - [4-1. HTMLでユーザーの入力を受け取ろう](#4-1-htmlでユーザーの入力を受け取ろう)
       - [4-1-1. ボタン要素](#4-1-1-ボタン要素)
@@ -866,6 +869,168 @@ h1 {
 CSSをうまく使うと様々な図形を作れます。自分の想像力次第なのでぜひ気合で頑張ってみてください。
 ![サンプル](imgs/css-balloon-sample.png)
 
+### 3-6. 思いどおりに配置しよう
+
+ここまでで要素そのものはかなり自由に編集できるようになったと思います。
+ここで、ページそのものをデザイン・レイアウトするためのCSSについて説明します。
+
+現在主に使うレイアウトは主に**グリッドレイアウト**と**フレックスボックス**です。
+
+この節では、以下のHTMLを装飾して聖杯レイアウトを実装することを考えます。
+
+```HTML
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>サンプルページ</title>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <header>
+      <p>ヘッダー</p>
+    </header>
+    <aside id="left">
+      <p>左カラム</p>
+    </aside>
+    <main>
+      <p>メインコンテンツ</p>
+    </main>
+    <aside id="right">
+      <p>右カラム</p>
+    </aside>
+    <footer>
+      <p>フッター</p>
+    </footer>
+  </body>
+</html>
+```
+
+#### 3-4-1. グリッドレイアウト
+
+グリッドレイアウトは`display`プロパティに`grid`を指定することで利用できるレイアウトです。
+行と列を用いた2次元的なレイアウト方法で、行と列の中に配置するものです。
+これを用いて聖杯レイアウトを実装してみます。
+
+```css
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template:
+    'header header header' 40px
+    'left-column main right-colmun' auto
+    'footer footer footer' 40px / 200px auto 200px;
+}
+
+header {
+  grid-area: header;
+  background-color: lightblue;
+}
+aside#left {
+  grid-area: left-column;
+  background-color: lightsalmon;
+}
+main {
+  height: calc(100vh - 80px);
+  grid-area: main;
+  background-color: lightgreen;
+}
+aside#right {
+  grid-area: right-colmun;
+  background-color: lightsalmon;
+}
+footer {
+  grid-area: footer;
+  background-color: lightblue;
+}
+
+```
+
+![gridサンプル](imgs/grid-sample.png)
+
+ここで重要なプロパティは以下のものです。
+
+- `display: grid`
+  - 指定された要素の子に対してグリッドレイアウトによる配置を適用します。
+- `grid-template: `
+  - グリッドレイアウトでの要素の配置を指定します。
+  - `grid-template-areas`、`grid-template-rows`、`grid-template-columns`を一括指定するプロパティです。
+- `grid-area: `
+  - `grid-template-areas`で指定した文字列を指定することで、`template`中の該当文字列部分に要素が入ることを示します。
+
+グリッドレイアウトにより親しみたいあなたは[Grid Garden](https://cssgridgarden.com/#ja)に取り組んでみてください。
+
+#### 3-4-2. フレックスボックス
+
+フレックスボックスは`display`プロパティに`flex`を指定することで利用できるレイアウトです。
+
+フレックスボックスは要素を行または列のどちらかに一次元に配置するレイアウトです。この性質から、聖杯レイアウトのような縦のレイアウトの中に横のレイアウトがあるものは、階層構造を取って表現する必要があります。
+
+3-4.にあるHTMLに追記してください。
+```html
+    </header>
+    <div class="mid"> <!-- 追加 --->
+      <aside id="left">
+        <p>左カラム</p>
+      </aside>
+      <main>
+        <p>メインコンテンツ</p>
+      </main>
+      <aside id="right">
+        <p>右カラム</p>
+      </aside>
+    </div> <!-- 追加 --->
+    <footer>
+```
+
+↑のhtmlに対して以下のCSSを適用することで聖杯レイアウトを実現できます。
+
+```css
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 40px;
+  background-color: lightblue;
+}
+.mid {
+  display: flex;
+}
+aside#left {
+  width: 200px;
+  background-color: lightsalmon;
+}
+main {
+  height: calc(100vh - 80px);
+  width: 100%;
+  background-color: lightgreen;
+}
+aside#right {
+  width: 200px;
+  background-color: lightsalmon;
+}
+footer {
+  height: 40px;
+  background-color: lightblue;
+}
+```
+
+<!-- TODO --->
+
+フレックスボックスにより親しみたいあなたは[FlexBox Floggy](https://flexboxfroggy.com/#ja)に取り組んでみてください。
+
 ## 4. ページに変更を加えよう
 
 ここでは閲覧者の入力に合わせてページの表示を変える方法を説明します。
@@ -895,6 +1060,7 @@ HTMLではボタン要素は以下のようにして記述できます。
 用意したJavaScriptファイルをHTMLから読み込みます。`index.html`を以下の内容に書き換えてください。
 
 ```HTML
+<!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -963,6 +1129,7 @@ JavaScriptで取得した要素は、様々なプロパティを持つオブジ�
 
 - HTML
   - ```HTML
+      <!DOCTYPE html>
       <html lang="ja">
         <head>
           <meta charset="UTF-8" />
@@ -1025,6 +1192,7 @@ mainButton.addEventListener('click', updateMessage);
 
 - HTML
   - ```html
+      <!DOCTYPE html>
       <html lang="ja">
         <head>
           <meta charset="UTF-8" />
