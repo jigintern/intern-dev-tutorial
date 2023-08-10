@@ -24,6 +24,12 @@ DATABASE=
 PORT=
 ```
 
+アプリの実行については下記コマンドで行いましょう。
+
+```bash
+$ deno run -A serve.js
+```
+
 実装を詳しく見たいという方は下記リポジトリをご覧ください。
 
 - [https://github.com/jigintern/did-login](https://github.com/jigintern/did-login)
