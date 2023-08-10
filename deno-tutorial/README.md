@@ -1,44 +1,45 @@
 # intern-dev-tutorial
 
 # 目次
-- [Denoって何？](#denoって何)
-- [Denoをインストールしよう](#deno-をインストールしよう)
-- [Denoのサンプルプロジェクトを触ってよう](#サンプルプロジェクトを触ってみよう)
-  - [下準備](#下準備)
-  - [JavaScriptのコードを実行してみよう](#javascriptのコードを実行してみよう)
-  - [何が起こった？](#何が起こった)
-  - [リンターを走らせてみよう](#リンターを走らせてみよう)
-  - [フォーマッタを使ってみよう](#フォーマッタを使ってみよう)
-  - [テストを実行してみよう](#テストを実行してみよう)
-- [サンプルプロジェクトのコードを読んでみよう](#サンプルプロジェクトのコードを読んでみよう)
-  - [ファイル構造を見てみよう](#ファイル構造)
-  - [server.jsを読んでみよう](#serverjsを読んでみよう)
-  - [public/index.jsを読んでみよう](#publicindexjsを読んでみよう)
-- [まとめ](#まとめ)
+- [1. Denoって何？](#1denoって何)
+- [2. Denoをインストールしよう](#2deno-をインストールしよう)
+- [3. Denoのサンプルプロジェクトを触ってよう](#3サンプルプロジェクトを触ってみよう)
+  - [3-1. 下準備](#3-1下準備)
+  - [3-2. JavaScriptのコードを実行してみよう](#3-2javascriptのコードを実行してみよう)
+  - [3-3. 毎回打ち込むコマンドが長い](#3-3毎回打ち込むコマンドが長い)
+  - [3-4. JavaScriptファイルをリントしてみよう](#3-4javascriptファイルをリントしてみよう)
+  - [3-5. JavaScriptファイルをフォーマットしてみよう](#3-5javascriptファイルをフォーマットしてみよう)
+  - [3-6. JavaScriptファイルをテストしてみよう](#3-6javascriptファイルをテストしてみよう)
+- [4. サンプルプロジェクトのコードを読んでみよう](#4サンプルプロジェクトのコードを読んでみよう)
+  - [4-1. ファイル構造を見てみよう](#4-1ファイル構造を見てみよう)
+  - [4-2. server.jsを読んでみよう](#4-2serverjsを読んでみよう)
+  - [4-3. public/index.jsを読んでみよう](#4-3publicindexjsを読んでみよう)
+- [5. まとめ](#5まとめ)
 
-# Denoって何？
+# 1.Denoって何？
 
 [公式サイト](https://deno.land/)
 
-サンプルプロジェクトを通じて`Deno`について触れていきます。
+「**Deno**」は、JavaScriptやTypeScriptを実行する環境です。
 
-「**Deno**」は、`JavaScript`や`TypeScript`を実行する環境です。
-`.js/.ts`の拡張子のファイルを実行させるためにはいくつか方法がありますが、その中でも**より手軽に、より便利に実行できる環境**といった感じです。
+// TODO: 画像挿入
 
-`Deno`の特徴は
+`Deno`には様々な機能がありますが、このセクションでは以下の内容を学びます。
 
-- TypeScriptを**標準で**サポートしている
-- ファイルの読み書きやネットワーク通信等がデフォルトで無効となっており、実行する際に明示的に権限を与える必要があり、**高いセキュリティ**が期待できる
-- 普段の開発で基本的に使われている機能を**デフォルトで**提供しています。
-- ブラウザとの通信を強く意識しており、多くの機能が[Web標準](https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web/The_web_and_web_standards)をベースに実装されています。
-- **ES Modulesベース**のモジュールシステムを前提としているため、何らかのライブラリを使用したい時には`import文`から取得することができる。
-- `npmパッケージ`もサポートされているため、使用したいライブラリが[`deno.land`](https://deno.land/x)にない時には、`import文`のURLを`npm:{パッケージ名}@{バージョン}`のような形にすることで、Denoが探してきてくれます。
-- 最新のJavaScript使用に準拠しています。
+- `Deno`でJavaScriptファイルを**実行する**方法
 
-が挙げられます。
-これからこれらの特徴について実際に動かして学んでいきましょう。
+- `Deno`でJavaScriptファイルを**リントする**方法
 
-# Deno をインストールしよう
+- `Deno`でJavaScriptファイルを**フォーマットする**方法
+
+- `Deno`でJavaScriptファイルを**テストする**方法
+
+また、このセクションではサンプルプロジェクトを通じて、以下の内容も学びます。
+
+- クライアント側からサーバー側へAPIリクエストを送る方法(**fetch API**)
+- クライアント側からのAPIリクエストに対して、ファイルや文字列を返す方法
+
+# 2.Deno をインストールしよう
 
 [公式サイト - Denoのインストール方法](https://deno.land/manual@v1.35.0/getting_started/installation)
 
@@ -55,145 +56,269 @@
 [homebrewの公式サイト](https://brew.sh/index_ja)
 
 
-# サンプルプロジェクトを触ってみよう
+# 3.サンプルプロジェクトを触ってみよう
 
-このフォルダの中にあるコードをまずは色々実行してみよう！
+サンプルプロジェクトの中のコードをDenoで実行してみよう。
 
-## 下準備
-1. このプロジェクトを`clone`しよう
-2. VScodeの拡張機能のタブから「`Deno`」を検索してインストールしよう
-3. VScodeの上のヘッダーの「`表示`」から「`コマンドパレット(Command Palette)`」を押して、「`Deno: Initialize Workspace Configuration`」を選択して、すべて`yes`を選択して、Denoを使用できるようにしよう
-4. VScodeの上のヘッダーの「`ターミナル`」から「`new Terminal`」を押して、ターミナルを表示しておこう
+## 3-1. 下準備
+1. まずカレントディレクトリを`intern-dev-tutorial/deno-tutorial`に移動しましょう。  
+
+2. VScodeの拡張機能のタブから「Deno」を検索してインストールしよう
+
+// TODO: 画像挿入
+
+3. VScodeの上のヘッダーの「**表示**」から「**コマンドパレット(Command Palette)**」を押して、「**Deno: Initialize Workspace Configuration**」を選択して、すべて**yes**を選択して、Denoを使用できるようにしよう
+
+// TODO: 画像挿入
+
+4. VScodeの上のヘッダーの「**ターミナル**」から「**new Terminal**」を押して、ターミナルを表示しておこう
+
+// TODO: 画像挿入
 
 3を行うと現在のフォルダに`.vscode`というフォルダが作成されて、中に`settings.json`というファイルが作成されると思います。
 
-今回はVScodeで`Deno`を快適に使用できるようにするためにこのような設定をします。
+今回はVScodeでDenoを快適に使用できるようにするためにこのような設定をします。
 
-`settings.json`で`VScode`を使用する上で様々な設定を登録できますが、一旦中身は以下のようなもので問題ないです。
+`settings.json`でVScode上でDenoを使用する上で様々な設定を登録できますが、一旦中身は以下のようなもので問題ないです。
 
-```settings.json
+```json
 {
   "deno.enable": true,
   "deno.lint": true
 }
 ```
 
-## JavaScriptのコードを実行してみよう
+## 3-2. JavaScriptのコードを実行してみよう
 
-まずカレントディレクトリを`intern-dev-tutorial/deno-tutorial`に移動しましょう。
+このセクションでは、DenoでJavaScriptファイルを**実行する**方法を学びます。
 
-ターミナルで以下のテキストを入力してEnterを押してみましょう
-```
-deno task start
-```
+DenoではJavaScriptファイルを`run`コマンドを用いて以下のようにして実行できます。
 
-そうすると
-```txt
-Task start deno run --watch --allow-net --allow-read server.js
-Watcher Process started.
-Listening on http://localhost:8000/
-```
-のようなテキストが表示されるので、ブラウザを開いてURLの欄に`http://localhost:8000/`を入力してみよう。
-
-画面に「Jig.jpインターンへようこそ」の文言が表示されれば成功です！
-
-## 何が起こった？
-
-先ほどの流れでいったい何が起こったのか説明しようと思います。
-
-まず`deno task ***`で`deno.json`の中にある`tasks`に登録してあるコマンドが実行されます。
-
-今回の場合、`deno task start`なので`deno.json`の`tasks`に登録してある`start`の項目が実行されました。
-
-`start`には`deno run --watch --allow-net --allow-read server.js`が紐付けられていて、つまりは
-
-```txt
-deno task start
-
-↓ 実際には下のコマンドが実行されていました。
-
-deno run --watch --allow-net --allow-read server.js
+```shell
+deno run <ファイル名>.js
 ```
 
-このように`deno task *`は`deno.json`内の`tasks`にあらかじめ登録しておいたコマンドを実行してくれる機能です。
+では、早速Denoでこのプロジェクトの直下にある`server.js`を実行してみましょう。
 
-`deno.json`は`Deno`の様々な機能の**設定ファイル**なようなものです。
+ターミナルで以下のテキストを入力してEnterを押してみましょう。
 
-この後で説明する機能の設定も全てそこに記載してあります。
-
-では次に実際に実行されていた`deno run --watch --allow-net --allow-read server.js`について説明していきます。
-
-`deno run server.js`では「`server.js`を実行(`run`)する」という処理を行います。
-
-実際に先ほどブラウザの画面に「Jig.jpインターンへようこそ」の文言が表示されましたが、その文言を表示させるための処理が`server.js`に書かれていて、それを実行したわけです。
-
-この
-```txt
+```shell
 deno run server.js
 ```
-のような`deno run ***`は`Deno`で`JavaScript`ファイルを実行する基本的なコマンドになります。
 
-では、`--watch --allow-net --allow-read`は何？ということですが、こちらは`server.js`を実行する際の**オプション指定**になります。一つずつ見ていきましょう。
+実行すると以下のような文言がターミナルに表示されると思います。
 
-`--watch`は`server.js`をもし書き換えたときに再度`deno run server.js`をし直さなくても、ファイルを書き換えて保存した時にそれを検知して勝手に再度実行し直してくれるように指定するものです。
-
-`--allow-net`, `--allow-read`は`Deno`の重要な機能の一つである**セキュリティに関するオプション**です。デフォルトでは`deno run server.js`を実行したときにネットワーク通信やファイルの読み込み/書き込みなどを遮断します。
-
-`deno run server.js`を実行する時には以下の項目からそのファイルではどの範囲までアクセスを許可するかを指定して実行します。
-
-よく使用するパーミッションのオプション指定
-- `--allow-net`: ネットワークへのアクセス
-- `--allow-read`: ファイルの読み込み
-- `--allow-write`: ファイルへの書き込み
-- `--allow-env`: 環境変数へのアクセス
-
-基本的にパーミッションは必要なものだけを許可するようにしたほうが良いですが、**全て許可する**というオプション指定もあります。
-- `--allow-all, -A`: すべて許可
-
-このことを踏まえて改めて、`deno run --watch --allow-net --allow-read server.js`を見てみましょう。
-
-`--allow-net  --allow-read`のオプション指定がされています。    
-後ほど説明しますが`server.js`内では、「ブラウザからアクセスされた時に`public`フォルダにあるファイルを読み込んでクライアント側へ送信する処理」を行っているため、その際に必要な`ネットワークへのアクセス`と`ファイルの読み込み`の権限を`--allow-net  --allow-read`許可しています。
-
-試しに
-```txt
-deno run --watch server.js
-```
-
-と`--allow-net  --allow-read`を外して、ターミナルで実行してみると
-
-```txt
+```shell
 ┌ ⚠️  Deno requests net access to "0.0.0.0:8000".
 ├ Requested by `Deno.listen()` API.
 ├ Run again with --allow-net to bypass this prompt.
-└ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all net permissions)
+└ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all net permissions) >
 ```
-のように警告文が表示されることが確認できると思います。(この場合は`Y`を押して一時的に許可できます)
 
-このパーミッション指定は`Deno`の機能の中でも重要なものの一つとなっています。
+一旦は深く考えずに`y`を入力していきましょう。
 
-このセクションでは「**コードを実行する**」ことについての以下の内容を学びました。
+そうすると以下のような文言がターミナルに表示されると思います。
 
-- `Deno`で`JavaScript`ファイルを実行する方法
-- ファイルの内容が更新されたときに自動で再読み込みしてくれるようにする`--watch`オプション
-- 実行する際のパーミッション指定
+```shell
+Listening on http://localhost:8000/
+```
 
-## リンターを走らせてみよう
+では、ブラウザのアドレスバーにhttp://localhost:8000/のアドレスを入力して検索してみましょう。
 
-`Deno`には`Linter`が標準で備わっています。
+検索してみても画面が切り替わらないと思います。  
+ここでターミナルの方を見てみましょう。
 
-`Linter`というのは、「`Lintを行うツールの総称`」で`Lint`とは、「`潜在的にバグとなりうるかもしれないソースコードをcheckすること`」です。
+```shell
+┌ ⚠️  Deno requests read access to "public".
+├ Requested by `Deno.stat()` API.
+├ Run again with --allow-read to bypass this prompt.
+└ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all read permissions) >
+```
+
+このような文言が表示されていると思うので、先ほど同様に`y`を押してみましょう。
+
+ブラウザに戻ってみて、以下のような画面が表示されれば成功です🙆‍♀️
+
+// TODO: 画像
+
+Denoで`server.js`を無事実行できました！簡単ですね！
+
+では、先ほど`y`を入力したところの説明をします。
+
+Denoは、以下のような処理はデフォルトでは一切実行することができません
+- ファイルの読み込み
+- ファイルの書き込み
+- ネットワーク通信
+
+この仕組みにより、Denoでは**高いセキュリティ**が期待できます。
+
+もしJavScriptファイル内のコードでファイルの読み込みなどを行いたいときは、  
+それぞれ権限を許可してあげる必要があります。
+
+この「権限を許可」をする工程が先ほど`y`を入力した工程になります。
+
+```shell
+deno run server.js
+```
+を実行した時に表示された以下の文言は、  
+「実行するJavaScriptファイルでネットワーク通信を行おうとしているので、権限を許可してください」  
+と言う内容でした。
+
+```shell
+┌ ⚠️  Deno requests net access to "0.0.0.0:8000".
+├ Requested by `Deno.listen()` API.
+├ Run again with --allow-net to bypass this prompt.
+└ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all net permissions) >
+```
+
+一方で、ブラウザでhttp://localhost:8000/にアクセスした時に表示された以下の文言は  
+「実行するJavaScriptファイルでファイルの読み込みを行おうとしているので、権限を許可してください」 
+と言う内容でした。 
+
+```shell
+┌ ⚠️  Deno requests read access to "public".
+├ Requested by `Deno.stat()` API.
+├ Run again with --allow-read to bypass this prompt.
+└ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all read permissions) >
+```
+
+しかし、毎回実行するたびに`y`を入力するのは面倒ですので、**run**コマンドのオプション指定をしてみましょう。
+
+`deno run`をするときに、それぞれ以下のような対応のオプション指定をしてあげると、権限を許可することができます。
+
+- ファイルの読み込み -> `--allow-read`
+
+- ファイルの書き込み -> `--allow-write`
+
+- ネットワーク通信 -> `--allow-net`
+
+今回の場合「ファイルの読み込み」と「ネットワーク通信」の権限を与える必要があったので
+
+```shell
+deno run --allow-read --allow-net server.js
+```
+
+で実行してあげるとターミナルに警告文が表示されずに実行できます！
+
+追加で一つ`--watch`オプション指定を知っておくと良さそうです。
+
+`--watch`オプション指定をしておくことで、  
+`server.js`を書き換えた時に再度実行しなくてもDenoが勝手に再実行してくれるので便利です。
+
+`--watch`オプション指定を加えると最終的に以下のようなコマンドで`server.js`を実行します。
+
+```shell
+deno run --watch --allow-read --allow-net server.js
+```
+
+このセクションでは、DenoでJavaScriptファイルを**実行する**方法を学びました。  
+**run**コマンドで実行したいファイルを実行して、ファイルの読み書き等の権限を与えることに注意しましょう！
+
+## 3-3. 毎回打ち込むコマンドが長い...
+
+前のセクションでは以下のコマンドで`server.js`が実行できることを学びました。
+
+```shell
+deno run --watch --allow-read --allow-net server.js
+```
+
+しかし、このコマンドで実行すると以下のようなデメリットが考えられます
+
+- 長い
+- どの権限を許可していたか忘れたら、一度実行しないといけない
+- 結局このコマンドをどこかにメモなどに保存する流れになりそう
+
+このようなデメリットを解決する方法として、**task**コマンドがあります！
+
+このセクションでは**task**コマンドについて学んでいきますが、   
+チーム開発する際には、無理に使う必要はなく最悪**run**コマンドで毎回実行するのでも問題ないです🙆‍♀️
+
+**task**コマンドは以下のようにして実行します。
+
+```shell
+deno task <タスク名>
+```
+
+では、このタスク名は`deno.json`ファイルで設定しています。
+
+`deno.json`ファイルの以下の部分をみてみましょう。
+
+```json
+  "tasks": {
+    "start": "deno run --watch --allow-net --allow-read server.js"
+  },
+```
+
+ここには、実行したいコマンドに別名を与えています。 
+
+`deno run --watch --allow-net --allow-read server.js`に`start`と言う別名を与えるように設定しています。
+
+よって以下のように実行すると`deno run --watch --allow-net --allow-read server.js`を実行していることと同じになります。
+
+```shell
+deno task start
+```
+
+とてもスッキリして良さそうです！
+
+しかももし追加でファイルの書き込み権限を与えるために`--allow-write`オプションを追加したいとなっても  
+`deno.json`の`start`部分のコードを修正するだけでよくて、実行するときは
+
+```shell
+deno task start
+```
+
+のままなので便利です。
+
+このセクションでは**task**コマンドについて学びましたが、便利コマンドなのでぜひ使ってみてください！
+
+## 3-4. JavaScriptファイルをリントしてみよう
+
+このセクションでは、DenoでJavaScriptファイルを**リント**する方法を学びます。
+
+`Deno`にはJavaScriptファイルをリントする機能が標準で備わっています。
+
+**リント**とは、「**潜在的にバグとなりうるかもしれないソースコードをcheckすること**」です。
 
 例えば
 - ソースコード内に未使用の変数が存在する
 - ソースコード内に初期化されていない変数が存在する
 などのような箇所を指摘してくれるものです。
 
-物は試しに、`server.js`を開いて一番下の行に
+この機能を使うことで意図してないミスを未然に警告してくれて大変に役立ちます。
+
+JavaScriptファイルをリントするには以下のようなコマンドでできます。
+
+```shell
+deno lint
+```
+
+このリントには**ルール**が必要で、   
+`deno.json`の`lint`部分で設定されています。
+
+```json
+  "lint": {
+    "include": ["./**/*.js"],
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["ban-untagged-todo"],
+      "exclude": ["no-unused-vars"]
+    }
+  },
+```
+
+今回のこの設定は[Deno公式サイト](https://deno.land/manual@v1.36.0/getting_started/configuration_file#lint)のものをそのままコピーしているのです。
+
+`rules`の`tags`の位置に`recommended`が指定されていると思いますが、    
+`recommended`ルールは,
+[ESLint](https://eslint.org/) や [typescript-eslint](https://typescript-eslint.io/) で `recommended` として扱われているルールの多くをサポートしています。
+
+では、`server.js`を開いて一番下の行に
+
 ```js
 var message = 'Jig.jpインターンへようこそ！';
 ```
-を追加して、保存してみましょう。
+を追加して、`Ctrl + S`で保存してみましょう。  
 保存ができたらターミナルで
 
 ```txt
@@ -202,7 +327,7 @@ deno lint
 を実行してみましょう。
 
 そうすると
-```txt
+```shell
 (no-var) `var` keyword is not allowed.
 var message = 'Jig.jpインターンへようこそ！';
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,33 +340,58 @@ Checked 3 files
 ```
 のような結果が表示されるかと思います。
 
-これは「`var`は使わないでください」といった警告文です。
+これは「varは使わないでください」といった警告文です。
 
-このように、`deno lint`を実行すると、あらかじめ決めておいた「`ルール`」を元に、それにそぐわないコードがないかcheckします。
+どのファイルの何行目まで表示してくれて便利です。
 
-この「`ルール`」は`deno.json`内の`lint`の箇所で指定しています。
+このように、**lint**コマンドを実行すると、あらかじめ決めておいた「ルール」を元に、それにそぐわないコードがないかcheckします。
 
-こちらのサンプルコードでは[公式の設定そのまま](https://deno.land/manual@v1.35.0/getting_started/configuration_file)を使用しています。
+開発する時に**リント**コマンドを実行してみて、自分のコードをチェックしてみて潜在的に不具合につながりそうなコードがないかチェックしてみましょう！
 
-`rules`の`tags`の位置に`recommended`が指定されていると思いますが、`recommended`ルールは,
-[ESLint](https://eslint.org/) や [typescript-eslint](https://typescript-eslint.io/) で `recommended` として扱われているルールの多くをサポートしています。
+## 3-5. JavaScriptファイルをフォーマットしてみよう
 
-`Deno`はコードをcheckする機能(`リント`)をすぐに使用できます。
+このセクションでは、DenoでJavaScriptファイルを**フォーマット**する方法を学びます。
 
-## フォーマッタを使ってみよう
+`Deno`にはファイルを**フォーマット**する機能も標準で備わっています。
 
-`Deno`には`フォーマッタ`も標準の機能として備わっています。
+`フォーマットする`とは「**コードの形を整える**」ことです。
 
-`フォーマッタ`はリントの「潜在的にバグとなりうるかもしれないコードをcheckする」とは違い、「`コードの形を整える`」ものです。
+この**フォーマット**を使用することでどの人がコードを書いても同じようにコードを整えられるので、   
+人によってコードの形がバラバラになるといったことが起こらず便利です。
 
-実際に使ってみましょう！
+JavaScriptファイルをフォーマットするには以下のようなコマンドでできます。
 
-```txt
+```shell
+deno fmt
+```
+
+このコマンドを実行するとカレントディレクトリ以下のJavaScriptファイル全てに対してフォーマットします。
+
+フォーマットの設定は以下のように、`deno.json`の`fmt`で設定しています。
+フォーマットするルールを変更したい時には、こちらの設定をいじりましょう。
+
+```json
+  "fmt": {
+    "useTabs": false, // タブを使用するか
+    "lineWidth": 80, // 線の幅
+    "indentWidth": 2, // インデントの文字数
+    "semiColons": false, // セミコロンをつけるかどうか
+    "singleQuote": true, // シングルクウォートを使用するかどうか
+    "proseWrap": "preserve",
+    "include": ["./**/*.js"]
+  },
+```
+
+設定できるフォーマッタの種類については[公式サイト](https://deno.land/manual@v1.35.1/tools/formatter)から確認できます。  
+
+では、実際にフォーマットしてみましょう！
+
+```shell
 deno fmt
 ```
 をターミナルに打ち込んでEnterをしてみましょう。
 
-```txt
+```chell
 Checked 3 files
 ```
 のような文言が表示されました。
@@ -250,48 +400,96 @@ Checked 3 files
 
 おそらくないはずです。
 
-なぜならもうすでにフォーマット(整形)してあるからです。
+すでに指定されたルールに則って、フォーマット(整形)してあったからです。
 
-では試しに、`deno.json`の`fmt`の項目を見て、`semiColons`の部分を`true`, `singleQuote`の部分を`false`に書き換えてみましょう。
+では試しに、フォーマットのルールを変えてみましょう。
+
+`deno.json`の`fmt`部分の   
+`semiColons`の部分を`true`, `singleQuote`の部分を`false`に書き換えてみましょう。
+
+以下のようになります。
+
+```json
+  "fmt": {
+    "useTabs": false, // タブを使用するか
+    "lineWidth": 80, // 線の幅
+    "indentWidth": 2, // インデントの文字数
+    "semiColons": true, // セミコロンをつけるかどうか
+    "singleQuote": false, // シングルクウォートを使用するかどうか
+    "proseWrap": "preserve",
+    "include": ["./**/*.js"]
+  },
+```
 
 そして再度、
-```txt
+```shell
 deno fmt
 ```
 を実行してみると, `server.js`の中身を見ると
+
 - 行末にセミコロン(;)がついている
+
 - 文字列はすべて("")で囲まれている
 のようになっていると思います。
 
 このように`deno fmt`を使用することでコードを整えてくれます。
 
-コードを整形する際の項目については`deno.json`の`fmt`の部分から設定できます。
+チーム開発でもこのフォーマット機能を利用してきれいなコードにしていきましょう！
 
-設定できるフォーマッタの種類については[公式サイト](https://deno.land/manual@v1.35.1/tools/formatter)から確認できます。
+## 3-6. JavaScriptファイルをテストしてみよう
 
-このように`Deno`にはコードを整形してくれるフォーマッタも標準で備わっています。
+このセクションでは、DenoでJavaScriptファイルを**テスト**する方法を学びます。
 
-## テストを実行してみよう
+DenoにはJavaScriptファイルを`テスト`を実行する環境も標準で備わっています。
 
-Denoには`テスト`を実行する環境も標準で備わっています。
+**テスト**には手動テストと自動テストがあります。
+- 手動テストは、実際にブラウザで手を動かして動作確認するもの
+
+- 自動テストは、コードが正しく動作されるかテストする、**テスト専用のコード**が書かれたファイルを実行すること
+
+で、Denoに備わっているのは「自動テスト」が行える環境です。
+
+自動テストが行える環境を構築するのはやや大変ですが、Denoでは標準で備わっているためとても便利です。
+
+自動テストコードを書いてテストを実行することで、以下のようなメリットがあります。
+- コードが適切に動作することに安心できる
+- 一回の実行で全てのテストファイルを実行できるので手動でテストするよりも効率がいい
+- 自分が修正した範囲以外で悪影響がないことを安心できる
+
+JavaScriptファイルをテストするには以下のようなコマンドでできます。
+
+```shell
+deno test
+```
+
+テストの設定に関しても以下のように、`deno.json`の`test`の部分に記載があります。
+
+```json
+  "test": {
+    "include": [
+      "./**/*.test.js"
+    ]
+  }
+```
 
 では早速テストコードを実行してみましょう。
 
 ターミナルに
-```txt
+```shell
 deno test
 ```
 を入力してEnterを押してみましょう。
 
-すると
-```txt
+すると、以下のような文言が表示されると思います。
+
+```shell
 running 1 test from ./server.test.js
 1 + 1 は 2 である ... ok (9ms)
 
 ok | 1 passed | 0 failed (89ms)
 ```
-このような文言が表示されると思います。
-中身は「`「1+1は2である」というテストが1つ実行され、OKでした`」となっています。
+
+「1+1は2である」というテストが1つ実行され、OKでしたと表示されています。
 
 では`server.test.ts`の中身を
 ```js
@@ -302,14 +500,14 @@ assertEquals(1 + 1, 2);
 assertEquals(1 + 1, 3); // 3に修正
 ```
 のように修正して、保存し
-```txt
+```shell
 deno test
 ```
 を実行してみましょう。
 
-すると今度は
+すると今度は以下のような文言が表示されます。
 
-```txt
+```shell
 1 + 1 は 2 である ... FAILED (10ms)
 
  ERRORS
@@ -337,15 +535,23 @@ FAILED | 0 passed | 1 failed (24ms)
 
 error: Test failed
 ```
-のように`失敗したテスト`と`なぜ失敗したか`を報告してくれます。
+
+このようにもし自動テストで失敗したテストがあれば、以下の情報が表示されます。  
+- 自動テストが失敗したこと
+
+- どのテストが失敗したか
+
+- 失敗した箇所
+
+- 期待された値とテスト時に渡されたか
 
 このように`Deno`では、テストを行える環境が標準で備わっています。
 
-# サンプルプロジェクトのコードを読んでみよう
+# 4. サンプルプロジェクトのコードを読んでみよう
 
 ここからはいままで実行してきた`server.js`やこのディレクトリのファイル構造についてみていきましょう。
 
-## ファイル構造を見てみよう
+## 4-1. ファイル構造を見てみよう
 
 それぞれのファイルの役割を説明していきます。
 
@@ -370,7 +576,7 @@ error: Test failed
     - ブラウザからサーバーにアクセスする処理が書かれたファイル
     - 後ほど説明します。
 
-## server.jsを読んでみよう
+## 4-2. server.jsを読んでみよう
 
 `server.js`を開くとまず最初に
 
@@ -482,7 +688,7 @@ APIリクエストには`method`というものがあり
 
 よって、`deno task run`を実行してから、`http://localhost:8000/`にアクセスすると`public`内の`index.html`のページが表示されるんですね。
 
-## public/index.jsを読んでみよう
+## 4-3. public/index.jsを読んでみよう
 
 `public`フォルダの中の`index.js`を読んでみましょう！
 
@@ -542,7 +748,7 @@ document.querySelector("#welcomeMessage").innerText = await response.text();
 
 これで`http://localhost:8000/`にアクセスした時に、「jig.jpインターンへようこそ！👍」の文言が画面に表示されるサンプルプロジェクトの流れを追うことができました。
 
-# まとめ
+# 5. まとめ
 
 このセクションで学んだことを整理してみましょう。
 
