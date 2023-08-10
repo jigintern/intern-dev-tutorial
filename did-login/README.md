@@ -85,7 +85,7 @@ DID とは分散型 ID のことでブロックチェーン（ビットコイン
 ```js
 document.getElementById("submit").onclick = async () => {
   // ...
-  // `DIDAuth` モジュールの `createNewUser` を使って DID、パスワード、メッセージ、電子署名を取得します。
+  // `DIDAuth` モジュールの `createNewUser` を使って DID、パスワード、メッセージ、電子署名を取得
   const [did, password, message, sign] = DIDAuth.createNewUser(name);
 };
 ```
@@ -266,7 +266,7 @@ try {
 
 ```js
 // login.html
-// pemファイルを受け取って、DIDとパスワードを取得する
+// pemファイルを受け取って、DIDとパスワードを取得
 const pemFile = document.getElementById("pemFile").files[0];
 if (!pemFile) {
   document.getElementById("error").innerText = "ファイルを選択してください。";
