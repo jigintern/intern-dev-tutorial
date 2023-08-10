@@ -781,7 +781,7 @@ window.onload = async () => {
 const response = await fetch("/welcome-message");
 ```
 ここでは**fetch API**を使用しています。
-fetch関数は引数で**path**を指定して、サーバーにリクエストを送ります。
+fetchメソッドは引数で**path**を指定して、サーバーにリクエストを送ります。
 
 この場合、引数が`/welcome-message`になっているので、現在開いているアドレスの`http://localhost:8000/`にpathの`/welcome-message`をくっ付けて`http://localhost:8000/welcome-message`にアクセスします。
 
@@ -813,6 +813,6 @@ document.querySelector("#welcomeMessage").innerText = await response.text();
 - サンプルプロジェクトについて
   - `ESModule`の形でのファイルの読み込み
   - `server.js`から、クライアント側からのリクエストに対してファイルを返したり、文字列を返したりする処理
-  - サーバー側へリクエストを送る`fetch()`API
+  - サーバー側へリクエストを送る`fetch API`
 
 ぜひ実際に開発を行う時にはDenoの様々な機能を活用してみてください！
