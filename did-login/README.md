@@ -296,46 +296,55 @@ try {
 ```js
 // login.html
 // pemファイルを受け取って、DIDとパスワードを取得
-const pemFile = document.getElementById("pemFile").files[0];
-if (!pemFile) {
-  document.getElementById("error").innerText = "ファイルを選択してください。";
-}
+import { DIDAuth } from "https://jigintern.github.io/did-login/auth/DIDAuth.js";
 
-const [did, password] = await DIDAuth.getDIDAndPasswordFromPem(pemFile);
+document
+  .getElementById("loginForm")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const pemFile = document.getElementById("pemFile").files[0];
+    if (!pemFile) {
+      document.getElementById("error").innerText =
+        "ファイルを選択してください。";
+    }
 
-// サーバーにユーザー情報を問い合わせる
-const path = "/users/login";
-const method = "POST";
-// 電子署名とメッセージの作成
-const [message, sign] = DIDAuth.genMsgAndSign(did, password, path, method);
+    const [did, password] = await DIDAuth.getDIDAndPasswordFromPem(pemFile);
 
-// 公開鍵・電子署名をサーバーに渡す
-try {
-  const resp = await fetch(path, {
-    method,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ did, sign, message }),
+    // サーバーにユーザー情報を問い合わせる
+    const path = "/users/login";
+    const method = "POST";
+    // 電子署名とメッセージの作成
+    const [message, sign] = DIDAuth.genMsgAndSign(did, password, path, method);
+
+    // 公開鍵・電子署名をサーバーに渡す
+    try {
+      const resp = await fetch(path, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ did, sign, message }),
+      });
+
+      // サーバーから成功ステータスが返ってこないときの処理
+      if (!resp.ok) {
+        const errMsg = await resp.text();
+        document.getElementById("error").innerText = "エラー：" + errMsg;
+        return;
+      }
+
+      // レスポンスが正常ならローカルストレージに保存
+      const json = await resp.json();
+      localStorage.setItem("did", did);
+      localStorage.setItem("password", password);
+      localStorage.setItem("name", json.user.name);
+
+      document.getElementById("status").innerText = "ログイン成功";
+      document.getElementById("name").innerText = json.user.name;
+      document.getElementById("did").innerText = did;
+      document.getElementById("password").innerText = password;
+    } catch (err) {
+      document.getElementById("error").innerText = err.message;
+    }
   });
-
-  // サーバーから成功ステータスが返ってこないときの処理
-  if (!resp.ok) {
-    const errMsg = await resp.text();
-    document.getElementById("error").innerText = "エラー：" + errMsg;
-  }
-
-  // レスポンスが正常ならローカルストレージに保存
-  const json = await resp.json();
-  localStorage.setItem("did", did);
-  localStorage.setItem("password", password);
-  localStorage.setItem("name", json.user.name);
-
-  document.getElementById("status").innerText = "ログイン成功";
-  document.getElementById("name").innerText = json.user.name;
-  document.getElementById("did").innerText = did;
-  document.getElementById("password").innerText = password;
-} catch (err) {
-  document.getElementById("error").innerText = err.message;
-}
 ```
 
 続いてサーバー側を実装します。電子署名のチェックと DB に DID が保存されているかのチェックは新規登録と同じ処理になっています。
@@ -343,6 +352,8 @@ try {
 ```js
 // serve.js
 // ユーザーログインAPI
+import { addDID, checkDIDExists, getUser } from "./db-controller.js";
+
 if (req.method === "POST" && pathname === "/users/login") {
   const json = await req.json();
   const sign = json.sign;
