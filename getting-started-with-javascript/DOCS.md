@@ -17,10 +17,11 @@
       - [1-3-3. 命名](#1-3-3-命名)
       - [1-3-4. インデント](#1-3-4-インデント)
   - [2. JavaScript で処理させよう](#2-javascript-で処理させよう)
-    - [2-1. 四則演算](#2-1-四則演算)
-    - [2-2. その他の算術演算](#2-2-その他の算術演算)
-    - [2-3. 文字列の処理](#2-3-文字列の処理)
-    - [2-4. 論理演算](#2-4-論理演算)
+    - [2-1. 変数](#2-1-変数)
+    - [2-2. 四則演算](#2-2-四則演算)
+    - [2-3. その他の算術演算](#2-3-その他の算術演算)
+    - [2-4. 文字列の処理](#2-4-文字列の処理)
+    - [2-5. 論理演算](#2-5-論理演算)
   - [3. 条件によって処理を変えよう](#3-条件によって処理を変えよう)
     - [3-1. 比較演算子](#3-1-比較演算子)
     - [3-2. if文](#3-2-if文)
@@ -33,6 +34,7 @@
     - [5-1. 関数](#5-1-関数)
       - [5-1-1. 関数](#5-1-1-関数)
       - [5-1-2. 無名関数](#5-1-2-無名関数)
+      - [5-1-3. 値としての関数](#5-1-3-値としての関数)
     - [5-2. オブジェクト](#5-2-オブジェクト)
       - [5-2-1. 定義とアクセス](#5-2-1-定義とアクセス)
       - [5-2-2. プロパティの追加と存在確認](#5-2-2-プロパティの追加と存在確認)
@@ -79,7 +81,9 @@ console.log('Hello, World!');
 ```
 
 実行すると以下の画像のように表示されるはずです。
+
 ![Hello, World!](imgs/hello-world.png)
+
 このように、JSでは `Console.log(<任意の文字列>);` とすることでコンソールタブに出力を出すことができます。
 
 ### 1-3. 読みやすいコードを書くために
@@ -101,6 +105,7 @@ a = 1;
 ```
 
 ![未宣言の変数に値を代入しようとしたエラー](imgs/strict-error-undefined-variable.png)
+
 ↑の画像のようにエラーが出れば問題なく厳格モードが有効になっています。この場合は未宣言の変数を操作しようとしたことでエラーが発生しています。
 これは意図せずグローバル変数を宣言してしまうことを防いでくれます。
 
@@ -145,7 +150,7 @@ console.log('//が書いてある行にしか影響しない');
 
 インデントとは、行頭の字下げのことを指します。
 主にコード中のブロックをわかりやすくするために利用されます。Pythonのようなインデントベースの言語ではブロックそのものを表すために使われますが、JSではコードのブロックは`{}`で表現されるため、インデントがなくてもエラーになったりはしません。
-基本的にインデントをつけたほうが処理の塊がわかりやすくなるので、なるべくつけるようにしましょう。なお、`{}`で囲まれた文をそれまでの字下げよりもう1段階深くインデントするのが一般的です。
+インデントをつけたほうが処理の塊がわかりやすくなるので、つけるようにしましょう。なお、`{}`で囲まれた文をそれまでの字下げよりもう1段階深くインデントするのが一般的です。
 
 インデントなし
 
@@ -173,9 +178,39 @@ function myFunc () {
 
 ここでは様々な計算や処理をJSにやってもらう方法を説明します。
 
-### 2-1. 四則演算
+### 2-1. 変数
 
-計算といえばな四則演算からです。それぞれ以下のようにして記述することができます。
+はじめに、プログラムを書くにあたって重要な変数から説明します。
+変数は値を格納する入れ物です。例えるとラベルの付いた箱のようなものです。
+`let`と記述した後に変数の名前を記述することで変数を宣言できます。
+
+```javascript
+let myVariable;
+```
+
+変数のあとに`=`と値を順番に記述すると、その値を変数に割り当てることができます。
+値の割り当てと変数の宣言をまとめて、一行で記述することもできます。
+
+```javascript
+let myVariable;
+myVariable = 1;
+
+let nextVariable = 100;
+```
+
+`let`を使って宣言すると、後から変数に割り当てた値を変更できます。
+`let`のかわりに`const`を使って宣言すると、後から変更できない定数として宣言できます。
+
+```javascript
+let myVariable = 1;
+myVariable = 23;
+
+const constantValue = 10;
+```
+
+### 2-2. 四則演算
+
+次に計算といえばな四則演算について説明します。それぞれ以下のようにして記述することができます。
 
 | 演算 | 記述 | 実行結果 |
 | ---- | ---- | ---- |
@@ -185,12 +220,27 @@ function myFunc () {
 | 除法 | `2 / 2` | ![除法演算](imgs/calc-divide.png) |
 | 剰余 | `3 % 2` | ![剰余演算](imgs/calc-remainder.png) |
 
-この他に`+=`、`-=`のように二項演算子の後ろに`=`をつけることで左オペランドと右オペランドの計算結果を左オペランドに代入する加算代入演算子や減算代入演算子などもあります。
+この他に`+=`、`-=`のような二項演算子の後ろに`=`をつける、加算代入演算子や減算代入演算子などもあります。
+この演算子は計算と変数への値の割り当てと一行で記述できます。
 
-### 2-2. その他の算術演算
+```javascript
+let value = 1;
+value += 2;
+```
 
-四則演算以外でも頻繁につかう演算がありますよね？
-プログラム中で特に利用するインクリメントやデクリメントなどは演算子が用意されています。
+この加算代入演算子を使った処理は、以下のコードと同じ処理になります。
+
+```javascript
+let value = 1;
+value = value + 2;
+```
+
+### 2-3. その他の算術演算
+
+プログラムでは四則演算以外でも頻繁につかう演算があります。
+変数の値を一つ増やすインクリメントや、一つ減らすデクリメントがその例です。
+インクリメントのようなプログラム中で特に利用する演算は、演算子として用意されています。
+
 また、三角関数のような高度な演算はJSでは `Math` という名前の組み込みオブジェクトから呼び出せます。
 
 以下にいくつか例を示します。
@@ -206,7 +256,7 @@ function myFunc () {
 
 その他のMathオブジェクトのプロパティやメソッドは[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math)から確認できます。
 
-### 2-3. 文字列の処理
+### 2-4. 文字列の処理
 
 文字列はJSではStringオブジェクトとして扱われ、様々な操作を行うことができます。連結、分割、置き換えなどの一部操作の方法を以下に示します。
 
@@ -223,7 +273,7 @@ function myFunc () {
 
 その他のStringオブジェクトのプロパティやメソッドは[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String)から確認できます。
 
-### 2-4. 論理演算
+### 2-5. 論理演算
 
 論理演算はプログラムで頻出する演算の一つです。それぞれの演算は以下のように表せます。
 
@@ -248,7 +298,7 @@ function myFunc () {
 - 0 → 重解
 - 負の値 → 虚数解
 
-これはそれぞれ比較演算子を用いて以下のように表現できます。
+これは判別式Dの結果を`value`として、それぞれ比較演算子を用いて以下のように表現できます。
 
 - 正の値 → `value > 0`
 - 0 → `value === 0`
@@ -271,18 +321,21 @@ JSではこのようにして値の大小や等価かどうかを比較できま
 
   厳密等価/厳密不等価の演算が存在するということは、厳密**でない**等価・不等価の演算があると言うことです。
   これらは暗黙的な型変換を行うため一見して予想できない挙動をすることがあります。
-  このため、通常は厳密等価演算子・厳密不等価演算子を使用することが推奨されます。
+  このため、厳密等価演算子・厳密不等価演算子を使用することが推奨されます。
+  以下に厳密でない等価・不等価演算子の表を示します。
 
   | 演算 | 記述 |
   | ---- | ---- |
   | 等価 | `==` |
   | 不等価 | `!=` |
+
+  繰り返しになりますが、厳密でない演算子の使用は非推奨です。
 </details>
 
 ### 3-2. if文
 
-3-1.でプログラムで条件を表現する方法を説明しました。この式を利用して先程の判別式Dの結果を評価し、実数解、重解、虚数解のどれになるかを出力するようなプログラムを作ることを考えてみましょう。
-評価の結果によって処理を分岐させるためには `if`文 を使います。
+3-1.でプログラムで条件を表現する方法を説明しました。先程の判別式Dの結果を評価し、実数解、重解、虚数解のどれになるかを出力するプログラムを作ることを考えてみましょう。
+評価の結果によって処理を分岐させるためには `if`文を使います。
 
 ```javascript
 if (<条件1>) {
@@ -294,8 +347,8 @@ if (<条件1>) {
 }
 ```
 
-if文は`()`内の評価結果が真のときに直後の`{}`で囲まれたブロック内の処理を行い、`()`内の評価結果が偽のときに直後の`else`句の処理を行います。このとき、`else`のあとに`if`でif文をつなげることで追加の条件分岐を追加できます。`else`のみのあとにある`{}`ブロック内の処理はそれより前にある`if`と`if else`のすべての条件を満たさなかったときに実行されます。
-`if`\~`else if`\~`else`句は一連の処理の塊として捉えられます。この中で上から順に評価が行われるため、条件の強さには気をつける必要があります。
+if文は`()`内の評価結果が真のときに直後の`{}`で囲まれたブロック内の処理を行い、`()`内の評価結果が偽のときに直後の`else`句の処理を行います。このとき、`else`のあとに`if`でif文をつなげることで条件分岐を追加できます。`else`句のあとにある`{}`ブロック内の処理は、それより前にある`if`と`else if`のすべての条件を満たさなかったときに実行されます。
+`if`\~`else if`\~`else`句は一連の処理の塊として捉えられます。この中で上から順に評価が行われるため、条件の順番には気をつける必要があります。
 
 では判別式の結果から解がどうなるかを出力するプログラムを以下に書きます。
 
@@ -366,7 +419,7 @@ JSには同じ処理を複数回行うための文法があります。ここで
 ```javascript
 const array = [1, 2, 3, 4, 5];
 console.log(array[0]); // 1
-console,log(array[3]); // 4
+console.log(array[3]); // 4
 ```
 
 ![配列のサンプル](imgs/array-sample.png)
@@ -374,20 +427,29 @@ console,log(array[3]); // 4
 配列は `[]` で囲まれ `,` で区切られた一連の値で表現されます。
 個々の値にアクセスするには配列名の後ろに`[index]`と書くことで取り出せます。この`index`とは配列の中の順番のことで、0番から順に番号が振られます。
 
+1からではなく、0から数えることに注意してください。ほとんどのプログラミング言語では0から数を数えるので覚えておきましょう。
+
 ### 4-2. for文
 
-先程の配列を使って繰り返し処理の実例を見てみましょう。
+先程の配列を使って、繰り返し処理の実例を見てみましょう。
 ここでは第10項までのフィボナッチ数列を作ることを考えます。
 
 `for`文は実はしれっとすでに資料中で登場していますが、以下のような記述で使うことができます。
 
 ```javascript
-for (<ループ初期条件>; <ループ終了条件>; <ループごとの変数の値>) {
+for (<ループ前の処理>; <ループ終了条件>; <ループごとの処理>) {
   <繰り返す処理内容>
 }
 ```
 
-`i`, `j`, `k`を`for`文での制御変数として利用し、初期条件で`let i = 0;`などとして変数宣言と初期値の代入を行うことが多いです。ループ終了条件部は、評価結果が偽になったときにループを抜けるものです。ループごとの変数の値には`i++`のようにインクリメントが用いられることが多いです。
+<ループ前の処理>は、ループがはじまる前に一度だけ処理されます。
+`i`, `j`, `k`を`for`文での制御変数として利用し、`let i = 0;`のように変数宣言と初期値の代入をすることが多いです。
+
+<ループ終了条件>は、評価結果が偽になったときにループを抜けるものです。
+制御変数を含めた判定式を記述することが多いです。
+
+<ループごとの処理>は、<繰り返す処理内容>が完了した後に毎回処理されます。
+`i++`のように制御変数をインクリメントすることが多いです。
 
 では具体的なフィボナッチ数列の生成コードを見てみましょう。
 
@@ -430,7 +492,8 @@ console.log(fibonacciSeries); // [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
 ### 4-3. `Array.prototype.forEach()`
 
-配列には`.forEach()`というメソッドがあります。これは配列の1要素ごとに繰り返し処理を行うためのもので以下のようにして利用できます。
+配列には`.forEach()`というメソッドがあります。メソッドとはオブジェクトから呼び出せる関数のことで、メソッドや関数については5.1で詳しく説明します。
+`.forEach()`は配列の1要素ごとに繰り返し処理を行うためのもので、以下のようにして利用できます。
 
 ```javascript
 let array = [];
@@ -447,10 +510,10 @@ array.forEach((value) => {
 });
 ```
 
-このコードは10個の乱数を生成して配列にしたあと、それぞれに対して偶数か奇数かを判定するものです。
+このコードは10個の乱数を生成して配列にしたあと、それぞれに対して偶数か奇数かを判定するコードです。
 `(value) => {}`と渡している処理をコールバック関数と呼びます。このようにJSでは関数の引数に関数を渡すことがあります。
 
-同様の処理は通常のfor文でも記述できますが、インデックスによるアクセスが発生し混乱のもとになりやすいです。(特に配列のインデックスが0から始まることを忘れているとバグの元になります。)
+同様の処理はfor文でも記述できますが、インデックスによるアクセスが発生し混乱のもとになりやすいです。(特に配列のインデックスが0から始まることを忘れているとバグのもとになります。)
 
 ```javascript
 let array = [];
@@ -469,7 +532,7 @@ for (let i = 0; i < 10; i++) {
 
 ![foreach](imgs/calc-evenodd-foreach.png) ![index](imgs/calc-evenodd-index.png)
 
-for文中の処理の最初で`array[i]`を別の変数(例えば`value`)に代入するような操作をしても良いですが、それと同様のことが`forEach()`では`(value) => {...}`とするだけでかけます。またfor文での処理と違い配列の長さを気にせず処理を行えるのも便利な特徴です。適宜使い分けると良いでしょう。
+for文中の処理の最初で`array[i]`を別の変数(例えば`value`)に代入しても良いですが、同様のことが`forEach()`では`(value) => {...}`とするだけでかけます。またfor文での処理と違い配列の長さを気にせず処理を行えるのも便利な特徴です。適宜使い分けると良いでしょう。
 
 ## 5. コードをまとめてわかりやすくしよう
 
@@ -483,9 +546,9 @@ for文中の処理の最初で`array[i]`を別の変数(例えば`value`)に代�
 
 #### 5-1-1. 関数
 
-すでに関数の呼び出しは試料中にたくさん登場しています。例えば`console.log()`は立派な関数呼び出しです。このように`関数名(引数)`という形で関数は呼び出せます。
+すでに関数の呼び出しは資料中にたくさん登場しています。例えば`console.log()`は立派な関数呼び出しです。このように`関数名(引数)`という形で関数は呼び出せます。
 
-では関数はどのようにプログラム中で記述できるのかというと、基本的に以下のようにして記述できます。
+では関数はどのようにプログラム中で記述できるのかというと、基本的に以下のように記述できます。
 
 ```javascript
 function <関数名> (<引数>) {
@@ -497,7 +560,7 @@ function <関数名> (<引数>) {
 具体的に二次方程式の解を求める関数を作成してみます。(ただし、JSは標準では虚数を表現できません)
 
 ```javascript
-function solveQuadtraticEquation (a, b, c) {
+function solveQuadraticEquation (a, b, c) {
   const d = b ** 2 - 4 * a * c;
   if (d === 0) {
     return {
@@ -524,11 +587,13 @@ function solveQuadtraticEquation (a, b, c) {
 ```
 
 ここで `a`, `b`, `c` は**仮引数**と呼ばれ、関数の呼び出し時に`()`の中の対応する位置に与えられた値(**引数**)を参照できます。その後`return`で関数の処理結果を**返り値**として返しています。
-この`return`文は値を返す必要がない関数では省略可能です。また、`return`は値を返す、つまり関数の処理を終えたことを意味するため上記の処理のように
+この`return`文は値を返す必要がない関数では省略可能です。
+
+また、`return`は値を返す、つまり関数の処理を終えたことを意味します。そのため上記の処理のように処理の途中で関数を終了したり、条件によって複数の終了処理を記述することができます。
 
 #### 5-1-2. 無名関数
 
-JSで頻出する関数の書き方には名前はないけど関数として宣言されて実行されるものがあります。以下のようなものが無名関数と呼ばれます。
+JSで頻出する関数の書き方には名前はないけど関数として宣言されて実行されるものがあります。それが無名関数です。以下のようなものが無名関数と呼ばれます。
 
 ```javascript
 function (msg) {
@@ -550,7 +615,9 @@ const log = function (msg) {
 log('test');
 ```
 
-このことから、JSの関数は値として扱うことができるのがわかります。
+#### 5-1-3. 値としての関数
+
+5-1-2.では無名関数を変数に代入していました。このことから、JSの関数は値として扱うことができるのがわかります。
 また、この性質を利用してコールバックという処理方法を取れます。`setTimeout(callback, delay)`の`callback`のように関数を値として渡すことで特別な処理がしやすくなります。
 
 ```javascript
@@ -589,8 +656,8 @@ console.log(obj.key1, obj['key2']);
 
 ![オブジェクトのサンプル実行結果](imgs/object-sample.png)
 
-このとき、`[]`(ブラケット記法)を利用したアクセスではプロパティ名を文字列として記述するほうが望ましいです。例えば↑のサンプルで仮に`obj[key2]`としてアクセスしようとしたとき、`key2`が変数として解釈されて未定義のためエラーが発生します。
-これに対して、`.`(ドット記法)を利用してアクセスするときには、使えないプロパティ名があることに注意が必要です。数字で始まるプロパティ名やハイフンを含んだプロパティ名はブラケット記法でアクセスする必要があります。
+このとき、`[]`(ブラケット記法)を利用したアクセスでは`obj['key2']`のように、プロパティ名を文字列として記述するほうが望ましいです。仮に`obj[key2]`と記述してアクセスしようとしたとき、`key2`が変数として解釈されて未定義のためエラーが発生します。
+これに対して、`.`(ドット記法)を利用したアクセスでは、使えないプロパティ名があることに注意が必要です。数字で始まるプロパティ名やハイフンを含んだプロパティ名はブラケット記法でアクセスする必要があります。
 
 #### 5-2-2. プロパティの追加と存在確認
 
@@ -608,7 +675,7 @@ console.log(obj.key1, obj[key2]);
 
 ![オブジェクトにプロパティを追加](imgs/objectr-add-property.png)
 
-またこの特性から、オブジェクトにないプロパティも参照しようとできてしまいます(`undefined`が帰ってくる)。この挙動によるバグを回避するためにいくつかの方法でオブジェクトに目的のプロパティが存在するかを確認することができます。ここでは最も使いやすい手法として**Optional Chaining演算子**`?.`を用いた方法を以下に示します。
+またこの特性から、オブジェクトにないプロパティも参照できてしまいます(参照すると`undefined`が返ります)。この挙動によるバグを回避するために、いくつかの方法でオブジェクトに目的のプロパティが存在するかを確認することができます。ここでは最も使いやすい手法として**Optional Chaining演算子**`?.`を用いた方法を以下に示します。
 
 ```javascript
 const obj = {
@@ -618,24 +685,25 @@ const obj = {
   key2: 'value2'
 };
 
-console.log(obj.key1); // これはundefinedになる
-console.log(obj.key2); // 'value2'
-console.log(obj.prop1); // {key1: 'value1'}
-console.log(obj.prop1.key1); // 'value1'
-console.log(obj.prop1.key2); // これはundefinedになる
-console.log(obj.prop2); // これはundefinedになる
-console.log(obj.prop2.key1); // undefinedに対して更にプロパティにアクセスしようとしたためエラー
-console.log(obj.prop2.key2); // undefinedに対して更にプロパティにアクセスしようとしたためエラー
+console.log(obj.key1); // X  undefined
+console.log(obj.key2); // O  'value2'
+console.log(obj.prop1); // O  {key1: 'value1'}
+console.log(obj.prop1.key1); // O  'value1'
+console.log(obj.prop1.key2); // X  undefined
+console.log(obj.prop2); // X  undefined
+console.log(obj.prop2.key1); // エラー  undefinedに対して更にプロパティにアクセスしようとした
+console.log(obj.prop2.key2); // エラー  undefinedに対して更にプロパティにアクセスしようとした
 
 // optional chaining
 // `?.`のつなげられたプロパティが存在するかを確認して
 //   存在すれば`?.`でつながったプロパティにアクセスする
 //   存在しなければundefinedを返す
-console.log(obj.prop2?.key1); // これはundefinedになる
-console.log(obj?.prop2.key1); // これはエラーになる(obj?.prop2 が undefinedになり、undefined.key1と同じ意味になる)
+console.log(obj.prop2?.key1); // X  undefined
+console.log(obj?.prop2.key1); // エラー (obj?.prop2 が undefinedになり、undefined.key1と同じ意味になる)
+console.log(obj?.prop2?.key1); // X  undefined (obj?.prop2 が undefinedになり、undefined?.key1がundefinedになる)
 ```
 
-例えば、APIリクエストのレスポンスにあったりなかったりするプロパティがある時や、入力が必須でない項目があるフォームなどを扱うときに重宝する機能です。覚えていると良いことがあるかもしれません。
+例えば、APIリクエストのレスポンスにあったりなかったりするプロパティにアクセスするときや、入力が必須でない項目があるフォームなどを扱うときに重宝する機能です。覚えていると良いことがあるかもしれません。
 
 <details>
   <summary>オブジェクトのプロパティに関数を</summary>
@@ -664,6 +732,7 @@ console.log(obj?.prop2.key1); // これはエラーになる(obj?.prop2 が unde
 クラスは以下のような文で定義し、インスタンスを生成してメソッドやプロパティにアクセスできます。
 
 ```javascript
+// クラス定義
 class <クラス名> {
   <プロパティの宣言>
 
@@ -675,9 +744,11 @@ class <クラス名> {
   <メソッド(関数)の定義>
 }
 
-<const / let> <インスタンス変数名> = new <クラス名>(<コンストラクタ引数>);
+// インスタンス生成
+<const または let> <インスタンス変数名> = new <クラス名>(<コンストラクタ引数>);
 
-<インスタンス変数名>.<プロパティ/メソッド>
+// メソッド・プロパティアクセス
+<インスタンス変数名>.<プロパティ または メソッド>
 ```
 
 ↑の疑似コードでは分かりづらい部分もあるので具体的に
@@ -711,12 +782,16 @@ const myClass = new MyClass('my text');
 これで自身の文字列として`'my text'`を持つ`MyClass`のインスタンスを生成して`myClass`に代入できました。
 `myClass`から`printText`メソッドを呼び出せば`'my text'`と出力されるはずです。
 
+```javascript
+myClass.printText();
+```
+
 ![クラスのサンプルコード実行結果](imgs/class-sample.png)
 
 ## 6. 非同期処理を使おう
 
-非同期処理とはその名の通りプログラム中で非同期的な処理を行うことで、例えばサーバーへのリクエストを送ってレスポンスを受けとりたいときなどに使用されます。
-ここまでのコードはすべて同期処理で、非同期処理とは対称的に書いてあるコードが上から順に処理されて行きます。しかし、同期処理ではサーバーへのリクエストを送ったあとレスポンスが帰ってくるまで何もすることができず（正確には「レスポンスを待つ」ことが処理になっているため次の処理に移れず）、処理にかかる時間が大幅に伸びてしまったりします。この待ち時間を解消するための仕組みが非同期処理です。
+非同期処理とはその名の通りプログラム中で非同期的な処理を行うことです。例えばサーバーへのリクエストを送ってレスポンスを受けとりたいときに使用されます。
+ここまでのコードはすべて同期処理で、非同期処理とは対称的に書いてあるコードが上から順に処理されて行きます。しかし、同期処理ではサーバーへのリクエストを送ったあとレスポンスが返ってくるまで何もすることができず（正確には「レスポンスを待つ」ことが処理になっているため次の処理に移れず）、処理にかかる時間が大幅に伸びてしまったりします。この待ち時間を解消するための仕組みが非同期処理です。
 
 [![同期処理のイメージ](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIEg6IOODquOCr-OCqOOCueODiFxuICBOb3RlIHJpZ2h0IG9mIEM6IOW-heOBoeaZgumWk1xuICBIIC0tPj4tIEM6IOODrOOCueODneODs-OCuVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIEg6IOODquOCr-OCqOOCueODiFxuICBOb3RlIHJpZ2h0IG9mIEM6IOW-heOBoeaZgumWk1xuICBIIC0tPj4tIEM6IOODrOOCueODneODs-OCuVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)[![非同期処理のイメージ](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IFAgYXMg6Z2e5ZCM5pyf5Yem55CGXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIFA6IOWHpueQhueZu-mMslxuICBQIC0-PisgSDog44Oq44Kv44Ko44K544OIXG4gIE5vdGUgcmlnaHQgb2YgQzog5LuW44Gu5Yem55CGXG4gIEggLS0-Pi0gUDog44Os44K544Od44Oz44K5XG4gIFAgLS0-Pi0gQzog44Kz44O844Or44OQ44OD44Kv5ZG844Gz5Ye644GXIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IFAgYXMg6Z2e5ZCM5pyf5Yem55CGXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIFA6IOWHpueQhueZu-mMslxuICBQIC0-PisgSDog44Oq44Kv44Ko44K544OIXG4gIE5vdGUgcmlnaHQgb2YgQzog5LuW44Gu5Yem55CGXG4gIEggLS0-Pi0gUDog44Os44K544Od44Oz44K5XG4gIFAgLS0-Pi0gQzog44Kz44O844Or44OQ44OD44Kv5ZG844Gz5Ye644GXIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
@@ -737,20 +812,22 @@ const myClass = new MyClass('my text');
 ```javascript
 const randomDelay = () => new Promise((resolve, reject) => {
   const delay = Math.floor(Math.random() * 1000);
-  if (delay % 2 === 0) {
-    setTimeout(() => resolve(`${delay} is even.`), delay);
-  } else {
-    setTimeout(() => reject(`${delay} is odd.`), delay);
-  }
+  setTimeout(() => {
+    if (delay % 2 === 0) {
+      resolve(`${delay} is even.`);
+    } else {
+      reject(`${delay} is odd.`)
+    }
+  }, delay);
 });
 
 randomDelay()
-  .then(v => console.log(v))
-  .catch(e => console.log(e));
+  .then(v => console.log(`resolve: ${v}`))
+  .catch(e => console.log(`reject: ${e}`));
 ```
 
 ↑のコードではランダムな0~1000ミリ秒後に、待機時間が偶数秒なら`resolve`で解決され、奇数秒なら`reject`で拒否される`Promise`インスタンスを返す関数 `randomDelay` を宣言しています。
-その後、`randomDelay()`でインスタンス生成、受け取って`then()`/`catch()`で`Promise`の解決・拒否を処理しています。
+その後、`randomDelay()`でインスタンス生成、`Promise`を`then()`/`catch()`で受け取って解決・拒否を処理しています。
 
 ![Promiseサンプル実行結果](imgs/promise-random-delay.gif)
 
@@ -776,12 +853,14 @@ async function randomDelay () {
 }
 
 try {
-  console.log(await randomDelay());
+  const v = await randomDelay();
+  console.log(`resolve: ${v}`);
 } catch (e) {
-  console.log(e);
+  console.log(`reject: ${e}`);
 }
 ```
 
+ランダムな時間待機するコードが変わっていますが、処理内容は同様です。気になる方は以下のサマリーを確認してください。
 ここで `try` ~ `catch` という構文が登場しますが、これは例外処理のための文です。
 `Promise` ~ `then` ~ `catch` では例外を `catch` がひろってくれるのですが、`await`式を用いた実装では例外は明示的に処理しなければなりません。そのため、この記述が必要になります。
 
@@ -883,6 +962,7 @@ if ('geolocation' in navigator) {
 ```
 
 ↑のコードを実行すると↓のようなポップアップが表示されます。「許可する」をクリックして位置情報を利用できるようにしてください。
+
 ![位置情報利用許可](imgs/geolocation-authority.png)
 
 ![実行結果](imgs/geolocation-sample.png)
