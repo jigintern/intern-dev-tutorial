@@ -962,6 +962,7 @@ if ('geolocation' in navigator) {
 ```
 
 ↑のコードを実行すると↓のようなポップアップが表示されます。「許可する」をクリックして位置情報を利用できるようにしてください。
+
 ![位置情報利用許可](imgs/geolocation-authority.png)
 
 ![実行結果](imgs/geolocation-sample.png)
