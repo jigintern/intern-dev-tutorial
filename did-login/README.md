@@ -92,10 +92,16 @@ document.getElementById("submit").onclick = async () => {
 
   // `DIDAuth` モジュールの `createNewUser` を使って DID、パスワード、メッセージ、電子署名を取得
   const [did, password, message, sign] = DIDAuth.createNewUser(name);
+
+  // Formに反映
+  document.getElementById("did").value = did;
+  document.getElementById("password").value = password;
+  document.getElementById("sign").value = sign;
+  document.getElementById("message").value = message;
 };
 ```
 
-ここまでできたら実際にサーバー側に `/users/register` をエンドポイントとした API を追加して POST リクエストを送ってみましょう。
+ここまでできたら実際にサーバー側に `/users/register` をエンドポイントとした API を追加して POST リクエストを送ってみましょう。また、`did`と`password`をローカルに保存させる機能も追加しましょう。
 
 ```js
 // index.html
@@ -116,6 +122,13 @@ document.getElementById("submit").onclick = async () => {
   } catch (err) {
     document.getElementById("error").innerText = err.message;
   }
+};
+
+// DIDとパスワードの保存処理
+document.getElementById("saveBtn").onclick = async () => {
+  const did = document.getElementById("did").value;
+  const password = document.getElementById("password").value;
+  DIDAuth.savePem(did, password);
 };
 ```
 
