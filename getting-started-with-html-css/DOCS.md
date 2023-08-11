@@ -645,7 +645,7 @@ UAスタイルシートやCSS初期値に対して、オーサースタイルシ
 - グループ化セレクタ
   - `,`でこれまでのセレクタをつなげる、例えば`header, footer`とすることで、`<header>`要素と`<footer>`要素の両方を選択します
 
-結合子はこれ以外にもありますが、使用機会が少ないため省きます。知りたい方は[こちらへ](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_selectors#%E7%B5%90%E5%90%88%E5%AD%90)
+結合子はこれ以外にもありますが、使用機会が少ないため省きます。知りたい方は[こちらへ](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_selectors#%E7%B5%90%E5%90%88%E5%AD%90)。
 これらのセレクタと以下の結合子を用いることで要素をより限定できます。
 
 - 子孫結合子
