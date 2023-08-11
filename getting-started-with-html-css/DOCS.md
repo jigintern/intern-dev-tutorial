@@ -1195,7 +1195,7 @@ mainButton.addEventListener('click', updateMessage);
 
 ### 4-3. CSSで要素の変化を魅せよう
 
-最後に説明するのは簡単なCSSでのアニメーション、`transition`プロパティを用いた見た目ものを説明しておきます。
+最後に説明するのは簡単なCSSでのアニメーション、`transition`プロパティを用いたアニメーションを説明しておきます。
 > 注: 一般にこれをCSSアニメーションとは言いません。CSSアニメーションについては[こちら](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_animations/Using_CSS_animations)を確認してください。
 
 以下にサンプルを示します。この例では、ボタンがクリックされるたびに移動する四角形が、移動時にアニメーションします。
