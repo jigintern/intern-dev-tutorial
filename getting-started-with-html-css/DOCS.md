@@ -1076,7 +1076,7 @@ HTMLではボタン要素は以下のようにして記述できます。
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>サンプルページ</title>
-    <script src="main.js" async></script>
+    <script src="main.js" defer></script>
   </head>
   <body>
     <button id="main-button">ボタンです</button>
@@ -1116,7 +1116,7 @@ mainButton.addEventListener('click', showAlert);
   `defer`属性、`async`属性か、`type="module"`属性を持たない場合、スクリプトは読み込まれた順に即時実行されます。
   今回はページに表示される要素を取得する必要があり、実行時に要素がない（表示されていない）とエラーになってしまうため、`defer`属性を与えています。
 
-  `async`属性や`type="module"`は`defer`とは違った意味を持ちます。詳しくは[mdn web docs](https://developer.mozilla.org/ja/docs/Web/HTML/Element/script#%E5%B1%9E%E6%80%A7)を見てみてください。
+  `async`属性や`type="module"`属性は、`defer`属性とは違った意味を持ちます。詳しくは[mdn web docs](https://developer.mozilla.org/ja/docs/Web/HTML/Element/script#%E5%B1%9E%E6%80%A7)を見てみてください。
 </details>
 
 ### 4-２. JavaScriptで要素に変更を加えよう
@@ -1145,7 +1145,7 @@ JavaScriptで取得した要素は、様々なプロパティを持つオブジ�
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>サンプルページ</title>
-          <script src="main.js" async></script>
+          <script src="main.js" defer></script>
         </head>
         <body>
           <button id="main-button">ボタンです</button>
@@ -1208,13 +1208,13 @@ mainButton.addEventListener('click', updateMessage);
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>サンプルページ</title>
-          <script src="main.js" async></script>
+          <script src="main.js" defer></script>
           <link rel="stylesheet" href="style.css"/>
         </head>
         <body>
           <button id="main-button">ボタンです</button>
           <div id="field">
-            <div id="box">0</box>
+            <div id="box">0</div>
           </div>
         </body>
       </html>
