@@ -63,7 +63,7 @@ APIの叩き方がわかったところで、今度はサーバー側に手を�
 
 ```javascript
 
-  if( req.method === "GET" && pathname === "/greeting" ){
+  if (req.method === "GET" && pathname === "/greeting") {
     return new Response("Hello!!")
   }
 ```
@@ -146,7 +146,7 @@ const param = new URL(req.url).searchParams.get("クエリパラメータ名");
 以下に実装の一例を示す。
 
 ```javascript
-  if( req.method === "GET" && pathname === "/greeting-me" ){
+  if (req.method === "GET" && pathname === "/greeting-me") {
     const param = new URL(req.url).searchParams.get("name");
     return new Response("Hello, " + param);
   }
@@ -200,10 +200,10 @@ POSTメソッドで送信されたパラメータは以下のような実装で�
 以下にサーバ側のコードの実装の一例を示す。
 
 ```javascript
-  if( req.method === "POST" && pathname === "/auth" ){
+  if (req.method === "POST" && pathname === "/auth") {
     const reqJson = await req.json();
     const pass = reqJson.pass
-    if( pass === "jigjp" ){
+    if (pass === "jigjp") {
       return new Response("Authentication Successful!!")
     }else{
       return new Response("Authentication Failure")
@@ -220,7 +220,7 @@ fetch APIでPOSTメソッドを利用する場合、第二引数のオプショ�
 また、今回はbodyも送信し、その中身はJSONで送るため、以下のようになる。
 
 ```javascript
-      const response = await fetch("/auth",{
+      const response = await fetch("/auth", {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({pass: pass})
@@ -298,7 +298,7 @@ fetch APIでPOSTメソッドを利用する場合、第二引数のオプショ�
     // authを叩くためのjavascriptの実装
     document.getElementById("auth").onclick = async () => {
       const pass = document.getElementById("password").value;
-      const response = await fetch("/auth",{
+      const response = await fetch("/auth", {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({pass: pass})
@@ -323,23 +323,23 @@ serve(async (req) => {
   const pathname = new URL(req.url).pathname;
   console.log(pathname);
 
-  if ( req.method === "GET" && pathname === "/welcome-message" ) {
+  if (req.method === "GET" && pathname === "/welcome-message") {
     return new Response("jigインターンへようこそ！");
   }
 
-  if( req.method === "GET" && pathname === "/greeting" ){
+  if (req.method === "GET" && pathname === "/greeting") {
     return new Response("Hello!!")
   }
 
-  if( req.method === "GET" && pathname === "/greeting-me" ){
+  if (req.method === "GET" && pathname === "/greeting-me") {
     const param = new URL(req.url).searchParams.get("name");
     return new Response("Hello, " + param);
   }
 
-  if( req.method === "POST" && pathname === "/auth" ){
+  if (req.method === "POST" && pathname === "/auth") {
     const reqJson = await req.json();
     const pass = reqJson.pass
-    if( pass === "jigjp" ){
+    if (pass === "jigjp") {
       return new Response("Authentication Successful!!")
     }else{
       return new Response("Authentication Failure")
