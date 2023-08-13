@@ -340,7 +340,7 @@ JSではこのようにして値の大小や等価かどうかを比較できま
 ```javascript
 if (<条件1>) {
    条件1が真のときの処理
-} else if(<条件2>) {
+} else if (<条件2>) {
    条件2が真のときの処理
 } else {
    条件1も条件2も偽のときの処理
@@ -502,7 +502,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 array.forEach((value) => {
-  if(value % 2 === 0) {
+  if (value % 2 === 0) {
     console.log(`${value} is even.`);
   } else {
     console.log(`${value} is odd.`);
@@ -522,7 +522,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 for (let i = 0; i < 10; i++) {
-    if(array[i] % 2 === 0) {
+    if (array[i] % 2 === 0) {
         console.log(`${array[i]} is even.`);
     } else {
         console.log(`${array[i]} is odd.`);
