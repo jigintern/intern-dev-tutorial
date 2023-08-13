@@ -32,9 +32,9 @@ Application Programming Interfaceの略。
 先ほど追加したコードの下に以下のコードを追加する
 ```html
   <script type="module">
-    document.getElementById("welcome_button").onclick = async () => {
+    welcome_button.onclick = async () => {
       const response = await fetch("/welcome-message");
-      document.getElementById("welcome_message").innerText = await response.text();
+      welcome_message.innerText = await response.text();
     };
   </script>
 ```
@@ -102,15 +102,15 @@ APIの叩き方がわかったところで、今度はサーバー側に手を�
 
   <script type="module">
 
-    document.getElementById("welcome_button").onclick = async () => {
+    welcome_button.onclick = async () => {
       const response = await fetch("/welcome-message");
-      document.getElementById("welcome_message").innerText = await response.text();
+      welcome_message.innerText = await response.text();
     };
     
     // greetingを叩くためのjavascriptの実装
-    document.getElementById("greeting").onclick = async () => {
+    greeting.onclick = async () => {
       const response = await fetch("/greeting");
-      document.getElementById("server_response").innerText = await response.text();
+      server_response.innerText = await response.text();
     };
   </script>
 </body>
@@ -164,10 +164,9 @@ const param = new URL(req.url).searchParams.get("クエリパラメータ名");
 
 ```javascript
     // greeting-meを叩くためのjavascriptの実装
-    document.getElementById("greeting_me").onclick = async () => {
-      const name = document.getElementById("name").value;
-      const response = await fetch("/greeting-me?name=" + name);
-      document.getElementById("server_response").innerText = await response.text();
+    greeting_me.onclick = async () => {
+      const response = await fetch("/greeting-me?name=" + name.value);
+      server_response.innerText = await response.text();
     };
 ```
 
@@ -222,8 +221,8 @@ fetch APIでPOSTメソッドを利用する場合、第二引数のオプショ�
 ```javascript
       const response = await fetch("/auth",{
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({pass: pass})
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pass })
       });
 ```
 
@@ -277,33 +276,32 @@ fetch APIでPOSTメソッドを利用する場合、第二引数のオプショ�
 
   <script type="module">
 
-    document.getElementById("welcome_button").onclick = async () => {
+    welcome_button.onclick = async () => {
       const response = await fetch("/welcome-message");
-      document.getElementById("welcome_message").innerText = await response.text();
+      welcome_message.innerText = await response.text();
     };
     
     // greetingを叩くためのjavascriptの実装
-    document.getElementById("greeting").onclick = async () => {
+    greeting.onclick = async () => {
       const response = await fetch("/greeting");
-      document.getElementById("server_response").innerText = await response.text();
+      server_response.innerText = await response.text();
     };
 
     // greeting_meを叩くためのjavascriptの実装
-    document.getElementById("greeting_me").onclick = async () => {
-      const name = document.getElementById("name").value;
-      const response = await fetch("/greeting-me?name=" + name);
-      document.getElementById("server_response").innerText = await response.text();
+    greeting_me.onclick = async () => {
+      const response = await fetch("/greeting-me?name=" + name.value);
+      server_response.innerText = await response.text();
     };
 
     // authを叩くためのjavascriptの実装
-    document.getElementById("auth").onclick = async () => {
-      const pass = document.getElementById("password").value;
-      const response = await fetch("/auth",{
+    auth.onclick = async () => {
+      const pass = password.value;
+      const response = await fetch("/auth", {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({pass: pass})
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pass })
       });
-      document.getElementById("server_response").innerText = await response.text();
+      server_response.innerText = await response.text();
     };
   </script>
 </body>
