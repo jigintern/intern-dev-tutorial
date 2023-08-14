@@ -577,7 +577,7 @@ function solveQuadraticEquation (a, b, c) {
     };
   } else {
     return {
-      type: '虚数解'
+      type: '虚数解',
       ans: [
         `(${b} ± √${Math.abs(d)}i) / ${2 * a}`
       ]
