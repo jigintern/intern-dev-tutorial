@@ -610,7 +610,7 @@ function (msg) {
 
 ```javascript
 const log = function (msg) {
-  console.log();
+  console.log(msg);
 };
 log('test');
 ```
