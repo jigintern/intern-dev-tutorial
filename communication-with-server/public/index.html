@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div>
+  <h1 id="server_response"></h1>
+  <button id="cors">try cors</button>
+  </div>
+
+  <div>
+  <button id="cors2">try cors (simple request) </button> 
+  </div>
+
+  <div>
+  <button id="cors3"> try cors (prefright request) </button>
+  </div>
+
+
+  <script type="module">
+
+    cors.onclick = async () => {
+      const response = await fetch("http://localhost:3000/cors");
+      server_response.innerText = await response.text();
+    };
+    
+    cors2.onclick = async () => {
+        const response = await fetch("http://localhost:3000/cors-additional-header");
+        server_response.innerText = await response.text();
+    };
+
+    cors3.onclick = async () => {
+        const response = await fetch("http://localhost:3000/cors-additional-header",{
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body:JSON.stringify({name:"hoge"})
+        }
+        )
+        server_response.innerText = await response.text();
+    }
+   
+  </script>
+</body>
+
+</html>
