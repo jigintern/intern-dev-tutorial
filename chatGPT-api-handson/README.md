@@ -33,7 +33,7 @@ API や ChatGPT の利用にはアカウント登録が必要になります。
 
 ---
 
-新規登録・ログインができたら、今回は API を使用するので、API を選択します。  
+新規登録・ログインができたら、完了時に表示されていた画面で、API を選択します。  
 
 <img src="./imgs/05_openai_platform_top.png" width="600px">
 
@@ -81,7 +81,7 @@ Secret Key という名前のキーがデフォルトで発行されているは
 
 名前を入力したら、Create secret key を押します。
 
-you won't be able to view it againと書いてある通り、**ここで出てきたAPIキーは Done を選択すると、この後は見れなくなります。**
+下の図でyou won't be able to view it againと書いてある通り、**ここで出てきたAPIキーは Done を選択すると、この後は見れなくなります。**
 
 なので、発行したキーはどこかに保管しておいてください。
 
@@ -107,8 +107,9 @@ you won't be able to view it againと書いてある通り、**ここで出て�
 
 `fetchChat` / `fetchConversation` も内部実装では OpenAI API を使用しているので、API キーが必要になります。
 
-このAPI キーは、`.env` というファイルに作成すると動くようになっているので、`.env.example` というファイルを `.env` に改名します。  
-(つまり、ファイル名から `.example` を消してください)
+`.env`ファイルを用意して、そこにAPIキーを書き込んでおくことで自動でAPIキーを読み込んでくれます。   
+今回はあらかじめ雛形を `.env.example`という名前で用意したので、`.env` に改名して使用します。  
+(つまり、ファイル名から `.example` を消してください) 
 
 改名したら、ファイルの中身を書き換えていきます。  
 `OPENAI_API_KEY=` までを残して `sk-` 以下を削除します。  
@@ -148,7 +149,7 @@ const response = await fetch('/api/conversation', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
-        },
+  },
   body: JSON.stringify({ messages: messages })
 });
 
@@ -194,7 +195,7 @@ const response = await fetchChat(json.message);
 ```
 
 引数として、ユーザーの入力したメッセージを文字列型(string)で指定するだけでOKです。  
-受け取ったレスポンス res も文字列型になっています。
+受け取ったレスポンス response も文字列型になっています。
 
 #### `fetchConversation`
 
