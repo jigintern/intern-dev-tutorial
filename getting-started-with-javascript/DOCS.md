@@ -670,7 +670,7 @@ const obj = {};
 obj.key1 = 'value1';
 obj['key2'] = 'value2';
 
-console.log(obj.key1, obj[key2]);
+console.log(obj.key1, obj['key2']);
 ```
 
 ![オブジェクトにプロパティを追加](imgs/objectr-add-property.png)
