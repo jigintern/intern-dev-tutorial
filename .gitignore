@@ -1,1 +1,7 @@
+# 全般
 .DS_Store
+
+# ChatGPT ハンズオン
+**/.env
+chatGPT-api-handson/sample/log
+
