@@ -170,10 +170,10 @@ SELECT * FROM student;
 `ORDER BY` 句を使用してみましょう。
 ```sql
 # 入学日時で昇順ソート
-SELECT * FROM student ORDER BY addmission_date ASC;
+SELECT * FROM student ORDER BY admission_date ASC;
 
 # 入学日時で降順ソート
-SELECT * FROM student ORDER BY addmission_date DESC;
+SELECT * FROM student ORDER BY admission_date DESC;
 ```
 
 </details>
@@ -199,7 +199,7 @@ SELECT * FROM student WHERE name = "山田";
 2022年以降に入学した学生のレコードを抽出してみましょう。
 ```sql
 # あるカラムが特定の値より大きいレコードのみ取得
-SELECT * FROM student WHERE addmission_date >= "2022-01-01 00:00:00";
+SELECT * FROM student WHERE admission_date >= "2022-01-01 00:00:00";
 ```
 
 3. `LIKE` 句を使用すれば、部分一致でのレコードの抽出も可能です。  
@@ -344,7 +344,7 @@ WHERE id IN (
 以下のクエリを実行することで、学生ごとの平均得点を再取得してみましょう。
 
 ```sql
-SELECT student.id, student.name, SUM(exam.score) FROM exam
+SELECT student.id, student.name, AVG(exam.score) FROM exam
 LEFT JOIN student ON exam.student_id = student.id
 GROUP BY student.id;
 ```
@@ -372,7 +372,7 @@ CREATE TABLE student (
     id int NOT NULL AUTO_INCREMENT,
     class_room_id int NOT NULL,
     name varchar(255) NOT NULL,
-    addmission_date datetime NOT NULL,
+    admission_date datetime NOT NULL,
     graduation_date datetime NOT NULL,
     PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8mb4;
