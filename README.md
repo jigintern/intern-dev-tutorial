@@ -17,8 +17,8 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
   - [README.md](./deno-tutorial/README.md)
 - サーバーとの通信について: communication-with-server
   - [README.md](./communication-with-server/README.md)
-- APIハンズオン: api-hands-on
-  - [README.md](./api-hands-on/README.md)
+- APIハンズオン: api
+  - [README.md](./api/README.md)
 - データベース: MySQL: detabase-tutorial
   - [README.md](./database-tutorial/README.md)
   - [docs.md](./database-tutorial/docs.md)
