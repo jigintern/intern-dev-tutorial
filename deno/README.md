@@ -67,7 +67,7 @@ MacOSの人は`homebrew`というパッケージ管理ツールをインスト�
 サンプルプロジェクトの中のコードをDenoで実行してみよう。
 
 ## 3-1. 下準備
-1. まずカレントディレクトリを`intern-dev-tutorial/deno-tutorial`に移動しましょう。  
+1. まずカレントディレクトリを`intern-dev-tutorial/deno`に移動しましょう。  
 
 2. VScodeの拡張機能のタブから「Deno」を検索してインストールしよう
 
