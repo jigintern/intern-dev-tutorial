@@ -27,7 +27,7 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
 - ChatGPT APIハンズオン: chat-gpt-api
   - [README>md](./chat-gpt-api/README.md)
 
-![](./imgs/summary.png)
+![](./imgs/summary.jpg)
 
 ## 著者
 
