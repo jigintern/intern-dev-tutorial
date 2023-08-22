@@ -27,6 +27,8 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
 - ChatGPT APIハンズオン: chat-gpt-api
   - [README>md](./chat-gpt-api/README.md)
 
+![](./imgs/summary.png)
+
 ## 著者
 
 - <https://github.com/nabe1005>
@@ -40,3 +42,8 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
 ### スペシャルサンクス
 
 Contributerの皆様 <https://github.com/jigintern/intern-dev-tutorial/graphs/contributors>
+
+### Credits
+
+#### octicons
+- <https://github.com/primer/octicons/blob/main/LICENSE>
