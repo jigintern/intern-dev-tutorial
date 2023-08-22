@@ -76,6 +76,7 @@ DID とは分散型 ID のことで、公開鍵暗号技術の公開鍵のこと
     const name = document.getElementById("name").value;
     if (name === "") {
       document.getElementById("error").innerText = "名前は必須パラメータです";
+      return;
     }
   };
 </script>
@@ -125,7 +126,9 @@ document.getElementById("submit").onclick = async () => {
 };
 
 // DIDとパスワードの保存処理
-document.getElementById("saveBtn").onclick = async () => {
+document.getElementById("saveBtn").onclick = async (event) => {
+  event.preventDefault();
+
   const did = document.getElementById("did").value;
   const password = document.getElementById("password").value;
   DIDAuth.savePem(did, password);
@@ -319,7 +322,7 @@ document
     // 公開鍵・電子署名をサーバーに渡す
     try {
       const resp = await fetch(path, {
-        method,
+        method: method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ did, sign, message }),
       });
