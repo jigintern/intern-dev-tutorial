@@ -126,7 +126,7 @@ document.getElementById("submit").onclick = async () => {
 };
 
 // DIDとパスワードの保存処理
-document.getElementById("saveBtn").onclick = async () => {
+document.getElementById("saveBtn").onclick = async (event) => {
   event.preventDefault();
 
   const did = document.getElementById("did").value;
