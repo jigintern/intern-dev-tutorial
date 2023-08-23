@@ -450,9 +450,14 @@ function isLoggedIn() {
 ```js
     const path = "/comment";
     const method = "POST";
-    const params = {comment: "ほげほげほげほげ"};
+    const params = {comment: "こんにちは！"};
     // 電子署名とメッセージの作成
     const [message, sign] = DIDAuth.genMsgAndSign(did, password, path, method, params);
+
+    if(!isLoggedIn()) {
+      location.href = "login.html";
+      return;
+    }
 
     try {
       const resp = await fetch(path, {
@@ -470,6 +475,10 @@ function isLoggedIn() {
     }
 ```
 
+`POST /comment`にリクエストを送る実装が出来ました。
+サーバにリクエストを受け取る実装を追加しましょう。
+まずは電子署名とユーザのDIDを検証します。
+
 ```js
 if (req.method === "POST" && pathname === "/comment") {
   const json = await req.json();
@@ -478,33 +487,58 @@ if (req.method === "POST" && pathname === "/comment") {
   const message = json.message;
   const params = json.params;
 
+  try {
+    const user = await verifyUser(sign, did, message);
+
+    // ログイン済み！
+    console.log(user.name, params.comment);
+
+    return new Response("OK", { status: 200 });
+  } catch (e) {
+    if (e instanceof DIDVerifyException) {
+      return new Response(e.message, { status: e.status });
+    } else {
+      return new Response(e.message, { status: 500 });
+    }
+  }
+}
+```
+
+```js
+class DIDVerifyException extends Error {
+  status;
+
+  constructor(message, status) {
+    super(message);
+
+    this.status = status;
+  }
+}
+
+async function verifyUser(sign, did, message) {
   // 電子署名が正しいかチェック
   try {
     const chk = DIDAuth.verifySign(did, sign, message);
     if (!chk) {
-      return new Response("不正な電子署名です", { status: 400 });
+      throw new DIDVerifyException("不正な電子署名です", 400);
     }
   } catch (e) {
-    return new Response(e.message, { status: 400 });
+    throw new DIDVerifyException(e.message, 400);
   }
 
   // DBにdidが登録されているかチェック
   try {
     const isExists = await checkIfIdExists(did);
     if (!isExists) {
-      return new Response("登録されていません", { status: 400 });
+      throw new DIDVerifyException("登録されていません", 400);
     }
     const res = await getUser(did);
-    const user = { did: res.rows[0].did, name: res.rows[0].name };
-
-    // ログイン済み！
-    console.log(user.name, params.comment);
-
-    return new Response("OK", {status: 200});
+    return { did: res.rows[0].did, name: res.rows[0].name };
   } catch (e) {
-    return new Response(e.message, { status: 500 });
+    throw new DIDVerifyException(e.message, 500);
   }
 }
+
 ```
 
 ログイン中だけ使える機能はPOST、いつでも使える機能はGETで実装すると良いでしょう。
