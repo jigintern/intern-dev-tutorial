@@ -15,8 +15,8 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
   - [DOCS.md](./html-css/DOCS.md)
 - Denoについて: deno
   - [README.md](./deno/README.md)
-- クライアント・サーバの通信: transfer-procotol
-  - [README.md](./transfer-procotol/README.md)
+- クライアント・サーバの通信: transfer-protocol
+  - [README.md](./transfer-protocol/README.md)
 - APIハンズオン: api
   - [README.md](./api/README.md)
 - データベース: MySQL: detabase
