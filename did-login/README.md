@@ -424,11 +424,12 @@ export async function getUser(did) {
 今回の実装では`localStorage`を使って判定します。
 
 新規登録とログインで、DIDとパスワードを`localStorage`に保存しています。
-`localStorage`にDIDとパスワードが保存されていればログイン済み、なければ未ログインと判定できます。
+ここで、ログインしていないユーザをゲストユーザとしましょう。
+`localStorage`にDIDとパスワードが保存されていればログインユーザ、なければゲストユーザと判定できます。
 これらの処理をクライアントに実装してみましょう。
 
 ```js
-function isLoggedIn() {
+function isGuest() {
   const did = localStorage.getItem("did");
   const password = localStorage.getItem("password");
 
@@ -441,38 +442,69 @@ function isLoggedIn() {
 ログイン中だけ使えるAPIの例として、ログインしたユーザだけコメントできる `POST /comment`を実装してみましょう。
 
 クライアントからは二種類のデータを送ります。
-サーバがログイン中か判断するためのDIDと電子署名、コメント投稿のためのテキストの二種類です。
-サーバは、ログインAPIと同じようにリクエストそのものの検証、登録したユーザかどうかの検証をします。
-すべての検証が合っていたらコメントの投稿を処理します。
+正しいユーザか判断するためのDIDと電子署名、コメント投稿のためのテキストの二種類です。
+サーバはユーザの検証を保持していないため、アクセスがあるたびに検証する必要があります。
+そのため、ログインAPIと同じようにリクエストの検証、登録したユーザかどうかの検証をします。
+すべての検証が成功したらコメントの投稿を処理します。
 
 それではクライアントから実装してみましょう。
 
 ```js
-    const path = "/comment";
-    const method = "POST";
-    const params = {comment: "こんにちは！"};
-    // 電子署名とメッセージの作成
-    const [message, sign] = DIDAuth.genMsgAndSign(did, password, path, method, params);
+// comment.html
+import { DIDAuth } from "https://jigintern.github.io/did-login/auth/DIDAuth.js";
 
-    if(!isLoggedIn()) {
-      location.href = "login.html";
+// ログイン済みかどうかを返す
+function isGuest() {
+  const did = localStorage.getItem('did');
+  const password = localStorage.getItem('password');
+
+  return did === null || password === null;
+}
+
+// コメント送信で処理をする
+document.getElementById('commentForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const comment = document.getElementById('comment').value;
+
+  const path = '/comment';
+  const method = 'POST';
+  const params = { comment: comment };
+
+  // 未ログインならログイン画面に遷移する
+  if (isGuest()) {
+    location.href = 'login.html';
+    return;
+  }
+
+  // 送信に必要なデータを用意
+  const did = localStorage.getItem('did');
+  const password = localStorage.getItem('password');
+  const [message, sign] = DIDAuth.genMsgAndSign(
+    did,
+    password,
+    path,
+    method,
+    params
+  );
+  try {
+    // POST commentにデータを送信
+    const resp = await fetch(path, {
+      method: method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ did, sign, message, params }),
+    });
+
+    // サーバーから成功ステータスが返ってこないときの処理
+    if (!resp.ok) {
+      const errMsg = await resp.text();
+      document.getElementById('error').innerText = 'エラー：' + errMsg;
       return;
     }
-
-    try {
-      const resp = await fetch(path, {
-        method: method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ did, sign, message,  params}),
-      });
-
-      // サーバーから成功ステータスが返ってこないときの処理
-      if (!resp.ok) {
-        const errMsg = await resp.text();
-        document.getElementById("error").innerText = "エラー：" + errMsg;
-        return;
-      }
-    }
+  } catch (e) {
+    document.getElementById('error').innerText = e.message;
+  }
+});
 ```
 
 `POST /comment`にリクエストを送る実装が出来ました。
@@ -480,31 +512,8 @@ function isLoggedIn() {
 まずは電子署名とユーザのDIDを検証します。
 
 ```js
-if (req.method === "POST" && pathname === "/comment") {
-  const json = await req.json();
-  const sign = json.sign;
-  const did = json.did;
-  const message = json.message;
-  const params = json.params;
+// serve.js
 
-  try {
-    const user = await verifyUser(sign, did, message);
-
-    // ログイン済み！
-    console.log(user.name, params.comment);
-
-    return new Response("OK", { status: 200 });
-  } catch (e) {
-    if (e instanceof DIDVerifyException) {
-      return new Response(e.message, { status: e.status });
-    } else {
-      return new Response(e.message, { status: 500 });
-    }
-  }
-}
-```
-
-```js
 class DIDVerifyException extends Error {
   status;
 
@@ -538,7 +547,38 @@ async function verifyUser(sign, did, message) {
     throw new DIDVerifyException(e.message, 500);
   }
 }
-
 ```
 
-ログイン中だけ使える機能はPOST、いつでも使える機能はGETで実装すると良いでしょう。
+電子署名とユーザのDIDを検証する関数ができました。
+この関数を使って`POST /comment`を受け取る処理を追加します。
+
+```js
+// serve.js
+// ...
+if (req.method === "POST" && pathname === "/comment") {
+  const json = await req.json();
+  const sign = json.sign;
+  const did = json.did;
+  const message = json.message;
+  const params = json.params;
+
+  try {
+    const user = await verifyUser(sign, did, message);
+
+    // ログイン済み！
+    console.log(user.name, params.comment);
+
+    return new Response("OK", { status: 200 });
+  } catch (e) {
+    if (e instanceof DIDVerifyException) {
+      return new Response(e.message, { status: e.status });
+    } else {
+      return new Response(e.message, { status: 500 });
+    }
+  }
+}
+```
+
+これでログイン中だけ使えるコメント送信のAPIができました。
+この例のように、DIDを用いる場合はリクエストごとに検証するようにしましょう。
+目安としてログイン中だけ使える機能はPOSTにして、GETでは送らないようにしましょう。
