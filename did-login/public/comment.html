@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DID Login Sample</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+</head>
+
+<body>
+  <div style="background-color: skyblue; display: flex; padding: 16px">
+    <a style="color: white; margin-right: 16px" href="/"> 新規登録 </a>
+    <a style="color: white; margin-right: 16px" href="/login.html"> ログイン </a>
+    <a style="color: white" href="/comment.html"> コメント </a>
+  </div>
+  <section class="section">
+    <div class="container">
+      <h1 class="title has-text-centered">DID Login Sample</h1>
+      <h3 class="subtitle has-text-centered">コメント</h3>
+      <form id="commentForm">
+        <div class="container mb-4">
+          <p id="error" class="has-text-danger"></p>
+        </div>
+
+        <div class="field">
+          <label class="label">コメント</label>
+          <div class="control">
+            <input class="input" type="text" id="comment" placeholder="こんにちは！" />
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <button class="button is-link">送信</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script type="module">
+
+  </script>
+</body>
+
+</html>
