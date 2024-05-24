@@ -29,6 +29,19 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
 
 ![](./imgs/summary.jpg)
 
+## Edit
+
+編集する方は、必要な拡張やパッケージをインストールしてください。
+
+- VSCodeの @recommended 拡張をインストール
+- `https://deno.com/`を参考に、Denoをインストール
+- `https://nodejs.org/`を参考に、NodeJSをインストール
+- `npm install`で、パッケージをインストール
+
+校正ルールはproofdictで管理しています。次のリポジトリから編集してください。
+
+- <https://jigintern.github.io/proof-dictionary/>
+
 ## 著者
 
 - <https://github.com/nabe1005>
@@ -46,4 +59,5 @@ Contributerの皆様 <https://github.com/jigintern/intern-dev-tutorial/graphs/co
 ### Credits
 
 #### octicons
+
 - <https://github.com/primer/octicons/blob/main/LICENSE>
