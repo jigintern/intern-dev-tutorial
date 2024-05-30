@@ -1,6 +1,8 @@
 {
   "plugins": {},
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "@proofdict/proofdict": {
       "dictURL": "https://jigintern.github.io/proof-dictionary/"
