@@ -1,0 +1,15 @@
+{
+  "plugins": {},
+  "filters": {},
+  "rules": {
+    "@proofdict/proofdict": {
+      "dictURL": "https://jigintern.github.io/proof-dictionary/"
+    },
+    "spellcheck-tech-word": true,
+    "preset-ja-technical-writing": {
+      "max-kanji-continuous-len": {
+        "max": 6
+      }
+    }
+  }
+}
