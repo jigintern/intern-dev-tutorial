@@ -1,10 +1,10 @@
 name: marp-github-actions
 
-on: 
+on:
   push:
     branches:
       - main
-      - feature/git-tutorial
+      - feature/git
 
 permissions:
   contents: read
@@ -12,11 +12,11 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 env:
-  LANG: "ja_JP.UTF-8"
+  LANG: 'ja_JP.UTF-8'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,21 +32,21 @@ jobs:
 
       - name: Install Marp CLI
         run: npm install -g @marp-team/marp-cli
-      
+
       - name: Make Directory
-        run: mkdir dest && cp -r ./git-tutorial/imgs ./dest/imgs
+        run: mkdir dest && cp -r ./git/imgs ./dest/imgs
 
       - name: Build Marp git-tutorial PDF
-        run: marp $(cat config.json | jq -r .[0].directory)/slide.md 
-              --pdf
-              -o ./dest/$(cat config.json | jq -r .[0].output_name).pdf
-              --allow-local-files
+        run: marp $(cat config.json | jq -r .[0].directory)/slide.md
+          --pdf
+          -o ./dest/$(cat config.json | jq -r .[0].output_name).pdf
+          --allow-local-files
 
       - name: Build Marp git-tutorial HTML
-        run: marp $(cat config.json | jq -r .[0].directory)/slide.md 
-              --html 
-              -o ./dest/$(cat config.json | jq -r .[0].output_name).html
-              --allow-local-files
+        run: marp $(cat config.json | jq -r .[0].directory)/slide.md
+          --html
+          -o ./dest/$(cat config.json | jq -r .[0].output_name).html
+          --allow-local-files
 
       - name: Upload Files Pages
         uses: actions/upload-pages-artifact@v1

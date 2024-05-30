@@ -1,1 +1,9 @@
+# 全般
 .DS_Store
+
+# ChatGPT ハンズオン
+**/.env
+chat-gpt-api/sample/log
+
+node_modules
+.cache

@@ -199,7 +199,7 @@ HTMLでのコメントは、コメントにしたい記述一帯を `<!--` \~ `-
 
 HTMLの記述は`<html>`\~`</html>`の中に記述し、この要素をルート要素と言います。  
 ルート要素の子には *一つの`<head>`要素* と *そのあとに続く一つの`<body>`要素* が許可されています。  
-サンプルコードでは開始タグに`lang="ja"`という記述があります。これはサイトがja=japanese=日本語で記述されていることを示していて、この記述のおかげでブラウザはページの内容をサイト制作者が意図した言語で解釈することができます。(文字化けが起こらなくなるなど)    
+サンプルコードでは開始タグに`lang="ja"`という記述があります。これはサイトがja=japanese=日本語で記述されていることを示していて、この記述のおかげでブラウザはページの内容をサイト制作者が意図した言語で解釈することができます。(文字化けが起こらなくなるなど)
 この`lang="ja"`のようにタグの中に書かれる設定を **属性** といいます。
 
 <details>
@@ -1174,9 +1174,10 @@ JavaScriptで取得した要素は、様々なプロパティを持つオブジ�
 - `textContent`
   - 要素内のHTMLタグを**含まない**、全てのテキストを扱う
 
-今回は`innerHTML`を用いて、ボタンがクリックされるたびにクリックされた回数をページに追記するページをサンプルに示します。
+今回は`innerText`を用いて、ボタンがクリックされるたびにクリックされた回数をページに追記するページをサンプルに示します。
 
 - HTML
+
   - ```HTML
       <!DOCTYPE html>
       <html lang="ja">
@@ -1192,7 +1193,9 @@ JavaScriptで取得した要素は、様々なプロパティを持つオブジ�
         </body>
       </html>
     ```
+
 - JavaScript
+
   - ```javascript
       let clickCount = 0;
 
@@ -1241,6 +1244,7 @@ mainButton.addEventListener('click', updateMessage);
 以下にサンプルを示します。この例では、ボタンがクリックされるたびに移動する四角形が、移動時にアニメーションします。
 
 - HTML
+
   - ```html
       <!DOCTYPE html>
       <html lang="ja">
@@ -1259,7 +1263,9 @@ mainButton.addEventListener('click', updateMessage);
         </body>
       </html>
     ```
+
 - CSS
+
   - ```css
       #main-button {
         margin-bottom: 16px;
@@ -1284,7 +1290,9 @@ mainButton.addEventListener('click', updateMessage);
         transition: all ease 0.2s;
       }
     ```
+
 - JavaScript
+
   - ```javascript
       const colorList = ['pink', 'cyan', 'yellow'];
       let clickCount = 0;

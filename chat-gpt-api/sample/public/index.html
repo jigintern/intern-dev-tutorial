@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <title>fetchConversation</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">fetchConversation</h1>
+      <h2>ChatGPTに過去の会話も含めて送る</h2>
+      <div class="field">
+        <div class="control">
+          <a href="./chat.html" target="_blank">
+            <button class="button is-link">メッセージ単体を送る、fetchChat を試す場合はこちら</button>
+          </a>
+        </div>
+      </div>      
+      <form id="input-form">
+        <div class="field">
+          <label class="label">メッセージを入力してください</label>
+          <div class="control">
+            <textarea id="user-input" class="textarea" placeholder="Enter your message"></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <button id="submit-button" class="button is-link">Submit</button>
+          </div>
+        </div>
+      </form>
+      <div id="chat-container" class="box content mt-6"></div>
+    </div>
+  </section>
+
+  <script type="module">
+    const chatContainer = document.getElementById('chat-container');
+    const inputForm = document.getElementById('input-form');
+    const userInput = document.getElementById('user-input');
+
+    let messages = [];
+
+    inputForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const userMessage = userInput.value;
+      userInput.value = '';
+
+      messages.push({ role: 'user', content: userMessage });
+      renderChat();
+
+      const assistantResponse = await sendToServer(messages);
+      messages.push({ role: 'assistant', content: assistantResponse });
+      renderChat();
+    });
+
+    function renderChat() {
+      chatContainer.innerHTML = ''; // Clear the chat
+      for (let message of messages) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add(message.role);
+        // Replace newlines with <br> for HTML display
+        const formattedContent = message.content.replace(/\n/g, '<br>');
+        messageDiv.innerHTML = `${message.role}: ${formattedContent}`;
+        chatContainer.appendChild(messageDiv);
+      }
+    }
+
+
+    async function sendToServer(messages) {
+      const response = await fetch('/api/conversation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ messages: messages })
+      });
+
+      if (!response.ok) {
+        return 'Error: ' + response.status;
+      }
+
+      const data = await response.json();
+      return data.message;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "intern-dev-tutorial",
+  "module": "index.ts",
+  "type": "module",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@proofdict/textlint-rule-proofdict": "^3.1.2",
+    "textlint": "^14.0.4",
+    "textlint-filter-rule-allowlist": "^4.0.0",
+    "textlint-rule-no-todo": "^2.0.1",
+    "textlint-rule-preset-ja-technical-writing": "^10.0.1",
+    "textlint-rule-prh": "^6.0.0",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0"
+  }
+}
