@@ -53,6 +53,12 @@ jobs:
         with:
           path: ./dest
 
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: git
+          path: ./dest
+
   build-basic-design:
     runs-on: ubuntu-latest
     steps:
@@ -86,6 +92,12 @@ jobs:
       - name: Upload Files Pages
         uses: actions/upload-pages-artifact@v1
         with:
+          path: ./dest
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: design
           path: ./dest
 
   deploy:
