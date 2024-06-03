@@ -93,7 +93,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs:
+      - build-github-desktop
+      - build-basic-design
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
