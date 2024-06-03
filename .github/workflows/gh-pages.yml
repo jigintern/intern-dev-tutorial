@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - feature/ci-test
+      - 'feature/marp/**'
 
 permissions:
   contents: read
