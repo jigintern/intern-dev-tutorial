@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - feature/git
+      - 'feature/marp/**'
 
 permissions:
   contents: read
@@ -28,7 +28,7 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Setup Packages
-        run: sudo apt-get update & sudo apt-get install jq npm fonts-noto
+        run: sudo apt update && sudo apt install jq npm fonts-noto
 
       - name: Install Marp CLI
         run: npm install -g @marp-team/marp-cli
