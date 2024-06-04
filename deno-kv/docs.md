@@ -45,6 +45,45 @@ keyに対してvalueが一意に紐づくため、keyとvalueのデータ構造�
 
 *Deno KVを実際に使ってみよう！*
 
+### 2-0. Deno Deployで新規Playgroundを作成しよう
+
+Deno Deployには、Denoのコードを簡単に記述・実行・デプロイできるPlaygroundという機能が搭載されています。ここでは、簡単のためPlaygroundを使用してみましょう。
+
+> Topic: ローカルでDeno KVを利用する場合、`--unstable`オプションが必要になります
+> ```sh
+> # 例
+> deno run -A --unstable my_kv_code.ts
+> ```
+
+<details>
+<summary>練習: DenoのPlaygroundを作ってみよう</summary>
+
+1. [Deno Deploy](https://deno.com/deploy)にログインします
+
+2. ページ右側の「New Playground」をクリックします
+![](./imgs/201_create_play_ground.png)
+
+3. 以下のような画面が開けばOKです
+![](./imgs/202_empty_play_ground.png)
+
+4. 画面左側のコードを以下のように書き換えて、「Media Type」をTSからJSに変更して、「Save & Deploy」をクリックします
+
+```js
+Deno.serve(async(req) => {
+    return new Response("Hello Deno");
+});
+```
+
+5. 画面右側のブラウザが書き換わればOKです
+
+6. [Deno Deployのホーム画面](https://dash.deno.com/account/overview)を開き、作成したアプリケーションを開きます
+
+7. 以下のような画面が開けばOKです
+![](./imgs/203_play_ground_dashboard.png)
+
+</details>
+
+
 ## 3. 補足編
 
 *Deno KVのデータを、管理画面から見てみよう！*
