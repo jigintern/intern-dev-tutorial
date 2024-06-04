@@ -26,6 +26,21 @@ MongoDBやDynamoDB、Cloud Firestoreなどが代表的です。
 本項で学習するDeno KVは、NoSQLのkey-valueデータベースに分類されます。  
 キーに対してバリューを1つ保存する、シンプルな構造のデータベースです。
 
+### 1-2. Deno KVとは何か？
+
+Deno KVは、Deno Land Inc.から提供されているDeno用NoSQLデータベースです。key-valueデータベースに分類されます。Deno公式から提供されていることもあり、Denoから比較的容易に利用できます。β版なので機能は限定的ですが、個人開発程度であれば、十分な性能を発揮してくれるでしょう。
+
+Deno KVでは、以下のような形式でデータを保存します。ここでは、簡単なTODOアプリを想定して表を記載しています。  
+keyに対してvalueが一意に紐づくため、keyとvalueのデータ構造は慎重に決定しましょう。
+
+| key | value |
+| -- | -- |
+| `["tasks", "user", 1, 1]` | `{ "title": "課題資料を作成する", "description": "2024年の夏季インターンシップ用の資料を作成する", "deadline": "2024-04-30 23:59:59" }` |
+| `["tasks", "user", 1, 2]` | `{ "title": "Deno KVの勉強会資料を作成する", "description": "Deno KVの資料を作成する", "deadline": "2024-06-13 23:59:59" }` |
+| `["tasks", "user", 2, 1]` | `{ "title": "デザイン概論の勉強会資料を作成する", "description": "デザイン概論の資料を作成する", "deadline": "2024-06-13 23:59:59" }` |
+| `["users", 1]` | `{ "name": "futaba", "icon_url": "https://.../futaba.jpg" }` |
+| `["users", 2]` | `{ "name": "hayasaka", "icon_url": "https://.../hayasaka.jpg" }` |
+
 ## 2. 実践編
 
 *Deno KVを実際に使ってみよう！*
