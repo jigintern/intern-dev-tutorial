@@ -127,9 +127,9 @@ Deno.serve(async(req) => {
     const kv = await Deno.openKv();
     console.log(kv);
 
-+   const key = ["shiritori", 1];
++   const key = ["student", 1];
 +   const value = {
-+       word: "しりとり"
++       name: "山田"
 +   };
 +   const result = await kv.set(key, value);
 +   console.log(result);
@@ -158,13 +158,45 @@ Deno.serve(async(req) => {
     const kv = await Deno.openKv();
     console.log(kv);
 
-    const key = ["shiritori", 1];
+    const key = ["student", 1];
     const value = {
--       word: "しりとり"
-+       word: "りんご"
+-       name: "山田"
++       name: "高橋"
     };
     const result = await kv.set(key, value);
     console.log(result);
+
+    return new Response("Hello Deno");
+});
+```
+
+2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認する
+
+3. Deno DeployのProject画面から、Deno KVの更新された値を確認します
+
+</details>
+
+<details>
+<summary>練習: Deno KVに更にデータを追加してみよう</summary>
+
+1. 後のために、Deno KVに更にデータを追加しておきます
+
+```diff
+Deno.serve(async(req) => {
+    const kv = await Deno.openKv();
+    console.log(kv);
+
+-   const key = ["student", 1];
+-   const value = {
+-       name: "高橋"
+-   };
+-   const result = await kv.set(key, value);
+-   console.log(result);
++   await kv.set(["student", 2], { name: "佐藤" });
++   await kv.set(["student", 3], { name: "鈴木" });
++   await kv.set(["student", 4], { name: "じぐ太郎" });
++   await kv.set(["teacher", 1], { name: "じぐ先生" });
++   await kv.set(["teacher", 2], { name: "じぇいぴー先生" });
 
     return new Response("Hello Deno");
 });
@@ -206,11 +238,6 @@ console.log(getManyResult);
 const listResult = await kv.list({ prefix: ["hoge"] })
 console.log(listResult);
 ```
-
-<details>
-<summary>練習: Deno KVにデータを追加してみよう</summary>
-
-</details>
 
 ## 3. 補足編
 
