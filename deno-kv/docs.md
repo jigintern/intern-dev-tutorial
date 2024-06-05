@@ -350,6 +350,48 @@ Deno.serve(async(req) => {
 
 </details>
 
+### 2-3. delete: Deno KVからデータを削除してみよう
+
+Deno KVに保存したデータを削除してみましょう。データの削除には`delete`を使用します。
+
+```js
+// Deno KVにアクセス
+const kv = await Deno.openKV();
+
+// データを削除
+const result = await kv.delete(["hoge"]);
+
+// レスポンスを表示
+console.log(result);
+```
+
+<details>
+<summary>練習: Deno KVからデータを削除してみよう</summary>
+
+1. Deno KVのデータを削除するコードを書き加えます。`key: ["student", 1]`を削除してみましょう
+
+```diff
+Deno.serve(async(req) => {
+    const kv = await Deno.openKv();
+    console.log(kv);
+
+    // ...
+       console.log("student_item: ", studentItem);
+    }
++
++   // データを削除
++   await kv.delete(["student", 1]);
+
+    return new Response("Hello Deno");
+});
+```
+
+2. 「Save & Deploy」をクリックする
+
+3. Deno DeployのProject画面から、Deno KVの値が削除されていることを確認します
+
+</details>
+
 ## 3. 補足編
 
 *Deno KVのデータを、管理画面から見てみよう！*
