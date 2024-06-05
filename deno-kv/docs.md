@@ -78,8 +78,101 @@ Deno.serve(async(req) => {
 
 6. [Deno Deployのホーム画面](https://dash.deno.com/account/overview)を開き、作成したアプリケーションを開きます
 
-7. 以下のような画面が開けばOKです
+7. 以下のような画面が開けばOKです。この画面をProject画面と呼びます
 ![](./imgs/203_play_ground_dashboard.png)
+
+</details>
+
+### 2-1. set: Deno KVにデータを保存する
+
+Deno KVにデータを保存してみましょう。以下のようなコードを書くことで、簡単にDeno KVにアクセスして、データを保存できます。
+
+```js
+// Deno KVにアクセス
+const kv = await Deno.openKV();
+
+// Deno KVに保存
+// 第一引数はkey, 第二引数はvalue
+const result = await kv.set(["hoge"], { "fuga": "waiwai" });
+
+// レスポンスを表示
+console.log(result);
+```
+
+<details>
+<summary>練習: Deno KVにアクセスしてみよう</summary>
+
+1. Deno KVにアクセスするコードを書き加えます
+
+```diff
+Deno.serve(async(req) => {
++   const kv = await Deno.openKv();
++   console.log(kv);
+
+    return new Response("Hello Deno");
+});
+```
+
+2. 「Save & Deploy」をクリックして、ログに「Kv {}」と表示されていることを確認する
+
+</details>
+
+<details>
+<summary>練習: Deno KVにデータを追加してみよう</summary>
+
+1. Deno KVにデータを保存するコードを書き加えます。ここでは、簡単のためkeyは固定しておきます
+
+```diff
+Deno.serve(async(req) => {
+    const kv = await Deno.openKv();
+    console.log(kv);
+
++   const key = ["shiritori", 1];
++   const value = {
++       word: "しりとり"
++   };
++   const result = await kv.set(key, value);
++   console.log(result);
+
+    return new Response("Hello Deno");
+});
+```
+
+2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認する
+
+3. Deno DeployのProject画面から、Deno KVに保存された値を確認します
+
+4. 以下のようになっていたらOKです
+![](./imgs/205_kv_tab.png)
+![](./imgs/206_kv_data_viewer.png)
+
+</details>
+
+<details>
+<summary>練習: Deno KVのデータを更新してみよう</summary>
+
+1. Deno KVのデータを更新するようにコードを書き換えます。先程書き込んだkeyを指定して更新します
+
+```diff
+Deno.serve(async(req) => {
+    const kv = await Deno.openKv();
+    console.log(kv);
+
+    const key = ["shiritori", 1];
+    const value = {
+-       word: "しりとり"
++       word: "りんご"
+    };
+    const result = await kv.set(key, value);
+    console.log(result);
+
+    return new Response("Hello Deno");
+});
+```
+
+2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認する
+
+3. Deno DeployのProject画面から、Deno KVの更新された値を確認します
 
 </details>
 
