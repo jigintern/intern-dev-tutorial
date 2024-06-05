@@ -392,6 +392,8 @@ Deno.serve(async(req) => {
 
 </details>
 
+<!--
 ## 3. 補足編
 
 *Deno KVのデータを、管理画面から見てみよう！*
+-->
