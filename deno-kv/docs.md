@@ -186,12 +186,13 @@ Deno.serve(async(req) => {
     const kv = await Deno.openKv();
     console.log(kv);
 
--   const key = ["student", 1];
--   const value = {
--       name: "高橋"
--   };
--   const result = await kv.set(key, value);
--   console.log(result);
+    const key = ["student", 1];
+    const value = {
+        name: "高橋"
+    };
+    const result = await kv.set(key, value);
+    console.log(result);
++
 +   await kv.set(["student", 2], { name: "佐藤" });
 +   await kv.set(["student", 3], { name: "鈴木" });
 +   await kv.set(["student", 4], { name: "じぐ太郎" });
@@ -214,7 +215,7 @@ Deno KVからデータを取得してみましょう。データの取得には�
 
 - get: 単体の取得
 - getMany: 複数の取得
-- list: 条件付きの取得
+- list: 条件指定の取得
 
 この3種類を上手く活用して、データを取得してください。
 
@@ -234,10 +235,120 @@ const getManyResult = await kv.getMany([
 ]);
 console.log(getManyResult);
 
-// list: 条件にあった複数の取得
+// list: 条件指定の取得
 const listResult = await kv.list({ prefix: ["hoge"] })
 console.log(listResult);
 ```
+
+<details>
+<summary>練習: Deno KVのデータを単体取得してみよう</summary>
+
+1. `get`では、取得したいkeyだけを指定します。ここでは、`key: ["student", 1]`のデータを取得してみましょう
+
+```diff
+Deno.serve(async(req) => {
+    const kv = await Deno.openKv();
+    console.log(kv);
+
+    // ...
+    await kv.set(["teacher", 2], { name: "じぇいぴー先生" });
++
++   const getResult = await kv.get(["student", 1]);
++   console.log("get_result: ", getResult);
+
+    return new Response("Hello Deno");
+});
+```
+
+2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認する
+
+</details>
+
+<details>
+<summary>練習: Deno KVのデータを複数取得してみよう</summary>
+
+1. `getMany`では、取得したいkeyを全て指定します。ここでは、`key: ["student", 1]~["student", 4]`のデータを取得してみましょう
+
+```diff
+Deno.serve(async(req) => {
+    const kv = await Deno.openKv();
+    console.log(kv);
+
+    // ...
+    console.log("get_result: ", getResult);
++
++   const getManyResult = await kv.getMany([
++       ["student", 1],
++       ["student", 2],
++       ["student", 3],
++       ["student", 4],
++   ]);
++   console.log("get_many_result: ", getManyResult);
+
+    return new Response("Hello Deno");
+});
+```
+
+2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認する
+
+</details>
+
+<details>
+<summary>練習: Deno KVのデータを条件指定で取得してみよう</summary>
+
+1. `list`では、取得したいkeyの条件を指定します。ここでは、`prefix`を使用して`"teacher"`のデータを全て取得してみましょう
+
+```diff
+Deno.serve(async(req) => {
+    const kv = await Deno.openKv();
+    console.log(kv);
+
+    // ...
+    console.log("get_many_result: ", getManyResult);
++
++   // イテレーターが作成される
++   const teacherIterator = kv.list({
++       prefix: ["teacher"],
++   });
++   // ループしながらDeno KVに問い合わせるので、forループをawaitする
++   for await (const teacherItem of teacherIterator) {
++       console.log("teacher_item: ", teacherItem);
++   }
+
+    return new Response("Hello Deno");
+});
+```
+
+2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認する
+
+3. `list`では、範囲指定のデータを取得することもできます。`key: ["student", 1]~["student", 2]`のデータを取得してみましょう
+
+```diff
+Deno.serve(async(req) => {
+    const kv = await Deno.openKv();
+    console.log(kv);
+
+    // ...
+        console.log("teacher_item: ", teacherItem);
+    }
++
++   // start以上end未満の値が検索対象になるので、["student", 1] ~ ["student", 2]を取得したい場合、endには["student", 3]を指定する
++   // `start` <= 検索対象 < `end`
++   const studentIterator = kv.list({
++       start: ["student", 1],
++       end: ["student", 3],
++   });
++   for await (const studentItem of studentIterator) {
++       console.log("student_item: ", studentItem);
++   }
+
+    return new Response("Hello Deno");
+});
+```
+
+4. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認する
+
+</details>
 
 ## 3. 補足編
 
