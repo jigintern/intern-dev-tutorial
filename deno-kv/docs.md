@@ -176,6 +176,41 @@ Deno.serve(async(req) => {
 
 </details>
 
+### 2-2. get/getMany/list: Deno KVからデータを取得してみよう
+
+Deno KVからデータを取得してみましょう。データの取得には幾つかの方法があります。
+
+- get: 単体の取得
+- getMany: 複数の取得
+- list: 条件付きの取得
+
+この3種類を上手く活用して、データを取得してください。
+
+```js
+// Deno KVにアクセス
+const kv = await Deno.openKV();
+
+// get: 単体の取得
+const getResult = await kv.get(["hoge", 1]);
+console.log(getResult);
+
+// getMany: 複数の取得
+const getManyResult = await kv.getMany([
+    ["hoge", 1],
+    ["hoge", 2],
+    ["fuga", 1]
+]);
+console.log(getManyResult);
+
+// list: 条件にあった複数の取得
+const listResult = await kv.list({ prefix: ["hoge"] })
+console.log(listResult);
+```
+
+<details>
+<summary>練習: Deno KVにデータを追加してみよう</summary>
+
+</details>
 
 ## 3. 補足編
 
