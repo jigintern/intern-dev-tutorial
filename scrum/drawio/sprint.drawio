@@ -1,0 +1,73 @@
+<mxfile host="65bd71144e">
+    <diagram id="oCFxcc1DUuG_GfsnNrrm" name="ページ1">
+        <mxGraphModel dx="1013" dy="613" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="13" value="スプリント計画" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;strokeWidth=5;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="250" width="110" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="スプリント振り返り" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;strokeWidth=5;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="810" y="250" width="110" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="デイリー&lt;br&gt;スクラム" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontFamily=Helvetica;fontSize=20;fillColor=#d5e8d4;strokeColor=#82b366;base=30;position2=0.15;size=20;position=0.27;fontStyle=1;strokeWidth=5;fontColor=#000000;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="160" width="110" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;スプリント&lt;br&gt;&lt;/font&gt;" style="shape=flexArrow;endArrow=block;startArrow=none;html=1;labelBackgroundColor=none;strokeWidth=5;fontSize=19;fontColor=#000000;startSize=11.31;endSize=11.31;targetPerimeterSpacing=0;fillColor=#008a00;width=63;strokeColor=#005700;fontStyle=1;endFill=0;startFill=0;" edge="1" parent="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="180" y="352.3800000000001" as="sourcePoint"/>
+                        <mxPoint x="700" y="356" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;24h&lt;br&gt;&lt;/font&gt;" style="shape=flexArrow;endArrow=block;startArrow=none;html=1;labelBackgroundColor=#61a916;strokeWidth=5;fontSize=19;fontColor=#000000;startSize=11.31;endSize=11.31;targetPerimeterSpacing=0;fillColor=#60a917;width=63;strokeColor=#2D7600;fontStyle=1;endFill=0;startFill=0;" edge="1" parent="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="310" y="291" as="sourcePoint"/>
+                        <mxPoint x="440" y="290" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;24h&lt;br&gt;&lt;/font&gt;" style="shape=flexArrow;endArrow=block;startArrow=none;html=1;labelBackgroundColor=#61a916;strokeWidth=5;fontSize=19;fontColor=#000000;startSize=11.31;endSize=11.31;targetPerimeterSpacing=0;fillColor=#60a917;width=63;strokeColor=#2D7600;fontStyle=1;endFill=0;startFill=0;" edge="1" parent="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="440" y="291" as="sourcePoint"/>
+                        <mxPoint x="570" y="290" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;24h&lt;br&gt;&lt;/font&gt;" style="shape=flexArrow;endArrow=block;startArrow=none;html=1;labelBackgroundColor=#61a916;strokeWidth=5;fontSize=19;fontColor=#000000;startSize=11.31;endSize=11.31;targetPerimeterSpacing=0;fillColor=#60a917;width=63;strokeColor=#2D7600;fontStyle=1;endFill=0;startFill=0;" edge="1" parent="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="180" y="291" as="sourcePoint"/>
+                        <mxPoint x="310" y="290" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="42" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;24h&lt;br&gt;&lt;/font&gt;" style="shape=flexArrow;endArrow=block;startArrow=none;html=1;labelBackgroundColor=#61a916;strokeWidth=5;fontSize=19;fontColor=#000000;startSize=11.31;endSize=11.31;targetPerimeterSpacing=0;fillColor=#60a917;width=63;strokeColor=#2D7600;fontStyle=1;endFill=0;startFill=0;" edge="1" parent="1">
+                    <mxGeometry x="0.0059" width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="570" y="291" as="sourcePoint"/>
+                        <mxPoint x="700" y="290" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="45" value="スプリントレビュー" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;strokeWidth=5;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="250" width="110" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 18px;&quot;&gt;プロダクトバックログから&lt;br style=&quot;font-size: 18px;&quot;&gt;今スプリントにやることを&lt;br style=&quot;font-size: 18px;&quot;&gt;スプリントバックログに積む&lt;br style=&quot;font-size: 18px;&quot;&gt;&lt;/font&gt;" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;rounded=1;strokeWidth=5;fontFamily=Helvetica;fontSize=18;rotation=0;base=21;size=20;position=0.64;position2=0.75;fillColor=#cdeb8b;strokeColor=#36393d;direction=west;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="360" width="260" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 18px;&quot;&gt;スプリントの成果物を&lt;br&gt;レビューする&lt;br style=&quot;font-size: 18px;&quot;&gt;&lt;/font&gt;" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;rounded=1;strokeWidth=5;fontFamily=Helvetica;fontSize=18;rotation=0;base=21;size=20;position=0.64;position2=0.75;fillColor=#cdeb8b;strokeColor=#36393d;direction=east;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="170" width="210" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=none;strokeWidth=5;fontFamily=Helvetica;fontSize=18;fontColor=#000000;startSize=9;endSize=9;targetPerimeterSpacing=0;fillColor=#60a917;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#2D7600;" edge="1" parent="1" source="18" target="13">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="470" y="360" as="sourcePoint"/>
+                        <mxPoint x="520" y="310" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="865" y="130"/>
+                            <mxPoint x="125" y="130"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
