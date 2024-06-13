@@ -1,7 +1,15 @@
 {
   "plugins": {},
   "filters": {
-    "comments": true
+    "comments": true,
+    "filters": {
+      "comments": true,
+      "allowlist": {
+        "allow": [
+          "スクラムマスター"
+        ]
+      }
+    }
   },
   "rules": {
     "@proofdict/proofdict": {
