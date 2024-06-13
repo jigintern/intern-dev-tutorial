@@ -9,5 +9,10 @@
   },
   "[typescript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "markdownlint.config": {
+    "MD024": false,
+    "MD036": false,
+    "MD001": false
   }
 }
