@@ -95,6 +95,7 @@ const kv = await Deno.openKV();
 
 // Deno KVに保存
 // 第一引数はkey, 第二引数はvalue
+// keyが既に存在する場合は、更新
 const result = await kv.set(["hoge"], { "fuga": "waiwai" });
 
 // レスポンスを表示
