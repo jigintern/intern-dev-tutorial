@@ -19,9 +19,9 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
   - [README.md](./transfer-protocol/README.md)
 - APIハンズオン: api
   - [README.md](./api/README.md)
-- データベース: MySQL: detabase
-  - [README.md](./mysql/README.md)
-  - [docs.md](./mysql/docs.md)
+- データベース: Deno KV: detabase
+  - [README.md](./deno-kv/README.md)
+  - [docs.md](./deno-kv/docs.md)
 - ログインハンズオン: did-login
   - [README.md](./did-login/README.md)
 - ChatGPT APIハンズオン: chat-gpt-api
