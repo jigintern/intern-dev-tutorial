@@ -35,6 +35,8 @@ Deno KVは、Deno Land Inc.から提供されているDeno用NoSQLデータベ�
 Deno KVでは、以下のような形式でデータを保存します。ここでは、学校の名簿を想定して例を記載しています。  
 keyに対してvalueが一意に紐づくため、keyとvalueのデータ構造は慎重に決定しましょう。
 
+> Tips: Deno KVのkeyには、JSON等と異なり、複数の要素をリスト形式で当てることができます。
+
 | key | value |
 | -- | -- |
 | `["school", "classroom", 1]` | `{ "grade": 1, "class": "A" }` |
