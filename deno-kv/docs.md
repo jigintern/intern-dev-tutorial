@@ -316,7 +316,7 @@ Deno.serve(async(req) => {
 +   const teacherIterator = kv.list({
 +       prefix: ["teacher"],
 +   });
-+   // ループしながらDeno KVに問い合わせるので、forループをawaitする
++   // ループしながらDeno KVに問い合わせるので、forループにawaitを付ける
 +   for await (const teacherItem of teacherIterator) {
 +       console.log("teacher_item: ", teacherItem);
 +   }
