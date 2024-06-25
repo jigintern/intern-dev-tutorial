@@ -115,7 +115,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに「Kv {}」と表示されていることを確認する
+2. 「Save & Deploy」をクリックして、ログに「Kv {}」と表示されていることを確認します
 
 </details>
 
@@ -140,7 +140,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認する
+2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認します
 
 3. Deno DeployのProject画面から、Deno KVに保存された値を確認します
 
@@ -172,7 +172,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認する
+2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認します
 
 3. Deno DeployのProject画面から、Deno KVの更新された値を確認します
 
@@ -205,7 +205,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認する
+2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認します
 
 3. Deno DeployのProject画面から、Deno KVの更新された値を確認します
 
@@ -262,7 +262,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認する
+2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 </details>
 
@@ -291,7 +291,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認する
+2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 </details>
 
@@ -321,7 +321,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認する
+2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 3. `list`では、範囲指定のデータを取得することもできます。`key: ["student", 1]~["student", 2]`のデータを取得してみましょう
 
@@ -348,7 +348,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-4. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認する
+4. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 </details>
 
@@ -388,7 +388,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックする
+2. 「Save & Deploy」をクリックします
 
 3. Deno DeployのProject画面から、Deno KVの値が削除されていることを確認します
 
