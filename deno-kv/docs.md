@@ -83,7 +83,7 @@ Deno.serve(async(req) => {
 
 6. [Deno Deployのホーム画面](https://dash.deno.com/account/overview)を開き、作成したアプリケーションを開きます
 
-7. 以下のような画面が開けばOKです。この画面をProject画面と呼びます
+7. 以下のような画面が開けばOKです。この画面を（ここでは便宜上）Project画面と呼びます
 ![](./imgs/203_play_ground_dashboard.png)
 
 </details>
