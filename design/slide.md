@@ -144,33 +144,31 @@ CRUDは、Create Read Update Delete
 
 ---
 
-## ToDoアプリで、ToDoの属性は**タイトル・詳細**
+## ToDoアプリで、ToDoの属性は**タイトル・詳細・完了したか**
 
 - ToDo一覧を見る
 - 新しいToDoを追加する
-- 追加したToDoを完了にする
+- 追加したToDoを**完了**にする
 - ToDoの**タイトル**と**詳細**を書く
 
 ---
 
-## ToDoアプリで、ToDoのアクションは**Create・完了**
+## ToDoアプリで、ToDoのアクションは**Create・Update**
 
 - ToDo一覧を**見る** (Read)
-- 新しいToDoを**追加**する (Create)
-- 追加したToDoを**完了**にする
-- ToDoのタイトルと詳細を書く
-
-CRUDにできないのは、**完了**だけ
+- 新しいToDoを**追加する** (Create)
+- 追加したToDoを**完了にする** (Update)
+- ToDoのタイトルと詳細を**書く** (Update)
 
 ---
 
 ## ToDoアプリのオブジェクトを抽出した結果
 
 - オブジェクトは、**ToDo**
-- ToDoの属性は、**タイトル・詳細**
-- ToDoのアクションは、**Create・完了**
+- ToDoの属性は、**タイトル・詳細・完了したか**
+- ToDoのアクションは、**Create・Update**
 
-![bg height:460px right](./imgs/design-todo01.svg)
+![bg height:460px right:30%](./imgs/design-todo01.svg)
 
 ---
 
