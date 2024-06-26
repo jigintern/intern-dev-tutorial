@@ -55,7 +55,7 @@ UIは、ユーザーと情報の境界。情報をやり取りする
 - ToDo一覧を見る
 - 新しいToDoを追加する
 - 追加したToDoを完了にする
-- ToDoの詳細を書く
+- ToDoのタイトルと詳細を書く
 
 これらの機能が実現できること
 
@@ -131,7 +131,7 @@ CRUDは、Create Read Update Delete
 - ToDo一覧を見る
 - 新しいToDoを追加する
 - 追加したToDoを完了にする
-- ToDoの詳細を書く
+- ToDoのタイトルと詳細を書く
 
 ---
 
@@ -140,16 +140,16 @@ CRUDは、Create Read Update Delete
 - **ToDo**一覧を見る
 - 新しい**ToDo**を追加する
 - 追加した**ToDo**を完了にする
-- **ToDo**の詳細を書く
+- **ToDo**のタイトルと詳細を書く
 
 ---
 
-## ToDoアプリで、ToDoの属性は**詳細**だけ
+## ToDoアプリで、ToDoの属性は**タイトル・詳細**
 
 - ToDo一覧を見る
 - 新しいToDoを追加する
 - 追加したToDoを完了にする
-- ToDoの**詳細**を書く
+- ToDoの**タイトル**と**詳細**を書く
 
 ---
 
@@ -158,7 +158,7 @@ CRUDは、Create Read Update Delete
 - ToDo一覧を**見る** (Read)
 - 新しいToDoを**追加**する (Create)
 - 追加したToDoを**完了**にする
-- ToDoの詳細を書く
+- ToDoのタイトルと詳細を書く
 
 CRUDにできないのは、**完了**だけ
 
@@ -167,7 +167,7 @@ CRUDにできないのは、**完了**だけ
 ## ToDoアプリのオブジェクトを抽出した結果
 
 - オブジェクトは、**ToDo**
-- ToDoの属性は、**詳細**
+- ToDoの属性は、**タイトル・詳細**
 - ToDoのアクションは、**Create・完了**
 
 ![bg height:460px right](./imgs/design-todo01.svg)
@@ -223,7 +223,7 @@ CRUDにできないのは、**完了**だけ
 ## ToDoアプリで、ビュー
 
 - ToDoリストが並ぶコレクションビュー
-- ToDo名と詳細があるシングルビュー
+- ToDoのタイトルと詳細があるシングルビュー
 
 ---
 
@@ -278,7 +278,7 @@ CRUDにできないのは、**完了**だけ
 ## ToDoアプリで、レイアウト
 
 - ToDoリストが並ぶコレクションビュー
-- ToDo名と詳細があるシングルビュー
+- ToDoのタイトルと詳細があるシングルビュー
 
 ![bg contain right](./imgs/design02.jpg)
 
