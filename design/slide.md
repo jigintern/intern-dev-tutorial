@@ -122,7 +122,7 @@ ToDoという**オブジェクト**を抽出する
 
 CRUDは、Create Read Update Delete
 
-- Readはビュー、アクションにしない
+- Readはビュー。アクションにしない
 
 ---
 
