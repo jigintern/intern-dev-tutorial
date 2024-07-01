@@ -29,6 +29,8 @@ paginate: true
 
 UIは、ユーザーと情報の境界。情報をやり取りする
 
+![ui-sample](./imgs/design-ui-sample.png)
+
 ---
 
 ## UIは、情報の**表示**と**操作**を提供する
@@ -67,7 +69,7 @@ UIは、ユーザーと情報の境界。情報をやり取りする
 - ToDoがすぐ表示されない
 - 機能を選択してToDoが表示
 
-![bg contain right:40%](./imgs/design01.jpg)
+![bg contain right:40%](./imgs/design01.png)
 
 ---
 
@@ -75,7 +77,7 @@ UIは、ユーザーと情報の境界。情報をやり取りする
 
 ToDoという**オブジェクト**を抽出する
 
-![bg contain right:40%](./imgs/design02.jpg)
+![bg contain right:40%](./imgs/design02.png)
 
 ---
 
@@ -216,12 +218,16 @@ CRUDは、Create Read Update Delete
 1. **コレクション**から**シングル**へナビゲーション
 2. 別オブジェクトからのナビゲーション
 
+![bg contain right:40%](./imgs/design-view.svg)
+
 ---
 
 ## その後、ビュー・ナビゲーションを削る
 
 - 複数のビューを1つのビューにまとめる
 - 必要のないナビゲーションをなくす
+
+![bg contain right:40%](./imgs/design-navigation.svg)
 
 ---
 
@@ -258,6 +264,8 @@ CRUDは、Create Read Update Delete
 - グリッド :hash:
 - マッピング :globe_with_meridians:
 
+![bg contain right:50%](./imgs/design05.png)
+
 ---
 
 ## シングルビューのレイアウト3種
@@ -265,6 +273,8 @@ CRUDは、Create Read Update Delete
 - 属性とアクションだけ
 - 関連オブジェクトをプレビュー
 - 関連オブジェクトのコレクションビューを含む
+
+![bg contain right:40%](./imgs/design04.png)
 
 ---
 
@@ -285,7 +295,7 @@ CRUDは、Create Read Update Delete
 - ToDoリストが並ぶコレクションビュー
 - ToDoのタイトルと詳細があるシングルビュー
 
-![bg contain right](./imgs/design02.jpg)
+![bg contain right](./imgs/design03.png)
 
 ---
 
@@ -323,6 +333,8 @@ CRUDは、Create Read Update Delete
   - ビューやナビゲーション、ビジュアルデザインを体系立ててまとめたもの
   - アプリ全体で一貫したデザインにできる
 
+例えば、デジタル庁のデザインシステムやMaterialDesign
+
 ---
 
 ## まとめ
@@ -334,8 +346,9 @@ CRUDは、Create Read Update Delete
 
 ---
 
-## あわせて読みたい
+## 出典
 
+- デジタル庁デザインシステムウェブサイト <https://design.digital.go.jp/>
 - オブジェクト指向UIデザイン <https://amzn.asia/d/4vxk6h5>
 - ノンデザイナーズ・デザインブック <https://amzn.asia/d/6LvdOd9>
 - MaterialDesignGuidelines <https://m3.material.io/>

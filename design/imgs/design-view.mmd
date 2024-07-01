@@ -1,0 +1,11 @@
+flowchart TD;
+
+subgraph A
+コレクションA --> シングルA
+シングルA --> コレクションA
+end
+subgraph B
+コレクションB --> シングルB
+end
+シングルB --> シングルA
+コレクションA --> コレクションB
