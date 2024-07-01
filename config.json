@@ -2,5 +2,9 @@
     {
         "directory": "git",
         "output_name": "github-desktop-slide"
+    },
+    {
+        "directory": "design",
+        "output_name": "basic-design-slide"
     }
 ]
