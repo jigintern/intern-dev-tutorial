@@ -35,4 +35,4 @@
 ## 2. URL
 
 - テキスト: [資料](./docs.md)
-- スライド: [プレゼンテーション表示](https://jigintern.github.io/intern-dev-tutorial/github-desktop-slide.html)， [一覧表示](https://jigintern.github.io/intern-dev-tutorial/github-desktop-slide.pdf)
+- スライド: [プレゼンテーション表示](https://jigintern.github.io/intern-dev-tutorial/git/github-desktop-slide.html)， [一覧表示](https://jigintern.github.io/intern-dev-tutorial/git/github-desktop-slide.pdf)
