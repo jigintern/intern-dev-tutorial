@@ -346,6 +346,12 @@ CRUDは、Create Read Update Delete
 
 ---
 
+<style scoped>
+section {
+  font-size: 2.5em;
+}
+</style>
+
 ## 出典
 
 - デジタル庁デザインシステムウェブサイト <https://design.digital.go.jp/>
