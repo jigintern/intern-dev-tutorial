@@ -337,6 +337,8 @@ CRUDは、Create Read Update Delete
 
 ---
 
+<!-- header: "" -->
+
 ## まとめ
 
 - UIとは、情報の表示と操作を提供する
@@ -345,12 +347,6 @@ CRUDは、Create Read Update Delete
 - ビジュアルデザインは、UIの見た目をデザインする
 
 ---
-
-<style scoped>
-section {
-  font-size: 2.5em;
-}
-</style>
 
 ## 出典
 
