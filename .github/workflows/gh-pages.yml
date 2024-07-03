@@ -18,7 +18,7 @@ concurrency:
 env:
   LANG: 'ja_JP.UTF-8'
 jobs:
-  build:
+  build-github-desktop:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -48,17 +48,77 @@ jobs:
           -o ./dest/$(cat config.json | jq -r .[0].output_name).html
           --allow-local-files
 
-      - name: Upload Files Pages
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: git
+          path: ./dest
+
+  build-basic-design:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Setup Packages
+        run: sudo apt update && sudo apt install jq npm fonts-noto
+
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli
+
+      - name: Make Directory
+        run: mkdir dest && cp -r ./design/imgs ./dest/imgs
+
+      - name: Build Marp design PDF
+        run: marp $(cat config.json | jq -r .[1].directory)/slide.md
+          --pdf
+          -o ./dest/$(cat config.json | jq -r .[1].output_name).pdf
+          --allow-local-files
+
+      - name: Build Marp design HTML
+        run: marp $(cat config.json | jq -r .[1].directory)/slide.md
+          --html
+          -o ./dest/$(cat config.json | jq -r .[1].output_name).html
+          --allow-local-files
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: design
+          path: ./dest
+
+  upload-slide:
+    runs-on: ubuntu-latest
+    needs:
+      - build-github-desktop
+      - build-basic-design
+    steps:
+      - name: Download git Artifact
+        uses: actions/download-artifact@v4
+
+      - name: Make Directory
+        run: mkdir pages && cp -r ./git ./pages/git && cp -r ./design ./pages/design
+
+      - name: Upload Slide Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./pages
+
+      - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./dest
+          path: ./pages
 
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs:
+      - upload-slide
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
