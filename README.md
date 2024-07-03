@@ -24,6 +24,9 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
   - [docs.md](./database/docs.md)
 - ログインハンズオン: did-login
   - [README.md](./did-login/README.md)
+- デザイン: design
+  - [README.md](./design/README.md)
+  - [SLIDE.md](./design/slide.md)
 - ChatGPT APIハンズオン: chat-gpt-api
   - [README>md](./chat-gpt-api/README.md)
 
