@@ -1,4 +1,154 @@
-<mxfile host="app.diagrams.net" modified="2024-06-13T08:30:46.240Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="r4eyWHtDX7BkZOB9BI8v" version="24.2.5" type="device" pages="2">
+<mxfile host="app.diagrams.net" modified="2024-07-18T10:59:11.881Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="sd-Zs_APigCKq3hCgM1n" version="24.7.1" type="device" pages="3">
+  <diagram id="nlahOJeXOiTw_KakWk2K" name="3層クライアントサーバシステム">
+    <mxGraphModel dx="562" dy="393" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EihsT99vSu4m3MhmsOMl-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;shape=flexArrow;strokeColor=#00994D;fillColor=default;entryX=1.002;entryY=0.389;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="EihsT99vSu4m3MhmsOMl-5" target="EihsT99vSu4m3MhmsOMl-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-1" value="プレゼンテーション層 (UI層)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="185" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-2" value="アプリケーション層 (ロジック層)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="225" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-3" value="データ層 (データアクセス層)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="265" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;shape=flexArrow;strokeColor=#00994D;fillColor=default;" edge="1" parent="1" source="EihsT99vSu4m3MhmsOMl-5" target="EihsT99vSu4m3MhmsOMl-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-5" value="Webページ" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#00994D;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="340" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.002;entryY=0.648;entryDx=0;entryDy=0;shape=flexArrow;strokeWidth=2;strokeColor=#4C0099;fillColor=default;entryPerimeter=0;" edge="1" parent="1" source="EihsT99vSu4m3MhmsOMl-6" target="EihsT99vSu4m3MhmsOMl-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;strokeWidth=2;strokeColor=#4C0099;fillColor=default;" edge="1" parent="1" source="EihsT99vSu4m3MhmsOMl-6" target="EihsT99vSu4m3MhmsOMl-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-6" value="APIサーバー" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#4C0099;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="340" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-11" value="プレゼンテーション層 (UI層)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-12" value="アプリケーション層 (ロジック層)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-13" value="データ層 (データアクセス層)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-25" value="ページ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;strokeWidth=2;strokeColor=#990000;spacingLeft=50;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160.0005263157895" y="479" as="sourcePoint" />
+            <mxPoint x="160.04263157894735" y="434.6" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-27" value="処理" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.428;entryY=-0.005;entryDx=0;entryDy=0;entryPerimeter=0;shape=flexArrow;spacingRight=56;strokeColor=#0000CC;strokeWidth=2;" edge="1" parent="1" source="EihsT99vSu4m3MhmsOMl-18" target="EihsT99vSu4m3MhmsOMl-19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="530" />
+              <mxPoint x="130" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-18" value="プレゼンテーション層 (UI層)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="479" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-28" value="結果" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;strokeWidth=2;strokeColor=#990000;spacingLeft=50;" edge="1" parent="1" source="EihsT99vSu4m3MhmsOMl-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="510" as="targetPoint" />
+            <mxPoint x="159.99999999999994" y="550" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="160" y="550" />
+              <mxPoint x="160" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-29" value="データ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.427;entryY=-0.002;entryDx=0;entryDy=0;entryPerimeter=0;shape=flexArrow;spacingRight=56;strokeColor=#0000CC;strokeWidth=2;" edge="1" parent="1" source="EihsT99vSu4m3MhmsOMl-19" target="EihsT99vSu4m3MhmsOMl-20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-19" value="アプリケーション層 (ロジック層)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="555" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-30" value="データ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;strokeWidth=2;strokeColor=#990000;spacingLeft=50;" edge="1" parent="1" source="EihsT99vSu4m3MhmsOMl-20" target="EihsT99vSu4m3MhmsOMl-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="580" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="160" y="620" />
+              <mxPoint x="160" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-20" value="データ層 (データアクセス層)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="630" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-26" value="閲覧" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;spacingRight=56;strokeColor=#0000CC;strokeWidth=2;" edge="1" parent="1" source="EihsT99vSu4m3MhmsOMl-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="479" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="130" y="479" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-21" value="ブラウザ" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=top;verticalAlign=bottom;shape=mxgraph.weblogos.chrome" vertex="1" parent="1">
+          <mxGeometry x="122.88" y="390" width="44.25" height="44.6" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EihsT99vSu4m3MhmsOMl-23" target="EihsT99vSu4m3MhmsOMl-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-23" value="ユーザー" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" vertex="1" parent="1">
+          <mxGeometry x="300" y="373.3" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-34" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="203.2" y="376.15" width="72.3" height="72.3" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-32" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;" vertex="1" parent="1">
+          <mxGeometry x="211.5" y="404.16" width="33.13" height="32.28" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-31" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.mobile_client;" vertex="1" parent="1">
+          <mxGeometry x="250" y="404.16" width="16.97" height="32.28" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-36" value="クライアント" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="200.35" y="380.15" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-42" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#f5f5f5;fontColor=#333333;perimeterSpacing=0;" vertex="1" parent="1">
+          <mxGeometry x="274" y="555" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;strokeWidth=2;strokeColor=#990000;spacingLeft=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="362.7405263157895" y="639.4" as="sourcePoint" />
+            <mxPoint x="362.78263157894736" y="595" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-41" value="返却" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" vertex="1" connectable="0" parent="EihsT99vSu4m3MhmsOMl-38">
+          <mxGeometry x="0.5331" y="-4" relative="1" as="geometry">
+            <mxPoint x="-4" y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;spacingRight=0;strokeColor=#0000CC;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="314.74" y="595" as="sourcePoint" />
+            <mxPoint x="314.74" y="639" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="314.74" y="639" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EihsT99vSu4m3MhmsOMl-40" value="要求" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" vertex="1" connectable="0" parent="EihsT99vSu4m3MhmsOMl-39">
+          <mxGeometry x="-0.3852" y="-2" relative="1" as="geometry">
+            <mxPoint x="2" y="-24" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
   <diagram name="ページ1" id="mIgPGb6u3IWHV3nCWvtA">
     <mxGraphModel dx="1152" dy="712" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
