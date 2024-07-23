@@ -30,14 +30,21 @@ paginate: true
 
 ---
 
+### Q. Webアプリケーションとは
+
 **ブラウザ上で動作するアプリケーションのこと**
 
 ---
 
+### Q. Webアプリケーションとは
+
 **ブラウザ上で動作するアプリケーションのこと**  
+
 ↕
+
+**各種OS上にインストールして利用するソフトウェア**
+
 *ネイティブアプリケーション*
-> 各種OS上にインストールして利用するソフトウェア
 
 ---
 
@@ -92,7 +99,7 @@ paginate: true
 
 ---
 
-## 2. webアプリケーションの仕組み
+## 2. Webアプリケーションの仕組み
 
 - 2-1 Webアプリケーションのシステム構成
   - 2-1-1 Web開発の技術スタック
@@ -146,7 +153,7 @@ paginate: true
 
 - LAMP/WAMP
   - Linux/Windows Server, Apache HTTP Server, MySQL, PHP
-  - 比較的レガシーな構成でweb上の情報が多い
+  - 比較的レガシーな構成でWeb上の情報が多い
 - MEAN/MERN/MEVN
   - MongoDB, Express.js, Anguler/React/Vue, Node.js
   - サーバーとクライアントを同じ言語で開発できる
