@@ -4,6 +4,9 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
 
 ## TOC
 
+- ウェブアプリケーション概論: About-webapp
+  - [README.md](./about-webapp/README.md)
+  - [スライド](https://jigintern.github.io/intern-dev-tutorial/about-webapp/about-webapp-slide.html)
 - Git / Github 学習資料: git
   - [README.md](./git/README.md)
   - [DOCS.md](./git/docs.md)
