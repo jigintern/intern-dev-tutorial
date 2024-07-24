@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - 'feature/marp/**'
+      - "feature/marp/**"
 
 permissions:
   contents: read
@@ -12,11 +12,11 @@ permissions:
   id-token: write
 
 concurrency:
-  group: 'pages'
+  group: "pages"
   cancel-in-progress: false
 
 env:
-  LANG: 'ja_JP.UTF-8'
+  LANG: "ja_JP.UTF-8"
 jobs:
   build-slides:
     timeout-minutes: 30
@@ -28,6 +28,8 @@ jobs:
             output_name: github-desktop-slide
           - slide: design
             output_name: basic-design-slide
+          - slide: about-webapp
+            output_name: about-webapp-slide
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
