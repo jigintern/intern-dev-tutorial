@@ -175,6 +175,8 @@ Linuxはこれらのソフトウェアが動作するインフラとなる
 
 ##### AWSを活用した技術スタックの例
 
+**Web上に情報が多くあり利用障壁が低い**
+
 - クライアントサイドフレームワーク
   - Angular
 - クライアントサイド構成
@@ -184,21 +186,24 @@ Linuxはこれらのソフトウェアが動作するインフラとなる
   - Amazon API Gateway
     - AWS Lambda (Node.jsランタイム)
   - Amazon DynamoDB
-- 全般
-  - Amazon Route 53
 
 ---
 
 ##### Microsoft Azure を活用した技術スタックの例
 
+**既存のMicrosoft製サービスと親和性が高い**
+
 - フルスタックフレームワーク
-  - Flask
+  - Flask + jinja2
 - サーバー
   - Azure App Service (Pythonランタイム)
+  - Azure SQL Database
 
 ---
 
 ##### Deno/Deno Deployを活用した技術スタック
+
+**管理するものがDeno Deployとソースのみでシンプル**
 
 - クライアントサイド
   - HTML/CSS/JS (バニラ)
