@@ -15,4 +15,7 @@
 - うまく行かない場合は通し番号と一緒に質問してもらえると対応しやすいです。
 - わかっている他の参加者に聞いてみるのもいいでしょう。SlackのDMなどで質問したり、チームのslackチャンネルを活用するのも 👍 です。
 
-それでは [資料本編へ](./slide.md)
+それでは [資料本編へ](https://jigintern.github.io/intern-dev-tutorial/about-webapp/about-webapp-slide.html)
+
+- [PDF資料](https://jigintern.github.io/intern-dev-tutorial/about-webapp/about-webapp-slide.pdf)
+- [テキスト資料](./slide.md)
