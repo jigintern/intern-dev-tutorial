@@ -19,7 +19,7 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
   - [README.md](./transfer-protocol/README.md)
 - APIハンズオン: api
   - [README.md](./api/README.md)
-- Deno KV: detabase
+- Deno KV: deno-kv
   - [README.md](./deno-kv/README.md)
   - [docs.md](./deno-kv/docs.md)
 - ログインハンズオン: did-login
