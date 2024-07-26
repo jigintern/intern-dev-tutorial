@@ -89,7 +89,7 @@ MacOSの人は`homebrew`というパッケージ管理ツールをインスト�
 
 <img src="./imgs/deno-image-07.png" alt="deno">
 
-<img src="./imgs/deno-image-08.pngg" alt="deno">
+<img src="./imgs/deno-image-08.png" alt="deno">
 
 3を行うと現在のフォルダに`.vscode`というフォルダが作成されて、中に`settings.json`というファイルが作成されると思います。
 
