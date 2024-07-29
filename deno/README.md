@@ -39,7 +39,7 @@
 [Deno](https://deno.land/) とは、JavaScript や TypeScript で書かれたコードを実行する環境です。
 
 > 公式サイト
-> <a href="https://deno.land/"> > <img src="./imgs/deno-image-01.png" alt="deno"> > </a>
+> <a href="https://deno.land/"> > <img src="./imgs/deno-image-01.png" alt="deno"> </a>
 
 Deno がインストールされた環境で`deno run <ファイル名>`のコマンドを実行することで、JavaScript や TypeScript で書かれたファイルを実行できます。
 
@@ -51,7 +51,7 @@ Deno はコードを実行する機能以外にも、コードをリントした
 
 早速、Deno を以下のリンク先からインストールしてみましょう。
 
-[公式サイト - Deno のインストール方法](https://deno.land/manual@v1.35.0/getting_started/installation)
+[公式サイト - Deno のインストール方法](https://docs.deno.com/runtime/manual/getting_started/installation)
 
 基本的には公式サイトの手順を参考にします。
 
@@ -61,7 +61,7 @@ Deno はコードを実行する機能以外にも、コードをリントした
 
 Mac OS の人は`homebrew`というパッケージ管理ツールをインストールして、その`homebrew`を使用して`Deno`をインストールすると今後も便利そうです。
 
-[homebrew の公式サイト](https://brew.sh/index_ja)
+[homebrew の公式サイト](https://brew.sh/ja)
 
 # 3. サンプルプロジェクトのコードを実行してみよう
 
@@ -820,7 +820,7 @@ document.querySelector("#welcomeMessage").innerText = await response.text();
 
 Deno を用いた開発をしているのであれば、Deno Deploy を使用することでとても簡単にコードをデプロイできます。
 
-[Deno Deploy](https://deno.com/deploy) の公式を開きましょう。
+[Deno Deploy の公式サイト](https://deno.com/deploy) を開きましょう。
 
 まずは自分の GitHub アカウントでログインしましょう。
 
