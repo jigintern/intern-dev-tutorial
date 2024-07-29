@@ -71,27 +71,31 @@ Mac OS の人は`homebrew`というパッケージ管理ツールをインスト
 
 1. VSCode で、`intern-dev-tutorial/deno`を開きましょう。
 
-2. VSCode の拡張機能のタブから「Deno」を検索してインストールしよう
+2. VSCode の拡張機能のタブから「Deno」を検索してインストールしよう。
 
 <img src="./imgs/deno-image-02.png" alt="deno">
 
-3. VSCode の上のヘッダーの「**表示**」から「**コマンドパレット(Command Palette)**」を押して、「**Deno: Initialize Workspace Configuration**」を選択して、すべて**yes**を選択して、Deno を使用できるようにしよう。
+3. VSCode の上のヘッダーの「**表示**」から「**コマンドパレット(Command Palette)**」を押す。
 
 <img src="./imgs/deno-image-03.png" alt="deno">
 
+4. 「**Deno: Initialize Workspace Configuration**」を選択する。
+
 <img src="./imgs/deno-image-04.png" alt="deno">
+
+5. すべて**yes**を選択して、Deno を使用できるようにする。
 
 <img src="./imgs/deno-image-05.png" alt="deno">
 
 <img src="./imgs/deno-image-06.png" alt="deno">
 
-4. VSCode の上のヘッダーの「**ターミナル**」から「**new Terminal**」を押して、ターミナルを表示しておこう
+6. VSCode の上のヘッダーの「**ターミナル**」から「**new Terminal**」を押して、ターミナルを表示しておこう
 
 <img src="./imgs/deno-image-07.png" alt="deno">
 
 <img src="./imgs/deno-image-08.png" alt="deno">
 
-3 を行うと現在のフォルダに`.vscode`というフォルダが作成されて、中に`settings.json`というファイルが作成されます。
+Deno を有効化すると、現在のフォルダに`.vscode`というフォルダが作成されて、中に`settings.json`というファイルが作成されます。
 
 今回は VSCode で Deno を快適に使用できるようにするためこのような設定をします。
 
