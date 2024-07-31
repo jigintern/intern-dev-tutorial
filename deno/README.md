@@ -438,11 +438,11 @@ Checked 3 files
 
 ```json
   "fmt": {
-    "useTabs": false, // タブを使用するか
-    "lineWidth": 80, // 線の幅
-    "indentWidth": 2, // インデントの文字数
-    "semiColons": true, // セミコロンをつけるかどうか
-    "singleQuote": false, // シングルクウォートを使用するかどうか
+    "useTabs": false,
+    "lineWidth": 80,
+    "indentWidth": 2,
+    "semiColons": true, // falseからtrueに変更した
+    "singleQuote": false, // trueからfalseに変更した
     "proseWrap": "preserve",
     "include": ["./**/*.js"]
   },
