@@ -800,7 +800,7 @@ const response = await fetch("/welcome-message");
 ここでは**fetch API**を使用しています。
 fetch メソッドは引数で**path**を指定して、サーバーにリクエストを送ります。
 
-この場合、引数が`/welcome-message`になっているので、現在開いているアドレスのホスト名の`http://localhost:8000/`に path の`/welcome-message`をくっ付けて`http://localhost:8000/welcome-message`にアクセスします。
+この場合、引数が`/welcome-message`になっているので、現在開いているアドレスのホスト名の`http://localhost:8000`に path の`/welcome-message`をくっ付けて`http://localhost:8000/welcome-message`にアクセスします。
 
 先ほどの「[3-７-4. (発展) クライアント側からの API リクエストを処理](#3-７-4-発展-クライアント側からのapiリクエストを処理)」でも説明しましたように、この API リクエストに対してクライアント側に`"jig.jpインターンへようこそ！👍"`という文字を返しています。
 
