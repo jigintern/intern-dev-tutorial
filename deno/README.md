@@ -513,15 +513,15 @@ deno test
 すると、以下のような文言が表示されます。
 
 ```shell
-running 1 test from ./server.test.js
+running 1 test from ./sample.test.js
 1 + 1 は 2 である ... ok (9ms)
 
 ok | 1 passed | 0 failed (89ms)
 ```
 
-`./server.test.js`の「1+1 は 2 である」というテストが 1 つ実行され、OK でしたと表示されています。
+`./sample.test.js`の「1+1 は 2 である」というテストが 1 つ実行され、OK でしたと表示されています。
 
-では`server.test.ts`の中身を以下のように修正し保存して、`deno test`を実行してみましょう。
+では`sample.test.ts`の中身を以下のように修正し保存して、`deno test`を実行してみましょう。
 
 ```js
 assertEquals(1 + 1, 2);
@@ -538,7 +538,7 @@ assertEquals(1 + 1, 3); // 3に修正
 
  ERRORS
 
-1 + 1 は 2 である => ./server.test.js:3:6
+1 + 1 は 2 である => ./sample.test.js:3:6
 error: AssertionError: Values are not equal.
 
 
@@ -555,7 +555,7 @@ error: AssertionError: Values are not equal.
 
  FAILURES
 
-1 + 1 は 2 である => ./server.test.js:3:6
+1 + 1 は 2 である => ./sample.test.js:3:6
 
 FAILED | 0 passed | 1 failed (24ms)
 
