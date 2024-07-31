@@ -742,7 +742,7 @@ API リクエストには`method`というものがあり、以下のような�
 
 また API リクエストの**path**というものは`GET http://localhost:8000/welcome-message`の`/welcome-message`部分を指します。
 
-`serve.js`では、API リクエストの`method`が`GET`で、`path`が`/welcome-message`の時に`return new Response(<文言>)`で文言を返しています。
+`server.js`では、API リクエストの`method`が`GET`で、`path`が`/welcome-message`の時に`return new Response(<文言>)`で文言を返しています。
 
 以下の箇所で行っています。
 
