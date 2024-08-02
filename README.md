@@ -32,6 +32,8 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
   - [SLIDE.md](./design/slide.md)
 - ChatGPT APIハンズオン: chat-gpt-api
   - [README>md](./chat-gpt-api/README.md)
+- チーム開発: scrum
+  - [README.md](./scrum/README.md)
 
 ![](./imgs/summary.jpg)
 

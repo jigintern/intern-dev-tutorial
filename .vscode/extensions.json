@@ -1,3 +1,7 @@
 {
-  "recommendations": ["taichi.vscode-textlint", "denoland.vscode-deno"]
+  "recommendations": [
+    "taichi.vscode-textlint",
+    "denoland.vscode-deno",
+    "hediet.vscode-drawio"
+  ]
 }
