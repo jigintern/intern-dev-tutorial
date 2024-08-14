@@ -209,8 +209,8 @@ CORSリクエストを行う場合はリクエストヘッダに `origin`を付�
 2. `deno run server.js`を実行
 3. 別のターミナルで`deno run client.js`を実行
 4. ブラウザで`http://localhost:8000`にアクセスして開発者ツールを開く
-5. `try cors`ボタンを押して NewworkタブやConsoleに出力されたデータを確認する。
-6. `try cors (simple request)`ボタンを押して、NewworkタブやConsoleに出力されたデータを確認する。
+5. `try cors`ボタンを押して NetworkタブやConsoleに出力されたデータを確認する。
+6. `try cors (simple request)`ボタンを押して、NetworkタブやConsoleに出力されたデータを確認する。
 
 ### 軽く解説
 サーバは`3000`番のポートで動作するように設定されており、クライアントは`8000`番で動作するようになっている。  
@@ -231,7 +231,7 @@ CORSリクエストの前に `OPTION`メソッドを用いてプリフライト�
 2. `deno run server.js`を実行
 3. 別のターミナルで`deno run client.js`を実行
 4. ブラウザで`http://localhost:8000`にアクセスして開発者ツールを開く
-5. `try cors (prefright request)`ボタンを押して NewworkタブやConsoleに出力されたデータを確認する。
+5. `try cors (prefright request)`ボタンを押して NetworkタブやConsoleに出力されたデータを確認する。
 
 ### 軽く解説
 `try cors (prefright request)`ボタンはPOSTメソッドで、bodyにJSON形式のデータを持ってリクエストを行う。  
