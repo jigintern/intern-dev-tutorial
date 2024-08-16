@@ -243,7 +243,9 @@ console.log(getManyResult);
 
 // list: 条件指定の取得
 const listResult = await kv.list({ prefix: ["hoge"] })
-console.log(listResult);
+for await (const item of listResult) {
+    console.log(item);
+}
 ```
 
 <details>
