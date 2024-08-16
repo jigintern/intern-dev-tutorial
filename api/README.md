@@ -76,7 +76,7 @@ APIの叩き方がわかったところで、今度はサーバー側に手を�
 
 以下に一例を載せておく。
 
-<details><summary>クラアントのコード</summary><div>
+<details><summary>クライアントのコード</summary><div>
 
 ```html
 <!DOCTYPE html>
@@ -142,7 +142,7 @@ APIの叩き方がわかったところで、今度はサーバー側に手を�
 const param = new URL(req.url).searchParams.get("クエリパラメータ名");
 ```
 
-上記を参考に、リクエストを受け取って使用を満たすようなレスポンスを返す処理を追加する。  
+上記を参考に、リクエストを受け取って仕様を満たすようなレスポンスを返す処理を追加する。  
 以下に実装の一例を示す。
 
 ```javascript
