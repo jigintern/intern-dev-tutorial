@@ -627,12 +627,12 @@ setTimeout(() => {
 }, 5 * 1000);
 ```
 
-![setInterval](imgs/set-interval.gif)
+![setTimeout](imgs/set-interval.gif)
 
 <details>
-  <summary>setInterval</summary>
+  <summary>setTimeout</summary>
 
-  `setInterval`は`setTimeout(callback, delay)`のように2つの引数を取ります。
+  `setTimeout`は`setTimeout(callback, delay)`のように2つの引数を取ります。
   `callback`はコールバック関数で`delay`ミリ秒後に実行されます。
   また、返り値として正の整数値を返します。これは登録されたtimeoutのIDで、`setTimeout`が呼ばれてから`delay`ミリ秒の間に`clearTimeout(timeoutID)`とすることで登録されたコールバック関数の実行をキャンセルできます。
 </details>
