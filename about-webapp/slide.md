@@ -208,7 +208,7 @@ paginate: true
 
 - クライアントサイド
   - HTML/CSS/JS (バニラ)
-- サーバーサイドソフトウェア
+- サーバーサイド
   - Deno HTTP Server APIs
 - サーバー
   - Deno Deploy
