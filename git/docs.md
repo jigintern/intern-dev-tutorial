@@ -86,13 +86,13 @@ Githubにアップロードされているリポジトリを丸ごと取得し�
 基本的には、開発の最初に各開発者が一度ずつ行う操作です。  
 
 Github Desktopでは、以下のように操作することで、クローンの操作を行うことができます。  
-例として、`git-tutorial-2023`のリポジトリで作業してみましょう。 
+例として、`git-tutorial-2024`のリポジトリで作業してみましょう。 
 
 <details>
 <summary>練習: Github Desktopでクローンしてみよう</summary>
 
 1. 下記URLにアクセスして、「<> Code」のボタンをクリックします
-> repository: https://github.com/jigintern/git-tutorial-2023
+> repository: https://github.com/jigintern/git-tutorial-2024
 
 2. 表示されたウィンドウの「Open with Github Desktop」をクリックして、Github Desktopを開きます
 ![](./imgs/screen-shots/01_github_open_with_github_desktop.png)
