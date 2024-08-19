@@ -243,7 +243,7 @@ header: 2-1. clone: Githubリポジトリを丸ごとダウンロードしよう
 ### ブラウザで以下URLを開いてください
 Zoomのチャット欄にも記載します
 
-[https://github.com/jigintern/git-tutorial-2023](https://github.com/jigintern/git-tutorial-2023)
+[https://github.com/jigintern/git-tutorial-2024](https://github.com/jigintern/git-tutorial-2024)
 
 ---
 
