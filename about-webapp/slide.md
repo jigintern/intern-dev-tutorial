@@ -18,7 +18,8 @@ paginate: true
     1. Webアプリケーションのシステム構成
     2. Web開発フレームワーク
     3. Webアプリケーションを公開するためには
-3. 参考文献
+3. まとめ
+4. 参考文献
 
 ---
 
@@ -122,7 +123,7 @@ paginate: true
 ---
 
 モダンなWebアプリケーションの構造
-**3層クライアント・サーバーシステム**
+**3層クライアントサーバーシステム**
 
 ---
 <!--
@@ -160,7 +161,7 @@ paginate: true
 
 ---
 
-##### LAMPスタック→3層クライアント・サーバーシステム
+##### LAMPスタック→3層クライアントサーバーシステム
 
 | LAMPスタック | 3層C/Sシステム |
 | ------ | ------ |
@@ -170,6 +171,19 @@ paginate: true
 | PHP | アプリケーション層 |
 
 <!-- Linuxはこれらのソフトウェアが動作するインフラとなる -->
+
+---
+
+##### Deno/Deno Deployを活用した技術スタックの例
+
+**管理するものがDeno Deployとソースのみでシンプル**
+
+- クライアントサイド
+  - HTML/CSS/JS (バニラ)
+- サーバーサイド
+  - Deno HTTP Server APIs
+- サーバー
+  - Deno Deploy
 
 ---
 
@@ -198,19 +212,6 @@ paginate: true
 - サーバー
   - Azure App Service (Pythonランタイム)
   - Azure SQL Database
-
----
-
-##### Deno/Deno Deployを活用した技術スタックの例
-
-**管理するものがDeno Deployとソースのみでシンプル**
-
-- クライアントサイド
-  - HTML/CSS/JS (バニラ)
-- サーバーサイドソフトウェア
-  - Deno HTTP Server APIs
-- サーバー
-  - Deno Deploy
 
 ---
 
@@ -276,11 +277,11 @@ paginate: true
 
 #### 2-2-3. フルスタックWebフレームワーク
 
+- Deno Fresh (JavaScript)
 - Django (Python)
 - Flask + jinja2 (Python)
 - Ruby on Rails (Ruby)
 - Laravel (PHP)
-- Deno Fresh (JavaScript)
 
 ---
 
@@ -332,6 +333,12 @@ paginate: true
 
 ---
 
+実際の構成の例：Deno Deployを利用する場合
+
+![height:400](imgs/deno-deploy.drawio.png)
+
+---
+
 実際の構成の例：オンプレミスの場合
 
 <!-- オンプレ構成でサーバーを公開してNGiNXなどを利用した構成 -->
@@ -352,12 +359,6 @@ paginate: true
 
 ---
 
-実際の構成の例：Deno Deployを利用する場合
-
-![height:400](imgs/deno-deploy.drawio.png)
-
----
-
 ## 3. まとめ
 
 ---
@@ -366,7 +367,7 @@ paginate: true
   - **ブラウザ上で動作するアプリケーションのこと**
 
 - 世の中のWebアプリケーションはどんな仕組みの上で成り立っているのか
-  - *3層クライアント・サーバーシステム*
+  - *3層クライアントサーバーシステム*
   - *フロントエンドとバックエンド*
   - *フレームワーク*
   - *コンテンツ配信*
