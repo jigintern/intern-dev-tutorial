@@ -174,6 +174,19 @@ paginate: true
 
 ---
 
+##### Deno/Deno Deployを活用した技術スタックの例
+
+**管理するものがDeno Deployとソースのみでシンプル**
+
+- クライアントサイド
+  - HTML/CSS/JS (バニラ)
+- サーバーサイド
+  - Deno HTTP Server APIs
+- サーバー
+  - Deno Deploy
+
+---
+
 ##### AWSを活用した技術スタックの例
 
 **Web上に情報が多くあり利用障壁が低い**
@@ -199,19 +212,6 @@ paginate: true
 - サーバー
   - Azure App Service (Pythonランタイム)
   - Azure SQL Database
-
----
-
-##### Deno/Deno Deployを活用した技術スタックの例
-
-**管理するものがDeno Deployとソースのみでシンプル**
-
-- クライアントサイド
-  - HTML/CSS/JS (バニラ)
-- サーバーサイド
-  - Deno HTTP Server APIs
-- サーバー
-  - Deno Deploy
 
 ---
 
@@ -277,11 +277,11 @@ paginate: true
 
 #### 2-2-3. フルスタックWebフレームワーク
 
+- Deno Fresh (JavaScript)
 - Django (Python)
 - Flask + jinja2 (Python)
 - Ruby on Rails (Ruby)
 - Laravel (PHP)
-- Deno Fresh (JavaScript)
 
 ---
 
@@ -333,6 +333,12 @@ paginate: true
 
 ---
 
+実際の構成の例：Deno Deployを利用する場合
+
+![height:400](imgs/deno-deploy.drawio.png)
+
+---
+
 実際の構成の例：オンプレミスの場合
 
 <!-- オンプレ構成でサーバーを公開してNGiNXなどを利用した構成 -->
@@ -350,12 +356,6 @@ paginate: true
 実際の構成の例：クラウドを利用する場合(AWS)
 
 ![height:400](imgs/aws.drawio.png)
-
----
-
-実際の構成の例：Deno Deployを利用する場合
-
-![height:400](imgs/deno-deploy.drawio.png)
 
 ---
 
