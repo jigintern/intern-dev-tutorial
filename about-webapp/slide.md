@@ -208,7 +208,7 @@ paginate: true
 **既存のMicrosoft製サービスと親和性が高い**
 
 - フルスタックフレームワーク
-  - Flask + jinja2
+  - Flask + Jinja2
 - サーバー
   - Azure App Service (Pythonランタイム)
   - Azure SQL Database
@@ -269,8 +269,8 @@ paginate: true
 
 #### 2-2-2. バックエンドフレームワーク
 
-- Express.js (JS)
-- Nest.js (JS)
+- Express (JS)
+- NestJS (JS)
 - Spring Boot (Java)
 
 ---
@@ -279,7 +279,7 @@ paginate: true
 
 - Deno Fresh (JavaScript)
 - Django (Python)
-- Flask + jinja2 (Python)
+- Flask + Jinja2 (Python)
 - Ruby on Rails (Ruby)
 - Laravel (PHP)
 
