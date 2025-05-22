@@ -255,14 +255,14 @@ paginate: true
 
 三大Webフレームワーク (JS系)
 
-- Angular
 - React
 - Vue.js
+- Angular
 
 他にも
 
-- Ember
 - Svelte
+- Solid
 - Lit
 
 ---
