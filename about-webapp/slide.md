@@ -146,7 +146,7 @@ paginate: true
 
 - 技術スタック
   - 開発に用いるフレームワークやツールなどの組合せのこと
-    - プログラミング言語、動作環境のOS、サーバー、サーバーサイドフレームワーク、サーバーサイドライブラリ、　API、クライアントサイドフレームワーク、クライアントサイドライブラリ、クライアント、開発支援ツール、運用支援ツール、etc...
+    - プログラミング言語、動作環境のOS、サーバー、サーバーサイドフレームワーク、サーバーサイドライブラリ、API、クライアントサイドフレームワーク、クライアントサイドライブラリ、クライアント、開発支援ツール、運用支援ツール、etc...
 
 ---
 
@@ -208,7 +208,7 @@ paginate: true
 **既存のMicrosoft製サービスと親和性が高い**
 
 - フルスタックフレームワーク
-  - Flask + jinja2
+  - Flask + Jinja2
 - サーバー
   - Azure App Service (Pythonランタイム)
   - Azure SQL Database
@@ -255,31 +255,31 @@ paginate: true
 
 三大Webフレームワーク (JS系)
 
-- Angular
 - React
 - Vue.js
+- Angular
 
 他にも
 
-- Ember
 - Svelte
+- Solid
 - Lit
 
 ---
 
 #### 2-2-2. バックエンドフレームワーク
 
-- Express.js (JS)
-- Nest.js (JS)
+- Express (JS)
+- NestJS (JS)
 - Spring Boot (Java)
 
 ---
 
 #### 2-2-3. フルスタックWebフレームワーク
 
-- Deno Fresh (JavaScript)
+- Deno Fresh (JS)
 - Django (Python)
-- Flask + jinja2 (Python)
+- Flask + Jinja2 (Python)
 - Ruby on Rails (Ruby)
 - Laravel (PHP)
 
@@ -407,4 +407,4 @@ paginate: true
 
 ## 4. 参考文献
 
-- [サーバーサイドウェブフレームワーク - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn/Server-side/First_steps/Web_framework)
+- [サーバーサイドウェブフレームワーク - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks)
