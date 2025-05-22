@@ -277,7 +277,7 @@ paginate: true
 
 #### 2-2-3. フルスタックWebフレームワーク
 
-- Deno Fresh (JavaScript)
+- Deno Fresh (JS)
 - Django (Python)
 - Flask + Jinja2 (Python)
 - Ruby on Rails (Ruby)
