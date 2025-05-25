@@ -119,20 +119,20 @@ VisBug の起動時に自動で開くツールがガイドツールです。
 では実際にWebページの開発を始めてみましょう！  
 ここでは [StackBlitz](https://stackblitz.com/?starters=vanilla) というWeb IDEを使います。
 
-![StackBlitzスタートページ](imgs/stackblitz-start-page.png)
+![StackBlitzスタートページ](imgs/stackblitz-start-page-2025.png)
 
 GitHubアカウントでログイン可能なので右上の「Sign in」からログインしておいてください。(制作物の保存に必要です)  
 ログインが成功すると↓のような画面に遷移します。
 
-![stackblitzダッシュボード](imgs/stackblitz-dashboard.png)
+![stackblitzダッシュボード](imgs/stackblitz-dashboard-2025.png)
 
 「New Project」をクリックすると新規プロジェクトダイアログが開くので、Vanillaタブにある Static をクリックしてください。
 
-![stackblitz新規プロジェクト](imgs/stackblitz-create-new-project.png)
+![stackblitz新規プロジェクト](imgs/stackblitz-create-new-project-2025.png)
 
 ↓の画像のようにエディタとエミュレータが表示された状態に遷移します。
 
-![stackblitz新規プロジェクト初期状態](imgs/stackblits-opened-static-ide.png)
+![stackblitz新規プロジェクト初期状態](imgs/stackblits-opened-static-ide-2025.png)
 
 ファイルビューアにあるファイルをすべて削除して準備完了です。
 
