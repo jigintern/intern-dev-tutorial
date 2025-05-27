@@ -85,13 +85,7 @@ Mac OS の人は`homebrew`というパッケージ管理ツールをインスト
 
 <img src="./imgs/deno-image-04.png" alt="deno">
 
-5. すべて**yes**を選択して、Deno を使用できるようにする。
-
-<img src="./imgs/deno-image-05.png" alt="deno">
-
-<img src="./imgs/deno-image-06.png" alt="deno">
-
-6. VSCode の上のヘッダーの「**ターミナル**」から「**new Terminal**」を押して、ターミナルを表示しておこう
+5. VSCode の上のヘッダーの「**ターミナル**」から「**new Terminal**」を押して、ターミナルを表示しておこう
 
 <img src="./imgs/deno-image-07.png" alt="deno">
 
