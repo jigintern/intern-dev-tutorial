@@ -150,7 +150,7 @@ StackBlitzのエミュレータに↓のように表示されていることを�
 
 ![マーク前](imgs/html-hello-world.png)
 
-先程の`Hello, World !`の前後を`<h1>`と`</h1>`で囲んで↓のように書き換えててください。
+先程の`Hello, World !`の前後を`<h1>`と`</h1>`で囲んで↓のように書き換えてください。
 
 ```HTML:index.html
 <h1>Hello, World !</h1>
