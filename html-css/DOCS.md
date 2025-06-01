@@ -134,12 +134,13 @@ GitHubアカウントでログイン可能なので右上の「Sign in」から�
 
 ![stackblitz新規プロジェクト初期状態](imgs/stackblits-opened-static-ide-2025.png)
 
-ファイルビューアにあるファイルをすべて削除して準備完了です。
+↓のように、ファイルビューアに「index.html」、「package.json」、「package-lock.json」以外を削除し、この3ファイルになった状態で準備完了です。
+
+![stackblitz新規プロジェクト初期状態](imgs/stackblits-opened-static-ide-removefile-2025.png)
 
 ### 2-1. HTMLをはじめよう
-
-では空になったファイルビューアの右上にカーソルをホバーして、アイコンからファイルの追加をクリックします。  
-最初に作るHTMLファイルは `index.html` とします。以下の内容を`index.html`に書き込んでください。
+ 
+HTMLファイル `index.html` の内容をすべて削除します。（削除した内容の解説はすぐ回収されます✋️）その後、以下の内容を`index.html`に書き込んでください。
 
 ```HTML:index.html
 Hello, World !
