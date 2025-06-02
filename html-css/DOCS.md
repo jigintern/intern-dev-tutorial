@@ -119,27 +119,28 @@ VisBug の起動時に自動で開くツールがガイドツールです。
 では実際にWebページの開発を始めてみましょう！  
 ここでは [StackBlitz](https://stackblitz.com/?starters=vanilla) というWeb IDEを使います。
 
-![StackBlitzスタートページ](imgs/stackblitz-start-page.png)
+![StackBlitzスタートページ](imgs/stackblitz-start-page-2025.png)
 
 GitHubアカウントでログイン可能なので右上の「Sign in」からログインしておいてください。(制作物の保存に必要です)  
 ログインが成功すると↓のような画面に遷移します。
 
-![stackblitzダッシュボード](imgs/stackblitz-dashboard.png)
+![stackblitzダッシュボード](imgs/stackblitz-dashboard-2025.png)
 
 「New Project」をクリックすると新規プロジェクトダイアログが開くので、Vanillaタブにある Static をクリックしてください。
 
-![stackblitz新規プロジェクト](imgs/stackblitz-create-new-project.png)
+![stackblitz新規プロジェクト](imgs/stackblitz-create-new-project-2025.png)
 
 ↓の画像のようにエディタとエミュレータが表示された状態に遷移します。
 
-![stackblitz新規プロジェクト初期状態](imgs/stackblits-opened-static-ide.png)
+![stackblitz新規プロジェクト初期状態](imgs/stackblits-opened-static-ide-2025.png)
 
-ファイルビューアにあるファイルをすべて削除して準備完了です。
+↓のように、ファイルビューアに「index.html」、「package.json」、「package-lock.json」以外を削除し、この3ファイルになった状態で準備完了です。
+
+![stackblitz新規プロジェクト初期状態](imgs/stackblits-opened-static-ide-removefile-2025.png)
 
 ### 2-1. HTMLをはじめよう
-
-では空になったファイルビューアの右上にカーソルをホバーして、アイコンからファイルの追加をクリックします。  
-最初に作るHTMLファイルは `index.html` とします。以下の内容を`index.html`に書き込んでください。
+ 
+HTMLファイル `index.html` の内容をすべて削除します。（削除した内容の解説はすぐ回収されます✋️）その後、以下の内容を`index.html`に書き込んでください。
 
 ```HTML:index.html
 Hello, World !
@@ -149,7 +150,7 @@ StackBlitzのエミュレータに↓のように表示されていることを�
 
 ![マーク前](imgs/html-hello-world.png)
 
-先程の`Hello, World !`の前後を`<h1>`と`</h1>`で囲んで↓のように書き換えててください。
+先程の`Hello, World !`の前後を`<h1>`と`</h1>`で囲んで↓のように書き換えてください。
 
 ```HTML:index.html
 <h1>Hello, World !</h1>
