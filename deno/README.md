@@ -99,8 +99,7 @@ Deno を有効化すると、現在のフォルダに`.vscode`というフォル
 
 ```json
 {
-  "deno.enable": true,
-  "deno.lint": true
+  "deno.enable": true
 }
 ```
 
