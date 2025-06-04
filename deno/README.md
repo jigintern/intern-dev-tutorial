@@ -429,7 +429,7 @@ Checked 3 files
 では試しに、フォーマットのルールを変えてみましょう。
 
 `deno.json`の`fmt`部分の  
-`semiColons`の部分を`true`, `singleQuote`の部分を`false`に書き換えてみましょう。
+`semiColons`の部分を`false`, `singleQuote`の部分を`true`に書き換えてみましょう。
 
 以下のようになります。
 
@@ -438,8 +438,8 @@ Checked 3 files
     "useTabs": false,
     "lineWidth": 80,
     "indentWidth": 2,
-    "semiColons": true, // falseからtrueに変更した
-    "singleQuote": false, // trueからfalseに変更した
+    "semiColons": false, // trueからfalseに変更した
+    "singleQuote": true, // falseからtrueに変更した
     "proseWrap": "preserve",
     "include": ["./**/*.js"]
   },
@@ -447,9 +447,9 @@ Checked 3 files
 
 そして再度、`deno fmt`を実行し, `server.js`の中身を見てみましょう。
 
-- 行末にセミコロン(;)がついている
+- 行末にセミコロン(;)がない
 
-- 文字列はすべて("")で囲まれている
+- 文字列はすべて('')で囲まれている
 
 のように修正されていますね。
 
