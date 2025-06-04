@@ -218,7 +218,7 @@ deno run --allow-read --allow-net server.js
 `--watch`オプション指定をしておくことで、  
 `server.js`を編集した時に再度コマンドを打って実行しなおさなくても Deno が勝手に再実行してくれるので便利です。
 
-`--watch`オプション指定を加えたコマンドで`server.js`を実行して見ましょう。
+`--watch`オプション指定を加えたコマンドで`server.js`を実行してみましょう。
 
 最終的なコマンドは以下のようになります。
 
@@ -305,13 +305,14 @@ deno lint
 
 ```json
   "lint": {
-    "include": ["./**/*.js"],
+    "include": ["src/"],
+    "exclude": ["src/testdata/", "src/fixtures/**/*.ts"],
     "rules": {
       "tags": ["recommended"],
       "include": ["ban-untagged-todo"],
       "exclude": ["no-unused-vars"]
     }
-  },
+  }
 ```
 
 今回のこの設定は[Deno 公式サイト](https://docs.deno.com/runtime/manual/getting_started/configuration_file/#lint)の設定をコピーしたものです。
@@ -390,14 +391,15 @@ deno fmt
 
 ```json
   "fmt": {
-    "useTabs": false, // タブを使用するか
-    "lineWidth": 80, // 線の幅
-    "indentWidth": 2, // インデントの文字数
-    "semiColons": false, // セミコロンをつけるかどうか
-    "singleQuote": true, // シングルクウォートを使用するかどうか
+    "useTabs": true, // タブを使用するか
+    "lineWidth": 80,  // 一行の文字数
+    "indentWidth": 4, // インデントの文字数
+    "semiColons": true, // セミコロンをつけるかどうか
+    "singleQuote": true, // シングルクォートを使用するかどうか
     "proseWrap": "preserve",
-    "include": ["./**/*.js"]
-  },
+    "include": ["src/"],
+    "exclude": ["src/testdata/", "src/fixtures/**/*.ts"]
+  }
 ```
 
 基本的にはこの設定で十分ですが、ルールを変更したい時にはこちらの設定をいじりましょう。
