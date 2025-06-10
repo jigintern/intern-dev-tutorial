@@ -305,8 +305,7 @@ deno lint
 
 ```json
   "lint": {
-    "include": ["src/"],
-    "exclude": ["src/testdata/", "src/fixtures/**/*.ts"],
+    "include": ["./**/*.js"],
     "rules": {
       "tags": ["recommended"],
       "include": ["ban-untagged-todo"],
@@ -397,8 +396,7 @@ deno fmt
     "semiColons": true, // セミコロンをつけるかどうか
     "singleQuote": true, // シングルクォートを使用するかどうか
     "proseWrap": "preserve",
-    "include": ["src/"],
-    "exclude": ["src/testdata/", "src/fixtures/**/*.ts"]
+    "include": ["./**/*.js"],
   }
 ```
 

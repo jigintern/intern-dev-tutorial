@@ -1,7 +1,6 @@
 {
 	"imports": {
-		"http": "jsr:@std/http/file-server",
-		"testing/": "https://deno.land/std@0.193.0/testing/"
+		"http": "jsr:@std/http/file-server"
 	},
 	"tasks": {
 		"start": "deno run --watch --allow-net --allow-read server.js"
@@ -13,11 +12,7 @@
 	},
 	"lint": {
 		"include": [
-			"src/"
-		],
-		"exclude": [
-			"src/testdata/",
-			"src/fixtures/**/*.ts"
+			"./**/*.js"
 		],
 		"rules": {
 			"tags": [
@@ -39,11 +34,7 @@
 		"singleQuote": true,
 		"proseWrap": "preserve",
 		"include": [
-			"src/"
-		],
-		"exclude": [
-			"src/testdata/",
-			"src/fixtures/**/*.ts"
+			"./**/*.js"
 		]
 	},
 	"test": {
