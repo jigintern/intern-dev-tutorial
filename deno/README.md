@@ -633,11 +633,10 @@ import { <変数>, <メソッド> } from "JavaScriptファイルのPathやUrl"
 <script type="module" src="JavaScriptファイルのPathやUrl"></script>
 ```
 
-`server.js`の最初の行で行っているように外部の`serve`と`serveDir`メソッドを取り込むことは以下のようにしてできます。
+`server.js`の最初の行で行っているように外部の`serveDir`メソッドを取り込むことは以下のようにしてできます。
 
 ```js
-import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
-import { serveDir } from "https://deno.land/std@0.194.0/http/file_server.ts";
+import { serveDir } from "jsr:@std/http/file-server@1.0.17";
 ```
 
 しかし、実際の`server.js`で書かれているコードは少し違っていますね。
@@ -652,51 +651,39 @@ import { serveDir } from "https://deno.land/std@0.194.0/http/file_server.ts";
 前のセクションで以下のように外部の変数やメソッドを取り込む方法を学びました。
 
 ```js
-import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
-import { serveDir } from "https://deno.land/std@0.194.0/http/file_server.ts";
+import { serveDir } from "jsr:@std/http/file-server@1.0.17";
 ```
 
-全て URL を直書きで書こうとすると  
-例えば以下のように一見同じバージョンのものを取り込んでいるように見えて実際には異なることが起きてもなかなか気づきにくいです。(`0.194.0`と`0.195.0`)
-
-```js
-import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
-import { serveDir } from "https://deno.land/std@0.195.0/http/file_server.ts";
-```
-
-またライブラリのバージョンをアップデートするときに全ての箇所を更新する必要が出てきます。
-
-そういった場合に便利なのが Deno の**import map**と言う機能です。
+ここで、Deno の**import map**と言う機能を使ってみましょう。
 
 まず`deno.json`の`import`部分をみてみると以下のようになっています。
 
 ```json
   "imports": {
-    "http/": "https://deno.land/std@0.194.0/http/"
+    "http": "jsr:@std/http/file-server@1.0.17"
   },
 ```
 
 この設定によって JavaScript ファイルで外部のファイルにアクセスするとき、  
-`https://deno.land/std@0.194.0/http/`は`http/`でアクセスできるようになりました。
+`jsr:@std/http/file-server@1.0.17`は`http`でアクセスできるようになりました。
 
 よって以下のように書き換えることができます！
 
 ```ts
-import { serve } from "http/server.ts";
-import { serveDir } from "http/file_server.ts";
+import { serveDir } from "http";
 ```
 
 スッキリして良さそうですね。
 
 **import map**と言う機能を使用することで以下のようなメリットがあります。
 
-- 毎回`https://`から URL を直書きする必要がなくなる
+- 毎回 URL を直書きする必要がなくなる
 
 - 可読性が上がる
 
 - 使用する外部のファイルのバージョンを固定できる
 
-- バーションの変更は`deno.json`の`import`部分の URL の数字を変えるだけで全てのファイルに適用される
+- バージョンの変更は`deno.json`の`import`部分の URL の数字を変えるだけで全てのファイルに適用される
 
 - `deno.json`の`import`部分を見るだけで、このプロジェクトで使用されているライブラリの一覧を確認できる
 

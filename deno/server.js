@@ -1,12 +1,9 @@
-// https://deno.land/std@0.194.0/http/server.ts?s=serve
-import { serve } from 'http/server.ts';
-// https://deno.land/std@0.194.0/http/file_server.ts?s=serveDir
-import { serveDir } from 'http/file_server.ts';
+import { serveDir } from "http";
 
 /**
  * APIリクエストを処理する
  */
-serve((req) => {
+Deno.serve((req) => {
 	// URLのパスを取得
 	const pathname = new URL(req.url).pathname;
 	console.log(pathname);
