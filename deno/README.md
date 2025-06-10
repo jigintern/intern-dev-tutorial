@@ -707,7 +707,7 @@ import { serveDir } from "http";
 /**
  * APIリクエストを処理する
  */
-serve((req) => {
+Deno.serve((req) => {
   // リクエストに対する処理の中身
 });
 ```
@@ -800,7 +800,7 @@ document.querySelector("#welcomeMessage").innerText = await response.text();
 
 ここでは自分のコードをデプロイする方法を学びましょう。
 
-前のセクションまでは手元のコンソールで`deno run <ファイル名>`のコマンドを入力して、ブラウザから <http://localhost:8000/にアクセスしてページを表示していました。>
+前のセクションまでは手元のコンソールで`deno run <ファイル名>`のコマンドを入力して、ブラウザから <http://localhost:8000/>にアクセスしてページを表示していました。
 
 しかし、その状態のままでは他の人に自分のサイトを表示させることができないですね。
 
