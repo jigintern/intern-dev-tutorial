@@ -7,7 +7,6 @@
 		"start": "deno run --watch --allow-net --allow-read server.js"
 	},
 	"compilerOptions": {
-		"allowJs": true,
 		"lib": [
 			"deno.window"
 		]
