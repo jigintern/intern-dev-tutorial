@@ -1,4 +1,4 @@
-import { serveDir } from "http";
+import { serveDir } from 'http';
 
 /**
  * APIリクエストを処理する
