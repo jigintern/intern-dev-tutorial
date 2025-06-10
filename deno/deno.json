@@ -1,6 +1,6 @@
 {
 	"imports": {
-		"http/": "https://deno.land/std@0.194.0/http/",
+		"http": "jsr:@std/http/file-server",
 		"testing/": "https://deno.land/std@0.193.0/testing/"
 	},
 	"tasks": {
@@ -8,15 +8,28 @@
 	},
 	"compilerOptions": {
 		"allowJs": true,
-		"lib": ["deno.window"]
+		"lib": [
+			"deno.window"
+		]
 	},
 	"lint": {
-		"include": ["src/"],
-		"exclude": ["src/testdata/", "src/fixtures/**/*.ts"],
+		"include": [
+			"src/"
+		],
+		"exclude": [
+			"src/testdata/",
+			"src/fixtures/**/*.ts"
+		],
 		"rules": {
-			"tags": ["recommended"],
-			"include": ["ban-untagged-todo"],
-			"exclude": ["no-unused-vars"]
+			"tags": [
+				"recommended"
+			],
+			"include": [
+				"ban-untagged-todo"
+			],
+			"exclude": [
+				"no-unused-vars"
+			]
 		}
 	},
 	"fmt": {
@@ -26,8 +39,13 @@
 		"semiColons": true,
 		"singleQuote": true,
 		"proseWrap": "preserve",
-		"include": ["src/"],
-		"exclude": ["src/testdata/", "src/fixtures/**/*.ts"]
+		"include": [
+			"src/"
+		],
+		"exclude": [
+			"src/testdata/",
+			"src/fixtures/**/*.ts"
+		]
 	},
 	"test": {
 		"include": [
