@@ -766,12 +766,12 @@ return serveDir(req, {
 `index.js`をみてみましょう。
 
 ```js
-window.onload = async () => {
+addEventListener('load', async () => {
   ...
-};
+});
 ```
 
-この部分は「`ページ全体が、スタイルシートや画像などのすべての依存するリソースを含めて読み込まれたときに発生します`」というものです。([MDN: window.onload](https://developer.mozilla.org/ja/docs/Web/API/Window/load_event))
+この部分は「`ページ全体が、スタイルシートや画像などのすべての依存するリソースを含めて読み込まれたときに発生します`」というものです。([MDN: loadイベント](https://developer.mozilla.org/ja/docs/Web/API/Window/load_event))
 
 中のコードを見ていきます。
 
