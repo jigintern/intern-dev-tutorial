@@ -1,6 +1,6 @@
 {
 	"imports": {
-		"http": "jsr:@std/http/file-server"
+		"@std/http": "jsr:@std/http@^1.0.17"
 	},
 	"tasks": {
 		"start": "deno run --watch --allow-net --allow-read server.js"

@@ -658,17 +658,17 @@ import { serveDir } from "jsr:@std/http/file-server@1.0.17";
 
 ```json
   "imports": {
-    "http": "jsr:@std/http/file-server@1.0.17"
+    "@std/http": "jsr:@std/http@^1.0.17"
   },
 ```
 
 この設定によって JavaScript ファイルで外部のファイルにアクセスするとき、  
-`jsr:@std/http/file-server@1.0.17`は`http`でアクセスできるようになりました。
+`jsr:@std/http/file-server@1.0.17`は`@std/http`でアクセスできるようになりました。
 
 よって以下のように書き換えることができます！
 
 ```ts
-import { serveDir } from "http";
+import { serveDir } from "@std/http";
 ```
 
 スッキリして良さそうですね。
