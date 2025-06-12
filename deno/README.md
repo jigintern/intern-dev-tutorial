@@ -1,24 +1,25 @@
 # Deno と Deno Deploy ハンズオン
 
+- [Deno と Deno Deploy ハンズオン](#deno-と-deno-deploy-ハンズオン)
 - [0. このセクションの目標](#0-このセクションの目標)
-- [1. まず、Deno って何？](#1-まずdenoって何)
-- [2. さっそく、Deno をインストールしましょう](#2-さっそくdenoをインストールしましょう)
-- [3. Deno 使ってみよう](#3-Deno使ってみよう)
+- [1. まず、Deno って何？](#1-まずdeno-って何)
+- [2. さっそく、Deno をインストールしましょう](#2-さっそくdeno-をインストールしましょう)
+- [3. Deno 使ってみよう](#3-deno-使ってみよう)
   - [3-1. 下準備](#3-1-下準備)
-  - [3-2. JavaScript のコードを実行してみよう](#3-2-javascriptのコードを実行してみよう)
+  - [3-2. JavaScript のコードを実行してみよう](#3-2-javascript-のコードを実行してみよう)
   - [3-3. ファイルを実行するときの権限の許可について](#3-3-ファイルを実行するときの権限の許可について)
   - [3-4. (発展) 毎回打ち込むコマンドが長いと感じたら](#3-4-発展-毎回打ち込むコマンドが長いと感じたら)
-  - [3-5. (発展) JavaScript ファイルをリントしてみよう](#3-5-発展-javascriptファイルをリントしてみよう)
-  - [3-6. (発展) JavaScript ファイルをフォーマットしてみよう](#3-6-発展-javascriptファイルをフォーマットしてみよう)
-  - [3-7. (発展) JavaScript ファイルをテストしてみよう](#3-7-発展-javascriptファイルをテストしてみよう)
+  - [3-5. (発展) JavaScript ファイルをリントしてみよう](#3-5-発展-javascript-ファイルをリントしてみよう)
+  - [3-6. (発展) JavaScript ファイルをフォーマットしてみよう](#3-6-発展-javascript-ファイルをフォーマットしてみよう)
+  - [3-7. (発展) JavaScript ファイルをテストしてみよう](#3-7-発展-javascript-ファイルをテストしてみよう)
 - [4. (発展) サンプルプロジェクトのコードを読んでみよう](#4-発展-サンプルプロジェクトのコードを読んでみよう)
-  - [4-1. (発展) serverjs を読んでみよう](#4-1-発展-serverjs-を読んでみよう)
+  - [4-1. (発展) server.js を読んでみよう](#4-1-発展-serverjs-を読んでみよう)
   - [4-2. (発展) ESModule の形でファイルを読み込む](#4-2-発展-esmodule-の形でファイルを読み込む)
   - [4-3. (発展) import map を使ってみよう](#4-3-発展-import-map-を使ってみよう)
-  - [4-4. (発展) クライアント側からの api リクエストを処理](#4-4-発展-クライアント側からの-api-リクエストを処理)
-  - [4-5. (発展) public/indexjs を読んでみよう](#4-5-発展-publicindexjs-を読んでみよう)
+  - [4-4. (発展) クライアント側からの API リクエストを処理](#4-4-発展-クライアント側からの-api-リクエストを処理)
+  - [4-5. (発展) public/index.js を読んでみよう](#4-5-発展-publicindexjs-を読んでみよう)
 - [5. Deno Deploy を用いてコードをデプロイしてみよう](#5-deno-deploy-を用いてコードをデプロイしてみよう)
-  - [5-1. 実際にデプロイしてみる](#5-1-実際にデプロイしてみる)
+- [5-1. 実際にデプロイしてみる](#5-1-実際にデプロイしてみる)
 - [6. まとめ](#6-まとめ)
 
 # 0. このセクションの目標
@@ -84,13 +85,7 @@ Mac OS の人は`homebrew`というパッケージ管理ツールをインスト
 
 <img src="./imgs/deno-image-04.png" alt="deno">
 
-5. すべて**yes**を選択して、Deno を使用できるようにする。
-
-<img src="./imgs/deno-image-05.png" alt="deno">
-
-<img src="./imgs/deno-image-06.png" alt="deno">
-
-6. VSCode の上のヘッダーの「**ターミナル**」から「**new Terminal**」を押して、ターミナルを表示しておこう
+5. VSCode の上のヘッダーの「**ターミナル**」から「**新しいターミナル**」を押して、ターミナルを表示しておこう
 
 <img src="./imgs/deno-image-07.png" alt="deno">
 
@@ -100,12 +95,12 @@ Deno を有効化すると、現在のフォルダに`.vscode`というフォル
 
 今回は VSCode で Deno を快適に使用できるようにするためこのような設定をします。
 
-`settings.json`で Deno を使用する上での様々な設定を登録できますが、一旦中身は以下のようなもので問題ないです。
+`settings.json`は、 Deno を使用する上での設定を登録できるファイルです。
+準備に沿って設定すると、以下のような内容になっています。
 
 ```json
 {
-  "deno.enable": true,
-  "deno.lint": true
+  "deno.enable": true
 }
 ```
 
@@ -144,7 +139,7 @@ deno run server.js
 Listening on http://localhost:8000/
 ```
 
-では、ブラウザのアドレスバーに http://localhost:8000 のアドレスを入力して検索してみましょう。
+では、ブラウザのアドレスバーに <http://localhost:8000> のアドレスを入力して検索してみましょう。
 
 検索してみても画面が切り替わらないですね。
 ここでターミナルの方を見てみましょう。
@@ -223,7 +218,7 @@ deno run --allow-read --allow-net server.js
 `--watch`オプション指定をしておくことで、  
 `server.js`を編集した時に再度コマンドを打って実行しなおさなくても Deno が勝手に再実行してくれるので便利です。
 
-`--watch`オプション指定を加えたコマンドで`server.js`を実行して見ましょう。
+`--watch`オプション指定を加えたコマンドで`server.js`を実行してみましょう。
 
 最終的なコマンドは以下のようになります。
 
@@ -231,7 +226,7 @@ deno run --allow-read --allow-net server.js
 deno run --watch --allow-read --allow-net server.js
 ```
 
-## 3-4. (発展) 毎回打ち込むコマンドが長いと感じたら...
+## 3-4. (発展) 毎回打ち込むコマンドが長いと感じたら
 
 前のセクションでは以下のコマンドで`server.js`が実行できることを学びました。
 
@@ -316,7 +311,7 @@ deno lint
       "include": ["ban-untagged-todo"],
       "exclude": ["no-unused-vars"]
     }
-  },
+  }
 ```
 
 今回のこの設定は[Deno 公式サイト](https://docs.deno.com/runtime/manual/getting_started/configuration_file/#lint)の設定をコピーしたものです。
@@ -395,14 +390,14 @@ deno fmt
 
 ```json
   "fmt": {
-    "useTabs": false, // タブを使用するか
-    "lineWidth": 80, // 線の幅
-    "indentWidth": 2, // インデントの文字数
-    "semiColons": false, // セミコロンをつけるかどうか
-    "singleQuote": true, // シングルクウォートを使用するかどうか
+    "useTabs": true, // タブを使用するか
+    "lineWidth": 80,  // 一行の文字数
+    "indentWidth": 4, // インデントの文字数
+    "semiColons": true, // セミコロンをつけるかどうか
+    "singleQuote": true, // シングルクォートを使用するかどうか
     "proseWrap": "preserve",
-    "include": ["./**/*.js"]
-  },
+    "include": ["./**/*.js"],
+  }
 ```
 
 基本的にはこの設定で十分ですが、ルールを変更したい時にはこちらの設定をいじりましょう。
@@ -432,7 +427,7 @@ Checked 3 files
 では試しに、フォーマットのルールを変えてみましょう。
 
 `deno.json`の`fmt`部分の  
-`semiColons`の部分を`true`, `singleQuote`の部分を`false`に書き換えてみましょう。
+`semiColons`の部分を`false`, `singleQuote`の部分を`true`に書き換えてみましょう。
 
 以下のようになります。
 
@@ -441,8 +436,8 @@ Checked 3 files
     "useTabs": false,
     "lineWidth": 80,
     "indentWidth": 2,
-    "semiColons": true, // falseからtrueに変更した
-    "singleQuote": false, // trueからfalseに変更した
+    "semiColons": false, // trueからfalseに変更した
+    "singleQuote": true, // falseからtrueに変更した
     "proseWrap": "preserve",
     "include": ["./**/*.js"]
   },
@@ -450,9 +445,9 @@ Checked 3 files
 
 そして再度、`deno fmt`を実行し, `server.js`の中身を見てみましょう。
 
-- 行末にセミコロン(;)がついている
+- 行末にセミコロン(;)がない
 
-- 文字列はすべて("")で囲まれている
+- 文字列はすべて('')で囲まれている
 
 のように修正されていますね。
 
@@ -636,11 +631,10 @@ import { <変数>, <メソッド> } from "JavaScriptファイルのPathやUrl"
 <script type="module" src="JavaScriptファイルのPathやUrl"></script>
 ```
 
-`server.js`の最初の行で行っているように外部の`serve`と`serveDir`メソッドを取り込むことは以下のようにしてできます。
+`server.js`の最初の行で行っているように外部の`serveDir`メソッドを取り込むことは以下のようにしてできます。
 
 ```js
-import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
-import { serveDir } from "https://deno.land/std@0.194.0/http/file_server.ts";
+import { serveDir } from "jsr:@std/http/file-server@1.0.17";
 ```
 
 しかし、実際の`server.js`で書かれているコードは少し違っていますね。
@@ -655,51 +649,39 @@ import { serveDir } from "https://deno.land/std@0.194.0/http/file_server.ts";
 前のセクションで以下のように外部の変数やメソッドを取り込む方法を学びました。
 
 ```js
-import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
-import { serveDir } from "https://deno.land/std@0.194.0/http/file_server.ts";
+import { serveDir } from "jsr:@std/http/file-server@1.0.17";
 ```
 
-全て URL を直書きで書こうとすると  
-例えば以下のように一見同じバージョンのものを取り込んでいるように見えて実際には異なることが起きてもなかなか気づきにくいです。(`0.194.0`と`0.195.0`)
-
-```js
-import { serve } from "https://deno.land/std@0.194.0/http/server.ts";
-import { serveDir } from "https://deno.land/std@0.195.0/http/file_server.ts";
-```
-
-またライブラリのバージョンをアップデートするときに全ての箇所を更新する必要が出てきます。
-
-そういった場合に便利なのが Deno の**import map**と言う機能です。
+ここで、Deno の**import map**と言う機能を使ってみましょう。
 
 まず`deno.json`の`import`部分をみてみると以下のようになっています。
 
 ```json
   "imports": {
-    "http/": "https://deno.land/std@0.194.0/http/"
+    "@std/http": "jsr:@std/http@^1.0.17"
   },
 ```
 
 この設定によって JavaScript ファイルで外部のファイルにアクセスするとき、  
-`https://deno.land/std@0.194.0/http/`は`http/`でアクセスできるようになりました。
+`jsr:@std/http/file-server@1.0.17`は`@std/http`でアクセスできるようになりました。
 
 よって以下のように書き換えることができます！
 
 ```ts
-import { serve } from "http/server.ts";
-import { serveDir } from "http/file_server.ts";
+import { serveDir } from "@std/http";
 ```
 
 スッキリして良さそうですね。
 
 **import map**と言う機能を使用することで以下のようなメリットがあります。
 
-- 毎回`https://`から URL を直書きする必要がなくなる
+- 毎回 URL を直書きする必要がなくなる
 
 - 可読性が上がる
 
 - 使用する外部のファイルのバージョンを固定できる
 
-- バーションの変更は`deno.json`の`import`部分の URL の数字を変えるだけで全てのファイルに適用される
+- バージョンの変更は`deno.json`の`import`部分の URL の数字を変えるだけで全てのファイルに適用される
 
 - `deno.json`の`import`部分を見るだけで、このプロジェクトで使用されているライブラリの一覧を確認できる
 
@@ -723,7 +705,7 @@ import { serveDir } from "http/file_server.ts";
 /**
  * APIリクエストを処理する
  */
-serve((req) => {
+Deno.serve((req) => {
   // リクエストに対する処理の中身
 });
 ```
@@ -784,12 +766,12 @@ return serveDir(req, {
 `index.js`をみてみましょう。
 
 ```js
-window.onload = async () => {
+addEventListener('load', async () => {
   ...
-};
+});
 ```
 
-この部分は「`ページ全体が、スタイルシートや画像などのすべての依存するリソースを含めて読み込まれたときに発生します`」というものです。([MDN: window.onload](https://developer.mozilla.org/ja/docs/Web/API/Window/load_event))
+この部分は「`ページ全体が、スタイルシートや画像などのすべての依存するリソースを含めて読み込まれたときに発生します`」というものです。([MDN: loadイベント](https://developer.mozilla.org/ja/docs/Web/API/Window/load_event))
 
 中のコードを見ていきます。
 
@@ -802,7 +784,7 @@ fetch メソッドは引数で**path**を指定して、サーバーにリクエ
 
 この場合、引数が`/welcome-message`になっているので、現在開いているアドレスのホスト名の`http://localhost:8000`に path の`/welcome-message`をくっ付けて`http://localhost:8000/welcome-message`にアクセスします。
 
-先ほどの「[3-７-4. (発展) クライアント側からの API リクエストを処理](#3-７-4-発展-クライアント側からのapiリクエストを処理)」でも説明しましたように、この API リクエストに対してクライアント側に`"jig.jpインターンへようこそ！👍"`という文字を返しています。
+先ほどの「[4-4. (発展) クライアント側からの API リクエストを処理](#4-4-発展-クライアント側からの-api-リクエストを処理)」でも説明しましたように、この API リクエストに対してクライアント側に`"jig.jpインターンへようこそ！👍"`という文字を返しています。
 
 以下のコードで`index.html`内にある`id="welcomeMessage"`の要素を探して、`"jig.jpインターンへようこそ！👍"`の文字を入力しています。
 
@@ -816,7 +798,7 @@ document.querySelector("#welcomeMessage").innerText = await response.text();
 
 ここでは自分のコードをデプロイする方法を学びましょう。
 
-前のセクションまでは手元のコンソールで`deno run <ファイル名>`のコマンドを入力して、ブラウザから http://localhost:8000/にアクセスしてページを表示していました。
+前のセクションまでは手元のコンソールで`deno run <ファイル名>`のコマンドを入力して、ブラウザから <http://localhost:8000/>にアクセスしてページを表示していました。
 
 しかし、その状態のままでは他の人に自分のサイトを表示させることができないですね。
 
