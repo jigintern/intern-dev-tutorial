@@ -85,7 +85,7 @@ console.log('Hello, World!');
 
 ![Hello, World!](imgs/hello-world.png)
 
-このように、JSでは `Console.log(<任意の文字列>);` とすることでコンソールタブに出力を出すことができます。
+このように、JSでは `console.log(<任意の文字列>);` とすることでコンソールタブに出力を出すことができます。
 
 ## 2. 読みやすいコードを書くために
 
