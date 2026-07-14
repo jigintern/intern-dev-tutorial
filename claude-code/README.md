@@ -41,14 +41,13 @@ Claude Code を初めて開くと、ログイン方法の選択画面が表示�
     - 2-5. [コマンドを使おう](./docs.md#2-5-コマンドを使おう)
     - 2-6. [過去の会話を再開しよう](./docs.md#2-6-過去の会話を再開しよう)
     - 2-7. [CLAUDE.md でルールを覚えさせよう](./docs.md#2-7-claudemd-でルールを覚えさせよう)
-    - [モデルと Effort について](./docs.md#モデルと-effort-について)
+    - 2-8. [モデルと Effort について](./docs.md#2-8-モデルと-effort-について)
 
 3. [うまく使うコツ・困ったとき](./docs.md#3-うまく使うコツ困ったとき)
 
 ## 2. URL
 
 - テキスト: [資料](./docs.md)
-- スライド: [プレゼンテーション表示](https://jigintern.github.io/intern-dev-tutorial/claude-code/claude-code-slide.html)
 
 ## 3. 参考リンク（公式ドキュメント）
 
