@@ -18,6 +18,7 @@ VS Code を開き、以下の手順で拡張機能をインストールします
 1. 拡張機能ビューを開く（Mac: `Cmd+Shift+X` / Windows・Linux: `Ctrl+Shift+X`）
 2. 検索欄に「**Claude Code**」と入力する
 3. 「Claude Code」（発行元: Anthropic）の「**インストール**」をクリックする
+4. インストール後に「Get started with Claude Code」という画面が開くことがあります。左のアクティビティバーに Spark アイコン（✱）が表示されていればインストール完了です
 
 > Topic: インストール後に表示されない場合は、コマンドパレット（Mac: `Cmd+Shift+P` / Windows・Linux: `Ctrl+Shift+P`）から `Developer: Reload Window` を実行してください。
 
