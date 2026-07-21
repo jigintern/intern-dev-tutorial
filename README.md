@@ -10,6 +10,9 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
 - Git / Github 学習資料: git
   - [README.md](./git/README.md)
   - [DOCS.md](./git/docs.md)
+- Claude Code 学習資料: claude-code
+  - [README.md](./claude-code/README.md)
+  - [DOCS.md](./claude-code/docs.md)
 - JavaScriptを始めよう: javascript
   - [README.md](./javascript/README.md)
   - [DOCS.md](./javascript/DOCS.md)
