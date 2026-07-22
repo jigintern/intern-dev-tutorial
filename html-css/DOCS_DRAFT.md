@@ -57,7 +57,7 @@
       - [4-2-2. 見た目の変更](#4-2-2-見た目の変更)
     - [4-3. CSSで要素の変化を魅せよう](#4-3-cssで要素の変化を魅せよう)
   - [5. 発展: VisBugを使ってみよう](#5-発展-visbugを使ってみよう)
-  - [6. 練習用ゲーム](#6-練習用ゲーム)
+  - [6. Challenge: 外部で練習する](#6-challenge-外部で練習する)
   - [7. 終わりに](#7-終わりに)
   - [8. 参考文献](#8-参考文献)
 
@@ -997,14 +997,15 @@ Chrome拡張機能 [VisBug](https://chrome.google.com/webstore/detail/visbug/cdo
 
 ---
 
-## 6. 練習用ゲーム
+## 6. Challenge: 外部で練習する
 
-ここまでに学んだレイアウトを、ゲームで練習できます。
+ここまでの内容を終えた人は、外部コンテンツでさらに練習してみましょう。すべて任意の Challenge です。
 
-| 学ぶ内容 | ゲーム |
-| ---- | ---- |
-| CSS Grid | [Grid Garden](https://cssgridgarden.com/#ja) |
-| Flexbox | [Flexbox Froggy](https://flexboxfroggy.com/#ja) |
+| Challenge | 対象 | 取り組み方 |
+| ---- | ---- | ---- |
+| [HTML Master](https://www.html-master.com/) | HTMLの基本タグと文書構造 | 「HTML基礎」のレベルに取り組む |
+| [Flexbox Froggy](https://flexboxfroggy.com/#ja) | Flexbox | レベル1〜10をクリアする |
+| [Grid Garden](https://cssgridgarden.com/#ja) | CSS Grid | レベル1〜10をクリアする |
 
 ---
 
