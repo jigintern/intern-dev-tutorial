@@ -25,7 +25,7 @@ jobs:
       matrix:
         include:
           - slide: git
-            output_name: github-desktop-slide
+            output_name: git-vscode-slide
           - slide: design
             output_name: basic-design-slide
           - slide: about-webapp
