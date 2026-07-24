@@ -1,13 +1,13 @@
-# Github Desktop を利用したチーム開発手法
+# VSCode の Git 機能を利用したチーム開発手法
 
-本項では、GitHub, Inc. が提供するアプリケーション [Github Desktop](https://docs.github.com/ja/desktop) を利用した開発手法について解説します。  
+本項では、Visual Studio Code（VSCode）に標準搭載されているGit機能（ソース管理ビュー）を利用した開発手法について解説します。  
 この資料と同一のフォルダ内に、スライドも掲載しており、双方を参照することで学習を進めます。  
 
 基本的にはスライドで解説を進めるので、本項は必要に応じて参照してください。
 
 ## 1. 導入編
 
-*Git・Github・Github Desktopについて知ろう！*
+*Git・Github・VSCodeのGit機能について知ろう！*
 
 ### 1-1. Gitとは何か？
 
@@ -50,26 +50,28 @@ Githubは、Gitのリポジトリをインターネット上で管理するた�
 この資料も、Github上で公開されています。
 
 Githubを活用した開発では、大まかに、以下のような手順で作業が進められます。  
-1. clone: Githubリポジトリを丸ごと丸ごとダウンロードする
+1. clone: Githubリポジトリを丸ごとダウンロードする
 2. branch: 作業を枝分かれさせて、他の開発者との衝突を防止する
 3. 通常通りに、プログラムを書く
-4. commit: 作業前と後の**差分を記録**しよう
+4. commit: 作業前と後の**差分を記録**する
 5. push: 作業の成果をGithubにアップロードして共有する
 6. Pull Request: 枝分かれした成果を結合する
 
-### 1-3. Github Desktopとは何か？
+### 1-3. VSCodeのGit機能とは何か？
 
-> GitHub Desktop では、コマンド ラインや Web ブラウザーではなく GUI を使用して GitHub と対話できます。  
-> 出典: https://docs.github.com/ja/desktop
+> Visual Studio Code には統合されたソース管理機能(SCM)があり、Git のサポートが標準で組み込まれています。  
+> 出典: https://code.visualstudio.com/docs/sourcecontrol/overview
 
-Github DesktopはGit / Githubの機能をGUI（ボタン等でコンピュータに命令を送るもの）で操作するためのアプリケーションです。  
+VSCodeには、Git / Githubの機能をGUI（ボタン等でコンピュータに命令を送るもの）で操作するための「ソース管理 (Source Control)」ビューが標準で搭載されています。  
 Gitは多くの場合、CUI（文字のみでコンピュータに命令を送るもの）で操作を行いますが、これに慣れるためには時間が必要なため、簡略化のために使用します。  
+
+拡張機能のインストールは不要で、VSCodeさえ導入されていればすぐに使うことができます。ただし、Git本体のインストールは別途必要です（事前準備で導入済みのものとします）。
 
 > Topic: CUIでも操作できると、様々な環境に適応できるのでおすすめです
 
-## 2. Github Desktopを触ってみよう
+## 2. VSCodeのGit機能を触ってみよう
 
-*Github Desktopを実際に使ってみよう！*
+*VSCodeのGit機能を実際に使ってみよう！*
 
 ### 2-1. clone: Githubリポジトリを丸ごとダウンロードしよう
 
@@ -85,28 +87,32 @@ Githubにアップロードされているリポジトリを丸ごと取得し�
 
 基本的には、開発の最初に各開発者が一度ずつ行う操作です。  
 
-Github Desktopでは、以下のように操作することで、クローンの操作を行うことができます。  
-例として、`git-tutorial-2025`のリポジトリで作業してみましょう。 
+VSCodeでは、以下のように操作することで、クローンの操作を行うことができます。  
+例として、`git-tutorial-2026`のリポジトリで作業してみましょう。 
 
 <details>
-<summary>練習: Github Desktopでクローンしてみよう</summary>
+<summary>練習: VSCodeでクローンしてみよう</summary>
 
-1. 下記URLにアクセスして、「<> Code」のボタンをクリックします
-> repository: https://github.com/jigintern/git-tutorial-2025
+1. 練習リポジトリのURLにアクセスして、「<> Code」ボタンをクリックし、表示されたHTTPSのURLをコピーします
+> repository: https://github.com/jigintern/git-tutorial-2026
+![](./imgs/screen-shots/01_github_code_button.png)
 
-2. 表示されたウィンドウの「Open with Github Desktop」をクリックして、Github Desktopを開きます
-![](./imgs/screen-shots/01_github_open_with_github_desktop.png)
+2. VSCodeを開いて、「ようこそ」画面の「Git リポジトリのクローン... (Clone Git Repository...)」をクリックします  
+コマンドパレット（Cmd/Ctrl+Shift+P）で「Git: クローン (Git: Clone)」を選んでも、同じ操作ができます。
+![](./imgs/screen-shots/02_vscode_clone_repository.png)
 
-3. 「Local Path」にPC上での保存先を設定し、「Clone」をクリックします
-![](./imgs/screen-shots/02_clone_repository_github_desktop.png)
+3. 画面上部の入力欄に、コピーしたURLを貼り付けて、Enterキーを押します
+![](./imgs/screen-shots/04_clone_input_url.png)
 
-4. リポジトリがクローンできたことを確認します  
-以下のような画面になっていれば、問題ありません
-![](./imgs/screen-shots/03_confirm_clone_repository.png)
+4. PC上での保存先のフォルダーを選択します
+![](./imgs/screen-shots/05_clone_select_folder.png)
 
-5. 「Open in Visual Studio Code」をクリックして、リポジトリをVisual Studio Codeで開きます  
-問題無く、Githubにアップロードされていたファイルが取り込めているようです。
-![](./imgs/screen-shots/04_view_with_vscode.png)
+5. 「クローンしたリポジトリを開きますか？」という通知が表示されるので、「開く」をクリックします  
+（「このフォルダー内のファイルの作成者を信頼しますか？」と確認された場合は、「はい、作成者を信頼します」を選択してください）
+![](./imgs/screen-shots/06_open_cloned_repository.png)
+
+6. エクスプローラーに、Githubにアップロードされていたファイルが表示されていることを確認します
+![](./imgs/screen-shots/07_view_cloned_files.png)
 
 </details>
 
@@ -135,26 +141,27 @@ gitGraph
 
 また、作業するブランチを切り替える操作を`checkout`（チェックアウト）と呼びます。
 
-Github Desktopでは、以下のように操作することで、ブランチを切る操作を行うことができます。
+VSCodeでは、以下のように操作することで、ブランチを切る操作を行うことができます。
 
 <details>
 <summary>練習: ブランチを切ってみよう</summary>
 
-1. ブランチ操作用のフォームを開きます
+1. 画面左下、ステータスバーに表示されているブランチ名（main）をクリックします
+![](./imgs/screen-shots/08_statusbar_branch.png)
 
-2. 「New Branch」をクリックして、新規ブランチの作成ウィンドウを開きます
-![](./imgs/screen-shots/05_branch_form.png)
+2. 画面上部に表示されるメニューから、「+ 新しいブランチの作成... (Create new branch...)」をクリックします
+![](./imgs/screen-shots/09_create_new_branch.png)
 
-3. 新規ブランチの名前を入力して、「Create Branch」をクリックします  
+3. 新規ブランチの名前を入力して、Enterキーを押します  
 ブランチの名前は他の参加者と重複しないよう、自分の名前等で設定してください。
-![](./imgs/screen-shots/06_branch_name.png)
-既にコードに変更を加えている場合は、以下のような画面が表示されるので、「Bring my changes to ...」を選択してください
-![](./imgs/screen-shots/07_branch_bring_changes.png)
+![](./imgs/screen-shots/10_branch_name_input.png)
 
-4. 新しいブランチができるので、作業に取り掛かることができます。
+4. ステータスバーの表示が、新しいブランチ名に切り替わったことを確認します
+![](./imgs/screen-shots/11_branch_switched.png)
 
 </details>
 
+既にファイルに変更を加えていた場合、その変更は新しいブランチにそのまま持ち越されます。
 
 
 ### 2-3. commit: 作業前と後の**差分を記録**しよう
@@ -182,28 +189,32 @@ gitGraph
 > .DS_Store
 > ```
 
-Github Desktopでは、以下のように操作することで、コミットの操作を行うことができます。
+VSCodeでは、以下のように操作することで、コミットの操作を行うことができます。
 
 <details>
 <summary>練習: 作業してコミットしてみよう</summary>
 
-1. Visual Studio Codeを開いて、ファイルを新規作成します  
+1. ファイルを新規作成します  
 ファイルの名前は他の参加者と重複しないよう、自分の名前等で半角英数字で設定してください
-![](./imgs/screen-shots/08_create_file.png)
+![](./imgs/screen-shots/12_create_file.png)
 
 2. 作成したファイルに、適当なプログラムを書き込みます
-![](./imgs/screen-shots/09_write_python_code.png)
+![](./imgs/screen-shots/13_write_python_code.png)
 
-3. Github Desktopを開いて、差分が表示されていること、その差分が正しいことを確認します
-![](./imgs/screen-shots/10_view_changes.png)
+3. アクティビティバー（画面左端）の「ソース管理 (Source Control)」アイコンをクリックして、ソース管理ビューを開きます  
+「変更 (Changes)」に作成したファイルが表示されていること、ファイル名をクリックすると差分が表示されることを確認します
+![](./imgs/screen-shots/14_scm_view_changes.png)
 
-4. 画面左下、ユーザアイコンの横の入力フォームに、変更内容についての説明文（コミットメッセージ）を記載します
+4. ファイル名にカーソルを合わせて「+」(変更をステージ / Stage Changes)をクリックし、「ステージされた変更 (Staged Changes)」に移動させます
+![](./imgs/screen-shots/15_scm_stage_changes.png)
 
-5. 「Commit to ...」をクリックします
+5. 上部の入力欄に、変更内容についての説明文（コミットメッセージ）を記載し、「コミット (Commit)」ボタンをクリックします  
 これでコミットが完了します
-![](./imgs/screen-shots/11_input_commit_message.png)
+![](./imgs/screen-shots/16_scm_commit.png)
 
 </details>
+
+> Topic: ステージ（stage）は、「次のコミットに含める変更を選ぶ」操作です。今回のように変更をまとめてコミットする場合は、ステージを省略しても構いません（ステージせずにコミットすると、すべての変更をコミットするか確認されます）。
 
 
 ### 2-4. log: 作業の履歴を確認しよう
@@ -212,15 +223,17 @@ Github Desktopでは、以下のように操作することで、コミットの
 現在作業中のブランチでのコミットの履歴を確認し、作業内容を確認することができます。  
 作業を始める前やコミットが正しく完了したか、作業の開始地点が正しいかなどの確認のために用います。
 
-Github Desktopでは、以下のように操作することで、ログを確認することができます。
+VSCodeでは、以下のように操作することで、ログを確認することができます。
 
 <details>
 <summary>練習: コミットの履歴を確認しよう</summary>
 
-1. 「History」をクリックして、コミットの履歴が表示されることを確認します
-![](./imgs/screen-shots/12_view_history.png)
+1. ソース管理ビューの「グラフ (Graph)」に、コミットの履歴が表示されることを確認します
+![](./imgs/screen-shots/17_source_control_graph.png)
 
 </details>
+
+> Topic: エクスプローラー下部の「タイムライン (Timeline)」では、開いているファイル単位の変更履歴を確認できます。
 
 
 ### 2-5. push: 作業の成果をGithubにアップロードして共有しよう
@@ -228,20 +241,28 @@ Github Desktopでは、以下のように操作することで、ログを確認
 `push`（プッシュ）は、現在のブランチの作業内容をGithub等にアップロードする操作です。  
 他の開発者に作業内容を共有する時、作業が一段落して、ブランチの内容を元のブランチに結合したい時などに行います（後述。ブランチの結合操作は他開発者に確認してもらうのが望ましいため、Github上で行います）。
 
-Github Desktopでは、以下のように操作することで、プッシュの操作を行うことができます。
+VSCodeでは、以下のように操作することで、プッシュの操作を行うことができます。
 
 <details>
 <summary>練習: 作業内容をプッシュしてみよう</summary>
 
-1. 「Changes」をクリックして、元の画面に戻ります
+1. ソース管理ビューの「Branch の発行 (Publish Branch)」をクリックします
+![](./imgs/screen-shots/18_publish_branch.png)
 
-2. 「Publish branch」をクリックして、変更内容をプッシュします
-![](./imgs/screen-shots/13_publish_branch.png)
+2. 初回はGithubへのサインインを求められるので、「許可 (Allow)」をクリックします
+![](./imgs/screen-shots/19_github_signin_dialog.png)
 
-3. ブラウザでGithubを開き、プッシュしたブランチが正しく反映されていることを確認します
-![](./imgs/screen-shots/14_confirm_publish.png)
+3. ブラウザが開くので、Githubにログインして「Authorize Visual-Studio-Code」をクリックし、VSCodeに戻ります
+![](./imgs/screen-shots/20_github_authorize_browser.png)
+
+4. ブラウザでGithubを開き、プッシュしたブランチが正しく反映されていることを確認します
+![](./imgs/screen-shots/21_confirm_publish.png)
 
 </details>
+
+一度プッシュしたブランチにさらにコミットした場合は、「変更の同期 (Sync Changes)」ボタンでプッシュできます。
+
+> Topic: サインインがうまくいかない場合は、GitHub CLI（`gh auth login`）やGit Credential Managerを導入することで解決できることがあります。
 
 
 ### 2-6. Pull Request: 枝分かれした成果を結合しよう
@@ -280,25 +301,25 @@ Github上で、以下のように操作することで、Pull Requestの作成�
 1. Githubで「Pull requests」のタブをクリック
 
 2. 「New pull request」をクリックします
-![](./imgs/screen-shots/15_new_pull_request.png)
+![](./imgs/screen-shots/22_new_pull_request.png)
 
 3. 新規ブランチの名前、Pull Requestのタイトル、本文を入力します  
 他の開発者に確認してもらうものなので、作業内容が理解しやすい内容にすると良いです
 
 4. 「Create pull request」をクリックすると、Pull Requestが作成されます
-![](./imgs/screen-shots/16_write_pull_request.png)
+![](./imgs/screen-shots/23_write_pull_request.png)
 
 5. 他開発者に、Pull Requestの確認を依頼します  
 SlackやGithub上でのコメントなど、適宜チーム内で決定した方法で依頼しましょう
 
 6. 確認を依頼された人は、Pull Requestの変更内容等を確認して、問題箇所があればコメント等で指摘します  
 問題箇所が無い場合は、LGTM（Looks Good To Me: 私は良いと思います）等のコメントをつけて確認したことを報告しましょう
-![](./imgs/screen-shots/17_view_pull_request.png)
-![](./imgs/screen-shots/18_review_lgtm.png)
+![](./imgs/screen-shots/24_view_pull_request.png)
+![](./imgs/screen-shots/25_review_lgtm.png)
 
 7. Pull Requestの作成者は、「Merge pull request」をクリックして、Pull Requestを元のブランチに結合します
-![](./imgs/screen-shots/19_merge_pull_request.png)
-![](./imgs/screen-shots/20_merged_pull_request.png)
+![](./imgs/screen-shots/26_merge_pull_request.png)
+![](./imgs/screen-shots/27_merged_pull_request.png)
 
 8. `main`ブランチを確認して、変更内容が正しく取り込まれていることを確認します
 
@@ -312,24 +333,26 @@ SlackやGithub上でのコメントなど、適宜チーム内で決定した方
 
 一見すると違いがありませんが、`fetch`で行うのは変更が行われているかの確認のみで、実際にPC上のファイルの内容が書き換わることはありません。対して、`pull`を行った場合、変更内容がPC上のファイルに反映され、書き換えられます。
 
-Github Desktopでは、以下のように操作することで、これらの操作を行うことができます。
+VSCodeでは、以下のように操作することで、これらの操作を行うことができます。
 
 <details>
 <summary>練習: fetch / pullで変更後のGithubの内容を取り込もう</summary>
 
-1. `main`ブランチに移動します
-![](./imgs/screen-shots/21_checkout_main.png)
+1. ステータスバーのブランチ名をクリックし、`main`ブランチに切り替えます
+![](./imgs/screen-shots/28_checkout_main.png)
 
-2. 画面上部の「Fetch origin」をクリックします  
-これだけでは変更内容は取り込まれませんが、Github上で変更があったことをGithub Desktopが認識します  
-（Github Desktopの自動更新がONになっている場合、既に変更が取り込まれている場合があります）
-![](./imgs/screen-shots/22_fetch_origin.png)
+2. ソース管理ビュー右上の「... (その他のアクション)」メニューから、「フェッチ (Fetch)」をクリックします  
+これだけでは変更内容は取り込まれませんが、Github上で変更があったことをVSCodeが認識します
+![](./imgs/screen-shots/29_fetch_pull_menu.png)
 
-3. 画面上部の「Pull origin」をクリックします  
+3. ステータスバーのブランチ名の横に、「2↓」のように取り込める変更の数が表示されます  
+同じ「...」メニューから「プル (Pull)」をクリックします（ステータスバーの同期ボタンをクリックしても同じです）  
 これで変更内容が取り込まれ、PC上のファイルが更新されます
-![](./imgs/screen-shots/23_pull_origin.png)
+![](./imgs/screen-shots/30_sync_incoming.png)
 
-4. 変更内容が取り込まれていることを、「History」から確認します
-![](./imgs/screen-shots/24_results.png)
+4. 変更内容が取り込まれていることを、ソース管理ビューの「グラフ (Graph)」から確認します
+![](./imgs/screen-shots/31_pull_results.png)
 
 </details>
+
+> Topic: VSCodeの設定で自動フェッチ（`git.autofetch`）を有効にしている場合、手順2を行わなくても「2↓」のような表示が現れることがあります（初回起動時などに、自動フェッチを有効にするか確認されることがあります）。

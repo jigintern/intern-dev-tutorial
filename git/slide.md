@@ -4,17 +4,18 @@ theme: uncover
 paginate: true
 ---
 
-# **Github Desktop** を
+# **VSCode の Git 機能** を
+
 # 利用したチーム開発手法
 
 ---
 
 ## 1. 導入編
 
-*Git・Github・Github Desktop
-について知ろう！*
+_Git・Github・VSCodeのGit機能について知ろう！_
 
 ---
+
 <!--
 header: 1-1. Gitとは何か？
 -->
@@ -28,7 +29,6 @@ header: 1-1. Gitとは何か？
 > Git（ギット）は、プログラムのソースコードなどの変更履歴を記録・追跡するための分散型バージョン管理システムである。  
 > 出典: https://ja.wikipedia.org/wiki/Git
 
-
 ---
 
 ### 分散型……バージョン管理システム……？
@@ -36,6 +36,7 @@ header: 1-1. Gitとは何か？
 ---
 
 ### **ゲームのセーブデータ**みたいに
+
 ### 今の状態を保存しておくもの
 
 これをリポジトリ、と呼びます
@@ -85,7 +86,6 @@ header: 1-1. Gitとは何か？
 編集の重複を防いだり、差分を分かりやすくしたり……
 
 ![bg right:40%](./imgs/materials/01_git_tree.png)
-
 
 ---
 
@@ -157,17 +157,17 @@ gitをオンラインで管理するやつ
 ---
 
 <!--
-header: 1-3. Github Desktopとは何か？
+header: 1-3. VSCodeのGit機能とは何か？
 -->
 
-## 1-3. Github Desktopとは何か？
+## 1-3. VSCodeのGit機能とは何か？
 
 ---
 
-### Github Desktopとは何か？
+### VSCodeのGit機能とは何か？
 
-> GitHub Desktop では、コマンド ラインや Web ブラウザーではなく GUI を使用して GitHub と対話できます。  
-> 出典: https://docs.github.com/ja/desktop
+> Visual Studio Code には統合されたソース管理機能(SCM)があり、Git のサポートが標準で組み込まれています。  
+> 出典: https://code.visualstudio.com/docs/sourcecontrol/overview
 
 ---
 
@@ -179,51 +179,33 @@ header: 1-3. Github Desktopとは何か？
 
 ---
 
-### Github Desktopを使えば、**コマンド無し**で操作できます
+### VSCodeの**ソース管理ビュー**を使えば、**コマンド無し**で操作できます
 
-環境構築もインストールするだけ！
-事前にインストールして貰いました
-
----
-<!--
-backgroundColor: #222
-color: #FFF
--->
-
-### UIはこんな感じ
-表示されているのは、この資料を書いている時の様子です
-
-![bg contain brightness:50%](./imgs/materials/03_github_desktop_home.png)
+拡張機能のインストールも不要！
+VSCodeを入れればすぐ使えます
+（Git本体は事前準備でインストール済み）
 
 ---
-<!-- 
-_header: ""
--->
 
-![bg contain](./imgs/materials/03_github_desktop_home.png)
+### 今回はVSCodeのGit機能を使って開発します
 
----
-<!--
-backgroundColor: #default
-color: #default
--->
-
-### 今回はGithub Desktopを使って開発します
 お気に入りのGitの操作方法があれば、そちらで進めていただいても問題ありません！
 
 ---
-<!-- 
+
+<!--
 _header: ""
 backgroundColor: #222
 color: #FFF
 -->
 
-## 2. Github Desktopを触ってみよう
+## 2. VSCodeのGit機能を触ってみよう
 
-*Github Desktopを実際に使ってみよう！*
+_VSCodeのGit機能を実際に使ってみよう！_
 
 ---
-<!-- 
+
+<!--
 header: 2-1. clone: Githubリポジトリを丸ごとダウンロードしよう
 -->
 
@@ -232,6 +214,7 @@ header: 2-1. clone: Githubリポジトリを丸ごとダウンロードしよう
 ---
 
 ### Githubからリポジトリをダウンロードしてみましょう
+
 これをclone（クローン）と呼びます
 
 ---
@@ -241,61 +224,62 @@ header: 2-1. clone: Githubリポジトリを丸ごとダウンロードしよう
 ---
 
 ### ブラウザで以下URLを開いてください
+
 Zoomのチャット欄にも記載します
 
-[https://github.com/jigintern/git-tutorial-2025](https://github.com/jigintern/git-tutorial-2025)
+[https://github.com/jigintern/git-tutorial-2026](https://github.com/jigintern/git-tutorial-2026)
 
 ---
 
-###### 　1. 「<> Code」のボタンをクリックします
+###### 1. 「<> Code」ボタンをクリックし、表示されたHTTPSのURLをコピーします
 
-![height:460px](./imgs/screen-shots/01_github_open_with_github_desktop.png)
-
----
-
-###### 2. 表示されたウィンドウの「Open with Github Desktop」をクリックして、Github Desktopを開きます
-
-![height:460px](./imgs/screen-shots/01_github_open_with_github_desktop.png)
+![height:460px](./imgs/screen-shots/01_github_code_button.png)
 
 ---
 
-###### 　3. 「Local Path」にPC上での保存先を設定し、「Clone」をクリックします
+###### 2. 「ようこそ」画面の「Git リポジトリのクローン...」をクリックします
 
-![height:460px](./imgs/screen-shots/02_clone_repository_github_desktop.png)
-
----
-###### 　4. リポジトリがクローンできたことを確認します
-
-![height:460px](./imgs/screen-shots/03_confirm_clone_repository.png)
-
----
-###### 　5. 「Open in Visual Studio Code」をクリックして、リポジトリをVisual Studio Codeで開きます
-
-![height:460px](./imgs/screen-shots/03_confirm_clone_repository.png)
+![height:460px](./imgs/screen-shots/02_vscode_clone_repository.png)
 
 ---
 
-### Visual Studio Codeが開きます
+###### ex. コマンドパレットから「Git: クローン」を選んでも、同じ操作ができます
 
-何か他のエディタを使用している場合はそちらで開くかも
-
-![bg contain brightness:50%](./imgs/screen-shots/04_view_with_vscode.png)
+![height:460px](./imgs/screen-shots/03_command_palette_git_clone.png)
 
 ---
-<!-- 
-_header: ""
--->
 
-![bg contain](./imgs/screen-shots/04_view_with_vscode.png)
+###### 3. 画面上部の入力欄に、コピーしたURLを貼り付けて、Enterキーを押します
+
+![height:460px](./imgs/screen-shots/04_clone_input_url.png)
+
+---
+
+###### 4. PC上での保存先のフォルダーを選択します
+
+![height:460px](./imgs/screen-shots/05_clone_select_folder.png)
+
+---
+
+###### 5. 「クローンしたリポジトリを開きますか？」という通知が表示されるので、「開く」をクリックします
+
+![height:460px](./imgs/screen-shots/06_open_cloned_repository.png)
+
+---
+
+###### 6. エクスプローラーに、Githubにアップロードされていたファイルが表示されていることを確認します
+
+![height:460px](./imgs/screen-shots/07_view_cloned_files.png)
 
 ---
 
 ### ダウンロードできてそうですね
 
-![bg contain brightness:50%](./imgs/screen-shots/04_view_with_vscode.png)
+![bg contain brightness:50%](./imgs/screen-shots/07_view_cloned_files.png)
 
 ---
-<!-- 
+
+<!--
 header: 2-2. branch: 作業を枝分かれさせよう
 -->
 
@@ -304,53 +288,58 @@ header: 2-2. branch: 作業を枝分かれさせよう
 ---
 
 ### 作業を枝分かれさせてみましょう
+
 これをbranch（ブランチ）と呼びます
 
 ---
 
 ### クラウドサービスで**ファイル共有**すると……
+
 編集が重複したりして、片方の編集内容が消されることも
 
 ---
 
 ###### 枝分かれすると、複数人で同じファイルを触っても（ちょっと）安心です
+
 ![height:400px](./imgs/materials/04_mermaid_branch.svg)
 
 ---
 
 ### では、ブランチを切ってみましょう
+
 ブランチを作ることを、慣習的に「ブランチを切る」、といいます
 
 ---
 
-###### 1. ブランチ操作用のフォームを開きます
-![height:460px](./imgs/screen-shots/05_branch_form.png)
+###### 1. 画面左下のステータスバーに表示されているブランチ名（main）をクリックします
+
+![height:460px](./imgs/screen-shots/08_statusbar_branch.png)
 
 ---
 
-###### 2. 「New Branch」をクリックして、新規ブランチの作成ウィンドウを開きます
-![height:460px](./imgs/screen-shots/05_branch_form.png)
+###### 2. 表示されるメニューから「+ 新しいブランチの作成... (Create new branch...)」をクリックします
+
+![height:460px](./imgs/screen-shots/09_create_new_branch.png)
 
 ---
 
-###### 3. 新規ブランチの名前を入力して、「Create Branch」をクリックします。ブランチ名の重複が発生しないように注意してください
+###### 3. 新規ブランチの名前を入力して、Enterキーを押します。他の参加者と重複しないよう、自分の名前などで設定してください
 
-![height:460px](./imgs/screen-shots/06_branch_name.png)
-
----
-
-###### ex. 既にブランチに変更を加えている場合は、以下のような画面が表示されるので、「Bring my changes to ...」を選択してください
-
-![height:460px](./imgs/screen-shots/07_branch_bring_changes.png)
+![height:460px](./imgs/screen-shots/10_branch_name_input.png)
 
 ---
 
-###### 4. 新しいブランチができるので、作業に取り掛かることができます。
+###### 4. ステータスバーの表示が、新しいブランチ名に切り替わったことを確認します
 
-![height:460px](./imgs/screen-shots/06_branch_name.png)
+![height:460px](./imgs/screen-shots/11_branch_switched.png)
 
 ---
-<!-- 
+
+### 既にファイルに変更を加えていた場合、その変更は新しいブランチにそのまま持ち越されます
+
+---
+
+<!--
 header: 2-3. commit: 作業前と後の**差分を記録**しよう
 -->
 
@@ -359,16 +348,19 @@ header: 2-3. commit: 作業前と後の**差分を記録**しよう
 ---
 
 ### 作業前と後の**差分を記録**してみましょう
+
 これをcommit（コミット）と呼びます
 
 ---
 
 ### Gitはファイルの**現在の内容を保存**することを繰り返してログを作ると言いましたが……
+
 実は、全てを保存するわけではありません
 
 ---
 
 ### 作業を重ねる程に**データが膨大**になってしまいます
+
 これでは、いけませんね。しかし、解決する方法があります
 
 ---
@@ -383,33 +375,37 @@ header: 2-3. commit: 作業前と後の**差分を記録**しよう
 
 ---
 
-###### 1. Visual Studio Codeを開いて、ファイルを新規作成します。ファイル名が重複しないよう、自分の名前などを半角英字でつけてください
+###### 1. ファイルを新規作成します。ファイル名が重複しないよう、自分の名前などを半角英数字でつけてください
 
-![height:460px](./imgs/screen-shots/08_create_file.png)
+![height:460px](./imgs/screen-shots/12_create_file.png)
 
 ---
 
 ###### 2. 作成したファイルに、適当なプログラムを書き込みます
 
-![height:460px](./imgs/screen-shots/09_write_python_code.png)
+![height:460px](./imgs/screen-shots/13_write_python_code.png)
 
 ---
 
-###### 3. Github Desktopを開いて、差分が表示されていること、その差分が正しいことを確認します
-![height:460px](./imgs/screen-shots/10_view_changes.png)
+###### 3. ソース管理ビューを開いて、「変更」に作成したファイルと差分が表示されることを確認します
+
+![height:460px](./imgs/screen-shots/14_scm_view_changes.png)
 
 ---
 
-###### 4. 画面左下のフォームから、変更内容についての説明文（コミットメッセージ）を記載します
-![height:460px](./imgs/screen-shots/11_input_commit_message.png)
+###### 4. ファイル名にカーソルを合わせて「+」（変更をステージ）をクリックし、「ステージされた変更」に移動させます
+
+![height:460px](./imgs/screen-shots/15_scm_stage_changes.png)
 
 ---
 
-###### 5. 「Commit to ...」をクリックします。これで完了です
-![height:460px](./imgs/screen-shots/11_input_commit_message.png)
+###### 5. 上部の入力欄にコミットメッセージを記載し、「コミット (Commit)」ボタンをクリックします。これで完了です
+
+![height:460px](./imgs/screen-shots/16_scm_commit.png)
 
 ---
-<!-- 
+
+<!--
 header: 2-4. log: 作業の履歴を確認しよう
 -->
 
@@ -418,21 +414,24 @@ header: 2-4. log: 作業の履歴を確認しよう
 ---
 
 ### 作業の履歴を確認してみましょう
+
 この履歴をlog（ログ）と呼びます
 
 ---
 
-###### 「History」をクリックして、コミットの履歴が表示されることを確認します
-![height:460px](./imgs/screen-shots/12_view_history.png)
+###### ソース管理ビューの「グラフ (Graph)」に、コミットの履歴が表示されることを確認します
+
+![height:460px](./imgs/screen-shots/17_source_control_graph.png)
 
 ---
 
 ### よさそうですね
 
-![bg contain brightness:50%](./imgs/screen-shots/12_view_history.png)
+![bg contain brightness:50%](./imgs/screen-shots/17_source_control_graph.png)
 
 ---
-<!-- 
+
+<!--
 header: 2-5. push: 作業の成果をGithubにアップロードして共有しよう
 -->
 
@@ -441,6 +440,7 @@ header: 2-5. push: 作業の成果をGithubにアップロードして共有し�
 ---
 
 ### 作業の成果をGithubにアップロードしてみましょう
+
 これをpush（プッシュ）と呼びます
 
 ---
@@ -449,22 +449,35 @@ header: 2-5. push: 作業の成果をGithubにアップロードして共有し�
 
 ---
 
-###### 1. 「Changes」をクリックして、元の画面に戻ります
-![height:460px](./imgs/screen-shots/13_publish_branch.png)
+###### 1. ソース管理ビューの「Branch の発行」をクリックします
+
+![height:460px](./imgs/screen-shots/18_publish_branch.png)
 
 ---
 
-###### 2. 「Publish branch」をクリックして、変更内容をプッシュします
-![height:460px](./imgs/screen-shots/13_publish_branch.png)
+###### 2. 初回はGithubへのサインインを求められるので、「許可 (Allow)」をクリックします
+
+![height:460px](./imgs/screen-shots/19_github_signin_dialog.png)
 
 ---
 
-###### 3. ブラウザでGithubを開き、プッシュしたブランチが正しく反映されていることを確認します
-![height:460px](./imgs/screen-shots/14_confirm_publish.png)
+###### 3. ブラウザが開くので、Githubにログインして「Authorize Visual-Studio-Code」をクリックし、VSCodeに戻ります
+
+![height:460px](./imgs/screen-shots/20_github_authorize_browser.png)
 
 ---
 
-<!-- 
+###### 4. ブラウザでGithubを開き、プッシュしたブランチが正しく反映されていることを確認します
+
+![height:460px](./imgs/screen-shots/21_confirm_publish.png)
+
+---
+
+### 2回目以降は「変更の同期 (Sync Changes)」ボタンでプッシュできます
+
+---
+
+<!--
 header: 2-6. Pull Request: 枝分かれした成果を結合しよう
 -->
 
@@ -473,11 +486,13 @@ header: 2-6. Pull Request: 枝分かれした成果を結合しよう
 ---
 
 ### ブランチ機能で枝分かれさせた作業を結合させましょう
+
 これをmerge（マージ）と呼びます
 
 ---
 
 ### 一応、手元でマージもできますが……
+
 マージする時は、バグ等の防止のため、他の人に確認して貰いたいです
 
 ---
@@ -491,56 +506,66 @@ header: 2-6. Pull Request: 枝分かれした成果を結合しよう
 ---
 
 ###### 1. Githubで「Pull requests」のタブをクリック
-![height:460px](./imgs/screen-shots/15_new_pull_request.png)
+
+![height:460px](./imgs/screen-shots/22_new_pull_request.png)
 
 ---
 
 ###### 2. 「New pull request」をクリックします
-![height:460px](./imgs/screen-shots/15_new_pull_request.png)
+
+![height:460px](./imgs/screen-shots/22_new_pull_request.png)
 
 ---
 
 ###### 3. 新規ブランチの名前、Pull Requestのタイトル、本文を入力します。作業内容が理解しやすい内容にすると良いです
-![height:460px](./imgs/screen-shots/16_write_pull_request.png)
+
+![height:460px](./imgs/screen-shots/23_write_pull_request.png)
 
 ---
 
 ###### 4. 「Create pull request」をクリックすると、Pull Requestが作成されます
-![height:460px](./imgs/screen-shots/16_write_pull_request.png)
+
+![height:460px](./imgs/screen-shots/23_write_pull_request.png)
 
 ---
 
-### 5. 他開発者に、Pull Requestの確認を依頼します  
+### 5. 他開発者に、Pull Requestの確認を依頼します
+
 SlackやGithub上でのコメントなど、適宜チーム内で決定した方法で依頼しましょう
 
 ---
 
-###### 6-1. 確認を依頼された人は、Pull Requestの変更内容等を確認して、問題箇所があればコメント等で指摘します  
-![height:460px](./imgs/screen-shots/17_view_pull_request.png)
+###### 6-1. 確認を依頼された人は、Pull Requestの変更内容等を確認して、問題箇所があればコメント等で指摘します
+
+![height:460px](./imgs/screen-shots/24_view_pull_request.png)
 
 ---
 
 ###### 6-2. 問題箇所が無い場合は、LGTM（Looks Good To Me: 私は良いと思います）等のコメントをつけて確認したことを報告しましょう
-![height:460px](./imgs/screen-shots/18_review_lgtm.png)
+
+![height:460px](./imgs/screen-shots/25_review_lgtm.png)
 
 ---
 
 ###### 7. Pull Requestの作成者は、「Merge pull request」をクリックして、Pull Requestを元のブランチに結合します
-![height:460px](./imgs/screen-shots/19_merge_pull_request.png)
+
+![height:460px](./imgs/screen-shots/26_merge_pull_request.png)
 
 ---
 
 ###### 7. Pull Requestの作成者は、「Merge pull request」をクリックして、Pull Requestを元のブランチに結合します
-![height:460px](./imgs/screen-shots/20_merged_pull_request.png)
+
+![height:460px](./imgs/screen-shots/27_merged_pull_request.png)
 
 ---
 
 ##### 8. mainブランチを確認して、変更内容が正しく取り込まれていることを確認します
+
 Githubで開いてみましょう
 
 ---
 
-<!-- 
+<!--
 header: 2-7. fetch / pull: Githubリポジトリの変更部分をダウンロードしよう
 -->
 
@@ -549,6 +574,7 @@ header: 2-7. fetch / pull: Githubリポジトリの変更部分をダウンロ�
 ---
 
 ### Githubの更新を、PC上に取り込みましょう
+
 これをfetch（フェッチ） / pull（プル）と呼びます
 
 ---
@@ -571,42 +597,51 @@ pull（プル）は、Github上のリモートリポジトリの**変更をダ�
 
 ---
 
-###### 1. mainブランチに移動します
-![height:460px](./imgs/screen-shots/21_checkout_main.png)
+###### 1. ステータスバーのブランチ名をクリックし、mainブランチに切り替えます
+
+![height:460px](./imgs/screen-shots/28_checkout_main.png)
 
 ---
 
-###### 2-1. 画面上部の「Fetch origin」をクリックします  
-![height:460px](./imgs/screen-shots/22_fetch_origin.png)
+###### 2-1. ソース管理ビュー右上の「...」メニューから、「フェッチ」をクリックします
+
+![height:460px](./imgs/screen-shots/29_fetch_pull_menu.png)
 
 ---
 
-###### 2-2. これだけでは変更内容は取り込まれませんが、Github上で変更があったことをGithub Desktopが認識します  
+###### 2-2. これだけでは変更内容は取り込まれませんが、Github上で変更があったことをVSCodeが認識します
 
-![height:460px](./imgs/screen-shots/22_fetch_origin.png)
-
----
-
-###### 2-3. （Github Desktopの自動更新がONになっている場合、既に変更が取り込まれている場合があります）
-![height:460px](./imgs/screen-shots/22_fetch_origin.png)
+![height:460px](./imgs/screen-shots/29_fetch_pull_menu.png)
 
 ---
 
-###### 3. 画面上部の「Pull origin」をクリックします  
-![height:460px](./imgs/screen-shots/23_pull_origin.png)
+###### 3-1. ステータスバーのブランチ名の横に、「2↓」のように取り込める変更の数が表示されます
+
+![height:460px](./imgs/screen-shots/30_sync_incoming.png)
 
 ---
 
-###### 4. 変更内容が取り込まれていることを、「History」から確認します
-![height:460px](./imgs/screen-shots/24_results.png)
+###### 3-2. 同じ「...」メニューから「プル」をクリックします
+
+変更内容が取り込まれ、ファイルが更新されます
+
+![height:460px](./imgs/screen-shots/30_sync_incoming.png)
 
 ---
-<!-- 
+
+###### 4. 変更内容が取り込まれていることを、ソース管理ビューの「グラフ (Graph)」から確認します
+
+![height:460px](./imgs/screen-shots/31_pull_results.png)
+
+---
+
+<!--
 header: ""
 -->
 
 ## 3. まとめ
-*できるようになったことを、振り返ろう*
+
+_できるようになったことを、振り返ろう_
 
 ---
 
@@ -617,10 +652,10 @@ section {
 }
 </style>
 
-1. clone: Githubリポジトリを丸ごと丸ごとダウンロードする
+1. clone: Githubリポジトリを丸ごとダウンロードする
 2. branch: 作業を枝分かれさせて、他の開発者との衝突を防止する
 3. 通常通りに、プログラムを書く
-4. commit: 作業前と後の**差分を記録**しよう
+4. commit: 作業前と後の**差分を記録**する
 5. push: 作業の成果をGithubにアップロードして共有する
 6. Pull Request: 枝分かれした成果を結合する
 7. review: 他の開発者の作業内容を確認する
@@ -628,6 +663,7 @@ section {
 ---
 
 ### これでGit入門は完璧です
+
 お疲れ様でした！
 
-![bg height:550px brightness:50%](./imgs/materials/06_mermaid_all.svg)
+![bg height:550px brightness:30%](./imgs/materials/06_mermaid_all.svg)
