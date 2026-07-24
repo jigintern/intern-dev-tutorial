@@ -102,17 +102,17 @@ VSCodeでは、以下のように操作することで、クローンの操作�
 ![](./imgs/screen-shots/02_vscode_clone_repository.png)
 
 3. 画面上部の入力欄に、コピーしたURLを貼り付けて、Enterキーを押します
-![](./imgs/screen-shots/03_clone_input_url.png)
+![](./imgs/screen-shots/04_clone_input_url.png)
 
 4. PC上での保存先のフォルダーを選択します
-![](./imgs/screen-shots/04_clone_select_folder.png)
+![](./imgs/screen-shots/05_clone_select_folder.png)
 
 5. 「クローンしたリポジトリを開きますか？」という通知が表示されるので、「開く」をクリックします  
 （「このフォルダー内のファイルの作成者を信頼しますか？」と確認された場合は、「はい、作成者を信頼します」を選択してください）
-![](./imgs/screen-shots/05_open_cloned_repository.png)
+![](./imgs/screen-shots/06_open_cloned_repository.png)
 
 6. エクスプローラーに、Githubにアップロードされていたファイルが表示されていることを確認します
-![](./imgs/screen-shots/06_view_cloned_files.png)
+![](./imgs/screen-shots/07_view_cloned_files.png)
 
 </details>
 
@@ -147,17 +147,17 @@ VSCodeでは、以下のように操作することで、ブランチを切る�
 <summary>練習: ブランチを切ってみよう</summary>
 
 1. 画面左下、ステータスバーに表示されているブランチ名（main）をクリックします
-![](./imgs/screen-shots/07_statusbar_branch.png)
+![](./imgs/screen-shots/08_statusbar_branch.png)
 
 2. 画面上部に表示されるメニューから、「+ 新しいブランチの作成... (Create new branch...)」をクリックします
-![](./imgs/screen-shots/08_create_new_branch.png)
+![](./imgs/screen-shots/09_create_new_branch.png)
 
 3. 新規ブランチの名前を入力して、Enterキーを押します  
 ブランチの名前は他の参加者と重複しないよう、自分の名前等で設定してください。
-![](./imgs/screen-shots/09_branch_name_input.png)
+![](./imgs/screen-shots/10_branch_name_input.png)
 
 4. ステータスバーの表示が、新しいブランチ名に切り替わったことを確認します
-![](./imgs/screen-shots/10_branch_switched.png)
+![](./imgs/screen-shots/11_branch_switched.png)
 
 </details>
 
@@ -196,21 +196,21 @@ VSCodeでは、以下のように操作することで、コミットの操作�
 
 1. ファイルを新規作成します  
 ファイルの名前は他の参加者と重複しないよう、自分の名前等で半角英数字で設定してください
-![](./imgs/screen-shots/11_create_file.png)
+![](./imgs/screen-shots/12_create_file.png)
 
 2. 作成したファイルに、適当なプログラムを書き込みます
-![](./imgs/screen-shots/12_write_python_code.png)
+![](./imgs/screen-shots/13_write_python_code.png)
 
 3. アクティビティバー（画面左端）の「ソース管理 (Source Control)」アイコンをクリックして、ソース管理ビューを開きます  
 「変更 (Changes)」に作成したファイルが表示されていること、ファイル名をクリックすると差分が表示されることを確認します
-![](./imgs/screen-shots/13_scm_view_changes.png)
+![](./imgs/screen-shots/14_scm_view_changes.png)
 
 4. ファイル名にカーソルを合わせて「+」(変更をステージ / Stage Changes)をクリックし、「ステージされた変更 (Staged Changes)」に移動させます
-![](./imgs/screen-shots/14_scm_stage_changes.png)
+![](./imgs/screen-shots/15_scm_stage_changes.png)
 
 5. 上部の入力欄に、変更内容についての説明文（コミットメッセージ）を記載し、「コミット (Commit)」ボタンをクリックします  
 これでコミットが完了します
-![](./imgs/screen-shots/15_scm_commit.png)
+![](./imgs/screen-shots/16_scm_commit.png)
 
 </details>
 
@@ -229,7 +229,7 @@ VSCodeでは、以下のように操作することで、ログを確認する�
 <summary>練習: コミットの履歴を確認しよう</summary>
 
 1. ソース管理ビューの「グラフ (Graph)」に、コミットの履歴が表示されることを確認します
-![](./imgs/screen-shots/16_source_control_graph.png)
+![](./imgs/screen-shots/17_source_control_graph.png)
 
 </details>
 
@@ -247,16 +247,16 @@ VSCodeでは、以下のように操作することで、プッシュの操作�
 <summary>練習: 作業内容をプッシュしてみよう</summary>
 
 1. ソース管理ビューの「Branch の発行 (Publish Branch)」をクリックします
-![](./imgs/screen-shots/17_publish_branch.png)
+![](./imgs/screen-shots/18_publish_branch.png)
 
 2. 初回はGithubへのサインインを求められるので、「許可 (Allow)」をクリックします
-![](./imgs/screen-shots/18_github_signin_dialog.png)
+![](./imgs/screen-shots/19_github_signin_dialog.png)
 
 3. ブラウザが開くので、Githubにログインして「Authorize Visual-Studio-Code」をクリックし、VSCodeに戻ります
-![](./imgs/screen-shots/19_github_authorize_browser.png)
+![](./imgs/screen-shots/20_github_authorize_browser.png)
 
 4. ブラウザでGithubを開き、プッシュしたブランチが正しく反映されていることを確認します
-![](./imgs/screen-shots/20_confirm_publish.png)
+![](./imgs/screen-shots/21_confirm_publish.png)
 
 </details>
 
@@ -301,25 +301,25 @@ Github上で、以下のように操作することで、Pull Requestの作成�
 1. Githubで「Pull requests」のタブをクリック
 
 2. 「New pull request」をクリックします
-![](./imgs/screen-shots/21_new_pull_request.png)
+![](./imgs/screen-shots/22_new_pull_request.png)
 
 3. 新規ブランチの名前、Pull Requestのタイトル、本文を入力します  
 他の開発者に確認してもらうものなので、作業内容が理解しやすい内容にすると良いです
 
 4. 「Create pull request」をクリックすると、Pull Requestが作成されます
-![](./imgs/screen-shots/22_write_pull_request.png)
+![](./imgs/screen-shots/23_write_pull_request.png)
 
 5. 他開発者に、Pull Requestの確認を依頼します  
 SlackやGithub上でのコメントなど、適宜チーム内で決定した方法で依頼しましょう
 
 6. 確認を依頼された人は、Pull Requestの変更内容等を確認して、問題箇所があればコメント等で指摘します  
 問題箇所が無い場合は、LGTM（Looks Good To Me: 私は良いと思います）等のコメントをつけて確認したことを報告しましょう
-![](./imgs/screen-shots/23_view_pull_request.png)
-![](./imgs/screen-shots/24_review_lgtm.png)
+![](./imgs/screen-shots/24_view_pull_request.png)
+![](./imgs/screen-shots/25_review_lgtm.png)
 
 7. Pull Requestの作成者は、「Merge pull request」をクリックして、Pull Requestを元のブランチに結合します
-![](./imgs/screen-shots/25_merge_pull_request.png)
-![](./imgs/screen-shots/26_merged_pull_request.png)
+![](./imgs/screen-shots/26_merge_pull_request.png)
+![](./imgs/screen-shots/27_merged_pull_request.png)
 
 8. `main`ブランチを確認して、変更内容が正しく取り込まれていることを確認します
 
@@ -339,19 +339,19 @@ VSCodeでは、以下のように操作することで、これらの操作を�
 <summary>練習: fetch / pullで変更後のGithubの内容を取り込もう</summary>
 
 1. ステータスバーのブランチ名をクリックし、`main`ブランチに切り替えます
-![](./imgs/screen-shots/27_checkout_main.png)
+![](./imgs/screen-shots/28_checkout_main.png)
 
 2. ソース管理ビュー右上の「... (その他のアクション)」メニューから、「フェッチ (Fetch)」をクリックします  
 これだけでは変更内容は取り込まれませんが、Github上で変更があったことをVSCodeが認識します
-![](./imgs/screen-shots/28_fetch_pull_menu.png)
+![](./imgs/screen-shots/29_fetch_pull_menu.png)
 
 3. ステータスバーのブランチ名の横に、「2↓」のように取り込める変更の数が表示されます  
 同じ「...」メニューから「プル (Pull)」をクリックします（ステータスバーの同期ボタンをクリックしても同じです）  
 これで変更内容が取り込まれ、PC上のファイルが更新されます
-![](./imgs/screen-shots/29_sync_incoming.png)
+![](./imgs/screen-shots/30_sync_incoming.png)
 
 4. 変更内容が取り込まれていることを、ソース管理ビューの「グラフ (Graph)」から確認します
-![](./imgs/screen-shots/30_pull_results.png)
+![](./imgs/screen-shots/31_pull_results.png)
 
 </details>
 

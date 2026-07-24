@@ -245,37 +245,37 @@ Zoomのチャット欄にも記載します
 
 ###### ex. コマンドパレットから「Git: クローン」を選んでも、同じ操作ができます
 
-![height:460px](./imgs/screen-shots/02_vscode_clone_repository.png)
+![height:460px](./imgs/screen-shots/03_command_palette_git_clone.png)
 
 ---
 
 ###### 3. 画面上部の入力欄に、コピーしたURLを貼り付けて、Enterキーを押します
 
-![height:460px](./imgs/screen-shots/03_clone_input_url.png)
+![height:460px](./imgs/screen-shots/04_clone_input_url.png)
 
 ---
 
 ###### 4. PC上での保存先のフォルダーを選択します
 
-![height:460px](./imgs/screen-shots/04_clone_select_folder.png)
+![height:460px](./imgs/screen-shots/05_clone_select_folder.png)
 
 ---
 
 ###### 5. 「クローンしたリポジトリを開きますか？」という通知が表示されるので、「開く」をクリックします
 
-![height:460px](./imgs/screen-shots/05_open_cloned_repository.png)
+![height:460px](./imgs/screen-shots/06_open_cloned_repository.png)
 
 ---
 
 ###### 6. エクスプローラーに、Githubにアップロードされていたファイルが表示されていることを確認します
 
-![height:460px](./imgs/screen-shots/06_view_cloned_files.png)
+![height:460px](./imgs/screen-shots/07_view_cloned_files.png)
 
 ---
 
 ### ダウンロードできてそうですね
 
-![bg contain brightness:50%](./imgs/screen-shots/06_view_cloned_files.png)
+![bg contain brightness:50%](./imgs/screen-shots/07_view_cloned_files.png)
 
 ---
 
@@ -313,25 +313,25 @@ header: 2-2. branch: 作業を枝分かれさせよう
 
 ###### 1. 画面左下のステータスバーに表示されているブランチ名（main）をクリックします
 
-![height:460px](./imgs/screen-shots/07_statusbar_branch.png)
+![height:460px](./imgs/screen-shots/08_statusbar_branch.png)
 
 ---
 
 ###### 2. 表示されるメニューから「+ 新しいブランチの作成... (Create new branch...)」をクリックします
 
-![height:460px](./imgs/screen-shots/08_create_new_branch.png)
+![height:460px](./imgs/screen-shots/09_create_new_branch.png)
 
 ---
 
 ###### 3. 新規ブランチの名前を入力して、Enterキーを押します。他の参加者と重複しないよう、自分の名前などで設定してください
 
-![height:460px](./imgs/screen-shots/09_branch_name_input.png)
+![height:460px](./imgs/screen-shots/10_branch_name_input.png)
 
 ---
 
 ###### 4. ステータスバーの表示が、新しいブランチ名に切り替わったことを確認します
 
-![height:460px](./imgs/screen-shots/10_branch_switched.png)
+![height:460px](./imgs/screen-shots/11_branch_switched.png)
 
 ---
 
@@ -377,31 +377,31 @@ header: 2-3. commit: 作業前と後の**差分を記録**しよう
 
 ###### 1. ファイルを新規作成します。ファイル名が重複しないよう、自分の名前などを半角英数字でつけてください
 
-![height:460px](./imgs/screen-shots/11_create_file.png)
+![height:460px](./imgs/screen-shots/12_create_file.png)
 
 ---
 
 ###### 2. 作成したファイルに、適当なプログラムを書き込みます
 
-![height:460px](./imgs/screen-shots/12_write_python_code.png)
+![height:460px](./imgs/screen-shots/13_write_python_code.png)
 
 ---
 
 ###### 3. ソース管理ビューを開いて、「変更」に作成したファイルと差分が表示されることを確認します
 
-![height:460px](./imgs/screen-shots/13_scm_view_changes.png)
+![height:460px](./imgs/screen-shots/14_scm_view_changes.png)
 
 ---
 
 ###### 4. ファイル名にカーソルを合わせて「+」（変更をステージ）をクリックし、「ステージされた変更」に移動させます
 
-![height:460px](./imgs/screen-shots/14_scm_stage_changes.png)
+![height:460px](./imgs/screen-shots/15_scm_stage_changes.png)
 
 ---
 
 ###### 5. 上部の入力欄にコミットメッセージを記載し、「コミット (Commit)」ボタンをクリックします。これで完了です
 
-![height:460px](./imgs/screen-shots/15_scm_commit.png)
+![height:460px](./imgs/screen-shots/16_scm_commit.png)
 
 ---
 
@@ -421,13 +421,13 @@ header: 2-4. log: 作業の履歴を確認しよう
 
 ###### ソース管理ビューの「グラフ (Graph)」に、コミットの履歴が表示されることを確認します
 
-![height:460px](./imgs/screen-shots/16_source_control_graph.png)
+![height:460px](./imgs/screen-shots/17_source_control_graph.png)
 
 ---
 
 ### よさそうですね
 
-![bg contain brightness:50%](./imgs/screen-shots/16_source_control_graph.png)
+![bg contain brightness:50%](./imgs/screen-shots/17_source_control_graph.png)
 
 ---
 
@@ -451,25 +451,25 @@ header: 2-5. push: 作業の成果をGithubにアップロードして共有し�
 
 ###### 1. ソース管理ビューの「Branch の発行」をクリックします
 
-![height:460px](./imgs/screen-shots/17_publish_branch.png)
+![height:460px](./imgs/screen-shots/18_publish_branch.png)
 
 ---
 
 ###### 2. 初回はGithubへのサインインを求められるので、「許可 (Allow)」をクリックします
 
-![height:460px](./imgs/screen-shots/18_github_signin_dialog.png)
+![height:460px](./imgs/screen-shots/19_github_signin_dialog.png)
 
 ---
 
 ###### 3. ブラウザが開くので、Githubにログインして「Authorize Visual-Studio-Code」をクリックし、VSCodeに戻ります
 
-![height:460px](./imgs/screen-shots/19_github_authorize_browser.png)
+![height:460px](./imgs/screen-shots/20_github_authorize_browser.png)
 
 ---
 
 ###### 4. ブラウザでGithubを開き、プッシュしたブランチが正しく反映されていることを確認します
 
-![height:460px](./imgs/screen-shots/20_confirm_publish.png)
+![height:460px](./imgs/screen-shots/21_confirm_publish.png)
 
 ---
 
@@ -507,25 +507,25 @@ header: 2-6. Pull Request: 枝分かれした成果を結合しよう
 
 ###### 1. Githubで「Pull requests」のタブをクリック
 
-![height:460px](./imgs/screen-shots/21_new_pull_request.png)
+![height:460px](./imgs/screen-shots/22_new_pull_request.png)
 
 ---
 
 ###### 2. 「New pull request」をクリックします
 
-![height:460px](./imgs/screen-shots/21_new_pull_request.png)
+![height:460px](./imgs/screen-shots/22_new_pull_request.png)
 
 ---
 
 ###### 3. 新規ブランチの名前、Pull Requestのタイトル、本文を入力します。作業内容が理解しやすい内容にすると良いです
 
-![height:460px](./imgs/screen-shots/22_write_pull_request.png)
+![height:460px](./imgs/screen-shots/23_write_pull_request.png)
 
 ---
 
 ###### 4. 「Create pull request」をクリックすると、Pull Requestが作成されます
 
-![height:460px](./imgs/screen-shots/22_write_pull_request.png)
+![height:460px](./imgs/screen-shots/23_write_pull_request.png)
 
 ---
 
@@ -537,25 +537,25 @@ SlackやGithub上でのコメントなど、適宜チーム内で決定した方
 
 ###### 6-1. 確認を依頼された人は、Pull Requestの変更内容等を確認して、問題箇所があればコメント等で指摘します
 
-![height:460px](./imgs/screen-shots/23_view_pull_request.png)
+![height:460px](./imgs/screen-shots/24_view_pull_request.png)
 
 ---
 
 ###### 6-2. 問題箇所が無い場合は、LGTM（Looks Good To Me: 私は良いと思います）等のコメントをつけて確認したことを報告しましょう
 
-![height:460px](./imgs/screen-shots/24_review_lgtm.png)
+![height:460px](./imgs/screen-shots/25_review_lgtm.png)
 
 ---
 
 ###### 7. Pull Requestの作成者は、「Merge pull request」をクリックして、Pull Requestを元のブランチに結合します
 
-![height:460px](./imgs/screen-shots/25_merge_pull_request.png)
+![height:460px](./imgs/screen-shots/26_merge_pull_request.png)
 
 ---
 
 ###### 7. Pull Requestの作成者は、「Merge pull request」をクリックして、Pull Requestを元のブランチに結合します
 
-![height:460px](./imgs/screen-shots/26_merged_pull_request.png)
+![height:460px](./imgs/screen-shots/27_merged_pull_request.png)
 
 ---
 
@@ -599,25 +599,25 @@ pull（プル）は、Github上のリモートリポジトリの**変更をダ�
 
 ###### 1. ステータスバーのブランチ名をクリックし、mainブランチに切り替えます
 
-![height:460px](./imgs/screen-shots/27_checkout_main.png)
+![height:460px](./imgs/screen-shots/28_checkout_main.png)
 
 ---
 
 ###### 2-1. ソース管理ビュー右上の「...」メニューから、「フェッチ」をクリックします
 
-![height:460px](./imgs/screen-shots/28_fetch_pull_menu.png)
+![height:460px](./imgs/screen-shots/29_fetch_pull_menu.png)
 
 ---
 
 ###### 2-2. これだけでは変更内容は取り込まれませんが、Github上で変更があったことをVSCodeが認識します
 
-![height:460px](./imgs/screen-shots/28_fetch_pull_menu.png)
+![height:460px](./imgs/screen-shots/29_fetch_pull_menu.png)
 
 ---
 
 ###### 3-1. ステータスバーのブランチ名の横に、「2↓」のように取り込める変更の数が表示されます
 
-![height:460px](./imgs/screen-shots/29_sync_incoming.png)
+![height:460px](./imgs/screen-shots/30_sync_incoming.png)
 
 ---
 
@@ -625,13 +625,13 @@ pull（プル）は、Github上のリモートリポジトリの**変更をダ�
 
 変更内容が取り込まれ、ファイルが更新されます
 
-![height:460px](./imgs/screen-shots/29_sync_incoming.png)
+![height:460px](./imgs/screen-shots/30_sync_incoming.png)
 
 ---
 
 ###### 4. 変更内容が取り込まれていることを、ソース管理ビューの「グラフ (Graph)」から確認します
 
-![height:460px](./imgs/screen-shots/30_pull_results.png)
+![height:460px](./imgs/screen-shots/31_pull_results.png)
 
 ---
 
