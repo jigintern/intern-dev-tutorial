@@ -14,7 +14,7 @@ Deno.serve((req) => {
 
 	// publicフォルダ内にあるファイルを返す
 	return serveDir(req, {
-		fsRoot: 'deno/public',
+		fsRoot: 'public',
 		urlRoot: '',
 		showDirListing: true,
 		enableCors: true,
