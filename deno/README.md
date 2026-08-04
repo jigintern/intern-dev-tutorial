@@ -8,28 +8,41 @@
   - [3-1. 下準備](#3-1-下準備)
   - [3-2. JavaScript のコードを実行してみよう](#3-2-javascript-のコードを実行してみよう)
   - [3-3. ファイルを実行するときの権限の許可について](#3-3-ファイルを実行するときの権限の許可について)
-  - [3-4. (発展) 毎回打ち込むコマンドが長いと感じたら](#3-4-発展-毎回打ち込むコマンドが長いと感じたら)
-  - [3-5. (発展) JavaScript ファイルをリントしてみよう](#3-5-発展-javascript-ファイルをリントしてみよう)
-  - [3-6. (発展) JavaScript ファイルをフォーマットしてみよう](#3-6-発展-javascript-ファイルをフォーマットしてみよう)
-  - [3-7. (発展) JavaScript ファイルをテストしてみよう](#3-7-発展-javascript-ファイルをテストしてみよう)
-- [4. (発展) サンプルプロジェクトのコードを読んでみよう](#4-発展-サンプルプロジェクトのコードを読んでみよう)
-  - [4-1. (発展) server.js を読んでみよう](#4-1-発展-serverjs-を読んでみよう)
-  - [4-2. (発展) ESModule の形でファイルを読み込む](#4-2-発展-esmodule-の形でファイルを読み込む)
-  - [4-3. (発展) import map を使ってみよう](#4-3-発展-import-map-を使ってみよう)
-  - [4-4. (発展) クライアント側からの API リクエストを処理](#4-4-発展-クライアント側からの-api-リクエストを処理)
-  - [4-5. (発展) public/index.js を読んでみよう](#4-5-発展-publicindexjs-を読んでみよう)
-- [5. Deno Deploy を用いてコードをデプロイしてみよう](#5-deno-deploy-を用いてコードをデプロイしてみよう)
-- [5-1. 実際にデプロイしてみる](#5-1-実際にデプロイしてみる)
-- [6. まとめ](#6-まとめ)
+- [4. 自分で書き換えてみよう](#4-自分で書き換えてみよう)
+  - [4-1. サーバーが返す文言を変えてみよう](#4-1-サーバーが返す文言を変えてみよう)
+  - [4-2. ページの見た目を変えてみよう](#4-2-ページの見た目を変えてみよう)
+  - [4-3. うまくいかないときは](#4-3-うまくいかないときは)
+- [5. デプロイして、他の人に見てもらおう](#5-デプロイして他の人に見てもらおう)
+  - [事前に必要なもの](#事前に必要なもの)
+- [6. (発展) Deno の便利な機能を使ってみよう](#6-発展-deno-の便利な機能を使ってみよう)
+  - [6-1. (発展) 毎回打ち込むコマンドが長いと感じたら](#6-1-発展-毎回打ち込むコマンドが長いと感じたら)
+  - [6-2. (発展) JavaScript ファイルをリントしてみよう](#6-2-発展-javascript-ファイルをリントしてみよう)
+  - [6-3. (発展) JavaScript ファイルをフォーマットしてみよう](#6-3-発展-javascript-ファイルをフォーマットしてみよう)
+  - [6-4. (発展) JavaScript ファイルをテストしてみよう](#6-4-発展-javascript-ファイルをテストしてみよう)
+- [7. (発展) サンプルプロジェクトのコードを読んでみよう](#7-発展-サンプルプロジェクトのコードを読んでみよう)
+  - [7-1. (発展) server.js を読んでみよう](#7-1-発展-serverjs-を読んでみよう)
+  - [7-2. (発展) ESModule の形でファイルを読み込む](#7-2-発展-esmodule-の形でファイルを読み込む)
+  - [7-3. (発展) import map を使ってみよう](#7-3-発展-import-map-を使ってみよう)
+  - [7-4. (発展) クライアント側からの API リクエストを処理](#7-4-発展-クライアント側からの-api-リクエストを処理)
+  - [7-5. (発展) public/index.js を読んでみよう](#7-5-発展-publicindexjs-を読んでみよう)
+- [8. まとめ](#8-まとめ)
 
 # 0. このセクションの目標
 
-このセクションでは以下の項目を身につけましょう！
+このセクションのゴールはひとつです。
 
-1. `deno run`コマンドで TypeScript ファイルを実行できる 💪
-2. Deno Deploy を用いてコードをデプロイして、他の人が見られるようにする 🚀
+**スマホで、自分の Web アプリが見られる** 🚀
 
-その他発展的内容も記載しています。
+そのために、以下の順で進めます。
+
+1. Deno をインストールする
+2. `deno run`コマンドでサンプルプロジェクトを動かす
+3. 中身を自分で書き換えてみる
+4. インターネットに公開する
+
+コードを書けるようになる必要はありません。今日は**動かす**回です。
+
+その他、発展的内容も記載しています。時間が余ったときや、あとから読み返すときに使ってください。
 
 - Deno でコードをリントしてみよう
 - Deno でコードをフォーマットしてみよう
@@ -44,7 +57,7 @@
 - [PDF資料](https://jigintern.github.io/intern-dev-tutorial/deno/deno-slide.pdf)
 - [テキスト資料](./slide.md)
 
-[Deno](https://deno.land/) とは、JavaScript や TypeScript で書かれたコードを実行する環境です。
+[Deno](https://deno.com/) とは、JavaScript や TypeScript で書かれたコードを実行する環境です。
 
 Deno がインストールされた環境で`deno run <ファイル名>`のコマンドを実行することで、JavaScript や TypeScript で書かれたファイルを実行できます。
 
@@ -56,7 +69,7 @@ Deno はコードを実行する機能以外にも、コードをリントした
 
 早速、Deno を以下のリンク先からインストールしてみましょう。
 
-[公式サイト - Deno のインストール方法](https://docs.deno.com/runtime/manual/getting_started/installation)
+[公式サイト - Deno のインストール方法](https://docs.deno.com/runtime/getting_started/installation/)
 
 基本的には公式サイトの手順を参考にします。
 
@@ -67,6 +80,14 @@ Deno はコードを実行する機能以外にも、コードをリントした
 Mac OS の人は`homebrew`というパッケージ管理ツールをインストールして、その`homebrew`を使用して`Deno`をインストールすると今後も便利そうです。
 
 [homebrew の公式サイト](https://brew.sh/ja)
+
+インストールできたら、以下のコマンドでバージョンを確認してみましょう。
+
+```shell
+deno --version
+```
+
+`deno 2.` から始まる行が表示されれば成功です。
 
 # 3. Deno 使ってみよう
 
@@ -128,10 +149,12 @@ deno run server.js
 実行すると以下のような文言がターミナルに表示されます。
 
 ```shell
-┌ ⚠️  Deno requests net access to "0.0.0.0:8000".
-├ Requested by `Deno.listen()` API.
-├ Run again with --allow-net to bypass this prompt.
-└ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all net permissions) >
+┏ ⚠️  Deno requests net access to "0.0.0.0:8000".
+┠─ Requested by `Deno.listen()` API.
+┠─ To see a stack trace for this prompt, set the DENO_TRACE_PERMISSIONS environmental variable.
+┠─ Learn more at: https://docs.deno.com/go/--allow-net
+┠─ Run again with --allow-net to bypass this prompt.
+┗ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all net permissions) >
 ```
 
 一旦は深く考えずに`y`を入力していきましょう。
@@ -139,7 +162,7 @@ deno run server.js
 そうすると以下のような文言がターミナルに表示されます。
 
 ```shell
-Listening on http://localhost:8000/
+Listening on http://0.0.0.0:8000/ (http://localhost:8000/)
 ```
 
 では、ブラウザのアドレスバーに <http://localhost:8000> のアドレスを入力して検索してみましょう。
@@ -148,10 +171,12 @@ Listening on http://localhost:8000/
 ここでターミナルの方を見てみましょう。
 
 ```shell
-┌ ⚠️  Deno requests read access to "public".
-├ Requested by `Deno.stat()` API.
-├ Run again with --allow-read to bypass this prompt.
-└ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all read permissions) >
+┏ ⚠️  Deno requests read access to "public".
+┠─ Requested by `Deno.stat()` API.
+┠─ To see a stack trace for this prompt, set the DENO_TRACE_PERMISSIONS environmental variable.
+┠─ Learn more at: https://docs.deno.com/go/--allow-read
+┠─ Run again with --allow-read to bypass this prompt.
+┗ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all read permissions) >
 ```
 
 このような文言が表示されているので、先ほど同様に`y`を押してみましょう。
@@ -171,10 +196,8 @@ Deno で JavaScript ファイルの`server.js`を無事実行できました！ 
 改めて先ほど表示された文言を確認してみましょう。
 
 ```shell
-┌ ⚠️  Deno requests net access to "0.0.0.0:8000".
-├ Requested by `Deno.listen()` API.
-├ Run again with --allow-net to bypass this prompt.
-└ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all net permissions) >
+┏ ⚠️  Deno requests net access to "0.0.0.0:8000".
+┗ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all net permissions) >
 
 Deno が`0.0.0.0:8000`にアクセスしようとしています。許可するには`y`、拒否するには`n`、以降全てのネットワーク権限を許可するには`A`を入力してください
 ```
@@ -184,10 +207,8 @@ Deno が`0.0.0.0:8000`にアクセスしようとしています。許可する�
 一方で、ブラウザで`http://localhost:8000`へアクセスした時に表示された以下の文言は以下のような内容でした。
 
 ```shell
-┌ ⚠️  Deno requests read access to "public".
-├ Requested by `Deno.stat()` API.
-├ Run again with --allow-read to bypass this prompt.
-└ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all read permissions) >
+┏ ⚠️  Deno requests read access to "public".
+┗ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all read permissions) >
 
 public フォルダ内のファイルの読み込みを行おうとしています。許可するには`y`、拒否するには`n`、以降全ての読み込み権限を許可するには`A`を入力してください
 ```
@@ -229,7 +250,134 @@ deno run --allow-read --allow-net server.js
 deno run --watch --allow-read --allow-net server.js
 ```
 
-## 3-4. (発展) 毎回打ち込むコマンドが長いと感じたら
+このコマンドは次の章でも使うので、**ターミナルはそのまま開いたままにしておいてください。**
+
+# 4. 自分で書き換えてみよう
+
+ここまでで、用意されたサンプルプロジェクトが動くようになりました。
+
+でも、まだ「他の人が作ったもの」が動いているだけですね。ここからは中身を書き換えて、**自分のもの**にしていきましょう。
+
+前の章の`--watch`付きのコマンドでサーバーを起動したままにしておいてください。起動していない人は、もう一度実行しましょう。
+
+```shell
+deno run --watch --allow-read --allow-net server.js
+```
+
+## 4-1. サーバーが返す文言を変えてみよう
+
+`server.js`を開いてみましょう。以下の行があります。
+
+```js
+return new Response('jig.jpインターンへようこそ！👍');
+```
+
+この`'jig.jpインターンへようこそ！👍'`の部分が、ブラウザに表示されている文言です。
+
+好きな文字に書き換えて、`Ctrl + S`（Mac は `Cmd + S`）で保存してみましょう。
+
+```js
+return new Response('こんにちは！わたしの名前は〇〇です🐣');
+```
+
+保存したらターミナルを見てみましょう。`--watch`を付けているので、Deno が自動でサーバーを再起動してくれます。
+
+```shell
+Watcher File change detected! Restarting!
+Listening on http://0.0.0.0:8000/ (http://localhost:8000/)
+```
+
+<http://localhost:8000> をブラウザで**再読み込み**してみましょう。書き換えた文言に変わっていれば成功です 🎉
+
+うまくいったら、何度でも好きなように書き換えてみてください。絵文字も使えます。
+
+> [!NOTE]
+> 文字を囲んでいる`'`（シングルクォート）は消さないように気をつけてください。
+> 消してしまうとエラーになります。もし消してしまったら、書き直せば直ります。
+
+## 4-2. ページの見た目を変えてみよう
+
+文言だけでなく、ページの見た目も変えられます。
+
+`public/index.html`を開いてみましょう。
+
+```html
+<body>
+  <!-- サーバーから返ってきた文字を表示する場所 -->
+	<h1 id="welcomeMessage"></h1>
+
+  <script type="module" src="./index.js"></script>
+</body>
+```
+
+`<h1 id="welcomeMessage"></h1>`が、さっきの文言が表示される場所です。
+
+試しに、その下に自分の好きな文章を追加してみましょう。
+
+```html
+<h1 id="welcomeMessage"></h1>
+
+<p>はじめてのWebアプリです！</p>
+```
+
+保存したら、ブラウザを再読み込みしてみましょう。追加した文章が表示されます。
+
+> [!TIP]
+> `public`フォルダの中のファイルは、サーバーを再起動しなくても反映されます。
+> ブラウザの再読み込みだけで大丈夫です。
+
+色や文字の大きさを変えたい人は、`public/styles.css`をいじってみましょう。
+
+HTML と CSS について詳しくは [HTML/CSS を始めよう](../html-css/README.md) のセクションを参照してください。
+
+## 4-3. うまくいかないときは
+
+**ブラウザに何も表示されない**
+
+ターミナルを見てみましょう。赤い文字でエラーが出ていませんか？ 出ている場合は、直前に書き換えた箇所を見直してみてください。
+
+**「このサイトにアクセスできません」と出る**
+
+サーバーが起動していない可能性があります。ターミナルに`Listening on ...`と表示されているか確認しましょう。表示されていなければ、もう一度コマンドを実行してください。
+
+**書き換えたのに表示が変わらない**
+
+ブラウザの再読み込みを忘れていないか確認しましょう。それでも変わらない場合は、キャッシュが残っているかもしれません。`Ctrl + Shift + R`（Mac は `Cmd + Shift + R`）で強制的に再読み込みできます。
+
+**どうしても直らない**
+
+書き換える前の状態に戻したいときは、VSCode で `Ctrl + Z`（Mac は `Cmd + Z`）を何度か押すと元に戻せます。それでも解決しない場合は、遠慮なく声をかけてください 🙋
+
+# 5. デプロイして、他の人に見てもらおう
+
+ここまでで、自分だけの Web アプリができました。
+
+でも、今の状態では**自分の PC でしか見られません。**PC を閉じたら止まってしまいます。
+
+他の人にも見てもらえるように、**デプロイ**しましょう。デプロイとは、作ったものを外部の環境に配置して、誰でもアクセスできる状態にすることです。
+
+このセクションは**スライドで進めます。**
+
+- [デプロイ編のスライドへ（18枚目〜）](https://jigintern.github.io/intern-dev-tutorial/deno/deno-slide.html#18)
+- [PDF資料（18ページ〜）](https://jigintern.github.io/intern-dev-tutorial/deno/deno-slide.pdf#page=18)
+- [テキスト資料](./slide.md)
+
+使うのは [Deno Deploy](https://deno.com/deploy) です。Deno を作っているところが用意している置き場所で、個人の練習なら無料で使えます。
+
+## 事前に必要なもの
+
+1. **GitHub アカウント**
+2. コードが **GitHub に置いてある**こと
+
+GitHub アカウントを持っていない人は、先に作っておきましょう。ここで一番時間がかかります。
+
+デプロイが終わったら、**自分のスマホで URL を開いてみてください。**さっき書き換えた文言が、自分のスマホに表示されます 🎉
+
+# 6. (発展) Deno の便利な機能を使ってみよう
+
+ここからは発展的な内容です。Deno には、コードを実行する以外にも便利な機能が標準で備わっています。
+
+## 6-1. (発展) 毎回打ち込むコマンドが長いと感じたら
 
 前のセクションでは以下のコマンドで`server.js`が実行できることを学びました。
 
@@ -281,7 +429,7 @@ deno task start
 このセクションでは**task**コマンドについて学びました。
 便利コマンドなのでぜひ使ってみてください！
 
-## 3-5. (発展) JavaScript ファイルをリントしてみよう
+## 6-2. (発展) JavaScript ファイルをリントしてみよう
 
 このセクションでは、Deno で JavaScript ファイルを**リント**する方法を学びます。
 
@@ -317,9 +465,9 @@ deno lint
   }
 ```
 
-今回のこの設定は[Deno 公式サイト](https://docs.deno.com/runtime/manual/getting_started/configuration_file/#lint)の設定をコピーしたものです。
+今回のこの設定は[Deno 公式サイト](https://docs.deno.com/runtime/fundamentals/configuration/)の設定をコピーしたものです。
 
-Deno でリント時に参照されるルールの一覧は[Deno のリントルール](https://lint.deno.land/?q=&all=on)で確認できます。
+Deno でリント時に参照されるルールの一覧は[Deno のリントルール](https://docs.deno.com/lint/)で確認できます。
 
 今回の設定では`tags`に`recommended`が指定されているので、上記のサイトのルール一覧の中から`recommended`タグがついているもの全て適用しています。
 
@@ -333,38 +481,42 @@ Deno でリント時に参照されるルールの一覧は[Deno のリントル
 `server.js`を開いて一番下の行に以下の行を追加して、`Ctrl + S`で保存してみましょう。
 
 ```js
-var message = "Jig.jpインターンへようこそ！";
+var message = "jig.jpインターンへようこそ！";
 ```
 
 保存ができたらターミナルで以下のコマンドを実行してみましょう。
 
-```txt
+```shell
 deno lint
 ```
 
 そうすると以下のような結果が表示されます。
 
 ```shell
-(no-var) `var` keyword is not allowed.
-var message = 'Jig.jpインターンへようこそ！';
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    at /Users/fujii/dev/deno-sample-project/server.js:27:1
+error[no-var]: `var` keyword is not allowed.
+  --> /path/to/intern-dev-tutorial/deno/server.js:24:1
+   |
+24 | var message = "jig.jpインターンへようこそ！";
+   | ^^^
 
-    help: for further information visit https://lint.deno.land/#no-var
+  docs: https://docs.deno.com/lint/rules/no-var
+
 
 Found 1 problem
 Checked 3 files
 ```
 
-これは「var は使わないでください」といった警告文です。([詳細なルール: no-var](https://lint.deno.land/rules/no-var))
+これは「var は使わないでください」といった警告文です。([詳細なルール: no-var](https://docs.deno.com/lint/rules/no-var))
 
 どのファイルの何行目まで表示してくれて便利です。
 
 このように、**lint**コマンドを実行すると、あらかじめ決めておいた「ルール」を元に、それにそぐわないコードがないか チェック します。
 
+確認できたら、追加した`var`の行は削除しておきましょう。
+
 チーム開発でも**リント**を使って、潜在的にバグとなりうるコードがないかチェックしてみましょう！
 
-## 3-6. (発展) JavaScript ファイルをフォーマットしてみよう
+## 6-3. (発展) JavaScript ファイルをフォーマットしてみよう
 
 このセクションでは、Deno で JavaScript ファイルを**フォーマット**する方法を学びます。
 
@@ -389,23 +541,23 @@ deno fmt
 
 フォーマットの設定は、`deno.json`の`fmt`部分で設定されています。
 
-こちらもリントと同様に、[公式サイト](https://docs.deno.com/runtime/manual/getting_started/configuration_file/#fmt)の設定をコピーしたものです。
+こちらもリントと同様に、[公式サイト](https://docs.deno.com/runtime/fundamentals/configuration/)の設定をコピーしたものです。
 
 ```json
   "fmt": {
-    "useTabs": true, // タブを使用するか
-    "lineWidth": 80,  // 一行の文字数
-    "indentWidth": 4, // インデントの文字数
-    "semiColons": true, // セミコロンをつけるかどうか
-    "singleQuote": true, // シングルクォートを使用するかどうか
+    "useTabs": true,        // タブを使用するか
+    "lineWidth": 80,        // 一行の文字数
+    "indentWidth": 4,       // インデントの文字数
+    "semiColons": true,     // セミコロンをつけるかどうか
+    "singleQuote": true,    // シングルクォートを使用するかどうか
     "proseWrap": "preserve",
-    "include": ["./**/*.js"],
+    "include": ["./**/*.js"]
   }
 ```
 
 基本的にはこの設定で十分ですが、ルールを変更したい時にはこちらの設定をいじりましょう。
 
-設定できるフォーマッタの種類については[公式サイト](https://docs.deno.com/runtime/manual/tools/formatter/)から確認できます。
+設定できるフォーマッタの種類については[公式サイト](https://docs.deno.com/runtime/reference/cli/fmt/)から確認できます。
 
 では、実際にフォーマットしてみましょう！
 
@@ -415,7 +567,7 @@ deno fmt
 
 をターミナルに打ち込んで Enter をしてみましょう。
 
-```chell
+```shell
 Checked 3 files
 ```
 
@@ -429,36 +581,31 @@ Checked 3 files
 
 では試しに、フォーマットのルールを変えてみましょう。
 
-`deno.json`の`fmt`部分の  
-`semiColons`の部分を`false`, `singleQuote`の部分を`true`に書き換えてみましょう。
-
-以下のようになります。
+`deno.json`の`fmt`部分の`semiColons`を`false`に書き換えてみましょう。
 
 ```json
   "fmt": {
-    "useTabs": false,
+    "useTabs": true,
     "lineWidth": 80,
-    "indentWidth": 2,
-    "semiColons": false, // trueからfalseに変更した
-    "singleQuote": true, // falseからtrueに変更した
+    "indentWidth": 4,
+    "semiColons": false,    // trueからfalseに変更した
+    "singleQuote": true,
     "proseWrap": "preserve",
     "include": ["./**/*.js"]
-  },
+  }
 ```
 
 そして再度、`deno fmt`を実行し, `server.js`の中身を見てみましょう。
 
-- 行末にセミコロン(;)がない
-
-- 文字列はすべて('')で囲まれている
-
-のように修正されていますね。
+行末のセミコロン(;)がなくなっていますね。
 
 このように`deno fmt`を使用することでコードを整えてくれます。
 
+確認できたら、`semiColons`は`true`に戻して、もう一度`deno fmt`を実行しておきましょう。
+
 チーム開発でもこのフォーマット機能を利用してきれいなコードにしていきましょう！
 
-## 3-7. (発展) JavaScript ファイルをテストしてみよう
+## 6-4. (発展) JavaScript ファイルをテストしてみよう
 
 このセクションでは、Deno で JavaScript ファイルを**テスト**する方法を学びます。
 
@@ -512,14 +659,14 @@ deno test
 
 ```shell
 running 1 test from ./sample.test.js
-1 + 1 は 2 である ... ok (9ms)
+1 + 1 は 2 である ... ok (246µs)
 
-ok | 1 passed | 0 failed (89ms)
+ok | 1 passed | 0 failed (2ms)
 ```
 
 `./sample.test.js`の「1+1 は 2 である」というテストが 1 つ実行され、OK でしたと表示されています。
 
-では`sample.test.ts`の中身を以下のように修正し保存して、`deno test`を実行してみましょう。
+では`sample.test.js`の中身を以下のように修正し保存して、`deno test`を実行してみましょう。
 
 ```js
 assertEquals(1 + 1, 2);
@@ -532,6 +679,7 @@ assertEquals(1 + 1, 3); // 3に修正
 すると今度は以下のような文言が表示されます。
 
 ```shell
+running 1 test from ./sample.test.js
 1 + 1 は 2 である ... FAILED (10ms)
 
  ERRORS
@@ -548,14 +696,14 @@ error: AssertionError: Values are not equal.
 
   throw new AssertionError(message);
         ^
-    at assertEquals (https://deno.land/std@0.193.0/testing/asserts.ts:188:9)
-    at file:///Users/fujii/dev/deno-sample-project/server.test.js:5:3
+    at assertEquals (https://jsr.io/@std/assert/1.0.19/equals.ts:67:9)
+    at file:///path/to/intern-dev-tutorial/deno/sample.test.js:5:2
 
  FAILURES
 
 1 + 1 は 2 である => ./sample.test.js:3:6
 
-FAILED | 0 passed | 1 failed (24ms)
+FAILED | 0 passed | 1 failed (11ms)
 
 error: Test failed
 ```
@@ -570,11 +718,13 @@ error: Test failed
 
 - 期待された値とテスト時に渡された値
 
+確認できたら、`3`を`2`に戻しておきましょう。
+
 このように`Deno`では、テストを行える環境が標準で備わっています。
 
-より詳しい Deno での自動テストに関する記事は[公式サイト](https://docs.deno.com/runtime/manual/basics/testing/)をみて見てください。
+より詳しい Deno での自動テストに関する記事は[公式サイト](https://docs.deno.com/runtime/test/)をみて見てください。
 
-# 4. (発展) サンプルプロジェクトのコードを読んでみよう
+# 7. (発展) サンプルプロジェクトのコードを読んでみよう
 
 ここからはいままで実行してきた`server.js`やこのディレクトリのファイル構造についてみていきましょう。
 
@@ -600,7 +750,7 @@ error: Test failed
   - `index.js`
     - ブラウザからサーバーにアクセスする処理が書かれたファイル
 
-## 4-1. (発展) server.js を読んでみよう
+## 7-1. (発展) server.js を読んでみよう
 
 このセクションでは`server.js`を読みながら以下のことを学んでいきましょう！
 
@@ -610,7 +760,7 @@ error: Test failed
 
 - クライアント側からの API リクエストに対して、ファイルや文字列を返す方法
 
-## 4-2. (発展) ESModule の形でファイルを読み込む
+## 7-2. (発展) ESModule の形でファイルを読み込む
 
 まずは「ESModule の形でファイルを読み込む方法」について学んでいきます。
 
@@ -637,7 +787,7 @@ import { <変数>, <メソッド> } from "JavaScriptファイルのPathやUrl"
 `server.js`の最初の行で行っているように外部の`serveDir`メソッドを取り込むことは以下のようにしてできます。
 
 ```js
-import { serveDir } from "jsr:@std/http/file-server@1.0.17";
+import { serveDir } from "jsr:@std/http@1.0.17/file-server";
 ```
 
 しかし、実際の`server.js`で書かれているコードは少し違っていますね。
@@ -647,26 +797,27 @@ import { serveDir } from "jsr:@std/http/file-server@1.0.17";
 
 このセクションでは**ESModule**と言う形で外部のファイルを取り込む方法を学びました！
 
-## 4-3. (発展) import map を使ってみよう
+## 7-3. (発展) import map を使ってみよう
 
 前のセクションで以下のように外部の変数やメソッドを取り込む方法を学びました。
 
 ```js
-import { serveDir } from "jsr:@std/http/file-server@1.0.17";
+import { serveDir } from "jsr:@std/http@1.0.17/file-server";
 ```
 
 ここで、Deno の**import map**と言う機能を使ってみましょう。
 
-まず`deno.json`の`import`部分をみてみると以下のようになっています。
+まず`deno.json`の`imports`部分をみてみると以下のようになっています。
 
 ```json
   "imports": {
+    "@std/assert": "jsr:@std/assert@^1.0.19",
     "@std/http": "jsr:@std/http@^1.0.17"
   },
 ```
 
 この設定によって JavaScript ファイルで外部のファイルにアクセスするとき、  
-`jsr:@std/http/file-server@1.0.17`は`@std/http`でアクセスできるようになりました。
+`jsr:@std/http@1.0.17/file-server`は`@std/http`でアクセスできるようになりました。
 
 よって以下のように書き換えることができます！
 
@@ -684,15 +835,15 @@ import { serveDir } from "@std/http";
 
 - 使用する外部のファイルのバージョンを固定できる
 
-- バージョンの変更は`deno.json`の`import`部分の URL の数字を変えるだけで全てのファイルに適用される
+- バージョンの変更は`deno.json`の`imports`部分の URL の数字を変えるだけで全てのファイルに適用される
 
-- `deno.json`の`import`部分を見るだけで、このプロジェクトで使用されているライブラリの一覧を確認できる
+- `deno.json`の`imports`部分を見るだけで、このプロジェクトで使用されているライブラリの一覧を確認できる
 
 ぜひ使ってみましょう！
 
 このセクションでは**import map**と言う機能の使い方や使用するメリットを学びました。
 
-## 4-4. (発展) クライアント側からの API リクエストを処理
+## 7-4. (発展) クライアント側からの API リクエストを処理
 
 クライアント側からの API リクエストに関する処理を学びましょう！
 
@@ -702,7 +853,7 @@ import { serveDir } from "@std/http";
 
 - 文字列を返す処理
 
-まずクライアント側からの API リクエストを受け付ける処理は以下のように`serve`関数で行います。
+まずクライアント側からの API リクエストを受け付ける処理は以下のように`Deno.serve`関数で行います。
 
 ```js
 /**
@@ -756,11 +907,11 @@ return serveDir(req, {
 
 よって、`deno run`を実行してから、`http://localhost:8000/`にアクセスすると`public`内の`index.html`のページが表示されるんですね。
 
-## 4-5. (発展) public/index.js を読んでみよう
+## 7-5. (発展) public/index.js を読んでみよう
 
 クライアント側で表示される`index.html`から読み込まれる`index.js`を読んでいきましょう。
 
-`index.js`の読み込み方法は以下のように、「[3-７-2. (発展) ESModule の形でファイルを読み込む](#3-７-2-発展-esmoduleの形でファイルを読み込む)」でも説明しましたように ESModule の形で読み込んでいます。
+`index.js`の読み込み方法は以下のように、「[7-2. (発展) ESModule の形でファイルを読み込む](#7-2-発展-esmodule-の形でファイルを読み込む)」でも説明しましたように ESModule の形で読み込んでいます。
 
 ```html
 <script type="module" src="./index.js"></script>
@@ -787,7 +938,7 @@ fetch メソッドは引数で**path**を指定して、サーバーにリクエ
 
 この場合、引数が`/welcome-message`になっているので、現在開いているアドレスのホスト名の`http://localhost:8000`に path の`/welcome-message`をくっ付けて`http://localhost:8000/welcome-message`にアクセスします。
 
-先ほどの「[4-4. (発展) クライアント側からの API リクエストを処理](#4-4-発展-クライアント側からの-api-リクエストを処理)」でも説明しましたように、この API リクエストに対してクライアント側に`"jig.jpインターンへようこそ！👍"`という文字を返しています。
+先ほどの「[7-4. (発展) クライアント側からの API リクエストを処理](#7-4-発展-クライアント側からの-api-リクエストを処理)」でも説明しましたように、この API リクエストに対してクライアント側に`"jig.jpインターンへようこそ！👍"`という文字を返しています。
 
 以下のコードで`index.html`内にある`id="welcomeMessage"`の要素を探して、`"jig.jpインターンへようこそ！👍"`の文字を入力しています。
 
@@ -797,65 +948,19 @@ document.querySelector("#welcomeMessage").innerText = await response.text();
 
 これで`http://localhost:8000/`へアクセスした時に、「jig.jp インターンへようこそ！」の文言が画面に表示されるサンプルプロジェクトの流れを追うことができました。
 
-# 5. Deno Deploy を用いてコードをデプロイしてみよう
+# 8. まとめ
 
-ここでは自分のコードをデプロイする方法を学びましょう。
+このセクションの初めに立てた目標は達成できましたでしょうか？
 
-前のセクションまでは手元のコンソールで`deno run <ファイル名>`のコマンドを入力して、ブラウザから <http://localhost:8000/>にアクセスしてページを表示していました。
+> **スマホで、自分の Web アプリが見られる** 🚀
 
-しかし、その状態のままでは他の人に自分のサイトを表示させることができないですね。
+1. Deno をインストールした
+2. `deno run`コマンドでサンプルプロジェクトを動かした
+3. 中身を自分で書き換えた
+4. インターネットに公開した
 
-他の人にも自分のサイトをみてもらえるようにデプロイを行いましょう。
+ここまでできれば、後日のチーム開発の準備は万全です。
 
-デプロイとは、開発したアプリケーションを実際に外部の環境に配置し、運用を開始する作業を指します。
+うまくいかなかったところがある人は、**必ず今日中に相談してください。**
 
-このセクションでは Deno Deploy を用いて、`deno run <ファイル名>`を外部のサーバーで実行させることで、指定された URL から誰でもそのサイトを見ることができるようにします。
-
-# 5-1. 実際にデプロイしてみる
-
-Deno を用いた開発をしているのであれば、Deno Deploy を使用することでとても簡単にコードをデプロイできます。
-
-[Deno Deploy の公式サイト](https://deno.com/deploy) を開きましょう。
-
-まずは自分の GitHub アカウントでログインしましょう。
-
-<img src="./imgs/deno-image-10.png" alt="deno">
-
-ログインできたら「Overview」の画面の右上にある「New Project」ボタンからプロジェクト作成画面に移動しましょう。
-
-<img src="./imgs/deno-image-11.png" alt="deno">
-
-自分が作成したプロジェクトを選択しましょう。
-
-<img src="./imgs/deno-image-12.png" alt="deno">
-
-もしここに作成したプロジェクトが表示されない場合は、「Modify GitHub Permission」をクリックして、GitHub の設定画面に遷移してください。
-
-<img src="./imgs/deno-image-13.png" alt="deno">
-
-「Repository access」の項目で Deno Deploy からアクセスできるリポジトリ(プロジェクト)を選択できます。「Select Repositories」から自分が作成したプロジェクトを選択して、「Save」ボタンで保存しましょう。
-
-保存し終えたら Deno Deploy の画面から再度自分が作成したリポジトリを選択しましょう。
-
-選択したら、「Entrypoint」の欄から`deno run`で実行したいファイルを選択します。`deno run server.js`としたい場合は`server.js`を選択します。
-
-<img src="./imgs/deno-image-14.png" alt="deno">
-
-「Entrypoint」のファイルを選択し終えたら、「Deploy Project」ボタンからデプロイを行いましょう！
-
-デプロイが完了したらダッシュボード画面に遷移します。
-
-その画面の「Domains」の箇所に記載されている URL をクリックすることでサイトにアクセスできます！
-
-コードを書かずにポチポチ選択するだけでデプロイできました！ 簡単ですね！
-
-# 6. まとめ
-
-このセクションの初めに以下の目標を立てましたが、達成できましたでしょうか？
-
-> このセクションでは以下の項目をマスターしましょう 🎉
->
-> 1. `deno run`コマンドで TypeScript ファイルを実行できる 💪
-> 2. Deno Deploy を用いてコードをデプロイする方法を理解する 🚀
-
-他の発展的な内容もとても便利な機能ばかりですので、ぜひ実際に開発する時には Deno の様々な機能を活用してみてください！
+発展的な内容もとても便利な機能ばかりですので、ぜひ実際に開発する時には Deno の様々な機能を活用してみてください！
