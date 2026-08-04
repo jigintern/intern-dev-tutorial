@@ -38,10 +38,13 @@
 
 # 1. まず、Deno って何？
 
-[Deno](https://deno.land/) とは、JavaScript や TypeScript で書かれたコードを実行する環境です。
+このセクションにはスライド資料があります。文章より先に、こちらを見ると分かりやすいです。
 
-> 公式サイト
-> <a href="https://deno.land/"> > <img src="./imgs/deno-image-01.png" alt="deno"> </a>
+- [スライド資料](https://jigintern.github.io/intern-dev-tutorial/deno/deno-slide.html)
+- [PDF資料](https://jigintern.github.io/intern-dev-tutorial/deno/deno-slide.pdf)
+- [テキスト資料](./slide.md)
+
+[Deno](https://deno.land/) とは、JavaScript や TypeScript で書かれたコードを実行する環境です。
 
 Deno がインストールされた環境で`deno run <ファイル名>`のコマンドを実行することで、JavaScript や TypeScript で書かれたファイルを実行できます。
 

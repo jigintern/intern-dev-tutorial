@@ -30,6 +30,8 @@ jobs:
             output_name: basic-design-slide
           - slide: about-webapp
             output_name: about-webapp-slide
+          - slide: deno
+            output_name: deno-slide
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
