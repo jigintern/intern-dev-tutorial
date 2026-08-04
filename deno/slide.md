@@ -233,6 +233,65 @@ style: |
     font-weight: bold;
     color: #3e4c59;
   }
+  .cloud { width: 380px; }
+  .cloud .body {
+    border: 4px solid #0b8f82;
+    background: #f0fdfa;
+    border-radius: 60px;
+    padding: 30px 24px;
+    min-height: 100px;
+    text-align: center;
+  }
+  .cloud .caption { text-align: center; font-size: 20px; color: #0b8f82; margin-top: 12px; font-weight: bold; }
+  .frame-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 46px; margin-top: 30px;
+  }
+  /* --- PCの中に入れる小さいブラウザ --- */
+  .minibrowser {
+    border: 3px solid #9aa5b1;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 14px;
+  }
+  .minibrowser .mbar {
+    background: #cbd2d9;
+    padding: 7px 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .minibrowser .mdot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: #9aa5b1; display: inline-block;
+  }
+  .minibrowser .mlabel { margin-left: 8px; font-size: 15px; color: #52606d; }
+  .minibrowser .mscreen {
+    padding: 16px 12px;
+    font-size: 22px;
+    color: #3e4c59;
+    text-align: center;
+    font-weight: bold;
+  }
+  .minibrowser .mscreen.ok { color: #0b8f82; }
+  .minibrowser .mscreen.no { color: #a1121f; }
+  /* 左右のモニターの高さを揃える */
+  .eq .pc .monitor { min-height: 208px; }
+  .steps { margin-top: 26px; }
+  .steps div {
+    font-size: 27px;
+    color: #3e4c59;
+    line-height: 2.0;
+  }
+  .steps strong { color: #0b8f82; }
+  .steps span { color: #7b8794; font-size: 24px; }
+  .warn {
+    margin-top: 26px;
+    background: #fffbea;
+    border-left: 8px solid #f0b429;
+    padding: 18px 24px;
+    font-size: 25px;
+    color: #3e4c59;
+  }
 ---
 
 <!-- _class: lead -->
@@ -512,5 +571,240 @@ Denoとは
 
 <br>
 
-### 次は、実際に自分のPCに入れます
+### READMEに戻って、セットアップをしましょう！
+
+---
+
+<!-- _class: chapter -->
+<!-- _header: '' -->
+
+# 作ったものを、
+# 他の人に見てもらう
+
+Deno Deploy
+
+---
+
+## 今は、自分しか見られません
+
+<div class="frame-row eq">
+  <div class="pc">
+    <div class="monitor">
+      <div class="engine">server.js</div>
+      <div class="minibrowser">
+        <div class="mbar">
+          <span class="mdot"></span><span class="mdot"></span><span class="mdot"></span>
+          <span class="mlabel">localhost:8000</span>
+        </div>
+        <div class="mscreen ok">見られる</div>
+      </div>
+    </div>
+    <div class="stand"></div>
+    <div class="base"></div>
+    <div class="caption">あなたのPC</div>
+  </div>
+  <div class="ng">✕</div>
+  <div class="pc">
+    <div class="monitor">
+      <div class="minibrowser">
+        <div class="mbar">
+          <span class="mdot"></span><span class="mdot"></span><span class="mdot"></span>
+          <span class="mlabel">localhost:8000</span>
+        </div>
+        <div class="mscreen no">見られない</div>
+      </div>
+    </div>
+    <div class="stand"></div>
+    <div class="base"></div>
+    <div class="caption">友達のPC</div>
+  </div>
+</div>
+
+<div class="note tight">
+<strong>local</strong>（手元の）＋ <strong>host</strong>（コンピュータ1台）<br>
+＝ <strong>手元のコンピュータ</strong>。誰が開いても、その人自身のPCを指します
+</div>
+
+---
+
+## PCを閉じたら、止まります
+
+<div class="frame-row">
+  <div class="pc dim">
+    <div class="monitor">
+      <div class="inner">停止中</div>
+    </div>
+    <div class="stand"></div>
+    <div class="base"></div>
+    <div class="caption">あなたのPC</div>
+  </div>
+  <div class="ng">✕</div>
+  <div class="browser">
+    <div class="bar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="barlabel">ブラウザ</span>
+    </div>
+    <div class="screen">
+      <div class="inner">見られない</div>
+    </div>
+  </div>
+</div>
+
+<div class="note tight">
+<code>Ctrl + C</code> で止めたら終わり。PCの電源を切っても終わりです
+</div>
+
+---
+
+## ずっと動いてくれるPCを、借ります
+
+<div class="frame-row">
+  <div class="cloud">
+    <div class="body">
+      <div class="engine">server.js</div>
+    </div>
+    <div class="caption">借りたPC（24時間動いている）</div>
+  </div>
+  <div class="arrow">→</div>
+  <div class="browser">
+    <div class="bar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="barlabel">https://...</span>
+    </div>
+    <div class="screen">
+      <div class="inner">誰でも見られる</div>
+    </div>
+  </div>
+</div>
+
+<div class="leadin">
+これを「デプロイ」と言います
+</div>
+
+---
+
+## 使うのは Deno Deploy
+
+<br>
+
+### Denoを作っているところが用意している、**置き場所**
+
+### 個人の練習なら**無料**で使えます
+
+<div class="note">
+GitHubに置いたコードを読み込んで、勝手に動かしてくれます
+</div>
+
+---
+
+## 必要なもの
+
+<br>
+
+### 1. **GitHubアカウント**
+
+### 2. コードが**GitHubに置いてある**こと
+
+<div class="warn">
+GitHubアカウントを持っていない人は、先に作ってください。<br>
+ここで一番時間がかかります。
+</div>
+
+---
+
+## <span class="step">1</span> console.deno.com を開く
+
+<br>
+
+### GitHubアカウントでサインインします
+
+<div class="note">
+初回は、Denoに「GitHubを見ていいですか？」と許可を求められます
+</div>
+
+---
+
+## <span class="step">2</span> 組織（Organization）を作る
+
+<br>
+
+### 自分の置き場所に、名前をつけます
+
+<div class="warn">
+<strong>名前は後から変えられません。</strong><br>
+公開URLの一部になるので、慎重に決めてください。
+</div>
+
+---
+
+## <span class="step">3</span> アプリを作る
+
+<div class="steps">
+  <div><strong>+ New App</strong><span> を押す</span></div>
+  <div><strong>GitHubのリポジトリを選ぶ</strong><span> — 出てこない場合は「Configure GitHub App permissions」から許可する</span></div>
+</div>
+
+<div class="note">
+自分のリポジトリが一覧に出てこないときは、Denoに見る許可を与えていないだけです
+</div>
+
+---
+
+## <span class="step">4</span> 動かし方を指定する
+
+<div class="steps">
+  <div><strong>Framework preset</strong><span> — 今回は「No Preset」</span></div>
+  <div><strong>Entrypoint</strong><span> — 最初に動かすファイル。<code>server.js</code> を指定</span></div>
+</div>
+
+<div class="note tight">
+「どのファイルから始めればいいですか？」を教えてあげる作業です
+</div>
+
+---
+
+## <span class="step">5</span> Create App を押す
+
+<br>
+
+### あとは待つだけです
+
+<div class="note">
+画面にログが流れます。緑になれば成功、赤ければ失敗です
+</div>
+
+---
+
+<!-- _class: big -->
+<!-- _backgroundColor: #f0fdfa -->
+
+URLが発行されます
+
+**スマホからも見られます**
+
+---
+
+## これからは、pushするだけ
+
+<br>
+
+### GitHubに変更を送ると、**自動でやり直してくれます**
+
+<div class="note">
+毎回この画面を開く必要はありません
+</div>
+
+---
+
+## まとめ
+
+<br>
+
+- 自分のPCで動かしている間は、**自分しか見られない**
+- **デプロイ**すると、ずっと動いてくれるPCに置ける
+- Deno Deployなら、**GitHubのコードを読み込んで動かしてくれる**
+
+<br>
+
+### チーム開発の成果物も、これで公開します
 
