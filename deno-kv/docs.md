@@ -159,13 +159,9 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Deploy」をクリックして、ログに保存ログが表示されていることを確認します
+2. 「Deploy」をクリックして、ログに`{ ok: true, versionstamp: "..." }`と表示されていることを確認します
 
-3. Deno DeployのProject画面から、Deno KVに保存された値を確認します
-
-4. 以下のようになっていたらOKです
-![](./imgs/205_kv_tab.png)
-![](./imgs/206_kv_data_viewer.png)
+> Topic: `versionstamp`は、そのデータが何番目の更新で書き込まれたかを表す値です。同じkeyを更新すると変化します
 
 </details>
 
@@ -191,9 +187,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Deploy」をクリックして、ログに保存ログが表示されていることを確認します
-
-3. Deno DeployのProject画面から、Deno KVの更新された値を確認します
+2. 「Deploy」をクリックして、ログの`versionstamp`が先程と変わっていることを確認します
 
 </details>
 
@@ -224,9 +218,9 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Deploy」をクリックして、ログに保存ログが表示されていることを確認します
+2. 「Deploy」をクリックして、エラーが出ていないことを確認します
 
-3. Deno DeployのProject画面から、Deno KVの更新された値を確認します
+> Topic: ここで追加したデータは、次の2-2で取得して確認します
 
 </details>
 
@@ -407,9 +401,17 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Deploy」をクリックします
+2. 削除されたことを確認するために、`get`で読み出すコードを書き加えます
 
-3. Deno DeployのProject画面から、Deno KVの値が削除されていることを確認します
+```diff
+    // データを削除
+    await kv.delete(["student", 1]);
++
++   const deletedResult = await kv.get(["student", 1]);
++   console.log("deleted_result: ", deletedResult);
+```
+
+3. 「Deploy」をクリックして、ログの`value`が`null`になっていることを確認します
 
 </details>
 
