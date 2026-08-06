@@ -9,8 +9,8 @@
 
 ### 1-1. データベースとは何か？
 
-> データベースとは、構造化した情報またはデータの組織的な集合であり、通常はコンピューター・システムに電子的に格納されています。  
-> 出典: https://www.oracle.com/jp/database/what-is-database/
+> データベースは、情報を保存、管理、取得するための構造化されたシステムです。  
+> 出典: https://cloud.google.com/discover/databases?hl=ja
 
 データベースは、データを構造化して保存するためのシステムです。  
 データの保存が必要となる多くのアプリケーションで使用されています。ファイル等に単純に保存する場合と比較してデータが扱いやすくなっています。
@@ -30,7 +30,7 @@ MongoDBやDynamoDB、Cloud Firestoreなどが代表的です。
 
 ### 1-2. Deno KVとは何か？
 
-Deno KVは、Deno Land Inc.から提供されているDeno用NoSQLデータベースです。key-valueデータベースに分類されます。Deno公式から提供されていることもあり、Denoから比較的容易に利用できます。β版なので機能は限定的ですが、個人開発程度であれば、十分な性能を発揮してくれるでしょう。
+Deno KVは、Deno Land Inc.から提供されているDeno用NoSQLデータベースです。key-valueデータベースに分類されます。Deno公式から提供されていることもあり、Denoから比較的容易に利用できます。開発途上の機能なので仕様が変わる可能性はありますが、個人開発程度であれば、十分な性能を発揮してくれるでしょう。
 
 Deno KVでは、以下のような形式でデータを保存します。ここでは、学校の名簿を想定して例を記載しています。  
 keyに対してvalueが一意に紐づくため、keyとvalueのデータ構造は慎重に決定しましょう。
@@ -367,10 +367,8 @@ Deno KVに保存したデータを削除してみましょう。データの削�
 const kv = await Deno.openKv();
 
 // データを削除
-const result = await kv.delete(["hoge"]);
-
-// レスポンスを表示
-console.log(result);
+// setと異なり、戻り値はありません
+await kv.delete(["hoge"]);
 ```
 
 <details>
