@@ -50,7 +50,7 @@ keyに対してvalueが一意に紐づくため、keyとvalueのデータ構造�
 
 *Deno KVを実際に使ってみよう！*
 
-### 2-0. Deno Deployで新規Playgroundを作成しよう
+### 2-0. 実践の準備をしよう
 
 Deno Deployには、Denoのコードを簡単に記述・実行・デプロイできるPlaygroundという機能が搭載されています。ここでは、簡単のためPlaygroundを使用してみましょう。
 
@@ -63,15 +63,15 @@ Deno Deployには、Denoのコードを簡単に記述・実行・デプロイ�
 <details>
 <summary>練習: DenoのPlaygroundを作ってみよう</summary>
 
-1. [Deno Deploy](https://deno.com/deploy)にログインします
+1. [Deno Deploy](https://console.deno.com)にログインします
 
-2. ページ右側の「New Playground」をクリックします
+2. 「Apps」ページの「New Playground」をクリックします
 ![](./imgs/201_create_play_ground.png)
 
 3. 以下のような画面が開けばOKです
 ![](./imgs/202_empty_play_ground.png)
 
-4. 画面左側のコードを以下のように書き換えて、「Media Type」をTSからJSに変更して、「Save & Deploy」をクリックします
+4. 画面中央のコードを以下のように書き換えて、「Deploy」をクリックします
 
 ```js
 Deno.serve(async(req) => {
@@ -79,12 +79,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-5. 画面右側のブラウザが書き換わればOKです
-
-6. [Deno Deployのホーム画面](https://dash.deno.com/account/overview)を開き、作成したアプリケーションを開きます
-
-7. 以下のような画面が開けばOKです。この画面を（ここでは便宜上）Project画面と呼びます
-![](./imgs/203_play_ground_dashboard.png)
+5. 画面右側の「PREVIEW」に「Hello Deno」と表示されればOKです
 
 </details>
 
@@ -119,7 +114,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに「Kv {}」と表示されていることを確認します
+2. 「Deploy」をクリックして、ログに「Kv {}」と表示されていることを確認します
 
 </details>
 
@@ -144,7 +139,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認します
+2. 「Deploy」をクリックして、ログに保存ログが表示されていることを確認します
 
 3. Deno DeployのProject画面から、Deno KVに保存された値を確認します
 
@@ -176,7 +171,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認します
+2. 「Deploy」をクリックして、ログに保存ログが表示されていることを確認します
 
 3. Deno DeployのProject画面から、Deno KVの更新された値を確認します
 
@@ -209,7 +204,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認します
+2. 「Deploy」をクリックして、ログに保存ログが表示されていることを確認します
 
 3. Deno DeployのProject画面から、Deno KVの更新された値を確認します
 
@@ -268,7 +263,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
+2. 「Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 </details>
 
@@ -297,7 +292,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
+2. 「Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 </details>
 
@@ -327,7 +322,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
+2. 「Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 3. `list`では、範囲指定のデータを取得することもできます。`key: ["student", 1]~["student", 2]`のデータを取得してみましょう
 
@@ -354,7 +349,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-4. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
+4. 「Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 </details>
 
@@ -392,7 +387,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックします
+2. 「Deploy」をクリックします
 
 3. Deno DeployのProject画面から、Deno KVの値が削除されていることを確認します
 
