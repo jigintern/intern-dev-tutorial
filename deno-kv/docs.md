@@ -66,10 +66,10 @@ Deno Deployには、Denoのコードを簡単に記述・実行・デプロイ�
 1. [Deno Deploy](https://console.deno.com)にログインします
 
 2. 「Apps」ページの「New Playground」をクリックします
-![](./imgs/201_create_play_ground.png)
+![](./imgs/201_create_playground.png)
 
 3. 以下のような画面が開けばOKです
-![](./imgs/202_empty_play_ground.png)
+![](./imgs/202_empty_playground.png)
 
 4. 画面中央のコードを以下のように書き換えて、「Deploy」をクリックします
 
@@ -134,7 +134,8 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Deploy」をクリックして、ログに「Kv {}」と表示されていることを確認します
+2. 「Deploy」をクリックして、画面下部の「LOGS」に「Kv {}」と表示されていることを確認します
+![](./imgs/206_init_kv_log.png)
 
 </details>
 
