@@ -284,6 +284,27 @@ style: |
   }
   .steps strong { color: #0b8f82; }
   .steps span { color: #7b8794; font-size: 24px; }
+  .shot { margin-top: 26px; text-align: center; }
+  .shot img {
+    max-height: 400px;
+    max-width: 100%;
+    border: 3px solid #cbd2d9;
+    border-radius: 10px;
+  }
+  .shot.sm { margin-top: 18px; }
+  .shot.sm img { max-height: 300px; }
+  .shot2 {
+    margin-top: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  .shot2 img {
+    max-height: 380px;
+    border: 3px solid #cbd2d9;
+    border-radius: 10px;
+  }
   .warn {
     margin-top: 26px;
     background: #fffbea;
@@ -697,80 +718,137 @@ GitHubに置いたコードを読み込んで、勝手に動かしてくれま�
 
 ---
 
-## 必要なもの
+## 準備は、もうできています
 
 <br>
 
-### 1. **GitHubアカウント**
+### 1. **GitHubアカウント** ✅
 
-### 2. コードが**GitHubに置いてある**こと
-
-<div class="warn">
-GitHubアカウントを持っていない人は、先に作ってください。<br>
-ここで一番時間がかかります。
-</div>
-
----
-
-## <span class="step">1</span> console.deno.com を開く
-
-<br>
-
-### GitHubアカウントでサインインします
+### 2. コードが**GitHubに置いてある**こと ✅
 
 <div class="note">
-初回は、Denoに「GitHubを見ていいですか？」と許可を求められます
+さっき作った自分のリポジトリに、書き換えた内容をpush済みですね。<br>
+あとは、それをDeno Deployに教えるだけです。
 </div>
 
 ---
 
-## <span class="step">2</span> 組織（Organization）を作る
+## <span class="step">1</span> Deno Deploy を開く
 
-<br>
-
-### 自分の置き場所に、名前をつけます
-
-<div class="warn">
-<strong>名前は後から変えられません。</strong><br>
-公開URLの一部になるので、慎重に決めてください。
-</div>
-
----
-
-## <span class="step">3</span> アプリを作る
-
-<div class="steps">
-  <div><strong>+ New App</strong><span> を押す</span></div>
-  <div><strong>GitHubのリポジトリを選ぶ</strong><span> — 出てこない場合は「Configure GitHub App permissions」から許可する</span></div>
-</div>
-
-<div class="note">
-自分のリポジトリが一覧に出てこないときは、Denoに見る許可を与えていないだけです
-</div>
-
----
-
-## <span class="step">4</span> 動かし方を指定する
-
-<div class="steps">
-  <div><strong>Framework preset</strong><span> — 今回は「No Preset」</span></div>
-  <div><strong>Entrypoint</strong><span> — 最初に動かすファイル。<code>server.js</code> を指定</span></div>
+<div class="shot">
+  <img src="./imgs/deploy-01-landing.png" alt="Deno Deploy トップページ">
 </div>
 
 <div class="note tight">
-「どのファイルから始めればいいですか？」を教えてあげる作業です
+<code>deno.com/deploy</code> →「<strong>Try Deno Deploy</strong>」を押します
 </div>
 
 ---
 
-## <span class="step">5</span> Create App を押す
+## <span class="step">2</span> サインインする
+
+<div class="shot2">
+  <img src="./imgs/deploy-02-signin.png" alt="サインイン画面">
+  <img src="./imgs/deploy-03-github.png" alt="GitHubログイン画面">
+</div>
+
+<div class="note tight">
+「<strong>Sign in with GitHub</strong>」→ GitHubのIDとパスワードを入れます
+</div>
+
+---
+
+## <span class="step">3</span> 「許可しますか？」と聞かれたら
 
 <br>
 
-### あとは待つだけです
+### そのまま**承認**してください
 
 <div class="note">
-画面にログが流れます。緑になれば成功、赤ければ失敗です
+DenoがGitHubのリポジトリを読んでいいか、確認されます。初回だけです
+</div>
+
+---
+
+## <span class="step">4</span> 自分の置き場所が開く
+
+<div class="shot sm">
+  <img src="./imgs/deploy-04-org.png" alt="Organization overview">
+</div>
+
+<div class="note tight">
+ここに、作ったアプリが並んでいきます。「<strong>+ New app</strong>」を押します
+</div>
+
+<div class="warn">
+初回は、この置き場所の名前を決める画面が出ます。<br>
+<strong>名前は後から変えられません。</strong>公開URLの一部になります。
+</div>
+
+---
+
+## <span class="step">5</span> リポジトリを選ぶ
+
+<div class="shot sm">
+  <img src="./imgs/deploy-05-select-repo.png" alt="リポジトリを選ぶ画面">
+</div>
+
+<div class="note tight">
+<strong>さっき作った自分のリポジトリ</strong>を選びます
+</div>
+
+---
+
+## 一覧に出てこないときは
+
+<div class="shot sm">
+  <img src="./imgs/deploy-06-github-access.png" alt="GitHubのRepository access画面">
+</div>
+
+<div class="note tight">
+「Configure GitHub app permissions」→ GitHubに移動 → <strong>自分のリポジトリを選んでSave</strong> → 戻ると選べます
+</div>
+
+---
+
+## <span class="step">6</span> 動かし方を指定する
+
+<br>
+
+### このアプリは「**動的**」です
+
+<div class="steps">
+  <div><strong>静的サイト</strong><span> — 置いてあるファイルを、そのまま返すだけ</span></div>
+  <div><strong>動的アプリ</strong><span> — アクセスのたびに、コードを動かす</span></div>
+</div>
+
+<div class="note tight">
+<code>server.js</code> が文言を作って返すので、あちらのPCで<strong>動かしてもらう</strong>必要があります
+</div>
+
+---
+
+## <span class="step">6</span> Edit app config を押す
+
+<div class="shot sm">
+  <img src="./imgs/deploy-07-config.png" alt="Runtime Configurationの設定">
+</div>
+
+<div class="warn">
+最初は <strong>Static Site</strong> が選ばれています。<br>
+<strong>Dynamic App</strong> に切り替えて、Entrypoint に <code>server.js</code> と入力してください。
+</div>
+
+---
+
+## <span class="step">7</span> Create App を押す
+
+<div class="shot sm">
+  <img src="./imgs/deploy-08-build.png" alt="ビルドのログ">
+</div>
+
+<div class="note tight">
+緑のチェックが並べば成功です
 </div>
 
 ---
@@ -781,6 +859,10 @@ GitHubアカウントを持っていない人は、先に作ってください�
 URLが発行されます
 
 **スマホからも見られます**
+
+<span style="font-size:26px; color:#52606d; font-weight:normal;">
+アプリ名<span style="color:#0b8f82;">.</span>置き場所の名前<span style="color:#0b8f82;">.deno.net</span>
+</span>
 
 ---
 
