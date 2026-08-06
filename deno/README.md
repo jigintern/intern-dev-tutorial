@@ -45,8 +45,6 @@
 4. 中身を自分で書き換えてみる
 5. インターネットに公開する
 
-コードを書けるようになる必要はありません。今日は**動かす**回です。
-
 その他、発展的内容も記載しています。時間が余ったときや、あとから読み返すときに使ってください。
 
 - Deno でコードをリントしてみよう
@@ -62,7 +60,7 @@
 - [PDF資料](https://jigintern.github.io/intern-dev-tutorial/deno/deno-slide.pdf)
 - [テキスト資料](./slide.md)
 
-[Deno](https://deno.com/) とは、JavaScript や TypeScript で書かれたコードを実行する環境です。
+[Deno](https://deno.com/) とは、JavaScript や TypeScript で書かれたコードを実行する **JavaScript ランタイム（実行環境）** です。
 
 Deno がインストールされた環境で`deno run <ファイル名>`のコマンドを実行することで、JavaScript や TypeScript で書かれたファイルを実行できます。
 
@@ -414,9 +412,7 @@ Listening on http://0.0.0.0:8000/ (http://localhost:8000/)
 ```html
 <body>
   <!-- サーバーから返ってきた文字を表示する場所 -->
-	<h1 id="welcomeMessage"></h1>
-
-  <script type="module" src="./index.js"></script>
+  <h1 id="welcomeMessage"></h1>
 </body>
 ```
 
@@ -489,8 +485,8 @@ push できたら、**GitHub の自分のリポジトリのページをブラウ
 
 このセクションは**スライドで進めます。**
 
-- [デプロイ編のスライドへ（18枚目〜）](https://jigintern.github.io/intern-dev-tutorial/deno/deno-slide.html#18)
-- [PDF資料（18ページ〜）](https://jigintern.github.io/intern-dev-tutorial/deno/deno-slide.pdf#page=18)
+- [デプロイ編のスライドへ（17枚目〜）](https://jigintern.github.io/intern-dev-tutorial/deno/deno-slide.html#17)
+- [PDF資料（17ページ〜）](https://jigintern.github.io/intern-dev-tutorial/deno/deno-slide.pdf#page=17)
 - [テキスト資料](./slide.md)
 
 使うのは [Deno Deploy](https://deno.com/deploy) です。Deno を作っているところが用意している置き場所で、個人の練習なら無料で使えます。
@@ -916,7 +912,7 @@ import { <変数>, <メソッド> } from "JavaScriptファイルのPathやUrl"
 `server.js`の最初の行で行っているように外部の`serveDir`メソッドを取り込むことは以下のようにしてできます。
 
 ```js
-import { serveDir } from "jsr:@std/http@1.0.17/file-server";
+import { serveDir } from "jsr:@std/http@1.1.3/file-server";
 ```
 
 しかし、実際の`server.js`で書かれているコードは少し違っていますね。
@@ -931,7 +927,7 @@ import { serveDir } from "jsr:@std/http@1.0.17/file-server";
 前のセクションで以下のように外部の変数やメソッドを取り込む方法を学びました。
 
 ```js
-import { serveDir } from "jsr:@std/http@1.0.17/file-server";
+import { serveDir } from "jsr:@std/http@1.1.3/file-server";
 ```
 
 ここで、Deno の**import map**と言う機能を使ってみましょう。
@@ -941,12 +937,12 @@ import { serveDir } from "jsr:@std/http@1.0.17/file-server";
 ```json
   "imports": {
     "@std/assert": "jsr:@std/assert@^1.0.19",
-    "@std/http": "jsr:@std/http@^1.0.17"
+    "@std/http": "jsr:@std/http@^1.1.3"
   },
 ```
 
 この設定によって JavaScript ファイルで外部のファイルにアクセスするとき、  
-`jsr:@std/http@1.0.17/file-server`は`@std/http`でアクセスできるようになりました。
+`jsr:@std/http@1.1.3/file-server`は`@std/http`でアクセスできるようになりました。
 
 よって以下のように書き換えることができます！
 

@@ -332,15 +332,14 @@ style: |
 <div class="goal">スマホで<br>自分のWebアプリが見られる</div>
 
 <div class="note">
-インターネットに公開するところまでやります
+自分のサイトをインターネットに公開するところまでやります
 </div>
 
 ---
 
 <!-- _class: big -->
 
-コードを書けるように
-なる必要はありません
+まずは基礎から
 
 ---
 
@@ -373,19 +372,7 @@ JavaScriptって、
 
 ---
 
-## <span class="step">2</span> でも、これはただの文字です
-
-```js
-console.log("こんにちは");
-```
-
-<br>
-
-**読んで、実行してくれる「仕組み」が別に必要。**
-
----
-
-## <span class="step">3</span> その仕組みは、ブラウザの中にある
+## <span class="step">2</span> ブラウザの中に「エンジン」が入っています
 
 <div class="frame-row">
   <div class="browser">
@@ -394,7 +381,7 @@ console.log("こんにちは");
       <span class="barlabel">ブラウザ</span>
     </div>
     <div class="screen">
-      <div class="engine">JSを動かす仕組み</div>
+      <div class="engine">JSを動かすエンジン</div>
       <div class="inner">JavaScript</div>
     </div>
   </div>
@@ -406,7 +393,7 @@ console.log("こんにちは");
 
 ---
 
-## <span class="step">4</span> 取り出して、PCに置いたら？
+## <span class="step">3</span> そのエンジンを、PCに置いたら？
 
 <div class="frame-row">
   <div class="browser dim">
@@ -421,7 +408,7 @@ console.log("こんにちは");
   <div class="arrow">→</div>
   <div class="pc">
     <div class="monitor">
-      <div class="engine">JSを動かす仕組み</div>
+      <div class="engine">JSを動かすエンジン</div>
     </div>
     <div class="stand"></div>
     <div class="base"></div>
@@ -431,12 +418,12 @@ console.log("こんにちは");
 
 ---
 
-## <span class="step">5</span> それが「JavaScriptランタイム」
+## <span class="step">4</span> それが **Deno** です
 
 <div class="frame-row">
   <div class="pc">
     <div class="monitor">
-      <div class="engine">JSを動かす仕組み</div>
+      <div class="engine">JSを動かすエンジン</div>
       <div class="inner">JavaScript</div>
     </div>
     <div class="stand"></div>
@@ -452,6 +439,10 @@ console.log("こんにちは");
     </div>
     <div class="caption">今日使うのはDeno</div>
   </div>
+</div>
+
+<div class="note tight">
+こうした「ブラウザの外でJavaScriptを動かす仕組み」を <strong>JavaScriptランタイム（実行環境）</strong> と呼びます
 </div>
 
 ---
@@ -514,8 +505,7 @@ Denoとは
 </div>
 
 <div class="note">
-今日使うのは2番です<br>
-なお、どちらも使うときは Deno が「許可していいですか？」と聞いてきます
+なお、どちらも使うときは Deno が「許可していいですか？」と聞いてきます。安全ですね。
 </div>
 
 ---
@@ -552,8 +542,17 @@ Denoとは
 </div>
 
 <div class="leadin">
-一番上の「アクセスを待ち受けられる」を、このあと実際にやります
+一番上の「アクセスを待ち受けられる」が大切
 </div>
+
+---
+
+<!-- _class: big -->
+<!-- _backgroundColor: #f0fdfa -->
+「アクセスを待ち受けられる」により、
+Denoだけで
+**バックエンドもフロントエンドも作れます**
+
 
 ---
 
@@ -574,19 +573,11 @@ Denoとは
 
 ---
 
-<!-- _class: big -->
-<!-- _backgroundColor: #f0fdfa -->
-
-後日のチーム開発でも
-**Denoを使います**
-
----
-
 ## 1章のまとめ
 
 <br>
 
-- Denoは **ブラウザの外でJavaScriptを動かす道具**
+- Denoは **JavaScriptランタイム（実行環境）**。ブラウザの外でJavaScriptを動かす道具
 - PC上でなら、ファイルやネットワークが使える
 - だから、**自分のPCでサーバーを動かせる**
 
@@ -815,12 +806,12 @@ DenoがGitHubのリポジトリを読んでいいか、確認されます。初�
 
 <br>
 
-### このアプリは「**動的**」です
-
 <div class="steps">
   <div><strong>静的サイト</strong><span> — 置いてあるファイルを、そのまま返すだけ</span></div>
   <div><strong>動的アプリ</strong><span> — アクセスのたびに、コードを動かす</span></div>
 </div>
+
+### このアプリは「**動的**」です
 
 <div class="note tight">
 <code>server.js</code> が文言を作って返すので、あちらのPCで<strong>動かしてもらう</strong>必要があります
@@ -858,7 +849,7 @@ DenoがGitHubのリポジトリを読んでいいか、確認されます。初�
 
 URLが発行されます
 
-**スマホからも見られます**
+**スマホからも見てみましょう**
 
 <span style="font-size:26px; color:#52606d; font-weight:normal;">
 アプリ名<span style="color:#0b8f82;">.</span>置き場所の名前<span style="color:#0b8f82;">.deno.net</span>
