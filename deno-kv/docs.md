@@ -83,6 +83,26 @@ Deno.serve(async(req) => {
 
 </details>
 
+<details>
+<summary>練習: Deno KVのデータベースを用意しよう</summary>
+
+Deno KVを使うには、データベースを作成して、Playgroundに紐づけます。
+
+1. Playgroundの「Settings」から「Databases」を開き、「Deno KV」の「+ Attach」をクリックします
+![](./imgs/203_attach_kv.png)
+
+2. 「Select a KV database」を開き、「+ Provision new Deno KV」を選びます
+
+3. 「Slug」に`deno-kv-tutorial`と入力します。「Write Region」はそのままで構いません
+![](./imgs/204_provision_kv.png)
+
+4. 「Provision Deno KV」をクリックし、続けて「Attach database」をクリックします
+
+5. 「Instance」に作成したデータベースが表示されればOKです
+![](./imgs/205_attached_kv.png)
+
+</details>
+
 ### 2-1. set: Deno KVにデータを保存する
 
 Deno KVにデータを保存してみましょう。以下のようなコードを書くことで、簡単にDeno KVにアクセスして、データを保存できます。
