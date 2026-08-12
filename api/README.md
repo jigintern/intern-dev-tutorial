@@ -2,7 +2,7 @@
 
 Application Programming Interfaceの略。  
 
-アプリケーションが別のアプリケーションを呼び出しために使用するインターフェース。  
+アプリケーションが別のアプリケーションの機能を呼び出すために使用するインターフェース。  
 
 すでに実装されているアプリケーションのAPIの呼び出しを行うことで、無駄な実装をする必要がなくなる。  
 
@@ -11,6 +11,7 @@ Application Programming Interfaceの略。
 主にAPIという言葉が使用されるのは webアプリケーションにおけるサーバ側の処理の呼び出しであるが、APIはこれに限らずOSとアプリケーションの間や、Javaなどのライブラリでも使用される。
 
 # 実際にAPIを叩いてみる
+このハンズオンは`api`ディレクトリで行う(サーバも`api`ディレクトリで起動する)。  
 サンプルコードにボタンを追加し、そのボタンを押したらサーバの`/welcome-message`[エンドポイント](#tips%E3%82%A8%E3%83%B3%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88)を叩くコードを用意する。  
 
 まずは以下のコードを`/public/index.html`のbodyタグ中に追加し、`message(click me)`と書かれたボタンを用意する。  
@@ -41,7 +42,7 @@ Application Programming Interfaceの略。
 
 これでクライアントからAPIを叩く実装ができたので、実際に動かしてみる。
 
-まず、 `deno run -A --watch server.js`を実行。  
+まず、`api`ディレクトリで `deno run -A --watch server.js`を実行。  
 次に、ブラウザを開いて`localhost:8000`にアクセスし、ボタンを押してみる(ページが開けない場合はターミナルにエラーが出ていないか確認)。  
 最後に、ボタンを押して`jigインターンへようこそ！`が表示されていれば成功。
 
@@ -238,7 +239,7 @@ fetch APIでPOSTメソッドを利用する場合、第二引数のオプショ�
 最後に、ここまでの実装を終えたクライアントのコードをサーバのコードを一例として載せておく。  
 もちろんこれと異なっていても、意図した動作を行えるのであれば問題ない。
 
-<details><summary>クラアントのコード</summary><div>
+<details><summary>クライアントのコード</summary><div>
 
 ```html
 <!DOCTYPE html>
@@ -316,10 +317,9 @@ fetch APIでPOSTメソッドを利用する場合、第二引数のオプショ�
 <details><summary>サーバーのコード</summary><div>
 
 ```javascript
-import { serve } from "https://deno.land/std@0.180.0/http/server.ts";
-import { serveDir } from "https://deno.land/std@0.180.0/http/file_server.ts";
+import { serveDir } from "jsr:@std/http@^1.0.17";
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   const pathname = new URL(req.url).pathname;
   console.log(pathname);
 
