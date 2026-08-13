@@ -1,11 +1,10 @@
-import { serve } from "https://deno.land/std@0.180.0/http/server.ts";
-import { serveDir } from "https://deno.land/std@0.180.0/http/file_server.ts";
+import { serveDir } from "jsr:@std/http@^1.0.17";
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   const pathname = new URL(req.url).pathname;
   console.log(pathname);
 
-  if ( req.method === "GET" && pathname === "/welcome-message" ) {
+  if (req.method === "GET" && pathname === "/welcome-message") {
     return new Response("jigインターンへようこそ！");
   }
 
