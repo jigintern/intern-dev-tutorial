@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 510" width="1168" height="510"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 540" width="1168" height="540"
      font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
 
   <defs>
@@ -12,29 +12,29 @@
     </linearGradient>
   </defs>
 
-  <rect x="0" y="0" width="1168" height="510" fill="#ffffff"/>
+  <rect x="0" y="0" width="1168" height="540" fill="#ffffff"/>
 
-  <rect x="24"  y="70"  width="373" height="68" fill="#17558f" fill-opacity="0.16"/>
-  <rect x="24"  y="144" width="746" height="68" fill="url(#mix-view-logic)"/>
-  <rect x="397" y="218" width="373" height="68" fill="#b8501e" fill-opacity="0.16"/>
-  <rect x="397" y="292" width="747" height="68" fill="url(#mix-logic-store)"/>
-  <rect x="770" y="366" width="374" height="68" fill="#2c6b4f" fill-opacity="0.16"/>
+  <rect x="24"  y="74"  width="373" height="70" fill="#17558f" fill-opacity="0.16"/>
+  <rect x="24"  y="148" width="746" height="70" fill="url(#mix-view-logic)"/>
+  <rect x="397" y="222" width="373" height="70" fill="#b8501e" fill-opacity="0.16"/>
+  <rect x="397" y="296" width="747" height="70" fill="url(#mix-logic-store)"/>
+  <rect x="770" y="370" width="374" height="70" fill="#2c6b4f" fill-opacity="0.16"/>
 
-  <line x1="397" y1="60" x2="397" y2="440" stroke="#b0aca2" stroke-width="1.5"/>
-  <line x1="770" y1="60" x2="770" y2="440" stroke="#b0aca2" stroke-width="1.5"/>
+  <line x1="397" y1="60" x2="397" y2="446" stroke="#b0aca2" stroke-width="1.5"/>
+  <line x1="770" y1="60" x2="770" y2="446" stroke="#b0aca2" stroke-width="1.5"/>
 
-  <rect x="24" y="446" width="1120" height="60" fill="#f2f1ed"/>
+  <rect x="24" y="458" width="1120" height="66" fill="#f2f1ed"/>
 
-  <text x="210" y="44" text-anchor="middle" font-size="32" font-weight="bold" fill="#17558f">画面</text>
-  <text x="584" y="44" text-anchor="middle" font-size="32" font-weight="bold" fill="#b8501e">処理</text>
-  <text x="957" y="44" text-anchor="middle" font-size="32" font-weight="bold" fill="#2c6b4f">保存</text>
+  <text x="50"  y="46" font-size="36" font-weight="bold" fill="#17558f">画面</text>
+  <text x="423" y="46" font-size="36" font-weight="bold" fill="#b8501e">処理</text>
+  <text x="796" y="46" font-size="36" font-weight="bold" fill="#2c6b4f">保存</text>
 
-  <text x="210" y="113" text-anchor="middle" font-size="26" fill="#1c2126">React・Vue・Svelte</text>
-  <text x="397" y="187" text-anchor="middle" font-size="26" fill="#1c2126">Next.js・Nuxt・SvelteKit・Astro</text>
-  <text x="584" y="261" text-anchor="middle" font-size="26" fill="#1c2126">Hono・NestJS</text>
-  <text x="770" y="335" text-anchor="middle" font-size="26" fill="#1c2126">Firebase・Supabase</text>
-  <text x="957" y="409" text-anchor="middle" font-size="26" fill="#1c2126">MySQL・MongoDB</text>
+  <text x="50"  y="118" font-size="26" fill="#1c2126">React・Vue・Svelte</text>
+  <text x="50"  y="192" font-size="26" fill="#1c2126">Next.js・Nuxt・SvelteKit・Astro</text>
+  <text x="423" y="266" font-size="26" fill="#1c2126">Hono・NestJS</text>
+  <text x="423" y="340" font-size="26" fill="#1c2126">Firebase・Supabase</text>
+  <text x="796" y="414" font-size="26" fill="#1c2126">MySQL・MongoDB</text>
 
-  <text x="584" y="485" text-anchor="middle" font-size="26" fill="#1c2126"><tspan font-weight="bold">動かす環境</tspan>：Deno Deploy・Cloudflare Workers・AWS Lambda</text>
+  <text x="50" y="500" font-size="26" fill="#1c2126"><tspan font-weight="bold">動かす環境</tspan>：Deno Deploy・Cloudflare Workers・AWS Lambda</text>
 
 </svg>
