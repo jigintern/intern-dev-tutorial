@@ -1,29 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 560" width="1168" height="560"
      font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
 
-  <!-- 前ページの形を、YouTube に置き換えて確かめる図。
-       枠の横位置・箱の横位置・矢印の位置は 20枚目とまったく同じ。
-       めくると同じ形のまま中身だけが入れ替わる。
-
-       題材を YouTube にしてあるのは、次の2枚（コメントを送ったとき／
-       こう動く）と同じだから。ここで飲食店などのたとえに寄り道すると
-       Web → 別の世界 → Web と文脈を2回切り替えることになる。
-       同じ題材のまま、機能だけ おすすめ → コメント に移る形にしてある。
-
-       このページで見せるのは「置いてある場所」。
-       おすすめは画面に出ているが、その材料（視聴履歴）は向こう側にある。
-       次の2枚で「やりとりの流れ」に進む -->
-
   <rect x="0" y="0" width="1168" height="560" fill="#ffffff"/>
 
   <g transform="translate(0,20)">
 
-  <!-- ============ 左：見ている画面 ============ -->
   <rect x="24" y="20" width="470" height="360" fill="#ffffff" stroke="#1c2126" stroke-width="3"/>
   <text x="200" y="80" text-anchor="middle" font-size="44" font-weight="bold" fill="#1c2126">トップページ</text>
   <text x="396" y="78" text-anchor="middle" font-size="38" font-weight="bold" fill="#17558f">画面</text>
 
-  <!-- おすすめ動画のサムネイル3つ -->
   <rect x="70" y="150" width="180" height="102" fill="#2a2a2a"/>
   <circle cx="160" cy="201" r="20" fill="#e02020"/>
   <polygon points="153,191 153,211 171,201" fill="#ffffff"/>
@@ -40,10 +25,6 @@
 
   <text x="259" y="450" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">あなたから見えるところ</text>
 
-  <!-- ============ 中央：開くと、おすすめが返ってくる ============
-       20枚目の「送る／返す」と同じ位置・同じ長さ -->
-  <!-- 32px。「おすすめ」は40pxだと 482〜642 になり、
-       左枠（〜494）と右枠（630〜）の両方に食い込む。2つとも32pxでそろえる -->
   <text x="562" y="163" text-anchor="middle" font-size="32" fill="#5c6570">開く</text>
   <line x1="520" y1="189" x2="590" y2="189" stroke="#5c6570" stroke-width="5"/>
   <polygon points="604,189 586,179 586,199" fill="#5c6570"/>
@@ -52,11 +33,9 @@
   <line x1="534" y1="269" x2="604" y2="269" stroke="#5c6570" stroke-width="5"/>
   <polygon points="520,269 538,259 538,279" fill="#5c6570"/>
 
-  <!-- ============ 右：YouTube の中 ============ -->
   <rect x="630" y="20" width="514" height="360" fill="#f2f1ed" stroke="#1c2126" stroke-width="3"/>
   <text x="887" y="78" text-anchor="middle" font-size="44" font-weight="bold" fill="#1c2126">YouTube の中</text>
 
-  <!-- 処理：おすすめを選ぶ -->
   <rect x="668" y="110" width="438" height="86" fill="#ffffff" stroke="#b8501e" stroke-width="3"/>
   <g fill="#ffffff" stroke="#b8501e" stroke-width="2">
     <rect x="700" y="140" width="10" height="10" transform="rotate(0 705 153)"/>
@@ -66,17 +45,14 @@
   </g>
   <circle cx="705" cy="153" r="16" fill="#ffffff" stroke="#b8501e" stroke-width="2"/>
   <circle cx="705" cy="153" r="6" fill="#ffffff" stroke="#b8501e" stroke-width="2"/>
-  <!-- 32px。40pxだと 740〜1020 になって、右端の役割名（1010〜1078）と重なる -->
   <text x="740" y="166" font-size="32" font-weight="bold" fill="#1c2126">おすすめを選ぶ</text>
   <text x="1078" y="165" text-anchor="end" font-size="34" font-weight="bold" fill="#b8501e">処理</text>
 
-  <!-- 材料を取り出す -->
   <line x1="800" y1="216" x2="800" y2="234" stroke="#5c6570" stroke-width="4"/>
   <polygon points="800,202 791,220 809,220" fill="#5c6570"/>
   <polygon points="800,248 791,230 809,230" fill="#5c6570"/>
   <text x="828" y="239" font-size="36" fill="#5c6570">見る</text>
 
-  <!-- 保存：視聴履歴・高評価 -->
   <rect x="668" y="256" width="438" height="86" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
   <circle cx="705" cy="299" r="18" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
   <line x1="705" y1="288" x2="705" y2="299" stroke="#2c6b4f" stroke-width="3"/>

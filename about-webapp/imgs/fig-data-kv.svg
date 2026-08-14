@@ -1,36 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 420" width="1168" height="420"
      font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
 
-  <!-- Deno KV が何をするものかを示す図。
-
-       前の版は「きょう書いた → 次の日ひらいた」で、閉じても消えないことを
-       言っていた。これを作り替えたのは2つ理由がある。
-         ・時間の前後で比べる形は、Deno KV の説明になっていない。
-           ブラウザの中に保存する手段（ローカルストレージ）でも
-           まったく同じことが言えてしまう。
-         ・Deno KV の肝は「サーバーの中にある」こと。
-           だからみんなのぶんが1か所に集まり、だれの画面からでも見える。
-           手元に保存するのとは、そこが決定的に違う。
-
-       いまはサーバーの枠の中に Deno KV を置き、中に3人ぶんのコメントを
-       入れてある。人ごとに濃さを変えて別人だと分かるようにしている。
-       16・33枚目と同じ「サーバーの枠に箱が入っている」形なので、
-       Deno KV がどこにあるものかが形で読める -->
-
   <rect x="0" y="0" width="1168" height="420" fill="#ffffff"/>
 
-  <!-- ============ サーバー ============ -->
   <rect x="120" y="24" width="928" height="316" fill="#f2f1ed" stroke="#1c2126" stroke-width="3"/>
   <text x="584" y="74" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">サーバー</text>
 
-  <!-- ============ Deno KV ============ -->
   <rect x="164" y="98" width="840" height="182" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
   <rect x="164" y="98" width="840" height="54" fill="#eef4f0"/>
   <line x1="164" y1="152" x2="1004" y2="152" stroke="#2c6b4f" stroke-width="2"/>
   <text x="584" y="138" text-anchor="middle" font-size="40" font-weight="bold" fill="#2c6b4f">Deno KV</text>
 
-  <!-- しまわれている3件。吹き出しにしないのは23枚目と同じ理由。
-       これは発言そのものではなく、保存された記録 -->
   <circle cx="220" cy="180" r="14" fill="#cdcac1"/>
   <text x="252" y="192" font-size="32" fill="#1c2126">おもしろい！</text>
 
@@ -40,9 +20,6 @@
   <circle cx="220" cy="252" r="14" fill="#8f8b82"/>
   <text x="252" y="264" font-size="32" fill="#1c2126">ここ好き</text>
 
-  <!-- 33枚目と同じ位置に同じ一文。30枚目で「保存＝Deno KV、動かす環境＝Deno」と
-       見せたあとに、ここでサーバーの枠だけ出すと Deno がどこへ行ったのか分からない。
-       サーバーは場所の名前、それを動かしているのが Deno、という関係を毎回そろえる -->
   <text x="584" y="322" text-anchor="middle" font-size="30" fill="#5c6570">動かしているのは Deno</text>
 
   <text x="584" y="392" text-anchor="middle" font-size="44" font-weight="bold" fill="#1c2126">みんなのデータがここに集まる</text>

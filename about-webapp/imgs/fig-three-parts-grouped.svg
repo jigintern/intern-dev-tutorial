@@ -1,22 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 580" width="1168" height="580"
      font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
 
-  <!-- 前ページ（3つの役割）と同じ図に、3つ足したもの。
-         ・処理と保存の枠の中を薄いグレーにした
-         ・枠の下に置き場所の名前（クライアント／サーバー）
-         ・その下に見える／見えないを書いた
-
-       図そのものは作り直していないので、めくると差分だけが目に入る。
-
-       枠は前ページより 80px 短い。下に2行ぶんを空けてある。
-       中の要素は 40px 上に詰めた。
-
-       色は 23・26・28・31・34枚目と同じ #f2f1ed。
-       資料のなかで「見えない側／サーバー側は薄いグレー」で一貫させている -->
-
   <rect x="0" y="-40" width="1168" height="560" fill="#ffffff"/>
 
-  <!-- ================= 画面 ================= -->
   <rect x="24" y="10" width="364" height="460" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
 
   <rect x="106" y="87" width="200" height="150" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
@@ -29,12 +15,8 @@
   <text x="206" y="335" text-anchor="middle" font-size="52" font-weight="bold" fill="#17558f">画面</text>
   <text x="206" y="394" text-anchor="middle" font-size="40" fill="#5c6570">見せる</text>
 
-  <!-- 処理と保存のあいだも下地でつなぐ。ここが白いままだと
-       2つが別々のものに見えて「同じ側にある」が読めない。
-       枠より先に描いてあるので、枠線はこの上に来る -->
   <rect x="760" y="10" width="26" height="460" fill="#f2f1ed"/>
 
-  <!-- ================= 処理 ================= -->
   <rect x="402" y="10" width="364" height="460" fill="#f2f1ed" stroke="#b8501e" stroke-width="3"/>
 
   <g fill="#ffffff" stroke="#b8501e" stroke-width="3">
@@ -53,7 +35,6 @@
   <text x="584" y="335" text-anchor="middle" font-size="52" font-weight="bold" fill="#b8501e">処理</text>
   <text x="584" y="394" text-anchor="middle" font-size="40" fill="#5c6570">動かす</text>
 
-  <!-- ================= データ ================= -->
   <rect x="780" y="10" width="364" height="460" fill="#f2f1ed" stroke="#2c6b4f" stroke-width="3"/>
 
   <path d="M890,110 L890,214 A72,23 0 0 0 1034,214 L1034,110"
@@ -65,10 +46,6 @@
   <text x="962" y="335" text-anchor="middle" font-size="52" font-weight="bold" fill="#2c6b4f">保存</text>
   <text x="962" y="394" text-anchor="middle" font-size="40" fill="#5c6570">覚える</text>
 
-  <!-- 枠外に2行。上が置き場所の名前、下が見えるかどうか。
-       次ページで「クライアント」「サーバー」の枠になる2つを、
-       ここで先に名指ししておく。
-       見える／見えないは次ページの枠外ラベルと同じ言い方にそろえてある -->
   <text x="206" y="520" text-anchor="middle" font-size="38" font-weight="bold" fill="#1c2126">クライアント</text>
   <text x="206" y="556" text-anchor="middle" font-size="30" fill="#5c6570">ユーザーから見える</text>
 

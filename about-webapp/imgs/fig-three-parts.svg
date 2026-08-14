@@ -1,19 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 560" width="1168" height="560"
      font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
 
-  <!-- 3つの役割の初出。文字だけだと「画面・処理・保存」が頭に残らないので
-       絵をひとつずつ付けた。以降のページはこの3色をそのまま使う。
-       このページは note を置かないので、箱を縦に大きくして縦を埋めている。
-
-       枠のあいだに矢印は置かない。ここは3つの名前を覚えてもらうページで、
-       つながりは次の「2つの場所」、そのあとの YouTube の例で扱う。
-       1枚に2つのことを載せないほうが名前が残る。
-       処理の「動かす」が何をしているのか分からない点も、
-       21枚目の「ポテト作る」で意味が確定する -->
-
   <rect x="0" y="0" width="1168" height="560" fill="#ffffff"/>
 
-  <!-- ================= 画面 ================= -->
   <rect x="24" y="10" width="364" height="540" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
 
   <rect x="106" y="127" width="200" height="150" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
@@ -26,7 +15,6 @@
   <text x="206" y="375" text-anchor="middle" font-size="52" font-weight="bold" fill="#17558f">画面</text>
   <text x="206" y="434" text-anchor="middle" font-size="40" fill="#5c6570">見せる</text>
 
-  <!-- ================= 処理 ================= -->
   <rect x="402" y="10" width="364" height="540" fill="#ffffff" stroke="#b8501e" stroke-width="3"/>
 
   <g fill="#ffffff" stroke="#b8501e" stroke-width="3">
@@ -45,7 +33,6 @@
   <text x="584" y="375" text-anchor="middle" font-size="52" font-weight="bold" fill="#b8501e">処理</text>
   <text x="584" y="434" text-anchor="middle" font-size="40" fill="#5c6570">動かす</text>
 
-  <!-- ================= データ ================= -->
   <rect x="780" y="10" width="364" height="540" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
 
   <path d="M890,150 L890,254 A72,23 0 0 0 1034,254 L1034,150"

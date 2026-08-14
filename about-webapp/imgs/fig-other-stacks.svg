@@ -1,61 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 510" width="1168" height="510"
      font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
 
-  <!-- 30枚目「今回つかう技術」の表と同じ組み方。左の列（画面・処理・保存）が
-       同じなので、めくると右にもう1列足されただけに見える。
-
-       まんなかに双方向の矢印を入れてあるのが要点。
-       「同じ場所に、別のものを入れられる」が図で分かる。
-       前は note に「役割は変わりません。入れ替わるのは道具だけです」と
-       書いていたが、矢印があれば文で言う必要がない。
-
-       右に並べた名前は「聞いたことがあるか」で選んである。
-       技術的な新しさや利用率ではなく、知名度が基準。
-
-       一度 Svelte / Hono / NestJS / FastAPI / PostgreSQL を並べたが外した。
-       どれも2026年の現役だが、初日の学生はまず知らない。
-       知らない名前が並ぶと「ほかにもある」が伝わる前に読み飛ばされる。
-       ここは名前を覚えてもらう場ではなく、
-       「今日つかうのは数ある中の1つ」という位置づけが見えればいい場所。
-
-       画面はフレームワーク、処理は言語で粒度が違うが、そろえていない。
-       画面はフレームワーク名のほうが通りがよく、
-       処理は言語名のほうが通りがよいから。
-       元資料（slide.md）は Express / Django / Rails だったが、
-       どれも2000年代の顔ぶれなので入れ替えてある -->
-
   <rect x="0" y="0" width="1168" height="510" fill="#ffffff"/>
 
-  <!-- ============ 列の見出し ============ -->
   <text x="442" y="66" text-anchor="middle" font-size="32" fill="#5c6570">今回つかうもの</text>
   <text x="932" y="66" text-anchor="middle" font-size="32" fill="#5c6570">ほかにもある</text>
 
-  <!-- ============ 役割の列（薄い塗りで3色を出す） ============ -->
   <rect x="24" y="90"  width="220" height="126" fill="#eef3f8"/>
   <rect x="24" y="216" width="220" height="126" fill="#fbf0ea"/>
   <rect x="24" y="342" width="220" height="126" fill="#eef4f0"/>
 
-  <!-- ============ 表の枠と区切り ============ -->
   <rect x="24" y="90" width="1120" height="378" fill="none" stroke="#8f8b82" stroke-width="3"/>
-  <!-- 列は 220 / 396 / 80 / 424。均等に近い配分だと
-       「HTML・CSS・JavaScript」（28pxで373px）が矢印の列に食い込む -->
   <line x1="244" y1="90" x2="244" y2="468" stroke="#8f8b82" stroke-width="2"/>
   <line x1="640" y1="90" x2="640" y2="468" stroke="#cdcac1" stroke-width="2"/>
   <line x1="720" y1="90" x2="720" y2="468" stroke="#cdcac1" stroke-width="2"/>
   <line x1="24" y1="216" x2="1144" y2="216" stroke="#8f8b82" stroke-width="2"/>
   <line x1="24" y1="342" x2="1144" y2="342" stroke="#8f8b82" stroke-width="2"/>
 
-  <!-- ============ 役割 ============ -->
   <text x="134" y="168" text-anchor="middle" font-size="46" font-weight="bold" fill="#17558f">画面</text>
   <text x="134" y="294" text-anchor="middle" font-size="46" font-weight="bold" fill="#b8501e">処理</text>
   <text x="134" y="420" text-anchor="middle" font-size="46" font-weight="bold" fill="#2c6b4f">保存</text>
 
-  <!-- ============ 今回 ============ -->
   <text x="442" y="166" text-anchor="middle" font-size="28" fill="#1c2126">HTML・CSS・JavaScript</text>
   <text x="442" y="292" text-anchor="middle" font-size="28" fill="#1c2126">JavaScript（Deno）</text>
   <text x="442" y="418" text-anchor="middle" font-size="28" fill="#1c2126">Deno KV</text>
 
-  <!-- ============ 入れ替えられる、を示す双方向の矢印 ============ -->
   <g stroke="#8f8b82" stroke-width="3" fill="#8f8b82">
     <line x1="660" y1="153" x2="700" y2="153"/>
     <polygon points="654,153 670,146 670,160" stroke="none"/>
@@ -70,7 +39,6 @@
     <polygon points="706,405 690,398 690,412" stroke="none"/>
   </g>
 
-  <!-- ============ ほかにも ============ -->
   <text x="932" y="166" text-anchor="middle" font-size="28" fill="#5c6570">React・Vue・Angular</text>
   <text x="932" y="292" text-anchor="middle" font-size="28" fill="#5c6570">Python・Java・PHP</text>
   <text x="932" y="418" text-anchor="middle" font-size="28" fill="#5c6570">MySQL・MongoDB</text>

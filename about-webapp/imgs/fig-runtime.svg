@@ -1,46 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 420" width="1168" height="420"
      font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
 
-  <!-- 書いたものを動かす側だけを取り出した図。
-       20枚目（Webアプリケーションの仕組み）と同じ枠・同じ横位置で、
-       中身が 画面／処理・保存 から ブラウザ／Deno に入れ替わる。
-
-       このページを挟むのは、次の表で Deno と Deno KV が同時に初出に
-       なるのを避けるため。知らない名前が2つ一度に出ると、
-       表そのものが読めなくなる。ここで Deno だけ先に渡しておく。
-
-       Deno に色はつけていない。処理と保存の両方を動かすので、
-       3色（画面・処理・保存）のどれかを当てると嘘になる。
-       ブラウザは画面だけなので青にしてもよいが、
-       左右で扱いが変わると比べにくいので両方とも黒にしてある。
-
-       枠の下の一文だけ、担当する役割に3色を当てている。
-       ここは「どの役割を動かすか」を言っている場所なので色が意味を持つ。
-
-       Deno のロゴは公式のもの（deno.land/logo.svg）をそのまま埋め込んである。
-       改変も色替えもしていない。名前だけだと「何それ」で止まるので、
-       一度でも形を見せておくと、あとで記事や資料で見たときに繋がる -->
-
   <rect x="0" y="0" width="1168" height="420" fill="#ffffff"/>
 
-  <!-- ============ 左：クライアント ============ -->
-  <!-- 枠は場所を囲むものなので黒。サーバーの枠とそろえてある -->
   <rect x="24" y="20" width="470" height="300" fill="#ffffff" stroke="#1c2126" stroke-width="3"/>
   <text x="259" y="78" text-anchor="middle" font-size="44" font-weight="bold" fill="#1c2126">クライアント</text>
   <text x="259" y="200" text-anchor="middle" font-size="58" font-weight="bold" fill="#1c2126">ブラウザ</text>
   <text x="259" y="396" text-anchor="middle" font-size="40" font-weight="bold" fill="#5c6570"><tspan fill="#17558f">画面</tspan>を動かす</text>
 
-  <!-- ============ 中央：やりとり ============ -->
   <line x1="524" y1="170" x2="600" y2="170" stroke="#5c6570" stroke-width="5"/>
   <polygon points="520,170 540,160 540,180" fill="#5c6570"/>
   <polygon points="604,170 584,160 584,180" fill="#5c6570"/>
 
-  <!-- ============ 右：サーバー ============ -->
   <rect x="630" y="20" width="514" height="300" fill="#f2f1ed" stroke="#1c2126" stroke-width="3"/>
   <text x="887" y="78" text-anchor="middle" font-size="44" font-weight="bold" fill="#1c2126">サーバー</text>
-  <!-- ロゴ88px＋間隔24＋文字（約140px）。合わせて枠の中央 887 に来る。
-       ロゴの縦位置は文字の中心（約182）に合わせてある。
-       ロゴの中心を baseline に合わせると、文字より 18px 下がって見える -->
   <g transform="translate(761,138) scale(0.1995)">
     <g
         transform="matrix(1.02631,-2.08167e-17,2.08167e-17,1.02631,-0.525826,-0.525138)"
