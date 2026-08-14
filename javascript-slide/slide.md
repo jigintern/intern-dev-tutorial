@@ -1447,7 +1447,7 @@ async function f() {
 
 ## 5-5. やってみよう
 
-**5-4 と同じ処理を `await` で書き直したもの**。出力は同じで、書き方だけが違います。**▶ 実行**して見比べましょう。
+**5-4 と同じ処理を `await` で書き直したもの**。**▶ 実行**して見比べましょう。
 
 <div class="timer-box" data-seconds="120">
   <button class="timer-btn" data-delta="-60">−</button>
@@ -1471,7 +1471,7 @@ console.log('先に進む');
 
 </div>
 
-<span class="tag-verify">確認</span> `.then((msg) => …)` が `const msg = await wait(500)` に変わっただけ。出力は 5-4 と同じです。
+<span class="tag-verify">確認</span> `.then((msg) => …)` が `const msg = await wait(500)` に変更。
 
 ---
 
