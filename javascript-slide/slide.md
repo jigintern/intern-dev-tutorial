@@ -1999,7 +1999,7 @@ document.querySelectorAll('pre').forEach(pre => {
     editor.className = 'pg-editor';
     editor.value = source;
     editor.spellcheck = false;
-    editor.rows = Math.min(Math.max(source.split('\n').length + 1, 8), 12);
+    editor.rows = Math.min(Math.max(source.split('\n').length + 1, 6), 10);
     // bespoke は TEXTAREA 由来の keydown を既にスライド送りから除外するが、念のため二重に止める
     editor.addEventListener('keydown', e => e.stopPropagation());
     // コードは最初から編集可能。フォーカス前後で見た目・ボタン位置を一切変えない。

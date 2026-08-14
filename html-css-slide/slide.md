@@ -106,7 +106,7 @@ HTML でページの骨組み（構造）を作れるようになります。
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <h1>Hello, World !</h1>
@@ -211,7 +211,7 @@ HTML は大きく 2 つに分かれます。
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <h1>見出し1（ページの題）</h1>
@@ -249,7 +249,7 @@ HTML は大きく 2 つに分かれます。
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <h2>自己紹介</h2>
@@ -297,7 +297,7 @@ HTML は大きく 2 つに分かれます。
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <p>日本で <em>一番</em> 高い山は富士山です。</p>
@@ -440,7 +440,7 @@ CSS は **どの要素を・どう飾るか**を指定します。基本の形�
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -529,7 +529,7 @@ CSS は **どの要素を・どう飾るか**を指定します。基本の形�
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -569,7 +569,6 @@ CSS は **どの要素を・どう飾るか**を指定します。基本の形�
 
 <div class="aside">
 
-意図しない見た目になったら、まず**セレクタが正しく当たっているか**を開発者ツールで確認しましょう。
 デフォルトのスタイルをまとめて整える「CSS リセット」という仕組みもあります（付録）。
 
 </div>
@@ -628,7 +627,7 @@ CSS は **どの要素を・どう飾るか**を指定します。基本の形�
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -670,7 +669,7 @@ HTML に書かれていない「状態」や、要素にもスタイリングを
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -724,7 +723,7 @@ HTML に書かれていない「状態」や、要素にもスタイリングを
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -776,7 +775,7 @@ HTML に書かれていない「状態」や、要素にもスタイリングを
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -823,7 +822,7 @@ HTML に書かれていない「状態」や、要素にもスタイリングを
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -871,7 +870,7 @@ HTML に書かれていない「状態」や、要素にもスタイリングを
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -992,7 +991,7 @@ HTML に書かれていない「状態」や、要素にもスタイリングを
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -1080,7 +1079,7 @@ HTML に書かれていない「状態」や、要素にもスタイリングを
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -1141,7 +1140,7 @@ HTML に書かれていない「状態」や、要素にもスタイリングを
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -1215,7 +1214,7 @@ HTML に書かれていない「状態」や、要素にもスタイリングを
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -1293,7 +1292,7 @@ HTML に書かれていない「状態」や、要素にもスタイリングを
   <button class="timer-btn" data-delta="60">＋</button>
 </div>
 
-<div class="playground" data-mode="dom" data-height="300">
+<div class="playground" data-mode="dom" data-height="200">
 
 ```html
 <style>
@@ -1606,7 +1605,7 @@ document.querySelectorAll('pre').forEach(pre => {
     </div>
 
   data-mode="console"（既定）は console.log の出力を、data-mode="dom" は HTML の描画結果＋console を表示。
-  data-height="300" で出力領域の高さ(px)を調整できます。コードは sandbox iframe（allow-scripts のみ）内で実行され、
+  data-height="200" で出力領域の高さ(px)を調整できます。コードは sandbox iframe（allow-scripts のみ）内で実行され、
   さらに CSP で外部通信を遮断しているため、スライド本体にも外部にも影響しません。
 -->
 <script>
@@ -1656,7 +1655,7 @@ document.querySelectorAll('pre').forEach(pre => {
     editor.className = 'pg-editor';
     editor.value = source;
     editor.spellcheck = false;
-    editor.rows = Math.min(Math.max(source.split('\n').length + 1, 8), 12);
+    editor.rows = Math.min(Math.max(source.split('\n').length + 1, 6), 10);
     // bespoke は TEXTAREA 由来の keydown を既にスライド送りから除外するが、念のため二重に止める
     editor.addEventListener('keydown', e => e.stopPropagation());
     // コードは最初から編集可能。フォーカス前後で見た目・ボタン位置を一切変えない。
