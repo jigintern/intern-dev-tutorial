@@ -381,13 +381,7 @@ Webアプリケーションとは<br>ブラウザの中で動くアプリケー�
 - [Web三層構造の図解](https://kitsune.blog/web-system-structure)
 
 ---
-<!-- 迷っている2案。決めたら片方のスライドと SVG を消す -->
 ## Tips
 
 ![](imgs/fig-other-stacks.svg)
-
----
-## Tips
-
-![](imgs/fig-other-stacks-roles.svg)
 
