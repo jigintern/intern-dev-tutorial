@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 560" width="1168" height="560"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <!-- 裏側のやりとり（次ページ）に入る前に、場面そのものを見せる。
+       抽象図だけだと「どの瞬間の話か」が浮かばないため、あの画面を先に出す。
+       動画・タイトル・チャンネル・コメント欄の並びで、ひと目で分かるようにした。
+       赤は実物の再現。意味の3色（画面・処理・保存）とは無関係なので混同しないこと。
+       入力欄と送信ボタンは同じ高さ・同じ天地に揃える。文字はボタンの中央。
+
+       アバターは円。18・19・32枚目のコメントとそろえてある。
+
+       ただしここは吹き出しにしない。まだ送信を押す前の入力欄なので、
+       枠のままが正しい。コメントの見せ方は状態で分けている。
+         入力中          → 枠（このページ）
+         画面に出ている  → 吹き出し（18・19・32枚目）
+         保存されている  → 角のある枠（18・32枚目の保存の箱）
+       同じコメントでも、いまどの状態かが形で分かるようにしてある -->
+
+  <rect x="0" y="0" width="1168" height="560" fill="#ffffff"/>
+
+  <!-- ============ ブラウザ ============ -->
+  <rect x="200" y="10" width="768" height="540" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="200" y="10" width="768" height="40" fill="#eef3f8"/>
+  <circle cx="224" cy="30" r="7" fill="#17558f"/>
+  <circle cx="250" cy="30" r="7" fill="#17558f"/>
+  <circle cx="276" cy="30" r="7" fill="#17558f"/>
+  <line x1="200" y1="50" x2="968" y2="50" stroke="#17558f" stroke-width="2"/>
+
+  <!-- 動画 -->
+  <rect x="232" y="76" width="704" height="200" fill="#2a2a2a"/>
+  <circle cx="584" cy="176" r="38" fill="#e02020"/>
+  <polygon points="570,156 570,196 604,176" fill="#ffffff"/>
+
+  <!-- 動画タイトル -->
+  <rect x="232" y="300" width="440" height="16" fill="#5c6570"/>
+
+  <!-- チャンネル -->
+  <circle cx="254" cy="356" r="22" fill="#cdcac1"/>
+  <rect x="292" y="346" width="220" height="12" fill="#cdcac1"/>
+
+  <!-- コメント欄 -->
+  <text x="232" y="430" font-size="40" fill="#5c6570">コメント</text>
+
+  <circle cx="254" cy="490" r="22" fill="#cdcac1"/>
+  <rect x="294" y="458" width="464" height="64" fill="#ffffff" stroke="#5c6570" stroke-width="2"/>
+  <text x="316" y="504" font-size="40" fill="#1c2126">おもしろい！</text>
+
+  <!-- 送信ボタン（いま押した） -->
+  <rect x="776" y="458" width="160" height="64" fill="#17558f"/>
+  <text x="856" y="504" text-anchor="middle" font-size="40" font-weight="bold" fill="#ffffff">送信</text>
+
+  <!-- カーソル -->
+  <path d="M894,482 L894,514 L902,506 L907,517 L914,514 L908,503 L918,502 Z"
+        fill="#ffffff" stroke="#1c2126" stroke-width="3" stroke-linejoin="round"/>
+
+</svg>

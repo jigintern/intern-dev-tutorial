@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 402" width="1168" height="402"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <!-- 第2章で立てた3つの役割に、道具を当てた表。
+       行が役割、真ん中の列が書くもの、右の列がそれを動かすもの。
+
+       右の列で、処理と保存のセルを縦に結合してあるのが要点。
+       20枚目でサーバーの枠に処理と保存を入れておきながら、
+       ここで3行を並列に並べると、場所が3つに分かれたように見える。
+       結合しておけば「下の2つは同じ Deno が面倒を見る」＝
+サーバー側でひとまとまり、という20枚目の形がそのまま残る。
+       技術的にもこれが正しい。Deno KV は Deno に組み込まれていて、
+       出し入れするコードを動かすのも Deno なので、別の何かは要らない。
+
+       行の枠は色線ではなく、左の列の薄い塗りで色を出している。
+       3行を隙間なく連続させないと右の列を結合できず、
+       隙間をなくすと色線が二重に重なるため。塗りなら重ならないし、
+       3色が面で出るので線より強く見える。
+
+       列の見出し（つかうもの／動かす環境）は必ず要る。無いと右の列が
+       ただの補足に見えて、2つの列の関係が読めない。
+
+       左は「書くもの」ではなく「つかうもの」。
+       Deno KV は書くものではなく、データをしまう場所なので、
+       「書くもの」の列に入れると嘘になる。書くのは HTML・CSS・
+       JavaScript の3つだけで、そこは台本で言い切る。
+
+       右は「動かすもの」ではなく「動かす環境」。
+       一覧のなかに「動かすもの」と書いてあると、それも自分で
+       用意したり動かしたりする作業に見える。環境という語なら
+       「置いてある側」だと伝わる。
+
+       Deno と Deno KV の中身は深追いしない。あとの講義に預ける -->
+
+  <rect x="0" y="0" width="1168" height="402" fill="#ffffff"/>
+
+  <!-- ============ 列の見出し ============ -->
+  <text x="552" y="50" text-anchor="middle" font-size="36" fill="#5c6570">つかうもの</text>
+  <text x="992" y="50" text-anchor="middle" font-size="36" fill="#5c6570">動かす環境</text>
+
+  <!-- ============ サーバー側の下地 ============
+       処理と保存の行に敷く。画面の行には敷かない。
+       22・24・26枚目で「見えない側は薄いグレー」という扱いにしてあるので、
+       この表でも同じ地にしておくと、どれがサーバー側の話か形で分かる。
+       役割の列（左）には重ねない。あちらは意味のある3色なので、
+       上に地を敷くと色が濁る -->
+  <rect x="264" y="172" width="880" height="204" fill="#f2f1ed"/>
+
+  <!-- ============ 役割の列（薄い塗りで3色を出す） ============ -->
+  <rect x="24" y="70"  width="240" height="102" fill="#eef3f8"/>
+  <rect x="24" y="172" width="240" height="102" fill="#fbf0ea"/>
+  <rect x="24" y="274" width="240" height="102" fill="#eef4f0"/>
+
+  <!-- ============ 表の枠と区切り ============ -->
+  <rect x="24" y="70" width="1120" height="306" fill="none" stroke="#8f8b82" stroke-width="3"/>
+  <line x1="264" y1="70" x2="264" y2="376" stroke="#8f8b82" stroke-width="2"/>
+  <line x1="840" y1="70" x2="840" y2="376" stroke="#8f8b82" stroke-width="2"/>
+  <line x1="24" y1="172" x2="1144" y2="172" stroke="#8f8b82" stroke-width="2"/>
+  <!-- 3行目の横線は右の列まで引かない。処理と保存で Deno のセルを結合する -->
+  <line x1="24" y1="274" x2="840" y2="274" stroke="#8f8b82" stroke-width="2"/>
+
+  <!-- ============ 中身 ============ -->
+  <text x="144" y="134" text-anchor="middle" font-size="48" font-weight="bold" fill="#17558f">画面</text>
+  <text x="144" y="236" text-anchor="middle" font-size="48" font-weight="bold" fill="#b8501e">処理</text>
+  <text x="144" y="338" text-anchor="middle" font-size="48" font-weight="bold" fill="#2c6b4f">保存</text>
+
+  <text x="552" y="133" text-anchor="middle" font-size="40" fill="#1c2126">HTML・CSS・JavaScript</text>
+  <text x="552" y="235" text-anchor="middle" font-size="40" fill="#1c2126">JavaScript</text>
+  <text x="552" y="337" text-anchor="middle" font-size="40" fill="#1c2126">Deno KV</text>
+
+  <text x="992" y="133" text-anchor="middle" font-size="40" fill="#1c2126">ブラウザ</text>
+  <!-- 結合したセル（172〜376）の中央に置く。上下どちらの行にも属さない位置 -->
+  <text x="992" y="288" text-anchor="middle" font-size="40" fill="#1c2126">Deno</text>
+
+</svg>

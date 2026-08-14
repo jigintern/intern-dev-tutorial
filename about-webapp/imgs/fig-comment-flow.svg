@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 420" width="1168" height="420"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <!-- コメントが「ほかの人にも見えるようになる」までの仕組み。
+
+       前の版は 画面→処理→データ→処理→画面 の往復で、送ったコメントが
+       送った本人の画面に戻ってくる形だった。それだと自分の中だけで
+       完結しているように見えて、ただのWebサイトの説明と区別がつかない。
+       コメントの本質は、データに残ることで他人にも見えるようになること。
+       そこが伝わらないと、なぜデータが要るのかも分からない。
+
+       いまは上下2段。上があなたが送ったとき、下がほかの人が開いたとき。
+       別の出来事なので段で分けてある。
+
+       処理と保存の箱は上下にまたがる縦長の1つ。段ごとに分けて描くと
+       同じものが2回あるように見え、「1か所に集めてある」が消える。
+       データの中の「おもしろい！」が2つの段をつないでいる要素なので、
+       箱の中に必ず文字を入れる。空の箱だと何が残ったのか分からない。
+
+       2つの画面に同じアバターと同じ吹き出しが出ているのは意図的。
+       ほかの人の画面に出ているのは「あなたのコメント」だと絵で示す。
+
+       画面のなかの文字は吹き出しに入れてある。アバターと文字を
+       並べただけだと、ただ字が置いてあるように見えてコメントだと
+       分からない。しっぽをアバターの側に向けると「この人が言った」が読める。
+
+       保存の箱の中だけは吹き出しにしない。しまわれているのは
+       誰かの発言そのものではなく、保存された1件のデータ。
+       角のある枠、かつ塗りを白にして「1件ぶんの記録」に見せる。
+       吹き出しと同じ塗り（#f5f4f0）にすると、形は違っても
+       ぱっと見で同じものに見えてしまう。
+       吹き出しは画面に出ているときだけの形、と使い分けている。
+       文字は3か所で同じなので、同じコメントだとそれで追える。
+
+       矢印は先端を箱の枠に付ける。浮かせると繋がって見えない。
+
+       セリフは3文字までに抑える。「記録する」「取り出す」だと
+       矢印の幅を超えてデータの箱に食い込む。
+       しまう・出す・見せる は第2章の役割の言葉（見せる／覚える）と
+       そろえてあるので、短くても意味が落ちない -->
+
+  <rect x="0" y="0" width="1168" height="420" fill="#ffffff"/>
+
+  <!-- 下地とそのラベルは g の外に置く。g の中に入れると 18px 下がって
+       ラベルの上が下地の縁に接してしまう。
+       ラベルのグリフは 16〜46。下地の上端 0 まで16、箱の上端 62 まで16 -->
+  <rect x="450" y="0" width="710" height="408" fill="#f2f1ed"/>
+  <text x="805" y="40" text-anchor="middle" font-size="30" fill="#5c6570">サーバー側</text>
+
+  <!-- 中身が上に寄るので 18px 下げて、上下の余白をそろえている -->
+  <g transform="translate(0,18)">
+
+  <!-- ============ サーバー側の下地 ============
+       処理と保存をまとめて囲む。20枚目でサーバーの枠に2つ入れているので、
+       ここでも同じ側であることを面で示す。ラベルは「サーバー側」。
+       見える/見えないは19・20枚目で扱っているので、
+       このページでは場所の名前で受けるほうが短く済む。
+       枠線ではなく塗りにしてあるのは、箱の枠（煉瓦・緑）と線が重なって
+       どこが境目なのか読めなくなるため。塗りなら重ならない。
+       画面の側には下地を敷いていない。見えているほうが地の色 -->
+  <!-- ============ 処理（上下にまたがる） ============ -->
+  <rect x="484" y="44" width="180" height="332" fill="#ffffff" stroke="#b8501e" stroke-width="3"/>
+  <g fill="#ffffff" stroke="#b8501e" stroke-width="2">
+    <rect x="569" y="128" width="12" height="12" transform="rotate(0 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(45 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(90 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(135 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(180 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(225 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(270 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(315 575 160)"/>
+  </g>
+  <circle cx="575" cy="160" r="22" fill="#ffffff" stroke="#b8501e" stroke-width="2"/>
+  <circle cx="575" cy="160" r="8" fill="#ffffff" stroke="#b8501e" stroke-width="2"/>
+  <text x="574" y="252" text-anchor="middle" font-size="44" font-weight="bold" fill="#b8501e">処理</text>
+
+  <!-- ============ データ（上下にまたがる。中身が2段をつなぐ） ============ -->
+  <rect x="824" y="44" width="320" height="332" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
+  <rect x="824" y="44" width="320" height="66" fill="#eef4f0"/>
+  <line x1="824" y1="110" x2="1144" y2="110" stroke="#2c6b4f" stroke-width="2"/>
+  <text x="984" y="90" text-anchor="middle" font-size="44" font-weight="bold" fill="#2c6b4f">保存</text>
+  <!-- 吹き出しと同じ塗りにすると、ぱっと見で同じものに見える。
+       ここは塗りを白にして、線だけで「1件ぶんの記録」に見せる -->
+  <rect x="862" y="202" width="244" height="52" fill="#ffffff" stroke="#8f8b82" stroke-width="2"/>
+  <text x="984" y="240" text-anchor="middle" font-size="32" fill="#1c2126">おもしろい！</text>
+
+  <!-- ============ あなたの画面 ============ -->
+  <text x="174" y="30" text-anchor="middle" font-size="32" fill="#5c6570">あなたの画面</text>
+  <rect x="24" y="44" width="300" height="140" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="24" y="44" width="300" height="28" fill="#eef3f8"/>
+  <circle cx="44" cy="58" r="5" fill="#17558f"/>
+  <circle cx="60" cy="58" r="5" fill="#17558f"/>
+  <circle cx="76" cy="58" r="5" fill="#17558f"/>
+  <line x1="24" y1="72" x2="324" y2="72" stroke="#17558f" stroke-width="2"/>
+  <circle cx="48" cy="130" r="16" fill="#cdcac1"/>
+  <path d="M96,104 L296,104 A10,10 0 0 1 306,114 L306,146 A10,10 0 0 1 296,156
+           L96,156 A10,10 0 0 1 86,146 L86,138 L68,130 L86,122 L86,114
+           A10,10 0 0 1 96,104 Z"
+        fill="#f5f4f0" stroke="#8f8b82" stroke-width="2"/>
+  <text x="102" y="142" font-size="32" fill="#1c2126">おもしろい！</text>
+
+  <!-- ============ ほかの人の画面 ============ -->
+  <text x="174" y="222" text-anchor="middle" font-size="32" fill="#5c6570">ほかの人の画面</text>
+  <rect x="24" y="236" width="300" height="140" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="24" y="236" width="300" height="28" fill="#eef3f8"/>
+  <circle cx="44" cy="250" r="5" fill="#17558f"/>
+  <circle cx="60" cy="250" r="5" fill="#17558f"/>
+  <circle cx="76" cy="250" r="5" fill="#17558f"/>
+  <line x1="24" y1="264" x2="324" y2="264" stroke="#17558f" stroke-width="2"/>
+  <circle cx="48" cy="322" r="16" fill="#cdcac1"/>
+  <path d="M96,296 L296,296 A10,10 0 0 1 306,306 L306,338 A10,10 0 0 1 296,348
+           L96,348 A10,10 0 0 1 86,338 L86,330 L68,322 L86,314 L86,306
+           A10,10 0 0 1 96,296 Z"
+        fill="#f5f4f0" stroke="#8f8b82" stroke-width="2"/>
+  <text x="102" y="334" font-size="32" fill="#1c2126">おもしろい！</text>
+
+  <!-- ============ 上段：あなたが送る（左→右） ============
+       矢印の高さは、画面の枠の中央ではなく吹き出しの中心（130）に合わせる。
+       枠にはヘッダー帯があるぶん中身が下に寄るので、
+       枠の中央（114）に合わせると吹き出しと 16px ずれて見える。
+       動いているのは吹き出しの中身なので、そちらに揃えるほうが正しい -->
+  <text x="404" y="116" text-anchor="middle" font-size="34" fill="#1c2126">1 送る</text>
+  <line x1="324" y1="130" x2="470" y2="130" stroke="#8f8b82" stroke-width="3"/>
+  <polygon points="484,130 468,123 468,137" fill="#8f8b82"/>
+
+  <text x="744" y="116" text-anchor="middle" font-size="34" fill="#1c2126">2 しまう</text>
+  <line x1="664" y1="130" x2="810" y2="130" stroke="#8f8b82" stroke-width="3"/>
+  <polygon points="824,130 808,123 808,137" fill="#8f8b82"/>
+
+  <!-- ============ 下段：ほかの人が開く（右→左） ============
+       こちらも吹き出しの中心（322）に合わせてある -->
+  <text x="744" y="308" text-anchor="middle" font-size="34" fill="#1c2126">3 出す</text>
+  <polygon points="664,322 680,315 680,329" fill="#8f8b82"/>
+  <line x1="678" y1="322" x2="824" y2="322" stroke="#8f8b82" stroke-width="3"/>
+
+  <text x="404" y="308" text-anchor="middle" font-size="34" fill="#1c2126">4 見せる</text>
+  <polygon points="324,322 340,315 340,329" fill="#8f8b82"/>
+  <line x1="338" y1="322" x2="484" y2="322" stroke="#8f8b82" stroke-width="3"/>
+
+  </g>
+</svg>

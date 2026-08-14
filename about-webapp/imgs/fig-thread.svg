@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 520" width="1168" height="520"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <!-- 「質問していい」と口で言うだけでは動かないので、書き込まれた状態を先に見せる。
+       実際のスレの見た目に寄せてあるのは、初日にどこへ何を書くのかを
+       言葉で説明せずに済ませるため。
+
+       実物に寄せるために入れている要素：
+        ・アバターは角丸四角（丸ではない）
+        ・名前は太字、本文と同じ大きさ。時刻だけ小さくグレー
+        ・リアクションは白地に細い枠線のピル。絵文字＋数
+        ・その右に絵文字を足す + ボタン
+        ・リアクションが付いていない投稿にはピルを出さない（実物もホバー時だけ）
+
+       ここで効いているのは次の3つ。
+        ・投稿者が3人いる（1人だけだと「その人が特別」に見える）
+        ・リアクションが付いている（書いたら反応がある、まで見せる）
+        ・中身が今日この資料で扱う言葉（Deno / 画面と処理 / クライアント）
+          「サーバーってどこにあるんですか？」も入れていたが外した。
+          答えるとデータセンターの話になってこの講義の範囲を出るうえ、
+          初日の学生が本当に知りたいこととも違う
+
+       この3件は開始前に自分でシードする文面そのもの。
+       空のスレには誰も書かないので、必ず先に入れておく。
+       名前・時刻・リアクションの中の文字は識別子と記号なので 40px 下限の対象外。
+       アバターの濃さだけを変えて別人にしている。3色は画面・処理・保存専用 -->
+
+  <rect x="0" y="0" width="1168" height="520" fill="#ffffff"/>
+
+  <!-- ============ スレの枠 ============ -->
+  <rect x="44" y="10" width="1080" height="500" fill="#ffffff" stroke="#5c6570" stroke-width="3"/>
+  <rect x="44" y="10" width="1080" height="64" fill="#f2f1ed"/>
+  <line x1="44" y1="74" x2="1124" y2="74" stroke="#5c6570" stroke-width="3"/>
+  <text x="76" y="52" font-size="36" font-weight="bold" fill="#5c6570"># 授業スレ</text>
+
+  <!-- ============ 1人目 ============ -->
+  <rect x="76" y="96" width="40" height="40" rx="6" fill="#e6e4de"/>
+  <circle cx="96" cy="109" r="7" fill="#a8a49b"/>
+  <path d="M85,130 Q85,118 96,118 Q107,118 107,130 Z" fill="#a8a49b"/>
+  <text x="136" y="122" font-size="36" font-weight="bold" fill="#1c2126">mori</text>
+  <text x="252" y="122" font-size="26" fill="#8f8b82">16:05</text>
+  <text x="136" y="174" font-size="40" fill="#1c2126">Deno むずかしい</text>
+
+  <rect x="136" y="192" width="152" height="36" rx="18" fill="#ffffff" stroke="#cdcac1" stroke-width="2"/>
+  <text x="152" y="217" font-size="22" font-weight="bold" fill="#e01e5a">それな！</text>
+  <text x="262" y="217" font-size="22" fill="#5c6570">1</text>
+
+  <rect x="298" y="192" width="92" height="36" rx="18" fill="#ffffff" stroke="#cdcac1" stroke-width="2"/>
+  <text x="314" y="219" font-size="24">😭</text>
+  <text x="360" y="217" font-size="22" fill="#5c6570">2</text>
+
+  <rect x="400" y="192" width="56" height="36" rx="18" fill="#ffffff" stroke="#cdcac1" stroke-width="2"/>
+  <text x="428" y="220" text-anchor="middle" font-size="28" fill="#8f8b82">+</text>
+
+  <!-- ============ 2人目 ============ -->
+  <rect x="76" y="252" width="40" height="40" rx="6" fill="#a8a49b"/>
+  <circle cx="96" cy="265" r="7" fill="#ffffff"/>
+  <path d="M85,286 Q85,274 96,274 Q107,274 107,286 Z" fill="#ffffff"/>
+  <text x="136" y="278" font-size="36" font-weight="bold" fill="#1c2126">yama</text>
+  <text x="252" y="278" font-size="26" fill="#8f8b82">16:08</text>
+  <text x="136" y="330" font-size="40" fill="#1c2126">画面と処理の違いがわからない</text>
+
+  <!-- ============ 3人目 ============ -->
+  <rect x="76" y="362" width="40" height="40" rx="6" fill="#5c6570"/>
+  <circle cx="96" cy="375" r="7" fill="#ffffff"/>
+  <path d="M85,396 Q85,384 96,384 Q107,384 107,396 Z" fill="#ffffff"/>
+  <text x="136" y="388" font-size="36" font-weight="bold" fill="#1c2126">aoki</text>
+  <text x="252" y="388" font-size="26" fill="#8f8b82">16:11</text>
+  <text x="136" y="440" font-size="40" fill="#1c2126">クライアントってそういう意味だったんだ！</text>
+
+  <rect x="136" y="458" width="92" height="36" rx="18" fill="#ffffff" stroke="#cdcac1" stroke-width="2"/>
+  <text x="152" y="485" font-size="24">🙌</text>
+  <text x="198" y="483" font-size="22" fill="#5c6570">3</text>
+
+  <rect x="238" y="458" width="56" height="36" rx="18" fill="#ffffff" stroke="#cdcac1" stroke-width="2"/>
+  <text x="266" y="486" text-anchor="middle" font-size="28" fill="#8f8b82">+</text>
+
+</svg>

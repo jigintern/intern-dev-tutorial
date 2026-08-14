@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 520" width="1168" height="520"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="520" fill="#ffffff"/>
+
+  <!-- 中央の区切り -->
+  <line x1="584" y1="20" x2="584" y2="500" stroke="#cdcac1" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <!-- ================= 左：サーバーがなかったら =================
+       ✕だけでは「なぜ届かないのか」が伝わらなかった。
+       相手の画面を並べて空っぽのまま見せることで、
+       渡す先がないから相手側に何も出ない、が絵で分かるようにした -->
+  <!-- 見出しは「もしも、、、」の続きとして読む。左右ともサーバーが主語。
+       前は右が「画面だけで決めていたら」で、判断の場所の話になっていて
+       何を言っているのか分からなかった。
+       いまは サーバーが無い／処理と保存も画面側にある と、
+       置き場所がどうなった場合かで揃えている。
+       13文字が入るよう左右とも 40px -->
+  <text x="277" y="50" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">サーバーがなかったら</text>
+
+  <!-- 自分の画面（コメントはここにしかない）。
+       画面に出ているコメントは吹き出しで描く。18・32枚目とそろえてある。
+
+       吹き出しの中は空。ここは箱が190pxしかなく文字が入らないが、
+       かわりに棒（テキストのプレースホルダ）を入れると
+       吹き出しの中に棒があるという意味のない絵になる。
+       このページの主題は「相手に出てこない」なので、
+       何か言った、が伝わればそれで足りる。
+       縦2段に組み替えて文字を入れる形も試したが、
+       ✕と矢印の置き場がなくなるうえ、横並びのほうが
+       自分とほかの人を見比べやすい -->
+  <rect x="34" y="120" width="190" height="150" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="34" y="120" width="190" height="26" fill="#eef3f8"/>
+  <line x1="34" y1="146" x2="224" y2="146" stroke="#17558f" stroke-width="2"/>
+  <circle cx="60" cy="196" r="14" fill="#cdcac1"/>
+  <path d="M100,172 L200,172 A8,8 0 0 1 208,180 L208,212 A8,8 0 0 1 200,220
+           L100,220 A8,8 0 0 1 92,212 L92,204 L78,196 L92,188 L92,180
+           A8,8 0 0 1 100,172 Z"
+        fill="#f5f4f0" stroke="#8f8b82" stroke-width="2"/>
+
+  <!-- 渡そうとしても、渡す先がない。
+       ✕ を箱と箱のあいだに置くだけだと計算式に見えてしまう。
+       矢先のない横線も引き算に見えたので、相手の画面まで届く点線の矢印を引き、
+       その上に ✕ を重ねている。向きがあるので式には見えない -->
+  <line x1="232" y1="195" x2="314" y2="195" stroke="#cdcac1" stroke-width="5" stroke-dasharray="9 8"/>
+  <polygon points="324,195 308,186 308,204" fill="#cdcac1"/>
+  <line x1="253" y1="175" x2="293" y2="215" stroke="#1c2126" stroke-width="9"/>
+  <line x1="293" y1="175" x2="253" y2="215" stroke="#1c2126" stroke-width="9"/>
+
+  <!-- ほかの人の画面。枠は青のままにして、中身が空であることだけで差を出す。
+       枠をグレーにすると「壊れた画面」に見えて、意図が変わってしまう -->
+  <rect x="330" y="120" width="190" height="150" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="330" y="120" width="190" height="26" fill="#eef3f8"/>
+  <line x1="330" y1="146" x2="520" y2="146" stroke="#17558f" stroke-width="2"/>
+
+  <!-- 見ている人 -->
+  <circle cx="129" cy="320" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M103,378 Q103,344 129,344 Q155,344 155,378 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <text x="129" y="430" text-anchor="middle" font-size="40" fill="#5c6570">自分</text>
+
+  <circle cx="425" cy="320" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M399,378 Q399,344 425,344 Q451,344 451,378 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <text x="425" y="430" text-anchor="middle" font-size="40" fill="#5c6570">ほかの人</text>
+
+  <!-- 13文字あるので36px。40pxだと左右の余白が17pxまで詰まる -->
+  <text x="277" y="500" text-anchor="middle" font-size="36" font-weight="bold" fill="#1c2126">ほかの人の画面に出てこない</text>
+
+  <!-- ================= 右：画面だけで決めていたら ================= -->
+  <text x="888" y="50" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">処理・保存も画面側にあったら</text>
+
+  <!-- 本来の表示。上バーとドットを入れてブラウザの画面だと分かる形にする -->
+  <rect x="708" y="94" width="360" height="110" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="708" y="94" width="360" height="26" fill="#eef3f8"/>
+  <circle cx="726" cy="106" r="5" fill="#17558f"/>
+  <circle cx="742" cy="106" r="5" fill="#17558f"/>
+  <circle cx="758" cy="106" r="5" fill="#17558f"/>
+  <line x1="708" y1="120" x2="1068" y2="120" stroke="#17558f" stroke-width="2"/>
+  <text x="888" y="176" text-anchor="middle" font-size="40" fill="#1c2126">高評価  3</text>
+
+  <!-- 書き換えの矢印 -->
+  <line x1="812" y1="224" x2="812" y2="252" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="812,266 803,248 821,248" fill="#5c6570"/>
+  <text x="840" y="256" font-size="40" fill="#5c6570">書き換え</text>
+
+  <!-- 書き換えられた表示。これも画面なので枠は青のまま。
+       3色は画面・処理・保存の区別に使うと決めているので、
+       良い／悪いの対比に色を持ち出さない。数字と太字だけで差を出す -->
+  <rect x="708" y="282" width="360" height="110" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="708" y="282" width="360" height="26" fill="#eef3f8"/>
+  <circle cx="726" cy="294" r="5" fill="#17558f"/>
+  <circle cx="742" cy="294" r="5" fill="#17558f"/>
+  <circle cx="758" cy="294" r="5" fill="#17558f"/>
+  <line x1="708" y1="308" x2="1068" y2="308" stroke="#17558f" stroke-width="2"/>
+  <text x="888" y="364" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">高評価  99999</text>
+
+  <text x="888" y="500" text-anchor="middle" font-size="36" font-weight="bold" fill="#1c2126">いくらでも増やせる</text>
+
+</svg>

@@ -1,410 +1,442 @@
 ---
 marp: true
-theme: uncover
 paginate: true
+size: 16:9
 ---
+<style>
+/* =========================================================
+   デザイン方針
+   ─ フラット・直角・細い罫線。装飾は最小限。
+   ─ 3色は「画面・処理・保存」を指すときだけ使う。
+     それ以外の分類に流用しない（意味が濁るため）。
+        紺青 #17558f  画面
+        煉瓦 #b8501e  処理
+        深緑 #2c6b4f  保存
+     場所を囲む枠（クライアント／サーバー）は黒。
+     枠まで青にすると、枠そのものが画面を指しているように見える。
+     見えない側／サーバー側の下地は #f2f1ed で統一。
+   ─ 対比が目的の箇所は色ではなく強弱で表す。
+   ========================================================= */
+:root {
+  --ink:   #1c2126;
+  --sub:   #5c6570;
+  --line:  #cdcac1;
+  --paper: #ffffff;
+  --view:  #17558f;
+  --logic: #b8501e;
+  --store: #2c6b4f;
+}
+section {
+  /* 閲覧環境がダークモードでも配色が反転しないよう固定する */
+  color-scheme: light;
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", "Meiryo", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  /* 本文 40px は下限。これを守るために1枚の文字数を削る */
+  padding: 40px 56px;
+  font-size: 40px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  /* 内容のかたまりを縦の中央に置き、余白を上下に分けて配る。
+     note ありのページは図を 420、note なしのページは 510〜560 にすると
+     見出しの位置がほぼ同じところに来る。図を作るときはこの目安に合わせる。
+     図の外側の余白は、見出しの margin-bottom と note の margin-top で
+     どちらも 24px にそろえてある */
+  justify-content: center;
+}
+/* 内容が高さを超えたとき、要素が押し潰されて文字が重なるのを防ぐ */
+section > * { flex-shrink: 0; }
+/* default テーマは見出しに独自の色を当てる。3色は画面・処理・保存の
+   ためだけに使うと決めているので、見出しは黒に固定して意味を持たせない */
+section h1 { font-size: 60px; font-weight: 700; margin: 0 0 26px; letter-spacing: -.01em; color: var(--ink); }
+section h2 {
+  font-size: 50px; font-weight: 700; margin: 0 0 24px; color: var(--ink);
+  padding-bottom: 14px; border-bottom: 2px solid var(--line);
+}
+section h3 { font-size: 40px; font-weight: 700; margin: 0 0 12px; color: var(--sub); }
+/* リンクも色を持たせない。3色は画面・処理・保存専用 */
+section a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+section ul, section ol { margin: 0; }
+/* 画像は <p> に包まれる。default テーマの p には下マージンが付くので、
+   図と note のあいだに余分な空きができる。ここで消しておく */
+section > p { margin: 0; }
+section li { margin-bottom: 16px; }
+section li::marker { color: var(--sub); }
+strong { font-weight: 700; }
+.view  { color: var(--view); }
+.logic { color: var(--logic); }
+.store { color: var(--store); }
+/* 見出しを置かず1文だけを見せるページ。左端に寄せる理由がないので中央に */
+.big  { font-size: 62px; font-weight: 700; line-height: 1.45; text-align: center; }
+/* 補足でも 40px を下回らせない。小さくできないなら文を削る */
+.sub  { color: var(--sub); font-size: 40px; }
+.note {
+  border-top: 2px solid var(--ink);
+  margin-top: 24px; padding-top: 14px;
+  font-size: 40px; line-height: 1.5; color: #414851;
+}
+/* 定義や結論を1行で見せる。囲みは使わない。
+   見出しには下線が、note には上線が入るので、そのあいだに枠を置くと
+   1枚に線が3本並んで、どれが本文なのか分からなくなる。
+
+   中央寄せにはしない。見出しのあるページで使うクラスなので、
+   本文だけ中央に置くと見出し・note と左端がそろわない。
+   （.big は中央寄せでよい。あちらは見出しのないページ用） */
+.lead { font-size: 54px; font-weight: 700; line-height: 1.45; }
+/* 章の結論。罫線で囲って他のスライドと見分けがつくようにする。
+   note を置かないページ（2枚目の目標）でだけ使う。
+   note と併用すると線が3本になる */
+.point {
+  border: 3px solid var(--ink);
+  padding: 30px 32px;
+  font-size: 54px; font-weight: 700; line-height: 1.45;
+}
+/* ---------- 横並び ---------- */
+.cols { display: flex; gap: 22px; align-items: stretch; margin: 6px 0; }
+.col  { flex: 1; min-width: 0; }
+.box {
+  border: 2px solid var(--line);
+  padding: 24px 22px;
+  font-size: 40px;
+  line-height: 1.5;
+}
+.box .label { font-size: 44px; font-weight: 700; display: block; margin-bottom: 10px; }
+.box.b-view  { border-color: var(--view); }
+.box.b-view  .label { color: var(--view); }
+.box.b-logic { border-color: var(--logic); }
+.box.b-logic .label { color: var(--logic); }
+.box.b-store { border-color: var(--store); }
+.box.b-store .label { color: var(--store); }
+/* 脇役は色を使わず、グレーで沈める */
+.box.mute { border-color: var(--line); background: #f2f1ed; }
+.box.mute .label { color: var(--sub); }
+/* ---------- 第1章の締めで、見せた4枚をもう一度並べる ---------- */
+.recap4 { display: flex; gap: 18px; margin-top: 44px; }
+.recap4 .item { flex: 1; min-width: 0; }
+.recap4 img { display: block; width: 100%; height: auto; margin: 0;
+  border: 1px solid var(--line); background: #ffffff; }
+/* ここだけ 40px 下限を外している。4枚並べると1枚あたり255pxしかなく、
+   「ネットショップ」が40pxでは入らない。読ませる文ではなく、
+   一度見たものの名前を思い出すためのラベルなので 34px */
+.recap4 .cap { font-size: 34px; text-align: center; color: var(--sub); margin-top: 10px; }
+/* ---------- 表 ----------
+   default テーマは section table に display:block / width:max-content /
+   偶数行の縞模様 を当てている。放置すると
+     ・表が内容なりの幅で止まり width:100% が効かない
+     ・table-layout:fixed が働かず列幅を制御できない
+     ・意図しないグレーの縞が入る
+   ため、ここで明示的に打ち消す */
+.tablewrap { width: 100%; }
+section table {
+  display: table;
+  font-size: 40px; border-collapse: collapse;
+  width: 100%; table-layout: fixed; margin: 0;
+}
+section table tr,
+section table tr:nth-child(2n) { background-color: transparent; border-top: none; }
+section th, section td {
+  border: 1px solid var(--line); padding: .35em .5em;
+  text-align: left; overflow-wrap: break-word;
+}
+section th { background: #f2f1ed; font-weight: 700; }
+section tbody th { background: #f7f6f3; font-weight: 400; }
+.c-view  { color: var(--view);  font-weight: 700; }
+.c-logic { color: var(--logic); font-weight: 700; }
+.c-store { color: var(--store); font-weight: 700; }
+/* ---------- タイトル・章扉 ---------- */
+section.title { border-top: 10px solid var(--ink); justify-content: center; }
+section.title h1 { font-size: 60px; margin-bottom: 20px; }
+section.chapter { justify-content: center; }
+section.chapter h1 { font-size: 54px; margin: 0; }
+section.chapter .sub { margin-top: 22px; }
+/* CHAPTER 2 のような記号ラベルは読ませる文ではないので 40px 制約の対象外 */
+section.chapter .num {
+  color: var(--sub); font-size: 28px; font-weight: 700;
+  letter-spacing: .24em; margin-bottom: 16px;
+  font-family: ui-monospace, "SF Mono", monospace;
+}
+/* ---------- 画像 ---------- */
+section.pic { padding: 36px; justify-content: center; align-items: center; }
+section.pic h3 { color: var(--ink); font-size: 40px; margin: 0 0 20px; text-align: center; }
+/* 透過PNGが暗い環境で潰れないよう下地を白にする。図は本文幅の中央に置く */
+img { background: #ffffff; display: block; margin: 0 auto; max-width: 100%; }
+/* Marp は本文の絵文字を <img class="emoji"> に置き換える。
+   上の img 指定が効くと block になって単独の行に落ちるので、ここで戻す。
+   （図の中の絵文字は SVG の <text> なので、この影響を受けない） */
+img.emoji {
+  display: inline; margin: 0; background: none;
+  height: 1em; width: auto; vertical-align: -0.15em;
+}
+section.pic img { max-height: 470px; border: 1px solid var(--line); }
+section.title footer, section.chapter footer { display: none; }
+section::after { color: var(--sub); font-size: 16px; }
+</style>
+
+<!-- _class: title -->
 
 # Webアプリケーション概論
 
-<!-- > 想定時間: 90分 -->
-<!-- Author: Yamaji Toshiyuki (@haruyuki_16278) -->
+<span class="sub">jig.jp インターン 初日</span>
 
 ---
 
-### 目次
+## この1時間の目標
 
-1. Webアプリケーションとは
-2. Webアプリケーションの仕組み
-    1. Webアプリケーションのシステム構成
-    2. Web開発フレームワーク
-    3. Webアプリケーションを公開するためには
-3. まとめ
-4. 参考文献
+<div class="point">
+2週間でつくる<strong>Webアプリケーション</strong>が<br>
+どんなものなのか、<strong>イメージをつかむ！</strong>
+</div>
 
 ---
 
-## 1. Webアプリケーションとは
+## わからないときは、授業スレへ
+
+![](imgs/fig-thread.svg)
 
 ---
 
-### Q. Webアプリケーションとは
+## 今日は3本立て
+
+1. Webアプリケーションとは**何か**
+2. どんな**仕組み**で動いているのか
+3. 作るために**必要なもの**
 
 ---
 
-### Q. Webアプリケーションとは
+<!-- _class: chapter -->
 
-**ブラウザ上で動作するアプリケーションのこと**
+<div class="num">CHAPTER 1</div>
 
----
-
-### Q. Webアプリケーションとは
-
-**ブラウザ上で動作するアプリケーションのこと**  
-
-↕
-
-**各種OS上にインストールして利用するソフトウェア**
-
-*ネイティブアプリケーション*
+# Webアプリケーションとは何か
 
 ---
 
-### 例えば？
+<div class="big">
+Webアプリケーションとは<br>ブラウザの中で動くアプリケーション
+</div>
+
+<div class="note">
+<strong>ブラウザ</strong>＝ Chrome、Safari、Edge など
+</div>
+
+---
+<div class="big">
+スマホの中に入ってる<br><strong>アプリ</strong>とのちがいは？
+</div>
 
 ---
 
-- 動画配信
+## ちがい① どうやって手元に届くか
 
-![height:450](imgs/youtube.png)
+![](imgs/fig-native-vs-web.svg)
+
+<div class="note">
+<strong>サーバー</strong>＝ 頼まれたものを渡してくれるコンピュータ
+</div>
+
+---
+<div class="big">
+<strong>Webサイト</strong>とのちがいは？
+</div>
 
 ---
 
-- EC
+## ちがい② 読むだけか、操作できるか
 
-![height:450](imgs/amazon.png)
+![](imgs/fig-site-vs-app.svg)
+
+---
+<div class="big">
+どんなものがある？
+</div>
 
 ---
 
-- 地図
+<!-- _class: pic -->
 
-![height:450](imgs/google-map.png)
+### 動画配信
 
----
-
-- ゲーム
-
-![height:450](imgs/game.png)
+![height:470](imgs/youtube.png)
 
 ---
 
-- 表示の動的な変化を伴うホームページ
+<!-- _class: pic -->
 
-![height:450](imgs/jigjp.site.png)
+### ネットショップ
 
----
-
-すべて **Webアプリケーション** といえる
+![height:470](imgs/amazon.png)
 
 ---
 
-### インターンの目標
+<!-- _class: pic -->
 
-### **Webアプリケーションを作る！**
+### 地図
 
-<!-- そのためには世の中のWebアプリケーションがどのような仕組みで動作しているのかを知る必要があります。  
-この講義では現代で一般的に利用されるWebアプリケーションの構成と、その中で利用されるフレームワークを中心に解説します。 -->
-
----
-
-**Webアプリケーション**は**どんな仕組みで動いている**の？
+![height:470](imgs/google-map.png)
 
 ---
 
-## 2. Webアプリケーションの仕組み
+<!-- _class: pic -->
 
-- 2-1 Webアプリケーションのシステム構成
-  - 2-1-1 Web開発の技術スタック
-  - 2-1-2 フロントエンドとバックエンド
-- 2-2 Web開発フレームワーク
-  - 2-2-1 フロントエンドフレームワーク
-  - 2-2-2 バックエンドフレームワーク
-  - 2-2-3 フルスタックWebフレームワーク
-- 2-3 Webアプリケーションを公開するためには
-  - 2-3-1 コンテンツ配信とは
-  - 2-3-2 コンテンツ配信の方法
+### ゲーム
+
+![height:470](imgs/game.png)
+
+---
+<div class="big">
+これ、ぜんぶ<br><strong>Webアプリケーション</strong>
+</div>
+
+<div class="recap4">
+<div class="item"><img src="imgs/youtube.png"><div class="cap">動画配信</div></div>
+<div class="item"><img src="imgs/amazon.png"><div class="cap">ネットショップ</div></div>
+<div class="item"><img src="imgs/google-map.png"><div class="cap">地図</div></div>
+<div class="item"><img src="imgs/game.png"><div class="cap">ゲーム</div></div>
+</div>
 
 ---
 
-### 2-1. Webアプリケーションのシステム構成
+<!-- _class: chapter -->
 
-- 2-1-1 Web開発の技術スタック
-- 2-1-2 フロントエンドとバックエンド
+<div class="num">CHAPTER 2</div>
 
----
-
-モダンなWebアプリケーションの構造
-**3層クライアントサーバーシステム**
-
----
-<!--
-3層クライアントサーバーシステムはプレゼンテーション層・アプリケーション層・データ層の3層からなるアーキテクチャ
-単純なクライアントサーバーシステムからサーバーでの処理をロジックとデータ操作で分割したイメージ
--->
-
-![height:270](imgs/3tier-cs-system.png)
-
----
-<!--
-図のようなデータフローになる
--->
-
-![height:600](imgs/3tier-data-flow.drawio.png)
+# どんな仕組みで動いているのか
 
 ---
 
-#### 2-1-1. Web開発の技術スタック
+## Webアプリケーションには、3つの役割がある
 
-- 技術スタック
-  - 開発に用いるフレームワークやツールなどの組合せのこと
-    - プログラミング言語、動作環境のOS、サーバー、サーバーサイドフレームワーク、サーバーサイドライブラリ、API、クライアントサイドフレームワーク、クライアントサイドライブラリ、クライアント、開発支援ツール、運用支援ツール、etc...
+![](imgs/fig-three-parts.svg)
+
+---
+## この3つ、実は2つに分けられる
+
+![](imgs/fig-three-parts-grouped.svg)
 
 ---
 
-##### 有名な技術スタック
+## Webアプリケーションの仕組み
 
-- LAMP/WAMP
-  - Linux/Windows Server, Apache HTTP Server, MySQL, PHP
-  - 比較的レガシーな構成でWeb上の情報が多い
-- MEAN/MERN/MEVN
-  - MongoDB, Express.js, Anguler/React/Vue, Node.js
-  - サーバーとクライアントを同じ言語で開発できる
+![](imgs/fig-two-places.svg)
+
+---
+## YouTube だと
+
+![](imgs/fig-youtube-inside.svg)
 
 ---
 
-##### LAMPスタック→3層クライアントサーバーシステム
+## YouTube で、コメントを送ったとき
 
-| LAMPスタック | 3層C/Sシステム |
-| ------ | ------ |
-| Linux | - |
-| Apache HTTP Server | プレゼンテーション層 |
-| MySQL | データ層 |
-| PHP | アプリケーション層 |
-
-<!-- Linuxはこれらのソフトウェアが動作するインフラとなる -->
+![](imgs/fig-youtube-scene.svg)
 
 ---
 
-##### Deno/Deno Deployを活用した技術スタックの例
+## こう動く
 
-**管理するものがDeno Deployとソースのみでシンプル**
+![](imgs/fig-comment-flow.svg)
 
-- クライアントサイド
-  - HTML/CSS/JS (バニラ)
-- サーバーサイド
-  - Deno HTTP Server APIs
-- サーバー
-  - Deno Deploy
+<div class="note">
+保存されることで、<strong>ほかの人にも共有できる</strong>。
+</div>
 
 ---
 
-##### AWSを活用した技術スタックの例
+## もしも、、、
 
-**Web上に情報が多くあり利用障壁が低い**
+![](imgs/fig-if-not-split.svg)
 
-- クライアントサイドフレームワーク
-  - Angular
-- クライアントサイド構成
-  - Amazon CloudFront
-  - Amazon S3
-- サーバーサイド構成
-  - Amazon API Gateway
-    - AWS Lambda (Node.jsランタイム)
-  - Amazon DynamoDB
+---
+<div class="big">
+だから、2つに分けてある
+</div>
+
+![](imgs/fig-split.svg)
 
 ---
 
-##### Microsoft Azure を活用した技術スタックの例
+## 3層クライアントサーバーシステム
 
-**既存のMicrosoft製サービスと親和性が高い**
-
-- フルスタックフレームワーク
-  - Flask + Jinja2
-- サーバー
-  - Azure App Service (Pythonランタイム)
-  - Azure SQL Database
+![](imgs/fig-3tier.svg)
 
 ---
 
-#### 2-1-2. フロントエンドとバックエンド
+<!-- _class: chapter -->
+
+<div class="num">CHAPTER 3</div>
+
+# 作るために必要なもの
+
+---
+## 今回使う言語は、主にこの3つ！
+
+![](imgs/fig-three-languages.svg)
+
+<div class="note">
+<strong>JavaScript</strong> は、画面側でもサーバー側でも使います。
+</div>
+
+---
+## 書いたものを動かすのは
+
+![](imgs/fig-runtime.svg)
+
+<div class="note">
+<strong>Deno</strong> は、サーバー側で JavaScript を動かすものです。
+</div>
 
 ---
 
-これまでに出た単語とほぼ対応する
+## 今回つかう技術
 
+![](imgs/fig-js-both.svg)
 
-**フロントエンド** = *クライアントサイド*
-**バックエンド** = *サーバーサイド*
-
----
-
-**フロントエンド**
-
-- 役割
-  - ユーザーに情報を提示する
-  - ユーザーの操作を処理する
-- 例) バックエンドから受け取ったデータの表示
-
-**バックエンド**
-
-- 役割
-  - フロントエンドが要求した処理を行う
-  - データの保存や取得を行う
-- 例) Webページから送信されたデータの処理
-
----
-<!-- 各種フレームワークの例をあげてみる -->
-### 2-2. Web開発フレームワーク
-
-- 2-2-1 フロントエンドフレームワーク
-- 2-2-2 バックエンドフレームワーク
-- 2-2-3 フルスタックWebフレームワーク
+<div class="note">
+画面は <strong>ブラウザ</strong>、サーバー側は <strong>Deno</strong> が動かします。
+</div>
 
 ---
 
-#### 2-2-1. フロントエンドフレームワーク
+## <span class="c-view">画面</span> は、この3つでつくる
 
-三大Webフレームワーク (JS系)
-
-- React
-- Vue.js
-- Angular
-
-他にも
-
-- Svelte
-- Solid
-- Lit
+![](imgs/fig-html-css-js.svg)
 
 ---
 
-#### 2-2-2. バックエンドフレームワーク
+## <span class="c-store">保存</span> は、Deno KV に
 
-- Express (JS)
-- NestJS (JS)
-- Spring Boot (Java)
+![](imgs/fig-data-kv.svg)
 
----
-
-#### 2-2-3. フルスタックWebフレームワーク
-
-- Deno Fresh (JS)
-- Django (Python)
-- Flask + Jinja2 (Python)
-- Ruby on Rails (Ruby)
-- Laravel (PHP)
+<div class="note">
+<strong>Deno KV</strong> は Deno に入っている<strong>データベース</strong>です。
+</div>
 
 ---
 
-### 2-3. Webアプリケーションを公開するためには
+## まとめ
 
-- 2-3-1 コンテンツ配信とは
-- 2-3-2 コンテンツ配信の方法
-
----
-
-#### 2-3-1. コンテンツ配信とは
+![](imgs/fig-summary.svg)
 
 ---
 
-コンテンツは何らかの方法で配信され
-ユーザーがアクセス可能な状態にある必要がある
+<!-- _class: title -->
+<!-- _paginate: false -->
 
-- ※ コンテンツ:
-　アプリケーションやWebページ、画像、動画など
+# 質疑応答
 
----
-
-アプリケーションをユーザーが利用するには
-**ユーザーにアプリケーションを届ける仕組み**が必要
-
-![height:450](imgs/delivery-actor.drawio.png)
+<span class="sub">授業スレに来ているものから見てみます！<br>メンターが空いたタイミングで適宜返信していくので、<br>授業後に書いてもらっても大丈夫です◎</span>
 
 ---
 
-例えば：スマホアプリ
-各種アプリストアを通してユーザーに届けられる
+## 参考
 
-![height:450](imgs/smartphone-application-delivery.drawio.png)
-
----
-
-**では Webアプリケーション は？**
+- [ウェブのしくみ（MDN）](https://developer.mozilla.org/ja/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works)
+- [ウェブアプリケーションとは?（AWS）](https://aws.amazon.com/jp/what-is/web-application/)
+- [Web三層構造の図解](https://kitsune.blog/web-system-structure)
 
 ---
+## インターンのあとで
 
-アプリケーションの実行に必要な情報を
-**Webサーバーから配信する**ことでユーザーから利用可能に
+![](imgs/fig-other-stacks.svg)
 
-![height:450](imgs/web-application-delivery.drawio.png)
-
----
-
-#### 2-3-2. コンテンツ配信の方法
-
----
-
-実際の構成の例：Deno Deployを利用する場合
-
-![height:400](imgs/deno-deploy.drawio.png)
-
----
-
-実際の構成の例：オンプレミスの場合
-
-<!-- オンプレ構成でサーバーを公開してNGiNXなどを利用した構成 -->
-
-![height:350](imgs/httpserver.drawio.png)
-
----
-
-より詳細には...
-
-![height:500](imgs/httpserver-withdns.drawio.png)
-
----
-
-実際の構成の例：クラウドを利用する場合(AWS)
-
-![height:400](imgs/aws.drawio.png)
-
----
-
-## 3. まとめ
-
----
-
-- Webアプリケーションとは
-  - **ブラウザ上で動作するアプリケーションのこと**
-
-- 世の中のWebアプリケーションはどんな仕組みの上で成り立っているのか
-  - *3層クライアントサーバーシステム*
-  - *フロントエンドとバックエンド*
-  - *フレームワーク*
-  - *コンテンツ配信*
-
----
-
-- **これからWebアプリケーションを作っていくために**
-  - ***まずはDeno Deployで作ってみる*** ←イマココ
-    - 構成がシンプル
-    - コンテンツ配信やフレームワークを
-      意識しなくていい
-
----
-
-*インターンがおわったあと*...
-
-- フレームワークに挑戦する
-  - Deno Fresh など
-- 静的サイトを作る
-  - フレームワーク・コンテンツ配信
-- フルスタック開発へ...
-
----
-
-### ようこそ、Webアプリケーションの世界へ
-
----
-
-## 4. 参考文献
-
-- [ウェブアプリケーションとは? - ウェブアプリケーションの説明 - AWS](https://aws.amazon.com/jp/what-is/web-application/)
-- [3層クライアントサーバシステムとは？概要と仕組みを理解する](https://www.learning-nao.com/?p=224)
-- [クライアントサイドフレームワークの概要 - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Introduction)
-- [CDNとは？コンテンツ配信の方法とCDNの仕組み｜コラム｜クラウドソリューション｜サービス｜法人のお客さま｜NTT東日本](https://business.ntt-east.co.jp/content/cloudsolution/column-66.html)
-
----
-
-## 4. 参考文献
-
-- [サーバーサイドウェブフレームワーク - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks)

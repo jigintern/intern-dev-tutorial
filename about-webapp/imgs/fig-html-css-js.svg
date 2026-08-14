@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 510" width="1168" height="510"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <!-- 同じ画面が HTML → CSS → JavaScript で仕上がっていく様子。
+
+       前の版は3つの画面で「色の有無」しか違わず、CSS の役目が
+       色つけだけに見えていた。実際の CSS は配置・大きさ・余白も決める。
+       そこで HTML の画面は、左端から同じ幅で縦に詰まった状態にした。
+       スタイルを当てる前の素の表示に近い形で、CSS が入ると
+       余白が生まれ、幅が変わり、色がつく——という差が絵で出る。
+
+       ラベルは「構造」ではなく「骨組み」。世の中の解説は
+       HTML＝骨、CSS＝皮膚や服、JavaScript＝筋肉 のたとえが最も多く、
+       骨組みという言い方ならそのたとえにそのまま乗る。
+       たとえ自体は口で言う（レストランのたとえと混ざらないよう図には出さない） -->
+
+  <rect x="0" y="0" width="1168" height="510" fill="#ffffff"/>
+
+  <!-- ============ HTML：中身が縦に詰まっているだけ ============ -->
+  <text x="188" y="56" text-anchor="middle" font-size="44" font-weight="bold" fill="#17558f">HTML</text>
+  <!-- 枠は3つとも青。画面の要素なので3色ルールどおり。
+       前はここだけグレーで、HTMLが画面ではない別物に見えていた。
+       スタイルが当たっていないことは、中身のグレーのブロックで示している -->
+  <rect x="40" y="84" width="296" height="320" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <!-- 枠線の矩形を隣接させると線が重なって表に見えるので、塗りのブロックにした。
+       CSS の画面と同じ形・同じ並びで、色がグレー・余白が詰まっているだけの差 -->
+  <rect x="68" y="116" width="240" height="36" fill="#cdcac1"/>
+  <rect x="68" y="154" width="240" height="22" fill="#cdcac1"/>
+  <rect x="68" y="178" width="240" height="22" fill="#cdcac1"/>
+  <rect x="68" y="202" width="240" height="22" fill="#cdcac1"/>
+  <rect x="68" y="226" width="104" height="30" fill="#cdcac1"/>
+  <text x="188" y="484" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">骨組み</text>
+
+  <!-- ＋ -->
+  <text x="392" y="260" text-anchor="middle" font-size="48" fill="#5c6570">＋</text>
+
+  <!-- ============ CSS：余白がつき、幅が変わり、色がつく ============ -->
+  <text x="596" y="56" text-anchor="middle" font-size="44" font-weight="bold" fill="#17558f">CSS</text>
+  <rect x="448" y="84" width="296" height="320" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <rect x="476" y="116" width="240" height="56" fill="#17558f" stroke="none"/>
+  <rect x="476" y="200" width="240" height="30" fill="#dfe6ee" stroke="none"/>
+  <rect x="476" y="246" width="176" height="30" fill="#dfe6ee" stroke="none"/>
+  <rect x="476" y="316" width="104" height="46" fill="#b8501e" stroke="none"/>
+  <text x="596" y="484" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">見た目</text>
+
+  <!-- ＋ -->
+  <text x="800" y="260" text-anchor="middle" font-size="48" fill="#5c6570">＋</text>
+
+  <!-- ============ JavaScript：押すと反応する ============ -->
+  <text x="1004" y="56" text-anchor="middle" font-size="44" font-weight="bold" fill="#17558f">JavaScript</text>
+  <rect x="856" y="84" width="296" height="320" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <rect x="884" y="116" width="240" height="56" fill="#17558f" stroke="none"/>
+  <rect x="884" y="200" width="240" height="30" fill="#dfe6ee" stroke="none"/>
+  <rect x="884" y="246" width="176" height="30" fill="#dfe6ee" stroke="none"/>
+  <rect x="884" y="316" width="104" height="46" fill="#b8501e" stroke="none"/>
+  <!-- クリックされて動くことを示す波紋 -->
+  <circle cx="936" cy="339" r="26" fill="none" stroke="#1c2126" stroke-width="3"/>
+  <circle cx="936" cy="339" r="40" fill="none" stroke="#1c2126" stroke-width="2" stroke-dasharray="5 6"/>
+  <text x="1004" y="484" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">押したら動く</text>
+
+</svg>

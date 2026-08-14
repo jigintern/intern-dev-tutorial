@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 480" width="1168" height="480"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <!-- 「だから、2つに分けてある」の下に置く、いちばん簡潔な形。
+       20枚目（Webアプリケーションの仕組み）の要素を削ったもの。
+
+       削ったのは 枠のラベル（手元のブラウザ／サーバー）と、
+       あいだの矢印（送る／返す）。ここで言いたいのは分かれていること
+       だけなので、やりとりの向きは要らない。
+       枠の名前も、この時点ではもう何度も出ているので省ける。
+
+       残したのは 3つの役割・2つの枠・あいだの矢印・見える/見えないの2行。
+       サーバー側にだけ薄い下地を敷いてあるのは23枚目と同じ手。
+       見えているほうが地の色、というのを資料のなかで一貫させている -->
+
+  <rect x="0" y="0" width="1168" height="480" fill="#ffffff"/>
+
+  <!-- ============ 左：見えるところ ============ -->
+  <rect x="24" y="40" width="470" height="300" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <text x="259" y="212" text-anchor="middle" font-size="62" font-weight="bold" fill="#17558f">画面</text>
+  <text x="259" y="420" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">ユーザーから見える</text>
+
+  <!-- ============ 中央：やりとり ============
+       分かれているだけでなく、行き来していることを1本で示す。
+       送る／返すの2本にはしていない。ここは分かれていることが主題で、
+       向きの内訳は20枚目でもう見ている -->
+  <line x1="524" y1="190" x2="600" y2="190" stroke="#5c6570" stroke-width="5"/>
+  <polygon points="520,190 540,180 540,200" fill="#5c6570"/>
+  <polygon points="604,190 584,180 584,200" fill="#5c6570"/>
+
+  <!-- ============ 右：見えないところ ============ -->
+  <rect x="630" y="40" width="514" height="300" fill="#f2f1ed" stroke="#1c2126" stroke-width="3"/>
+  <!-- 2つ合わせたグリフの中心を、枠の中心 190 に合わせる。
+       左の「画面」も同じ 190 に来るので、左右が同じ高さで向き合う -->
+  <text x="887" y="153" text-anchor="middle" font-size="62" font-weight="bold" fill="#b8501e">処理</text>
+  <text x="887" y="265" text-anchor="middle" font-size="62" font-weight="bold" fill="#2c6b4f">保存</text>
+  <text x="887" y="420" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">ユーザーから見えない</text>
+
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 510" width="1168" height="510"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <!-- 3つの役割に、世の中で使われている層の名前を当てた図。
+
+       処理と保存の行にだけ薄い下地を敷いてある。
+       前ページ「だから、2つに分けてある」で 画面／処理・保存 に
+       分けたばかりなので、ここで3つを縦に並べると
+       「2つなの？3つなの？」で止まる。
+       下地があれば下の2つが同じ側だと形で分かり、
+       前ページの2つと、このページの3つが両立して読める。
+       色は22・24・30枚目と同じ #f2f1ed。見えない側の地の色として
+       資料のなかで一貫させている。
+
+       上の矢印は下地の上端をまたぐ位置に置いてある。ここは画面と
+       サーバーのあいだのやりとりなので、境目に重なっているのが正しい。
+       下地の外に出すと 52px の隙間に押し込まれて窮屈になり、
+       下地の中に入れるとサーバーの内部のやりとりに見える。
+
+       「サーバー」のラベルは矢印より下、下地の左上。
+       矢印と同じ高さにすると下地の外にはみ出してしまう -->
+
+  <rect x="0" y="0" width="1168" height="510" fill="#ffffff"/>
+
+  <!-- 中身の座標は変えず、g でまとめて下げて縦中央に置いている -->
+  <g transform="translate(0,17)">
+
+  <!-- 処理と保存の下地。上端が矢印の中央（142）を通る。
+       箱からの余白は 左右と下が 34px -->
+  <rect x="150" y="142" width="868" height="318" fill="#f2f1ed"/>
+  <text x="184" y="186" font-size="30" fill="#5c6570">サーバー</text>
+
+  <!-- ============ 上：画面 ============ -->
+  <rect x="184" y="16" width="800" height="76" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <line x1="404" y1="16" x2="404" y2="92" stroke="#cdcac1" stroke-width="2"/>
+  <text x="214" y="70" font-size="52" font-weight="bold" fill="#17558f">画面</text>
+  <text x="440" y="66" font-size="40" fill="#1c2126">プレゼンテーション層</text>
+
+  <!-- 画面とサーバーのあいだのやりとり。下地の上端をまたぐ。
+       ここは箱と箱のあいだが 114px あるので、下の矢印（68pxのあいだ）より
+       長くしてある。同じ長さだと、広いほうだけ矢印が浮いて見える。
+       箱からの余白は上下とも 24px。下の矢印と同じ数字にそろえてある -->
+  <line x1="584" y1="128" x2="584" y2="170" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="584,116 574,132 594,132" fill="#5c6570"/>
+  <polygon points="584,182 574,166 594,166" fill="#5c6570"/>
+
+  <!-- ============ 中：処理 ============ -->
+  <rect x="184" y="206" width="800" height="76" fill="#ffffff" stroke="#b8501e" stroke-width="3"/>
+  <line x1="404" y1="206" x2="404" y2="282" stroke="#cdcac1" stroke-width="2"/>
+  <text x="214" y="260" font-size="52" font-weight="bold" fill="#b8501e">処理</text>
+  <text x="440" y="256" font-size="40" fill="#1c2126">アプリケーション層</text>
+
+  <!-- 処理と保存のあいだ。こちらはサーバーの内部なので下地の中に収める。
+       あいだが 68px しかないので矢印は 44px。上下の余白 12px -->
+  <line x1="584" y1="306" x2="584" y2="326" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="584,294 574,310 594,310" fill="#5c6570"/>
+  <polygon points="584,338 574,322 594,322" fill="#5c6570"/>
+
+  <!-- ============ 下：保存 ============ -->
+  <rect x="184" y="350" width="800" height="76" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
+  <line x1="404" y1="350" x2="404" y2="426" stroke="#cdcac1" stroke-width="2"/>
+  <text x="214" y="404" font-size="52" font-weight="bold" fill="#2c6b4f">保存</text>
+  <text x="440" y="400" font-size="40" fill="#1c2126">データ層</text>
+
+  </g>
+</svg>

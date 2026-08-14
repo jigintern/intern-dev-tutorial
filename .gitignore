@@ -7,3 +7,7 @@ chat-gpt-api/sample/log
 
 node_modules
 .cache
+
+# Webアプリケーション概論の講義メモ（台本・設計判断）
+# 手元でだけ見るもの。スライド本体は about-webapp/slide.md
+about-webapp/NOTES.local.md

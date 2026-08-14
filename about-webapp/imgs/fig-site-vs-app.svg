@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 520" width="1168" height="520"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <!-- 画面の中身で見分けさせる図。上バーと画像の面で、ブラウザの画面だと分かる形にした。
+       左は3つとも同じ組み方、右は3つとも違う組み方。
+
+       枠の幅は左右そろえて 520px、あいだは 80px。前の版は 470 と 514 で
+       幅が違い、あいだも 136px 空いていたので2つが無関係に見えていた。
+       中央の点線は 8枚目（スマホアプリ／Webアプリケーション）と同じ形。
+       対比の図はこの並べ方でそろえる。
+
+       note を置かないページなので図の高さは 520 -->
+
+  <rect x="0" y="0" width="1168" height="520" fill="#ffffff"/>
+
+  <!-- 中央の区切り -->
+  <line x1="584" y1="40" x2="584" y2="480" stroke="#cdcac1" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <!-- ================= 左：Webサイト ================= -->
+  <rect x="24" y="30" width="520" height="390" fill="#f2f1ed" stroke="#cdcac1" stroke-width="3"/>
+  <text x="284" y="96" text-anchor="middle" font-size="44" font-weight="bold" fill="#5c6570">Webサイト</text>
+
+  <!-- 画面3つ（中身は全部同じ） -->
+  <rect x="99" y="150" width="110" height="120" fill="#ffffff" stroke="#5c6570" stroke-width="2"/>
+  <rect x="99" y="150" width="110" height="20" fill="#e6e4de"/>
+  <line x1="99" y1="170" x2="209" y2="170" stroke="#5c6570" stroke-width="2"/>
+  <rect x="111" y="180" width="86" height="36" fill="#cdcac1"/>
+  <rect x="111" y="226" width="86" height="8" fill="#5c6570"/>
+  <rect x="111" y="242" width="58" height="8" fill="#5c6570"/>
+
+  <rect x="229" y="150" width="110" height="120" fill="#ffffff" stroke="#5c6570" stroke-width="2"/>
+  <rect x="229" y="150" width="110" height="20" fill="#e6e4de"/>
+  <line x1="229" y1="170" x2="339" y2="170" stroke="#5c6570" stroke-width="2"/>
+  <rect x="241" y="180" width="86" height="36" fill="#cdcac1"/>
+  <rect x="241" y="226" width="86" height="8" fill="#5c6570"/>
+  <rect x="241" y="242" width="58" height="8" fill="#5c6570"/>
+
+  <rect x="359" y="150" width="110" height="120" fill="#ffffff" stroke="#5c6570" stroke-width="2"/>
+  <rect x="359" y="150" width="110" height="20" fill="#e6e4de"/>
+  <line x1="359" y1="170" x2="469" y2="170" stroke="#5c6570" stroke-width="2"/>
+  <rect x="371" y="180" width="86" height="36" fill="#cdcac1"/>
+  <rect x="371" y="226" width="86" height="8" fill="#5c6570"/>
+  <rect x="371" y="242" width="58" height="8" fill="#5c6570"/>
+
+  <!-- 見ている人 -->
+  <circle cx="154" cy="332" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M128,390 Q128,356 154,356 Q180,356 180,390 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <circle cx="284" cy="332" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M258,390 Q258,356 284,356 Q310,356 310,390 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <circle cx="414" cy="332" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M388,390 Q388,356 414,356 Q440,356 440,390 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+
+  <text x="284" y="490" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">誰が見ても同じ</text>
+
+  <!-- ================= 右：Webアプリケーション ================= -->
+  <rect x="624" y="30" width="520" height="390" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <text x="884" y="96" text-anchor="middle" font-size="44" font-weight="bold" fill="#1c2126">Webアプリケーション</text>
+
+  <!-- 画面1：大きい画像ひとつ -->
+  <rect x="669" y="150" width="130" height="120" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <rect x="669" y="150" width="130" height="20" fill="#eef3f8"/>
+  <line x1="669" y1="170" x2="799" y2="170" stroke="#17558f" stroke-width="2"/>
+  <rect x="681" y="180" width="106" height="48" fill="#cfdced"/>
+  <rect x="681" y="238" width="106" height="8" fill="#17558f"/>
+
+  <!-- 画面2：小さい画像とリスト -->
+  <rect x="819" y="150" width="130" height="120" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <rect x="819" y="150" width="130" height="20" fill="#eef3f8"/>
+  <line x1="819" y1="170" x2="949" y2="170" stroke="#17558f" stroke-width="2"/>
+  <rect x="831" y="180" width="106" height="24" fill="#cfdced"/>
+  <rect x="831" y="214" width="106" height="8" fill="#17558f"/>
+  <rect x="831" y="230" width="80" height="8" fill="#17558f"/>
+  <rect x="831" y="246" width="106" height="8" fill="#17558f"/>
+
+  <!-- 画面3：リストだけ -->
+  <rect x="969" y="150" width="130" height="120" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <rect x="969" y="150" width="130" height="20" fill="#eef3f8"/>
+  <line x1="969" y1="170" x2="1099" y2="170" stroke="#17558f" stroke-width="2"/>
+  <rect x="981" y="184" width="106" height="8" fill="#17558f"/>
+  <rect x="981" y="204" width="74" height="8" fill="#17558f"/>
+  <rect x="981" y="224" width="106" height="8" fill="#17558f"/>
+  <rect x="981" y="244" width="50" height="8" fill="#17558f"/>
+
+  <!-- 見ている人 -->
+  <circle cx="734" cy="332" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M708,390 Q708,356 734,356 Q760,356 760,390 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <circle cx="884" cy="332" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M858,390 Q858,356 884,356 Q910,356 910,390 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <circle cx="1034" cy="332" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M1008,390 Q1008,356 1034,356 Q1060,356 1060,390 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+
+  <text x="884" y="490" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">人によって違う</text>
+
+</svg>
