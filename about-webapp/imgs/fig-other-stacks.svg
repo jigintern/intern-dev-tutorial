@@ -14,27 +14,27 @@
 
   <rect x="0" y="0" width="1168" height="510" fill="#ffffff"/>
 
-  <rect x="24"  y="70"  width="373" height="72" fill="#17558f" fill-opacity="0.16"/>
-  <rect x="24"  y="148" width="746" height="72" fill="url(#mix-view-logic)"/>
-  <rect x="397" y="226" width="373" height="72" fill="#b8501e" fill-opacity="0.16"/>
-  <rect x="397" y="304" width="747" height="72" fill="url(#mix-logic-store)"/>
-  <rect x="770" y="382" width="374" height="72" fill="#2c6b4f" fill-opacity="0.16"/>
+  <rect x="24"  y="70"  width="373" height="68" fill="#17558f" fill-opacity="0.16"/>
+  <rect x="24"  y="144" width="746" height="68" fill="url(#mix-view-logic)"/>
+  <rect x="397" y="218" width="373" height="68" fill="#b8501e" fill-opacity="0.16"/>
+  <rect x="397" y="292" width="747" height="68" fill="url(#mix-logic-store)"/>
+  <rect x="770" y="366" width="374" height="68" fill="#2c6b4f" fill-opacity="0.16"/>
 
-  <line x1="397" y1="60" x2="397" y2="460" stroke="#b0aca2" stroke-width="1.5"/>
-  <line x1="770" y1="60" x2="770" y2="460" stroke="#b0aca2" stroke-width="1.5"/>
+  <line x1="397" y1="60" x2="397" y2="440" stroke="#b0aca2" stroke-width="1.5"/>
+  <line x1="770" y1="60" x2="770" y2="440" stroke="#b0aca2" stroke-width="1.5"/>
 
-  <rect x="24" y="466" width="1120" height="40" fill="#f2f1ed"/>
+  <rect x="24" y="446" width="1120" height="60" fill="#f2f1ed"/>
 
   <text x="210" y="44" text-anchor="middle" font-size="32" font-weight="bold" fill="#17558f">画面</text>
   <text x="584" y="44" text-anchor="middle" font-size="32" font-weight="bold" fill="#b8501e">処理</text>
   <text x="957" y="44" text-anchor="middle" font-size="32" font-weight="bold" fill="#2c6b4f">保存</text>
 
-  <text x="210" y="115" text-anchor="middle" font-size="26" fill="#1c2126">React・Vue・Svelte</text>
-  <text x="397" y="193" text-anchor="middle" font-size="26" fill="#1c2126">Next.js・Nuxt・SvelteKit・Astro</text>
-  <text x="584" y="271" text-anchor="middle" font-size="26" fill="#1c2126">Hono・NestJS</text>
-  <text x="770" y="349" text-anchor="middle" font-size="26" fill="#1c2126">Firebase・Supabase</text>
-  <text x="957" y="427" text-anchor="middle" font-size="26" fill="#1c2126">MySQL・MongoDB</text>
+  <text x="210" y="113" text-anchor="middle" font-size="26" fill="#1c2126">React・Vue・Svelte</text>
+  <text x="397" y="187" text-anchor="middle" font-size="26" fill="#1c2126">Next.js・Nuxt・SvelteKit・Astro</text>
+  <text x="584" y="261" text-anchor="middle" font-size="26" fill="#1c2126">Hono・NestJS</text>
+  <text x="770" y="335" text-anchor="middle" font-size="26" fill="#1c2126">Firebase・Supabase</text>
+  <text x="957" y="409" text-anchor="middle" font-size="26" fill="#1c2126">MySQL・MongoDB</text>
 
-  <text x="584" y="493" text-anchor="middle" font-size="20" fill="#5c6570">動かす場所：Deno Deploy・Cloudflare Workers・AWS Lambda</text>
+  <text x="584" y="485" text-anchor="middle" font-size="26" fill="#1c2126"><tspan font-weight="bold">公開する場所</tspan>：Deno Deploy・Cloudflare Workers・AWS Lambda</text>
 
 </svg>
