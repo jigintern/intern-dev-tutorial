@@ -8,7 +8,7 @@ size: 16:9
 <!--
   ============================================================================
   HTML/CSS を始めよう（勉強会スライド）
-  ビルド: pnpm exec marp 2026/html-css-start/slide.md --html -o 2026/html-css-start/slide.html --allow-local-files
+  ビルド: npx marp slide.md --html -o slide.html --allow-local-files --theme-set themes/jig.css
   ============================================================================
 -->
 
