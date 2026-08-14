@@ -4,7 +4,7 @@
   <rect x="0" y="0" width="1168" height="510" fill="#ffffff"/>
 
   <text x="442" y="66" text-anchor="middle" font-size="32" fill="#5c6570">今回つかうもの</text>
-  <text x="932" y="66" text-anchor="middle" font-size="32" fill="#5c6570">ほかにもある</text>
+  <text x="932" y="66" text-anchor="middle" font-size="32" fill="#5c6570">ほかにも</text>
 
   <rect x="24" y="90"  width="220" height="126" fill="#eef3f8"/>
   <rect x="24" y="216" width="220" height="126" fill="#fbf0ea"/>

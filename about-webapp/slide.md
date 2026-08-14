@@ -97,7 +97,8 @@ section tbody th { background: #f7f6f3; font-weight: 400; }
 .c-logic { color: var(--logic); font-weight: 700; }
 .c-store { color: var(--store); font-weight: 700; }
 section.title { border-top: 10px solid var(--ink); justify-content: center; }
-section.title h1 { font-size: 60px; margin-bottom: 20px; }
+section.title h1 { font-size: 60px; margin-bottom: 0; }
+section.title h1 + p { margin-top: 20px; }
 section.chapter { justify-content: center; }
 section.chapter h1 { font-size: 54px; margin: 0; }
 section.chapter .sub { margin-top: 22px; }
@@ -122,8 +123,6 @@ section::after { color: var(--sub); font-size: 16px; }
 <!-- _class: title -->
 
 # Webアプリケーション概論
-
-<span class="sub">jig.jp インターン 初日</span>
 
 ---
 
