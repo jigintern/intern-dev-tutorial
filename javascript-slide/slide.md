@@ -1107,7 +1107,7 @@ user.hobby = '釣り';
 ```js
 const user = { name: 'じぐ太郎', age: 20 };
 // ドット / ブラケット記法
-console.log("user.name: "user.name;
+console.log("user.name: "user.name);
 console.log("user[age]: "user['age']);
 // 後から追加できる
 user.hobby = '釣り';
