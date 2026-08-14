@@ -1960,7 +1960,11 @@ document.querySelectorAll('pre').forEach(pre => {
     function fmt(v){
       if (typeof v === 'string') return v;
       if (v instanceof Error) return v.message;
-      try { return JSON.stringify(v); } catch (e) { return String(v); }
+      if (v === undefined || v === null) return String(v);
+      if (typeof v === 'function' || typeof v === 'symbol') return String(v);
+      if (typeof v === 'number' && !isFinite(v)) return String(v);   // NaN / Infinity
+      try { const s = JSON.stringify(v); return s === undefined ? String(v) : s; }
+      catch (e) { return String(v); }
     }
     function send(level, args){
       try { parent.postMessage({ __pg: window.__PG_ID, level: level,
