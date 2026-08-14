@@ -1,35 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 510" width="1168" height="510"
      font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
 
+  <defs>
+    <linearGradient id="mix-view-logic" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#17558f" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#b8501e" stop-opacity="0.16"/>
+    </linearGradient>
+    <linearGradient id="mix-logic-store" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#b8501e" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#2c6b4f" stop-opacity="0.16"/>
+    </linearGradient>
+  </defs>
+
   <rect x="0" y="0" width="1168" height="510" fill="#ffffff"/>
 
-  <circle cx="304" cy="240" r="210" fill="#17558f" fill-opacity="0.13"/>
-  <circle cx="584" cy="240" r="210" fill="#b8501e" fill-opacity="0.13"/>
-  <circle cx="864" cy="240" r="210" fill="#2c6b4f" fill-opacity="0.13"/>
+  <rect x="24"  y="70"  width="373" height="72" fill="#17558f" fill-opacity="0.16"/>
+  <rect x="24"  y="148" width="746" height="72" fill="url(#mix-view-logic)"/>
+  <rect x="397" y="226" width="373" height="72" fill="#b8501e" fill-opacity="0.16"/>
+  <rect x="397" y="304" width="747" height="72" fill="url(#mix-logic-store)"/>
+  <rect x="770" y="382" width="374" height="72" fill="#2c6b4f" fill-opacity="0.16"/>
 
-  <circle cx="304" cy="240" r="210" fill="none" stroke="#17558f" stroke-width="2.5"/>
-  <circle cx="584" cy="240" r="210" fill="none" stroke="#b8501e" stroke-width="2.5"/>
-  <circle cx="864" cy="240" r="210" fill="none" stroke="#2c6b4f" stroke-width="2.5"/>
+  <line x1="397" y1="60" x2="397" y2="460" stroke="#b0aca2" stroke-width="1.5"/>
+  <line x1="770" y1="60" x2="770" y2="460" stroke="#b0aca2" stroke-width="1.5"/>
 
-  <text x="240" y="190" text-anchor="middle" font-size="36" font-weight="bold" fill="#17558f">画面</text>
-  <text x="240" y="240" text-anchor="middle" font-size="22" fill="#1c2126">React</text>
-  <text x="240" y="274" text-anchor="middle" font-size="22" fill="#1c2126">Vue</text>
-  <text x="240" y="308" text-anchor="middle" font-size="22" fill="#1c2126">Svelte</text>
+  <rect x="24" y="466" width="1120" height="40" fill="#f2f1ed"/>
 
-  <text x="444" y="230" text-anchor="middle" font-size="22" fill="#1c2126">Next.js</text>
-  <text x="444" y="264" text-anchor="middle" font-size="22" fill="#1c2126">Nuxt</text>
+  <text x="210" y="44" text-anchor="middle" font-size="32" font-weight="bold" fill="#17558f">画面</text>
+  <text x="584" y="44" text-anchor="middle" font-size="32" font-weight="bold" fill="#b8501e">処理</text>
+  <text x="957" y="44" text-anchor="middle" font-size="32" font-weight="bold" fill="#2c6b4f">保存</text>
 
-  <text x="584" y="190" text-anchor="middle" font-size="36" font-weight="bold" fill="#b8501e">処理</text>
-  <text x="584" y="240" text-anchor="middle" font-size="22" fill="#1c2126">Hono</text>
-  <text x="584" y="274" text-anchor="middle" font-size="22" fill="#1c2126">NestJS</text>
-
-  <text x="724" y="230" text-anchor="middle" font-size="22" fill="#1c2126">Firebase</text>
-  <text x="724" y="264" text-anchor="middle" font-size="22" fill="#1c2126">Supabase</text>
-
-  <text x="928" y="190" text-anchor="middle" font-size="36" font-weight="bold" fill="#2c6b4f">保存</text>
-  <text x="928" y="240" text-anchor="middle" font-size="22" fill="#1c2126">MySQL</text>
-  <text x="928" y="274" text-anchor="middle" font-size="22" fill="#1c2126">PostgreSQL</text>
-  <text x="928" y="308" text-anchor="middle" font-size="22" fill="#1c2126">MongoDB</text>
+  <text x="210" y="115" text-anchor="middle" font-size="26" fill="#1c2126">React・Vue・Svelte</text>
+  <text x="397" y="193" text-anchor="middle" font-size="26" fill="#1c2126">Next.js・Nuxt・SvelteKit・Astro</text>
+  <text x="584" y="271" text-anchor="middle" font-size="26" fill="#1c2126">Hono・NestJS</text>
+  <text x="770" y="349" text-anchor="middle" font-size="26" fill="#1c2126">Firebase・Supabase</text>
+  <text x="957" y="427" text-anchor="middle" font-size="26" fill="#1c2126">MySQL・MongoDB</text>
 
   <text x="584" y="493" text-anchor="middle" font-size="20" fill="#5c6570">動かす場所：Deno Deploy・Cloudflare Workers・AWS Lambda</text>
 
