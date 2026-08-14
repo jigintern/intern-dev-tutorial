@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 440" width="400" height="440" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 抽出できたオブジェクト。属性3つとアクション2つ。
+       つくる（Create）とけす（Delete）は仕様にないので書かない -->
+  <rect x="20" y="20" width="360" height="400" rx="10" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+
+  <!-- ヘッダー -->
+  <path d="M20 30 a10 10 0 0 1 10 -10 h340 a10 10 0 0 1 10 10 v50 h-360 z" fill="#33b1dd" />
+  <text x="200" y="62" text-anchor="middle" font-size="36" font-weight="700" fill="#ffffff">備品</text>
+
+  <!-- 属性 -->
+  <text x="44" y="114" font-size="26" fill="#6b7078">属性</text>
+  <text x="44" y="160" font-size="30" fill="#202228">名前</text>
+  <text x="44" y="200" font-size="30" fill="#202228">数</text>
+  <text x="44" y="240" font-size="30" fill="#202228">借りているか</text>
+
+  <!-- アクション -->
+  <path d="M20 260 h360 v150 a10 10 0 0 1 -10 10 h-340 a10 10 0 0 1 -10 -10 z" fill="#f1f2f4" />
+  <line x1="20" y1="260" x2="380" y2="260" stroke="#33b1dd" stroke-width="2" />
+  <text x="44" y="292" font-size="26" fill="#6b7078">アクション</text>
+  <text x="44" y="338" font-size="30" fill="#202228">借りる</text>
+  <text x="44" y="378" font-size="30" fill="#202228">返す</text>
+
+  <rect x="20" y="20" width="360" height="400" rx="10" fill="none" stroke="#33b1dd" stroke-width="3" />
+</svg>

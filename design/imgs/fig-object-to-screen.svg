@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 主役を1つ決めると、その見え方が2通りあるだけなので画面は2枚で足りる。
+       行の形は13枚目の一覧と揃えてある -->
+  <defs>
+    <marker id="ots-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#202228" />
+    </marker>
+  </defs>
+
+  <!-- 主役に決めたモノ -->
+  <text x="150" y="46" text-anchor="middle" font-size="28" fill="#6b7078">主役に決めたモノ</text>
+  <rect x="40" y="110" width="220" height="140" rx="12" fill="#ffffff" stroke="#33b1dd" stroke-width="4" />
+  <text x="150" y="198" text-anchor="middle" font-size="52" font-weight="700" fill="#202228">備品</text>
+
+  <line x1="290" y1="180" x2="370" y2="180" stroke="#202228" stroke-width="4" marker-end="url(#ots-arrow)" />
+
+  <!-- できあがる画面 -->
+  <text x="680" y="46" text-anchor="middle" font-size="28" fill="#6b7078">できあがる画面</text>
+
+  <!-- 備品の一覧 -->
+  <rect x="420" y="70" width="220" height="220" rx="10" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M420 80 a10 10 0 0 1 10 -10 h200 a10 10 0 0 1 10 10 v34 h-220 z" fill="#33b1dd" />
+
+  <rect x="434" y="122" width="192" height="48" rx="6" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="442" y="130" width="32" height="32" rx="4" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="450" y="137" width="16" height="11" rx="1" fill="none" stroke="#6b7078" stroke-width="1.8" />
+  <path d="M447 154 h22 l-2 -3 h-18 z" fill="none" stroke="#6b7078" stroke-width="1.8" stroke-linejoin="round" />
+  <rect x="484" y="140" width="58" height="9" rx="4" fill="#c9ced6" />
+  <rect x="556" y="134" width="60" height="24" rx="12" fill="#ffffff" stroke="#33b1dd" stroke-width="2" />
+
+  <rect x="434" y="178" width="192" height="48" rx="6" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="442" y="186" width="32" height="32" rx="4" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="452" y="192" width="11" height="19" rx="2" fill="none" stroke="#6b7078" stroke-width="1.8" />
+  <rect x="484" y="196" width="58" height="9" rx="4" fill="#c9ced6" />
+  <rect x="556" y="190" width="60" height="24" rx="12" fill="#33b1dd" />
+
+  <rect x="434" y="234" width="192" height="48" rx="6" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="442" y="242" width="32" height="32" rx="4" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="451" y="248" width="13" height="19" rx="2" fill="none" stroke="#6b7078" stroke-width="1.8" />
+  <circle cx="457" cy="253" r="2.2" fill="none" stroke="#6b7078" stroke-width="1.4" />
+  <rect x="484" y="252" width="58" height="9" rx="4" fill="#c9ced6" />
+  <rect x="556" y="246" width="60" height="24" rx="12" fill="#33b1dd" />
+
+  <text x="530" y="336" text-anchor="middle" font-size="30" fill="#202228">備品の一覧</text>
+
+  <line x1="660" y1="180" x2="700" y2="180" stroke="#202228" stroke-width="3" marker-start="url(#ots-arrow)" marker-end="url(#ots-arrow)" />
+
+  <!-- 備品の詳細 -->
+  <rect x="720" y="70" width="220" height="220" rx="10" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M720 80 a10 10 0 0 1 10 -10 h200 a10 10 0 0 1 10 10 v34 h-220 z" fill="#33b1dd" />
+
+  <rect x="746" y="132" width="54" height="54" rx="7" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="758" y="145" width="30" height="20" rx="2" fill="none" stroke="#6b7078" stroke-width="2.5" />
+  <path d="M752 174 h42 l-4 -5 h-34 z" fill="none" stroke="#6b7078" stroke-width="2.5" stroke-linejoin="round" />
+  <rect x="814" y="140" width="100" height="11" rx="5" fill="#c9ced6" />
+  <rect x="814" y="164" width="56" height="11" rx="5" fill="#d3d6db" />
+
+  <rect x="746" y="212" width="140" height="38" rx="19" fill="#33b1dd" />
+  <text x="816" y="238" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">借りる</text>
+
+  <text x="830" y="336" text-anchor="middle" font-size="30" fill="#202228">備品の詳細</text>
+</svg>

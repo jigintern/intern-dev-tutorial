@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 370" width="1100" height="370" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 3ステップの地図。ステップ名は日常語で大きく、
+       実務で使う呼び方を下に小さく添える。
+       専門語だけだと初学者が何をするステップなのか分からない -->
+  <defs>
+    <marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#202228" />
+    </marker>
+    <marker id="flow-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#33b1dd" />
+    </marker>
+  </defs>
+
+  <!-- 仕様 -->
+  <rect x="20" y="60" width="140" height="130" rx="10" fill="#ffffff" stroke="#d3d6db" stroke-width="2" stroke-dasharray="7 5" />
+  <text x="90" y="137" text-anchor="middle" font-size="34" fill="#6b7078">仕様</text>
+  <line x1="170" y1="125" x2="200" y2="125" stroke="#202228" stroke-width="3" marker-end="url(#flow-arrow)" />
+
+  <!-- 1. モノを決める -->
+  <rect x="208" y="60" width="220" height="130" rx="10" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <circle cx="253" cy="60" r="26" fill="#33b1dd" />
+  <text x="253" y="70" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">1</text>
+  <text x="318" y="115" text-anchor="middle" font-size="30" fill="#202228">モノを決める</text>
+  <text x="318" y="155" text-anchor="middle" font-size="20" fill="#6b7078">オブジェクト抽出</text>
+  <line x1="438" y1="125" x2="468" y2="125" stroke="#202228" stroke-width="3" marker-end="url(#flow-arrow)" />
+
+  <!-- 2. 画面を決める -->
+  <rect x="476" y="60" width="260" height="130" rx="10" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <circle cx="521" cy="60" r="26" fill="#33b1dd" />
+  <text x="521" y="70" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">2</text>
+  <text x="606" y="115" text-anchor="middle" font-size="30" fill="#202228">画面を決める</text>
+  <text x="606" y="155" text-anchor="middle" font-size="20" fill="#6b7078">ビュー・ナビゲーション</text>
+  <line x1="746" y1="125" x2="776" y2="125" stroke="#202228" stroke-width="3" marker-end="url(#flow-arrow)" />
+
+  <!-- 3. ならべ方を決める -->
+  <rect x="784" y="60" width="280" height="130" rx="10" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <circle cx="829" cy="60" r="26" fill="#33b1dd" />
+  <text x="829" y="70" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">3</text>
+  <text x="924" y="115" text-anchor="middle" font-size="30" fill="#202228">ならべ方を決める</text>
+  <text x="924" y="155" text-anchor="middle" font-size="20" fill="#6b7078">レイアウト</text>
+
+  <!-- 戻り矢印 -->
+  <path d="M924 200 L924 270 L318 270 L318 202" fill="none" stroke="#33b1dd" stroke-width="3" marker-end="url(#flow-arrow-accent)" />
+  <text x="621" y="330" text-anchor="middle" font-size="30" fill="#1c8fb5">行き来しながら決めていく</text>
+</svg>

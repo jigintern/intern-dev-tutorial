@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 備品そのものを並べた画面。最初から備品が見えていて、探す画面が要らない。
+       カート型の標準パターンにしてある：
+         カードを2列で並べる
+         数量はステッパー（− 数 ＋）
+         実行ボタンはフッターに1つ
+       仕様の4つがこの1枚に収まっている：
+         備品の一覧を見る → 一覧そのもの
+         名前と数を見る   → 各カードに出ている
+         借りる           → 数を選んでフッターの借りる
+         返す             → 貸出中のカードから数を戻す -->
+  <defs>
+    <marker id="tapb-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#202228" />
+    </marker>
+  </defs>
+
+  <rect x="20" y="30" width="520" height="500" rx="10" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M20 40 a10 10 0 0 1 10 -10 h500 a10 10 0 0 1 10 10 v44 h-520 z" fill="#33b1dd" />
+  <text x="280" y="70" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">備品貸出システム</text>
+
+  <!-- ===== ノートPC: 1台えらんでいる ===== -->
+  <rect x="45" y="94" width="230" height="180" rx="8" fill="#ffffff" stroke="#33b1dd" stroke-width="2" />
+  <rect x="130" y="108" width="60" height="60" rx="7" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="144" y="121" width="32" height="22" rx="2" fill="none" stroke="#6b7078" stroke-width="2.5" />
+  <path d="M138 153 h44 l-5 -6 h-34 z" fill="none" stroke="#6b7078" stroke-width="2.5" stroke-linejoin="round" />
+  <text x="160" y="196" text-anchor="middle" font-size="21" fill="#202228">ノートPC</text>
+  <text x="160" y="218" text-anchor="middle" font-size="15" fill="#6b7078">3台あり</text>
+  <rect x="86" y="232" width="30" height="28" rx="6" fill="#ffffff" stroke="#9aa1ab" stroke-width="2" />
+  <line x1="94" y1="246" x2="108" y2="246" stroke="#6b7078" stroke-width="2.5" stroke-linecap="round" />
+  <text x="160" y="253" text-anchor="middle" font-size="22" font-weight="700" fill="#202228">1</text>
+  <rect x="204" y="232" width="30" height="28" rx="6" fill="#33b1dd" />
+  <line x1="212" y1="246" x2="226" y2="246" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="219" y1="239" x2="219" y2="253" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- ===== タブレット ===== -->
+  <rect x="295" y="94" width="230" height="180" rx="8" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="380" y="108" width="60" height="60" rx="7" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="399" y="118" width="22" height="40" rx="3" fill="none" stroke="#6b7078" stroke-width="2.5" />
+  <circle cx="410" cy="152" r="1.8" fill="#6b7078" />
+  <text x="410" y="196" text-anchor="middle" font-size="21" fill="#202228">タブレット</text>
+  <text x="410" y="218" text-anchor="middle" font-size="15" fill="#6b7078">5台あり</text>
+  <rect x="336" y="232" width="30" height="28" rx="6" fill="#f4f5f7" stroke="#e3e6ea" stroke-width="2" />
+  <line x1="344" y1="246" x2="358" y2="246" stroke="#c9ced6" stroke-width="2.5" stroke-linecap="round" />
+  <text x="410" y="253" text-anchor="middle" font-size="22" fill="#9aa1ab">0</text>
+  <rect x="454" y="232" width="30" height="28" rx="6" fill="#33b1dd" />
+  <line x1="462" y1="246" x2="476" y2="246" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="469" y1="239" x2="469" y2="253" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- ===== スピーカー ===== -->
+  <rect x="45" y="289" width="230" height="180" rx="8" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="130" y="303" width="60" height="60" rx="7" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="148" y="313" width="24" height="40" rx="3" fill="none" stroke="#6b7078" stroke-width="2.5" />
+  <circle cx="160" cy="325" r="4" fill="none" stroke="#6b7078" stroke-width="2" />
+  <circle cx="160" cy="342" r="6" fill="none" stroke="#6b7078" stroke-width="2" />
+  <text x="160" y="391" text-anchor="middle" font-size="21" fill="#202228">スピーカー</text>
+  <text x="160" y="413" text-anchor="middle" font-size="15" fill="#6b7078">1台あり</text>
+  <rect x="86" y="427" width="30" height="28" rx="6" fill="#f4f5f7" stroke="#e3e6ea" stroke-width="2" />
+  <line x1="94" y1="441" x2="108" y2="441" stroke="#c9ced6" stroke-width="2.5" stroke-linecap="round" />
+  <text x="160" y="448" text-anchor="middle" font-size="22" fill="#9aa1ab">0</text>
+  <rect x="204" y="427" width="30" height="28" rx="6" fill="#33b1dd" />
+  <line x1="212" y1="441" x2="226" y2="441" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="219" y1="434" x2="219" y2="448" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- ===== 延長コード ===== -->
+  <rect x="295" y="289" width="230" height="180" rx="8" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="380" y="303" width="60" height="60" rx="7" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="388" y="324" width="20" height="18" rx="2" fill="none" stroke="#6b7078" stroke-width="2.5" />
+  <path d="M408 333 q11 -10 17 0 q6 10 8 0" fill="none" stroke="#6b7078" stroke-width="2.5" />
+  <text x="410" y="391" text-anchor="middle" font-size="21" fill="#202228">延長コード</text>
+  <text x="410" y="413" text-anchor="middle" font-size="15" fill="#6b7078">4本あり</text>
+  <rect x="336" y="427" width="30" height="28" rx="6" fill="#f4f5f7" stroke="#e3e6ea" stroke-width="2" />
+  <line x1="344" y1="441" x2="358" y2="441" stroke="#c9ced6" stroke-width="2.5" stroke-linecap="round" />
+  <text x="410" y="448" text-anchor="middle" font-size="22" fill="#9aa1ab">0</text>
+  <rect x="454" y="427" width="30" height="28" rx="6" fill="#33b1dd" />
+  <line x1="462" y1="441" x2="476" y2="441" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="469" y1="434" x2="469" y2="448" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- ===== フッター: 実行ボタンは1つだけ ===== -->
+  <line x1="21" y1="484" x2="539" y2="484" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="140" y="494" width="280" height="40" rx="20" fill="#33b1dd" />
+  <text x="280" y="521" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">借りる</text>
+
+  <!-- 押す場所。画面の外から指す -->
+  <line x1="620" y1="514" x2="436" y2="514" stroke="#202228" stroke-width="3" marker-end="url(#tapb-arrow)" />
+  <circle cx="655" cy="514" r="26" fill="#202228" />
+  <text x="655" y="526" text-anchor="middle" font-size="32" font-weight="700" fill="#ffffff">1</text>
+</svg>

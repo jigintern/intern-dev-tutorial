@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 左右はどちらも同じくUIの部品なので、箱の塗りとラベルは同格。
+       違いは枠線の色と、部品そのものの色だけで示す。
+       片方だけ塗りを強くすると「UI＝操作するもの」に見えてしまう -->
+
+  <!-- 見せるもの -->
+  <text x="260" y="48" text-anchor="middle" font-size="40" font-weight="700" fill="#202228">見せるもの</text>
+  <rect x="40" y="76" width="440" height="300" rx="14" fill="#fafafa" stroke="#9aa1ab" stroke-width="2" />
+
+  <rect x="90" y="132" width="80" height="12" rx="6" fill="#9aa1ab" />
+  <rect x="90" y="154" width="56" height="12" rx="6" fill="#9aa1ab" />
+  <text x="210" y="162" font-size="36" fill="#202228">文字</text>
+
+  <rect x="90" y="222" width="80" height="10" rx="5" fill="#9aa1ab" />
+  <rect x="90" y="238" width="80" height="10" rx="5" fill="#9aa1ab" />
+  <rect x="90" y="254" width="80" height="10" rx="5" fill="#9aa1ab" />
+  <text x="210" y="252" font-size="36" fill="#202228">リスト</text>
+
+  <rect x="90" y="300" width="80" height="60" rx="6" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+  <circle cx="112" cy="320" r="7" fill="#9aa1ab" />
+  <path d="M98 352 l22 -24 l16 17 l12 -12 l18 19 z" fill="#9aa1ab" />
+  <text x="210" y="342" font-size="36" fill="#202228">画像</text>
+
+  <!-- 操作するもの -->
+  <text x="740" y="48" text-anchor="middle" font-size="40" font-weight="700" fill="#202228">操作するもの</text>
+  <rect x="520" y="76" width="440" height="300" rx="14" fill="#fafafa" stroke="#33b1dd" stroke-width="2" />
+
+  <rect x="570" y="130" width="80" height="40" rx="20" fill="#33b1dd" />
+  <text x="690" y="162" font-size="36" fill="#202228">ボタン</text>
+
+  <rect x="580" y="210" width="60" height="60" rx="12" fill="#33b1dd" />
+  <path d="M594 240 l12 14 l22 -24" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="690" y="252" font-size="36" fill="#202228">チェック</text>
+
+  <rect x="570" y="308" width="80" height="44" rx="6" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <rect x="582" y="322" width="34" height="10" rx="5" fill="#c9ced6" />
+  <line x1="628" y1="318" x2="628" y2="342" stroke="#33b1dd" stroke-width="3" />
+  <text x="690" y="342" font-size="36" fill="#202228">入力欄</text>
+
+  <!-- 第1章の結論。スライドだけで復習できるように図に入れてある -->
+  <text x="500" y="448" text-anchor="middle" font-size="36" font-weight="700" fill="#1c8fb5">この2つを、どこに置くか決める</text>
+</svg>

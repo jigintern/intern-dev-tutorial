@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 0 1210 480" width="1210" height="480" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- メニューから入ると、対象を選ぶ画面がもう1枚必要になる。
+       業務システムのメニュー画面は実際にこの形が多い。
+       押す場所は画面の外からバッジで指す（中に置くと通知バッジに見える） -->
+  <defs>
+    <marker id="tapa-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#33b1dd" />
+    </marker>
+    <marker id="tapa-point" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#202228" />
+    </marker>
+  </defs>
+
+  <!-- ===== 画面1: メニュー ===== -->
+  <rect x="20" y="30" width="440" height="320" rx="10" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M20 40 a10 10 0 0 1 10 -10 h420 a10 10 0 0 1 10 10 v42 h-440 z" fill="#33b1dd" />
+  <text x="240" y="69" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">備品貸出システム</text>
+
+  <rect x="46" y="104" width="184" height="80" rx="8" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="138" y="152" text-anchor="middle" font-size="24" fill="#202228">一覧</text>
+
+  <rect x="250" y="104" width="184" height="80" rx="8" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="342" y="152" text-anchor="middle" font-size="24" fill="#202228">備品情報</text>
+
+  <!-- 貸出: ここを最初に押す -->
+  <rect x="46" y="204" width="184" height="80" rx="8" fill="#33b1dd" />
+  <text x="138" y="252" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">貸出</text>
+
+  <rect x="250" y="204" width="184" height="80" rx="8" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="342" y="252" text-anchor="middle" font-size="24" fill="#202228">返却</text>
+
+  <!-- 1回目に押す場所 -->
+  <line x1="18" y1="244" x2="42" y2="244" stroke="#202228" stroke-width="3" marker-end="url(#tapa-point)" />
+  <circle cx="-12" cy="244" r="22" fill="#202228" />
+  <text x="-12" y="255" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">1</text>
+
+  <!-- ===== 画面が切り替わる ===== -->
+  <text x="540" y="212" text-anchor="middle" font-size="26" fill="#6b7078">押すと</text>
+  <line x1="480" y1="240" x2="600" y2="240" stroke="#33b1dd" stroke-width="4" marker-end="url(#tapa-arrow)" />
+
+  <!-- ===== 画面2: 備品を選ぶ ===== -->
+  <rect x="620" y="30" width="440" height="320" rx="10" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M620 40 a10 10 0 0 1 10 -10 h420 a10 10 0 0 1 10 10 v42 h-440 z" fill="#33b1dd" />
+  <text x="840" y="69" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">貸出</text>
+
+  <text x="646" y="106" font-size="20" fill="#6b7078">貸し出す備品を選んでください</text>
+
+  <!-- 選択行 -->
+  <rect x="621" y="122" width="438" height="52" fill="#e8f6fc" />
+  <line x1="646" y1="122" x2="1034" y2="122" stroke="#eceef1" stroke-width="2" />
+  <line x1="646" y1="174" x2="1034" y2="174" stroke="#eceef1" stroke-width="2" />
+  <line x1="646" y1="226" x2="1034" y2="226" stroke="#eceef1" stroke-width="2" />
+  <line x1="646" y1="278" x2="1034" y2="278" stroke="#eceef1" stroke-width="2" />
+
+  <rect x="656" y="132" width="30" height="30" rx="4" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="663" y="139" width="16" height="11" rx="1" fill="none" stroke="#6b7078" stroke-width="1.8" />
+  <path d="M660 155 h22 l-2 -3 h-18 z" fill="none" stroke="#6b7078" stroke-width="1.8" stroke-linejoin="round" />
+  <text x="700" y="156" font-size="24" fill="#202228">ノートPC</text>
+  <text x="1000" y="156" text-anchor="end" font-size="22" fill="#6b7078">3台</text>
+
+  <rect x="656" y="184" width="30" height="30" rx="4" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="666" y="190" width="11" height="18" rx="2" fill="none" stroke="#6b7078" stroke-width="1.8" />
+  <text x="700" y="208" font-size="24" fill="#202228">タブレット</text>
+  <text x="1000" y="208" text-anchor="end" font-size="22" fill="#6b7078">5台</text>
+
+  <rect x="656" y="236" width="30" height="30" rx="4" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="665" y="242" width="13" height="18" rx="2" fill="none" stroke="#6b7078" stroke-width="1.8" />
+  <circle cx="671" cy="247" r="2.2" fill="none" stroke="#6b7078" stroke-width="1.4" />
+  <text x="700" y="260" font-size="24" fill="#202228">スピーカー</text>
+  <text x="1000" y="260" text-anchor="end" font-size="22" fill="#6b7078">1台</text>
+
+  <rect x="656" y="288" width="30" height="30" rx="4" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="659" y="298" width="12" height="11" rx="1" fill="none" stroke="#6b7078" stroke-width="1.8" />
+  <path d="M671 303 q6 -6 10 0 q4 6 6 0" fill="none" stroke="#6b7078" stroke-width="1.8" />
+  <text x="700" y="312" font-size="24" fill="#202228">延長コード</text>
+  <text x="1000" y="312" text-anchor="end" font-size="22" fill="#6b7078">4本</text>
+
+  <!-- ここでもう一度押さないと借りられない -->
+  <line x1="1090" y1="148" x2="1064" y2="148" stroke="#202228" stroke-width="3" marker-end="url(#tapa-point)" />
+  <circle cx="1120" cy="148" r="22" fill="#202228" />
+  <text x="1120" y="159" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">2</text>
+
+  <!-- ===== キャプション ===== -->
+  <text x="240" y="410" text-anchor="middle" font-size="28" fill="#6b7078">まだ借りられない</text>
+  <text x="840" y="410" text-anchor="middle" font-size="28" fill="#1c8fb5">ここでやっと借りられる</text>
+</svg>

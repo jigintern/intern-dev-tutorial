@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="uvv-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6b7078" />
+    </marker>
+  </defs>
+
+  <!-- UIデザイン: 骨組み -->
+  <text x="220" y="40" text-anchor="middle" font-size="40" font-weight="700" fill="#1c8fb5">UIデザイン</text>
+  <text x="220" y="80" text-anchor="middle" font-size="28" fill="#6b7078">何を、どこに置くか</text>
+
+  <rect x="120" y="98" width="200" height="220" fill="#ffffff" stroke="#9aa1ab" stroke-width="2" />
+  <rect x="140" y="116" width="160" height="18" fill="#d3d6db" />
+  <rect x="140" y="158" width="160" height="14" fill="#d3d6db" />
+  <rect x="140" y="190" width="160" height="14" fill="#d3d6db" />
+  <rect x="140" y="222" width="160" height="14" fill="#d3d6db" />
+  <rect x="230" y="272" width="70" height="28" fill="#d3d6db" />
+
+  <text x="220" y="360" text-anchor="middle" font-size="32" fill="#1c8fb5">今日のメインはこっち</text>
+
+  <!-- 矢印 -->
+  <text x="445" y="182" text-anchor="middle" font-size="26" fill="#6b7078">見た目をつける</text>
+  <line x1="370" y1="208" x2="520" y2="208" stroke="#6b7078" stroke-width="3" marker-end="url(#uvv-arrow)" />
+
+  <!-- ビジュアルデザイン: 見た目 -->
+  <text x="670" y="40" text-anchor="middle" font-size="40" font-weight="700" fill="#6b7078">ビジュアルデザイン</text>
+  <text x="670" y="80" text-anchor="middle" font-size="28" fill="#6b7078">どんな見た目にするか</text>
+
+  <rect x="570" y="98" width="200" height="220" rx="14" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M570 112 a14 14 0 0 1 14 -14 h172 a14 14 0 0 1 14 14 v26 h-200 z" fill="#33b1dd" />
+  <rect x="590" y="156" width="24" height="24" rx="6" fill="#33b1dd" />
+  <rect x="626" y="162" width="124" height="12" rx="6" fill="#c9ced6" />
+  <rect x="590" y="188" width="24" height="24" rx="6" fill="#ffffff" stroke="#9aa1ab" stroke-width="2" />
+  <rect x="626" y="194" width="124" height="12" rx="6" fill="#c9ced6" />
+  <rect x="590" y="220" width="24" height="24" rx="6" fill="#ffffff" stroke="#9aa1ab" stroke-width="2" />
+  <rect x="626" y="226" width="124" height="12" rx="6" fill="#c9ced6" />
+  <rect x="680" y="270" width="70" height="32" rx="16" fill="#33b1dd" />
+
+  <text x="670" y="360" text-anchor="middle" font-size="32" fill="#6b7078">最後に少し触れます</text>
+</svg>

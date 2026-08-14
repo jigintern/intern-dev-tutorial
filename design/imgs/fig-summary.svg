@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="sum-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#202228" />
+    </marker>
+  </defs>
+
+  <!-- 見出し -->
+  <text x="150" y="88" text-anchor="middle" font-size="30" fill="#6b7078">仕様</text>
+
+  <circle cx="450" cy="40" r="18" fill="#33b1dd" />
+  <text x="450" y="48" text-anchor="middle" font-size="32" font-weight="700" fill="#ffffff">1</text>
+  <text x="450" y="88" text-anchor="middle" font-size="30" fill="#202228">モノを決める</text>
+
+  <circle cx="750" cy="40" r="18" fill="#33b1dd" />
+  <text x="750" y="48" text-anchor="middle" font-size="32" font-weight="700" fill="#ffffff">2</text>
+  <text x="750" y="88" text-anchor="middle" font-size="30" fill="#202228">画面を決める</text>
+
+  <circle cx="1050" cy="40" r="18" fill="#33b1dd" />
+  <text x="1050" y="48" text-anchor="middle" font-size="32" font-weight="700" fill="#ffffff">3</text>
+  <text x="1050" y="88" text-anchor="middle" font-size="30" fill="#202228">ならべ方を決める</text>
+
+  <!-- 仕様 -->
+  <rect x="50" y="120" width="200" height="190" rx="8" fill="#f4f5f7" stroke="#b8bec7" stroke-width="2" stroke-dasharray="7 5" />
+  <rect x="72" y="150" width="156" height="12" rx="6" fill="#d3d6db" />
+  <rect x="72" y="190" width="156" height="12" rx="6" fill="#d3d6db" />
+  <rect x="72" y="230" width="156" height="12" rx="6" fill="#d3d6db" />
+  <rect x="72" y="270" width="156" height="12" rx="6" fill="#d3d6db" />
+
+  <line x1="285" y1="225" x2="320" y2="225" stroke="#202228" stroke-width="3" marker-end="url(#sum-arrow)" />
+
+  <!-- オブジェクト -->
+  <rect x="370" y="120" width="160" height="230" rx="8" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M370 128 a8 8 0 0 1 8 -8 h144 a8 8 0 0 1 8 8 v36 h-160 z" fill="#33b1dd" />
+  <text x="450" y="151" text-anchor="middle" font-size="32" font-weight="700" fill="#ffffff">備品</text>
+  <rect x="392" y="182" width="116" height="11" rx="5" fill="#c9ced6" />
+  <rect x="392" y="208" width="116" height="11" rx="5" fill="#c9ced6" />
+  <rect x="392" y="234" width="116" height="11" rx="5" fill="#c9ced6" />
+  <path d="M370 258 h160 v84 a8 8 0 0 1 -8 8 h-144 a8 8 0 0 1 -8 -8 z" fill="#f1f2f4" />
+  <line x1="370" y1="258" x2="530" y2="258" stroke="#33b1dd" stroke-width="2" />
+  <rect x="392" y="278" width="116" height="11" rx="5" fill="#c9ced6" />
+  <rect x="392" y="308" width="116" height="11" rx="5" fill="#c9ced6" />
+
+  <line x1="585" y1="225" x2="620" y2="225" stroke="#202228" stroke-width="3" marker-end="url(#sum-arrow)" />
+
+  <!-- ビュー・ナビゲーション -->
+  <rect x="650" y="140" width="72" height="130" rx="6" fill="#f1f2f4" stroke="#b8bec7" stroke-width="2" />
+  <rect x="662" y="156" width="48" height="9" rx="4" fill="#d3d6db" />
+  <rect x="662" y="184" width="48" height="9" rx="4" fill="#c9ced6" />
+  <rect x="662" y="208" width="48" height="9" rx="4" fill="#c9ced6" />
+  <rect x="662" y="232" width="48" height="9" rx="4" fill="#c9ced6" />
+  <text x="686" y="296" text-anchor="middle" font-size="30" fill="#6b7078">一覧</text>
+
+  <line x1="728" y1="205" x2="782" y2="205" stroke="#202228" stroke-width="2" marker-start="url(#sum-arrow)" marker-end="url(#sum-arrow)" />
+
+  <rect x="788" y="140" width="72" height="130" rx="6" fill="#f1f2f4" stroke="#b8bec7" stroke-width="2" />
+  <rect x="800" y="156" width="48" height="9" rx="4" fill="#d3d6db" />
+  <rect x="800" y="182" width="48" height="20" rx="4" fill="#ffffff" stroke="#c9ced6" stroke-width="2" />
+  <rect x="800" y="212" width="48" height="42" rx="4" fill="#ffffff" stroke="#c9ced6" stroke-width="2" />
+  <text x="824" y="296" text-anchor="middle" font-size="30" fill="#6b7078">詳細</text>
+
+  <line x1="885" y1="225" x2="920" y2="225" stroke="#202228" stroke-width="3" marker-end="url(#sum-arrow)" />
+
+  <!-- レイアウト -->
+  <rect x="950" y="140" width="95" height="140" rx="6" fill="#f4f5f7" stroke="#9aa1ab" stroke-width="2" />
+  <rect x="966" y="158" width="63" height="10" rx="2" fill="#c9ced6" />
+  <rect x="966" y="186" width="63" height="10" rx="2" fill="#c9ced6" />
+  <rect x="966" y="210" width="63" height="10" rx="2" fill="#c9ced6" />
+  <rect x="966" y="234" width="63" height="10" rx="2" fill="#c9ced6" />
+  <circle cx="1022" cy="262" r="11" fill="#c9ced6" />
+
+  <rect x="1065" y="140" width="95" height="140" rx="6" fill="#f4f5f7" stroke="#9aa1ab" stroke-width="2" />
+  <rect x="1081" y="158" width="63" height="10" rx="2" fill="#c9ced6" />
+  <rect x="1081" y="186" width="63" height="24" rx="2" fill="none" stroke="#c9ced6" stroke-width="2" />
+  <rect x="1081" y="220" width="63" height="46" rx="2" fill="none" stroke="#c9ced6" stroke-width="2" />
+
+  <text x="600" y="452" text-anchor="middle" font-size="40" font-weight="700" fill="#1c8fb5">オブジェクトから考える</text>
+</svg>

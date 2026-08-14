@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 190" width="1100" height="190" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 小節の扉で「今どこにいるか」を示す。fig-flow.svg と同じ座標 -->
+  <defs>
+    <marker id="fs3-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9aa1ab" />
+    </marker>
+  </defs>
+
+  <rect x="20" y="40" width="140" height="130" rx="10" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" stroke-dasharray="7 5" />
+  <text x="90" y="117" text-anchor="middle" font-size="34" fill="#9aa1ab">仕様</text>
+  <line x1="170" y1="105" x2="200" y2="105" stroke="#9aa1ab" stroke-width="3" marker-end="url(#fs3-arrow)" />
+
+  <rect x="208" y="40" width="220" height="130" rx="10" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <circle cx="253" cy="40" r="26" fill="#c9ced6" />
+  <text x="253" y="50" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">1</text>
+  <text x="318" y="95" text-anchor="middle" font-size="30" fill="#9aa1ab">モノを決める</text>
+  <text x="318" y="135" text-anchor="middle" font-size="20" fill="#c9ced6">オブジェクト抽出</text>
+  <line x1="438" y1="105" x2="468" y2="105" stroke="#9aa1ab" stroke-width="3" marker-end="url(#fs3-arrow)" />
+
+  <rect x="476" y="40" width="260" height="130" rx="10" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <circle cx="521" cy="40" r="26" fill="#c9ced6" />
+  <text x="521" y="50" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">2</text>
+  <text x="606" y="95" text-anchor="middle" font-size="30" fill="#9aa1ab">画面を決める</text>
+  <text x="606" y="135" text-anchor="middle" font-size="20" fill="#c9ced6">ビュー・ナビゲーション</text>
+  <line x1="746" y1="105" x2="776" y2="105" stroke="#9aa1ab" stroke-width="3" marker-end="url(#fs3-arrow)" />
+
+  <rect x="784" y="40" width="280" height="130" rx="10" fill="#e8f6fc" stroke="#33b1dd" stroke-width="3" />
+  <circle cx="829" cy="40" r="26" fill="#33b1dd" />
+  <text x="829" y="50" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">3</text>
+  <text x="924" y="95" text-anchor="middle" font-size="30" font-weight="700" fill="#202228">ならべ方を決める</text>
+  <text x="924" y="135" text-anchor="middle" font-size="20" fill="#6b7078">レイアウト</text>
+</svg>

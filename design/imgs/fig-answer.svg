@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 500" width="460" height="500" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- ハンズオン③の答え。ビューが2つ、そのあいだを行き来する。
+       行の形は13枚目の一覧と揃えてある -->
+  <defs>
+    <marker id="ans-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#202228" />
+    </marker>
+  </defs>
+
+  <!-- ===== コレクションビュー ===== -->
+  <rect x="10" y="10" width="440" height="220" rx="10" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M10 20 a10 10 0 0 1 10 -10 h420 a10 10 0 0 1 10 10 v30 h-440 z" fill="#33b1dd" />
+  <text x="230" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">備品の一覧</text>
+
+  <!-- 1行目: 貸出中 -->
+  <rect x="24" y="60" width="412" height="50" rx="7" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="34" y="66" width="38" height="38" rx="5" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="43" y="74" width="20" height="14" rx="1" fill="none" stroke="#6b7078" stroke-width="2" />
+  <path d="M38 96 h30 l-3 -4 h-24 z" fill="none" stroke="#6b7078" stroke-width="2" stroke-linejoin="round" />
+  <rect x="86" y="74" width="110" height="9" rx="4" fill="#c9ced6" />
+  <rect x="86" y="90" width="42" height="7" rx="3" fill="#d3d6db" />
+  <rect x="344" y="71" width="82" height="28" rx="14" fill="#ffffff" stroke="#33b1dd" stroke-width="2" />
+  <text x="385" y="90" text-anchor="middle" font-size="16" font-weight="700" fill="#1c8fb5">返す</text>
+
+  <!-- 2行目 -->
+  <rect x="24" y="116" width="412" height="50" rx="7" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="34" y="122" width="38" height="38" rx="5" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="46" y="129" width="14" height="24" rx="2" fill="none" stroke="#6b7078" stroke-width="2" />
+  <rect x="86" y="130" width="110" height="9" rx="4" fill="#c9ced6" />
+  <rect x="86" y="146" width="42" height="7" rx="3" fill="#d3d6db" />
+  <rect x="344" y="127" width="82" height="28" rx="14" fill="#33b1dd" />
+  <text x="385" y="146" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">借りる</text>
+
+  <!-- 3行目 -->
+  <rect x="24" y="172" width="412" height="50" rx="7" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="34" y="178" width="38" height="38" rx="5" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="45" y="185" width="16" height="24" rx="2" fill="none" stroke="#6b7078" stroke-width="2" />
+  <circle cx="53" cy="192" r="2.6" fill="none" stroke="#6b7078" stroke-width="1.6" />
+  <rect x="86" y="186" width="110" height="9" rx="4" fill="#c9ced6" />
+  <rect x="86" y="202" width="42" height="7" rx="3" fill="#d3d6db" />
+  <rect x="344" y="183" width="82" height="28" rx="14" fill="#33b1dd" />
+  <text x="385" y="202" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">借りる</text>
+
+  <!-- ===== 行き来 ===== -->
+  <line x1="230" y1="240" x2="230" y2="272" stroke="#202228" stroke-width="3" marker-start="url(#ans-arrow)" marker-end="url(#ans-arrow)" />
+
+  <!-- ===== シングルビュー ===== -->
+  <rect x="10" y="282" width="440" height="208" rx="10" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M10 292 a10 10 0 0 1 10 -10 h420 a10 10 0 0 1 10 10 v30 h-440 z" fill="#33b1dd" />
+  <text x="230" y="314" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">備品の詳細</text>
+  <path d="M42 302 L32 308 L42 314" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <rect x="34" y="336" width="62" height="62" rx="8" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="49" y="349" width="32" height="22" rx="2" fill="none" stroke="#6b7078" stroke-width="2.5" />
+  <path d="M42 381 h46 l-5 -6 h-36 z" fill="none" stroke="#6b7078" stroke-width="2.5" stroke-linejoin="round" />
+
+  <text x="112" y="352" font-size="16" fill="#6b7078">名前</text>
+  <rect x="112" y="360" width="130" height="11" rx="5" fill="#c9ced6" />
+  <text x="112" y="390" font-size="16" fill="#6b7078">数</text>
+  <rect x="112" y="398" width="52" height="9" rx="4" fill="#d3d6db" />
+
+  <rect x="34" y="428" width="150" height="34" rx="17" fill="#33b1dd" />
+  <text x="109" y="451" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">借りる</text>
+</svg>

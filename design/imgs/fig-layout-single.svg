@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" width="700" height="340" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 詳細のならべ方の型。属性だけ／関連を少し見せる／関連を一覧で見せる。
+       今日の備品貸出は1つめ -->
+
+  <!-- 属性とアクションだけ -->
+  <rect x="20" y="20" width="190" height="230" rx="8" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <rect x="36" y="38" width="60" height="60" rx="5" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="108" y="48" width="86" height="10" rx="5" fill="#c9ced6" />
+  <rect x="108" y="72" width="52" height="9" rx="4" fill="#d3d6db" />
+  <rect x="36" y="118" width="158" height="10" rx="5" fill="#c9ced6" />
+  <rect x="36" y="142" width="120" height="10" rx="5" fill="#c9ced6" />
+  <rect x="36" y="196" width="110" height="30" rx="15" fill="#33b1dd" />
+  <text x="115" y="292" text-anchor="middle" font-size="30" font-weight="700" fill="#1c8fb5">属性だけ</text>
+  <text x="115" y="326" text-anchor="middle" font-size="24" fill="#6b7078">中身とアクション</text>
+
+  <!-- 関連を少し見せる -->
+  <rect x="255" y="20" width="190" height="230" rx="8" fill="#ffffff" stroke="#9aa1ab" stroke-width="2" />
+  <rect x="271" y="38" width="60" height="60" rx="5" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="343" y="48" width="86" height="10" rx="5" fill="#c9ced6" />
+  <rect x="343" y="72" width="52" height="9" rx="4" fill="#d3d6db" />
+  <line x1="271" y1="118" x2="429" y2="118" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="271" y="132" width="70" height="9" rx="4" fill="#d3d6db" />
+  <rect x="271" y="154" width="48" height="48" rx="5" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="329" y="154" width="48" height="48" rx="5" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="387" y="154" width="42" height="48" rx="5" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="350" y="292" text-anchor="middle" font-size="30" fill="#6b7078">関連を少し</text>
+  <text x="350" y="326" text-anchor="middle" font-size="24" fill="#6b7078">別のモノを添える</text>
+
+  <!-- 関連を一覧で見せる -->
+  <rect x="490" y="20" width="190" height="230" rx="8" fill="#ffffff" stroke="#9aa1ab" stroke-width="2" />
+  <rect x="506" y="38" width="52" height="52" rx="5" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="570" y="48" width="94" height="10" rx="5" fill="#c9ced6" />
+  <rect x="570" y="70" width="52" height="9" rx="4" fill="#d3d6db" />
+  <line x1="506" y1="108" x2="664" y2="108" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="506" y="122" width="158" height="30" rx="4" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="506" y="160" width="158" height="30" rx="4" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="506" y="198" width="158" height="30" rx="4" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="585" y="292" text-anchor="middle" font-size="30" fill="#6b7078">関連を一覧で</text>
+  <text x="585" y="326" text-anchor="middle" font-size="24" fill="#6b7078">別のモノを並べる</text>
+</svg>

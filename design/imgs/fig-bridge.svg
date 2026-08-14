@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 380" width="1140" height="380" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="br-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#33b1dd" />
+    </marker>
+  </defs>
+
+  <text x="200" y="52" text-anchor="middle" font-size="28" fill="#6b7078">画面の部品</text>
+  <text x="860" y="52" text-anchor="middle" font-size="28" fill="#6b7078">今日つかう言葉</text>
+
+  <!-- 見せるもの → ビュー -->
+  <text x="200" y="160" text-anchor="middle" font-size="40" font-weight="700" fill="#202228">見せるもの</text>
+  <text x="480" y="132" text-anchor="middle" font-size="26" fill="#6b7078">が集まると</text>
+  <line x1="400" y1="152" x2="560" y2="152" stroke="#33b1dd" stroke-width="4" marker-end="url(#br-arrow)" />
+  <text x="600" y="152" font-size="44" font-weight="700" fill="#1c8fb5">ビュー</text>
+  <text x="600" y="198" font-size="28" fill="#6b7078">モノが見えているところ</text>
+
+  <!-- 操作するもの → アクション -->
+  <text x="200" y="300" text-anchor="middle" font-size="40" font-weight="700" fill="#202228">操作するもの</text>
+  <text x="480" y="272" text-anchor="middle" font-size="26" fill="#6b7078">がすることが</text>
+  <line x1="400" y1="292" x2="560" y2="292" stroke="#33b1dd" stroke-width="4" marker-end="url(#br-arrow)" />
+  <text x="600" y="292" font-size="44" font-weight="700" fill="#1c8fb5">アクション</text>
+  <text x="600" y="338" font-size="28" fill="#6b7078">モノにできること</text>
+</svg>

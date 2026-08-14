@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 430" width="400" height="430" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- コレクションビュー。同じオブジェクトが複数ならんでいる。
+       行の形は13枚目の一覧と揃えてある（アイコン・名前・数・ボタン） -->
+  <rect x="20" y="20" width="360" height="340" rx="12" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M20 32 a12 12 0 0 1 12 -12 h336 a12 12 0 0 1 12 12 v44 h-360 z" fill="#33b1dd" />
+  <text x="200" y="62" text-anchor="middle" font-size="36" font-weight="700" fill="#ffffff">備品の一覧</text>
+
+  <!-- ノートPC: 貸出中 -->
+  <rect x="44" y="98" width="312" height="72" rx="8" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="58" y="108" width="52" height="52" rx="6" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="71" y="120" width="26" height="18" rx="2" fill="none" stroke="#6b7078" stroke-width="2.5" />
+  <path d="M65 147 h38 l-4 -5 h-30 z" fill="none" stroke="#6b7078" stroke-width="2.5" stroke-linejoin="round" />
+  <rect x="124" y="118" width="98" height="12" rx="6" fill="#c9ced6" />
+  <rect x="124" y="142" width="44" height="10" rx="5" fill="#d3d6db" />
+  <rect x="244" y="118" width="98" height="32" rx="16" fill="#ffffff" stroke="#33b1dd" stroke-width="2" />
+  <text x="293" y="140" text-anchor="middle" font-size="19" font-weight="700" fill="#1c8fb5">返す</text>
+
+  <!-- タブレット: 棚にある -->
+  <rect x="44" y="180" width="312" height="72" rx="8" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="58" y="190" width="52" height="52" rx="6" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="75" y="199" width="18" height="34" rx="3" fill="none" stroke="#6b7078" stroke-width="2.5" />
+  <circle cx="84" cy="228" r="1.6" fill="#6b7078" />
+  <rect x="124" y="200" width="98" height="12" rx="6" fill="#c9ced6" />
+  <rect x="124" y="224" width="44" height="10" rx="5" fill="#d3d6db" />
+  <rect x="244" y="200" width="98" height="32" rx="16" fill="#33b1dd" />
+  <text x="293" y="222" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">借りる</text>
+
+  <!-- スピーカー: 棚にある -->
+  <rect x="44" y="262" width="312" height="72" rx="8" fill="#ffffff" stroke="#e3e6ea" stroke-width="2" />
+  <rect x="58" y="272" width="52" height="52" rx="6" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="74" y="281" width="20" height="34" rx="3" fill="none" stroke="#6b7078" stroke-width="2.5" />
+  <circle cx="84" cy="291" r="3.4" fill="none" stroke="#6b7078" stroke-width="2" />
+  <circle cx="84" cy="305" r="5" fill="none" stroke="#6b7078" stroke-width="2" />
+  <rect x="124" y="282" width="98" height="12" rx="6" fill="#c9ced6" />
+  <rect x="124" y="306" width="44" height="10" rx="5" fill="#d3d6db" />
+  <rect x="244" y="282" width="98" height="32" rx="16" fill="#33b1dd" />
+  <text x="293" y="304" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">借りる</text>
+
+  <text x="200" y="404" text-anchor="middle" font-size="32" fill="#6b7078">同じ備品が、並んでいる</text>
+</svg>

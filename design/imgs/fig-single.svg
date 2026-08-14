@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 430" width="400" height="430" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- シングルビュー。オブジェクトが1つだけ見えていて、属性が並ぶ -->
+  <rect x="20" y="20" width="360" height="340" rx="12" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M20 32 a12 12 0 0 1 12 -12 h336 a12 12 0 0 1 12 12 v44 h-360 z" fill="#33b1dd" />
+  <text x="200" y="62" text-anchor="middle" font-size="36" font-weight="700" fill="#ffffff">備品の詳細</text>
+  <path d="M60 48 L46 55 L60 62" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- 1つの備品。ノートPCのアイコンを大きく置く -->
+  <rect x="44" y="100" width="90" height="90" rx="10" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <rect x="64" y="122" width="50" height="34" rx="3" fill="none" stroke="#6b7078" stroke-width="3" />
+  <path d="M56 172 h66 l-6 -8 h-54 z" fill="none" stroke="#6b7078" stroke-width="3" stroke-linejoin="round" />
+
+  <text x="152" y="130" font-size="26" fill="#6b7078">名前</text>
+  <text x="152" y="164" font-size="32" fill="#202228">ノートPC</text>
+
+  <text x="44" y="228" font-size="26" fill="#6b7078">数</text>
+  <text x="44" y="262" font-size="32" fill="#202228">3台</text>
+
+  <!-- 借りるアクション -->
+  <rect x="44" y="292" width="180" height="48" rx="24" fill="#33b1dd" />
+  <text x="134" y="324" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">借りる</text>
+
+  <text x="200" y="404" text-anchor="middle" font-size="32" fill="#6b7078">備品が、1つだけ見える</text>
+</svg>
