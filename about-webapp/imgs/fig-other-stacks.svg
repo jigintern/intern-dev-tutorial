@@ -35,6 +35,6 @@
   <text x="770" y="335" text-anchor="middle" font-size="26" fill="#1c2126">Firebase・Supabase</text>
   <text x="957" y="409" text-anchor="middle" font-size="26" fill="#1c2126">MySQL・MongoDB</text>
 
-  <text x="584" y="485" text-anchor="middle" font-size="26" fill="#1c2126"><tspan font-weight="bold">公開する場所</tspan>：Deno Deploy・Cloudflare Workers・AWS Lambda</text>
+  <text x="584" y="485" text-anchor="middle" font-size="26" fill="#1c2126"><tspan font-weight="bold">動かす環境</tspan>：Deno Deploy・Cloudflare Workers・AWS Lambda</text>
 
 </svg>
