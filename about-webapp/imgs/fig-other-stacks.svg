@@ -3,44 +3,60 @@
 
   <rect x="0" y="0" width="1168" height="510" fill="#ffffff"/>
 
-  <text x="442" y="66" text-anchor="middle" font-size="32" fill="#5c6570">今回つかうもの</text>
-  <text x="932" y="66" text-anchor="middle" font-size="32" fill="#5c6570">ほかにも</text>
+  <text x="424" y="30" text-anchor="middle" font-size="30" fill="#5c6570">今回つかうもの</text>
+  <text x="914" y="30" text-anchor="middle" font-size="30" fill="#5c6570">ほかにも</text>
 
-  <rect x="24" y="90"  width="220" height="126" fill="#eef3f8"/>
-  <rect x="24" y="216" width="220" height="126" fill="#fbf0ea"/>
-  <rect x="24" y="342" width="220" height="126" fill="#eef4f0"/>
+  <rect x="24" y="50"  width="200" height="112" fill="#eef3f8"/>
+  <rect x="24" y="162" width="200" height="112" fill="#fbf0ea"/>
+  <rect x="24" y="274" width="200" height="112" fill="#eef4f0"/>
+  <rect x="24" y="386" width="200" height="112" fill="#f2f1ed"/>
 
-  <rect x="24" y="90" width="1120" height="378" fill="none" stroke="#8f8b82" stroke-width="3"/>
-  <line x1="244" y1="90" x2="244" y2="468" stroke="#8f8b82" stroke-width="2"/>
-  <line x1="640" y1="90" x2="640" y2="468" stroke="#cdcac1" stroke-width="2"/>
-  <line x1="720" y1="90" x2="720" y2="468" stroke="#cdcac1" stroke-width="2"/>
-  <line x1="24" y1="216" x2="1144" y2="216" stroke="#8f8b82" stroke-width="2"/>
-  <line x1="24" y1="342" x2="1144" y2="342" stroke="#8f8b82" stroke-width="2"/>
+  <rect x="24" y="50" width="1120" height="448" fill="none" stroke="#8f8b82" stroke-width="3"/>
+  <line x1="224" y1="50" x2="224" y2="498" stroke="#8f8b82" stroke-width="2"/>
+  <line x1="624" y1="50" x2="624" y2="498" stroke="#cdcac1" stroke-width="2"/>
+  <line x1="684" y1="50" x2="684" y2="498" stroke="#cdcac1" stroke-width="2"/>
+  <line x1="24" y1="162" x2="1144" y2="162" stroke="#8f8b82" stroke-width="2"/>
+  <line x1="24" y1="274" x2="1144" y2="274" stroke="#8f8b82" stroke-width="2"/>
+  <line x1="24" y1="386" x2="1144" y2="386" stroke="#8f8b82" stroke-width="2"/>
 
-  <text x="134" y="168" text-anchor="middle" font-size="46" font-weight="bold" fill="#17558f">画面</text>
-  <text x="134" y="294" text-anchor="middle" font-size="46" font-weight="bold" fill="#b8501e">処理</text>
-  <text x="134" y="420" text-anchor="middle" font-size="46" font-weight="bold" fill="#2c6b4f">保存</text>
+  <text x="124" y="121" text-anchor="middle" font-size="46" font-weight="bold" fill="#17558f">画面</text>
+  <text x="124" y="233" text-anchor="middle" font-size="46" font-weight="bold" fill="#b8501e">処理</text>
+  <text x="124" y="345" text-anchor="middle" font-size="46" font-weight="bold" fill="#2c6b4f">保存</text>
+  <text x="124" y="453" text-anchor="middle" font-size="32" font-weight="bold" fill="#5c6570">動かす場所</text>
 
-  <text x="442" y="166" text-anchor="middle" font-size="28" fill="#1c2126">HTML・CSS・JavaScript</text>
-  <text x="442" y="292" text-anchor="middle" font-size="28" fill="#1c2126">JavaScript（Deno）</text>
-  <text x="442" y="418" text-anchor="middle" font-size="28" fill="#1c2126">Deno KV</text>
+  <text x="424" y="115" text-anchor="middle" font-size="26" fill="#1c2126">HTML・CSS・JavaScript</text>
+  <text x="424" y="227" text-anchor="middle" font-size="26" fill="#1c2126">JavaScript（Deno）</text>
+  <text x="424" y="339" text-anchor="middle" font-size="26" fill="#1c2126">Deno KV</text>
+  <text x="424" y="451" text-anchor="middle" font-size="26" fill="#1c2126">Deno Deploy</text>
 
   <g stroke="#8f8b82" stroke-width="3" fill="#8f8b82">
-    <line x1="660" y1="153" x2="700" y2="153"/>
-    <polygon points="654,153 670,146 670,160" stroke="none"/>
-    <polygon points="706,153 690,146 690,160" stroke="none"/>
+    <line x1="640" y1="106" x2="668" y2="106"/>
+    <polygon points="632,106 646,99 646,113" stroke="none"/>
+    <polygon points="676,106 662,99 662,113" stroke="none"/>
 
-    <line x1="660" y1="279" x2="700" y2="279"/>
-    <polygon points="654,279 670,272 670,286" stroke="none"/>
-    <polygon points="706,279 690,272 690,286" stroke="none"/>
+    <line x1="640" y1="218" x2="668" y2="218"/>
+    <polygon points="632,218 646,211 646,225" stroke="none"/>
+    <polygon points="676,218 662,211 662,225" stroke="none"/>
 
-    <line x1="660" y1="405" x2="700" y2="405"/>
-    <polygon points="654,405 670,398 670,412" stroke="none"/>
-    <polygon points="706,405 690,398 690,412" stroke="none"/>
+    <line x1="640" y1="330" x2="668" y2="330"/>
+    <polygon points="632,330 646,323 646,337" stroke="none"/>
+    <polygon points="676,330 662,323 662,337" stroke="none"/>
+
+    <line x1="640" y1="442" x2="668" y2="442"/>
+    <polygon points="632,442 646,435 646,449" stroke="none"/>
+    <polygon points="676,442 662,435 662,449" stroke="none"/>
   </g>
 
-  <text x="932" y="166" text-anchor="middle" font-size="28" fill="#5c6570">React・Vue・Angular</text>
-  <text x="932" y="292" text-anchor="middle" font-size="28" fill="#5c6570">Python・Java・PHP</text>
-  <text x="932" y="418" text-anchor="middle" font-size="28" fill="#5c6570">MySQL・MongoDB</text>
+  <text x="914" y="99" text-anchor="middle" font-size="26" font-weight="bold" fill="#1c2126">メタフレームワーク</text>
+  <text x="914" y="130" text-anchor="middle" font-size="22" fill="#5c6570">Next.js・Nuxt・SvelteKit・Astro</text>
+
+  <text x="914" y="211" text-anchor="middle" font-size="26" font-weight="bold" fill="#1c2126">サーバーサイドフレームワーク</text>
+  <text x="914" y="242" text-anchor="middle" font-size="22" fill="#5c6570">Hono・NestJS</text>
+
+  <text x="914" y="323" text-anchor="middle" font-size="26" font-weight="bold" fill="#1c2126">データベース</text>
+  <text x="914" y="354" text-anchor="middle" font-size="22" fill="#5c6570">MySQL・PostgreSQL・MongoDB</text>
+
+  <text x="914" y="435" text-anchor="middle" font-size="26" font-weight="bold" fill="#1c2126">クラウドの実行環境</text>
+  <text x="914" y="466" text-anchor="middle" font-size="22" fill="#5c6570">Cloudflare Workers・AWS Lambda</text>
 
 </svg>
