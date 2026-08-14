@@ -6,7 +6,7 @@
 
 /* ===== レイアウト基盤 ===== */
 section {
-  font-size: 22px;
+  font-size: 26px;
   place-content: center stretch;
   position: relative;
 }
