@@ -382,12 +382,12 @@ Webアプリケーションとは<br>ブラウザの中で動くアプリケー�
 
 ---
 <!-- 迷っている2案。決めたら片方のスライドと SVG を消す -->
-## インターンのあとで ①カテゴリ別
+## Tips
 
 ![](imgs/fig-other-stacks.svg)
 
 ---
-## インターンのあとで ②役割別
+## Tips
 
 ![](imgs/fig-other-stacks-roles.svg)
 
