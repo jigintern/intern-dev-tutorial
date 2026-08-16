@@ -1,4 +1,4 @@
-# Git / Github 学習資料
+# Git / GitHub 学習資料
 
 ## 0. 事前準備
 ### 0-1. Git をインストールする
@@ -26,26 +26,26 @@ git config --global user.name "自分の名前"
 git config --global user.email "自分のメールアドレス"
 ```
 
-### 0-4. Github アカウントを準備する
+### 0-4. GitHub アカウントを準備する
 
-[Github](https://github.com/) のアカウントを作成しておいてください。  
-VSCode から Github へのサインインは、本編（2-5. push）の中で行います。
+[GitHub](https://github.com/) のアカウントを作成しておいてください。  
+VSCode から GitHub へのサインインは、本編（2-5. push）の中で行います。
 
 ## 1. 目次
 
 1. [導入編 (10min)](./docs.md#1-導入編)
     - 1-1. [Gitとは何か？](./docs.md#1-1-gitとは何か)
-    - 1-2. [Githubとは何か？](./docs.md#1-2-githubとは何か)
+    - 1-2. [GitHubとは何か？](./docs.md#1-2-githubとは何か)
     - 1-3. [VSCodeのGit機能とは何か？](./docs.md#1-3-vscodeのgit機能とは何か)
 
 2. [VSCodeのGit機能を触ってみよう (50min)](./docs.md#2-vscodeのgit機能を触ってみよう)
-    - 2-1. [clone: Githubリポジトリを丸ごとダウンロードしよう](./docs.md#2-1-clone-githubリポジトリを丸ごとダウンロードしよう)
+    - 2-1. [clone: GitHubリポジトリを丸ごとダウンロードしよう](./docs.md#2-1-clone-githubリポジトリを丸ごとダウンロードしよう)
     - 2-2. [branch: 作業を枝分かれさせよう](./docs.md#2-2-branch-作業を枝分かれさせよう)
     - 2-3. [commit: 作業前と後の**差分を記録**しよう](./docs.md#2-3-commit-作業前と後の差分を記録しよう)
     - 2-4. [log: 作業の履歴を確認しよう](./docs.md#2-4-log-作業の履歴を確認しよう)
-    - 2-5. [push: 作業の成果をGithubにアップロードして共有しよう](./docs.md#2-5-push-作業の成果をgithubにアップロードして共有しよう)
+    - 2-5. [push: 作業の成果をGitHubにアップロードして共有しよう](./docs.md#2-5-push-作業の成果をgithubにアップロードして共有しよう)
     - 2-6. [Pull Request: 枝分かれした成果を結合しよう](./docs.md#2-6-pull-request-枝分かれした成果を結合しよう)
-    - 2-7. [fetch / pull: Githubリポジトリの変更部分をダウンロードしよう](./docs.md#2-7-fetch--pull-githubリポジトリの変更部分をダウンロードしよう)
+    - 2-7. [fetch / pull: GitHubリポジトリの変更部分をダウンロードしよう](./docs.md#2-7-fetch--pull-githubリポジトリの変更部分をダウンロードしよう)
 
 
 ## 2. URL

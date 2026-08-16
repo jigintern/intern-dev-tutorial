@@ -12,7 +12,7 @@ paginate: true
 
 ## 1. 導入編
 
-_Git・Github・VSCodeのGit機能について知ろう！_
+_Git・GitHub・VSCodeのGit機能について知ろう！_
 
 ---
 
@@ -96,14 +96,14 @@ header: 1-1. Gitとは何か？
 ---
 
 <!--
-header: 1-2. Githubとは何か？
+header: 1-2. GitHubとは何か？
 -->
 
-## 1-2. Githubとは何か？
+## 1-2. GitHubとは何か？
 
 ---
 
-### Githubとは何か？
+### GitHubとは何か？
 
 > GitHub（ギットハブ）は、ソフトウェア開発のプラットフォームであり、ソースコードをホスティングする。コードのバージョン管理システムにはGitを使用する。  
 > 出典: https://ja.wikipedia.org/wiki/GitHub
@@ -150,7 +150,7 @@ PC上のデータが吹っ飛んでも、オンラインに残ります
 
 ---
 
-### Githubとは何か？
+### GitHubとは何か？
 
 gitをオンラインで管理するやつ
 
@@ -206,14 +206,14 @@ _VSCodeのGit機能を実際に使ってみよう！_
 ---
 
 <!--
-header: 2-1. clone: Githubリポジトリを丸ごとダウンロードしよう
+header: 2-1. clone: GitHubリポジトリを丸ごとダウンロードしよう
 -->
 
-### 2-1. clone: Githubリポジトリを丸ごとダウンロードしよう
+### 2-1. clone: GitHubリポジトリを丸ごとダウンロードしよう
 
 ---
 
-### Githubからリポジトリをダウンロードしてみましょう
+### GitHubからリポジトリをダウンロードしてみましょう
 
 これをclone（クローン）と呼びます
 
@@ -267,7 +267,7 @@ Zoomのチャット欄にも記載します
 
 ---
 
-###### 6. エクスプローラーに、Githubにアップロードされていたファイルが表示されていることを確認します
+###### 6. エクスプローラーに、GitHubにアップロードされていたファイルが表示されていることを確認します
 
 ![height:460px](./imgs/screen-shots/07_view_cloned_files.png)
 
@@ -432,14 +432,14 @@ header: 2-4. log: 作業の履歴を確認しよう
 ---
 
 <!--
-header: 2-5. push: 作業の成果をGithubにアップロードして共有しよう
+header: 2-5. push: 作業の成果をGitHubにアップロードして共有しよう
 -->
 
-### 2-5. push: 作業の成果をGithubにアップロードして共有しよう
+### 2-5. push: 作業の成果をGitHubにアップロードして共有しよう
 
 ---
 
-### 作業の成果をGithubにアップロードしてみましょう
+### 作業の成果をGitHubにアップロードしてみましょう
 
 これをpush（プッシュ）と呼びます
 
@@ -455,19 +455,19 @@ header: 2-5. push: 作業の成果をGithubにアップロードして共有し�
 
 ---
 
-###### 2. 初回はGithubへのサインインを求められるので、「許可 (Allow)」をクリックします
+###### 2. 初回はGitHubへのサインインを求められるので、「許可 (Allow)」をクリックします
 
 ![height:460px](./imgs/screen-shots/19_github_signin_dialog.png)
 
 ---
 
-###### 3. ブラウザが開くので、Githubにログインして「Authorize Visual-Studio-Code」をクリックし、VSCodeに戻ります
+###### 3. ブラウザが開くので、GitHubにログインして「Authorize Visual-Studio-Code」をクリックし、VSCodeに戻ります
 
 ![height:460px](./imgs/screen-shots/20_github_authorize_browser.png)
 
 ---
 
-###### 4. ブラウザでGithubを開き、プッシュしたブランチが正しく反映されていることを確認します
+###### 4. ブラウザでGitHubを開き、プッシュしたブランチが正しく反映されていることを確認します
 
 ![height:460px](./imgs/screen-shots/21_confirm_publish.png)
 
@@ -497,7 +497,7 @@ header: 2-6. Pull Request: 枝分かれした成果を結合しよう
 
 ---
 
-### GithubのPull Request（プルリクエスト）機能を使いましょう！
+### GitHubのPull Request（プルリクエスト）機能を使いましょう！
 
 ---
 
@@ -505,7 +505,7 @@ header: 2-6. Pull Request: 枝分かれした成果を結合しよう
 
 ---
 
-###### 1. Githubで「Pull requests」のタブをクリック
+###### 1. GitHubで「Pull requests」のタブをクリック
 
 ![height:460px](./imgs/screen-shots/22_new_pull_request.png)
 
@@ -531,7 +531,7 @@ header: 2-6. Pull Request: 枝分かれした成果を結合しよう
 
 ### 5. 他開発者に、Pull Requestの確認を依頼します
 
-SlackやGithub上でのコメントなど、適宜チーム内で決定した方法で依頼しましょう
+SlackやGitHub上でのコメントなど、適宜チーム内で決定した方法で依頼しましょう
 
 ---
 
@@ -561,30 +561,30 @@ SlackやGithub上でのコメントなど、適宜チーム内で決定した方
 
 ##### 8. mainブランチを確認して、変更内容が正しく取り込まれていることを確認します
 
-Githubで開いてみましょう
+GitHubで開いてみましょう
 
 ---
 
 <!--
-header: 2-7. fetch / pull: Githubリポジトリの変更部分をダウンロードしよう
+header: 2-7. fetch / pull: GitHubリポジトリの変更部分をダウンロードしよう
 -->
 
-### 2-7. fetch / pull: Githubリポジトリの変更部分をダウンロードしよう
+### 2-7. fetch / pull: GitHubリポジトリの変更部分をダウンロードしよう
 
 ---
 
-### Githubの更新を、PC上に取り込みましょう
+### GitHubの更新を、PC上に取り込みましょう
 
 これをfetch（フェッチ） / pull（プル）と呼びます
 
 ---
 
-fetch（フェッチ）は、Github上のリモートリポジトリの**変更を確認**する操作です。  
-pull（プル）は、Github上のリモートリポジトリの**変更をダウンロード**する操作です。
+fetch（フェッチ）は、GitHub上のリモートリポジトリの**変更を確認**する操作です。  
+pull（プル）は、GitHub上のリモートリポジトリの**変更をダウンロード**する操作です。
 
 ---
 
-1. fetchしてGithubの変更を確認して
+1. fetchしてGitHubの変更を確認して
 2. pullしてその変更を取り込む
 
 ---
@@ -609,7 +609,7 @@ pull（プル）は、Github上のリモートリポジトリの**変更をダ�
 
 ---
 
-###### 2-2. これだけでは変更内容は取り込まれませんが、Github上で変更があったことをVSCodeが認識します
+###### 2-2. これだけでは変更内容は取り込まれませんが、GitHub上で変更があったことをVSCodeが認識します
 
 ![height:460px](./imgs/screen-shots/29_fetch_pull_menu.png)
 
@@ -652,11 +652,11 @@ section {
 }
 </style>
 
-1. clone: Githubリポジトリを丸ごとダウンロードする
+1. clone: GitHubリポジトリを丸ごとダウンロードする
 2. branch: 作業を枝分かれさせて、他の開発者との衝突を防止する
 3. 通常通りに、プログラムを書く
 4. commit: 作業前と後の**差分を記録**する
-5. push: 作業の成果をGithubにアップロードして共有する
+5. push: 作業の成果をGitHubにアップロードして共有する
 6. Pull Request: 枝分かれした成果を結合する
 7. review: 他の開発者の作業内容を確認する
 
