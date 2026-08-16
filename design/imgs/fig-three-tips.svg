@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 40 1020 286" width="1020" height="286" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="tip-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#33b1dd" />
+    </marker>
+    <marker id="gaze-tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#e0574a" />
+    </marker>
+  </defs>
+
+  <!-- 1. 余白（中心 170） -->
+  <rect x="15" y="60" width="120" height="196" rx="12" fill="#ffffff" stroke="#c9ced6" stroke-width="3" />
+  <rect x="29" y="76" width="92" height="12" rx="6" fill="#c9ced6" />
+  <rect x="29" y="94" width="80" height="12" rx="6" fill="#e6e8ec" />
+  <rect x="29" y="112" width="92" height="12" rx="6" fill="#e6e8ec" />
+  <rect x="29" y="130" width="70" height="12" rx="6" fill="#e6e8ec" />
+  <rect x="29" y="148" width="92" height="12" rx="6" fill="#e6e8ec" />
+  <rect x="29" y="166" width="84" height="12" rx="6" fill="#e6e8ec" />
+  <rect x="29" y="184" width="92" height="12" rx="6" fill="#e6e8ec" />
+  <rect x="29" y="204" width="60" height="26" rx="6" fill="#33b1dd" />
+  <text x="80" y="310" text-anchor="middle" font-size="24" fill="#e0574a">詰めすぎ</text>
+
+  <line x1="149" y1="158" x2="191" y2="158" stroke="#33b1dd" stroke-width="3" marker-end="url(#tip-arrow)" />
+
+  <rect x="205" y="60" width="120" height="196" rx="12" fill="#ffffff" stroke="#c9ced6" stroke-width="3" />
+  <rect x="223" y="88" width="84" height="14" rx="7" fill="#c9ced6" />
+  <rect x="223" y="126" width="70" height="12" rx="6" fill="#e6e8ec" />
+  <rect x="223" y="160" width="84" height="12" rx="6" fill="#e6e8ec" />
+  <rect x="223" y="200" width="84" height="30" rx="8" fill="#33b1dd" />
+  <text x="265" y="310" text-anchor="middle" font-size="26" fill="#1c8fb5">すき間あり</text>
+
+  <line x1="340" y1="40" x2="340" y2="300" stroke="#e6e8ec" stroke-width="2" />
+
+  <!-- 2. 読みやすい色と文字（中心 510） -->
+  <rect x="390" y="56" width="240" height="80" rx="12" fill="#f4f5f7" stroke="#c9ced6" stroke-width="3" />
+  <text x="510" y="102" text-anchor="middle" font-size="15" fill="#dcdfe4">小さくて、うすい文字</text>
+  <line x1="510" y1="146" x2="510" y2="174" stroke="#33b1dd" stroke-width="3" marker-end="url(#tip-arrow)" />
+  <rect x="390" y="184" width="240" height="80" rx="12" fill="#ffffff" stroke="#c9ced6" stroke-width="3" />
+  <text x="510" y="234" text-anchor="middle" font-size="28" font-weight="700" fill="#202228">大きく、濃い文字</text>
+  <text x="510" y="310" text-anchor="middle" font-size="26" fill="#1c8fb5">メリハリをはっきり</text>
+
+  <line x1="680" y1="40" x2="680" y2="300" stroke="#e6e8ec" stroke-width="2" />
+
+  <!-- 3. 視線の流れ（中心 850） -->
+  <rect x="725" y="60" width="250" height="196" rx="12" fill="#ffffff" stroke="#c9ced6" stroke-width="3" />
+  <rect x="745" y="82" width="130" height="14" rx="7" fill="#c9ced6" />
+  <rect x="745" y="118" width="200" height="11" rx="5" fill="#e6e8ec" />
+  <rect x="745" y="144" width="170" height="11" rx="5" fill="#e6e8ec" />
+  <rect x="835" y="196" width="112" height="38" rx="8" fill="#33b1dd" />
+  <text x="891" y="221" text-anchor="middle" font-size="18" fill="#ffffff">借りる</text>
+  <path d="M747 76 L943 76 L747 168 L907 200" fill="none" stroke="#e0574a" stroke-width="3" stroke-dasharray="10 7" stroke-linejoin="round" marker-end="url(#gaze-tip)" />
+  <text x="850" y="310" text-anchor="middle" font-size="26" fill="#1c8fb5">上から下へ、左から右へ</text>
+</svg>

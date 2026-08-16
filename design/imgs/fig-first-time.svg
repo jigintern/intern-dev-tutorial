@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" width="1000" height="440" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <filter id="fog" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="2.4" />
+    </filter>
+  </defs>
+
+  <line x1="500" y1="16" x2="500" y2="424" stroke="#c9ced6" stroke-width="3" stroke-dasharray="10 8" />
+
+  <!-- ============ 作り手が見ている画面 ============ -->
+  <text x="250" y="36" text-anchor="middle" font-size="30" font-weight="700" fill="#6b7078">作り手が見ている画面</text>
+
+  <rect x="135" y="58" width="230" height="250" rx="14" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+  <rect x="135" y="58" width="230" height="28" rx="14" fill="#f1f2f4" />
+  <rect x="135" y="72" width="230" height="14" fill="#f1f2f4" />
+  <text x="147" y="76" font-size="7.5" fill="#9aa1ab">ホーム ＞ メニュー ＞ ドリンク ＞ 詳細</text>
+  <rect x="147" y="92" width="206" height="16" rx="4" fill="#e7f5fb" />
+  <text x="250" y="104" text-anchor="middle" font-size="7.5" fill="#1c8fb5">＼ 今だけ！ 全品10%OFF ／</text>
+  <text x="147" y="126" font-size="10" fill="#202228">アイスコーヒー　￥500</text>
+  <text x="147" y="142" font-size="7.5" fill="#6b7078">当店自慢のアイスコーヒーは、エチオピア産とブラジル産の</text>
+  <text x="147" y="154" font-size="7.5" fill="#6b7078">豆を独自の配合でブレンドし、中深煎りに仕上げています。</text>
+  <text x="147" y="166" font-size="7.5" fill="#6b7078">抽出は一杯ずつハンドドリップでおこない、氷が溶けても味</text>
+  <text x="147" y="178" font-size="7.5" fill="#6b7078">が薄くならないよう濃いめに落としています。ミルクとガム</text>
+  <text x="147" y="190" font-size="7.5" fill="#6b7078">シロップは無料でお付けできますので店員にお申し付けくだ</text>
+  <text x="147" y="202" font-size="7.5" fill="#6b7078">さい。持ち帰り用のカップは紙製で、フタは別売りです。</text>
+  <text x="147" y="220" font-size="7.5" fill="#33b1dd">利用規約　よくある質問　注文　お問い合わせ　ヘルプ</text>
+  <text x="147" y="234" font-size="7.5" fill="#6b7078">サイズ：S ／ M ／ L　氷：多め ／ 普通 ／ 少なめ</text>
+  <rect x="147" y="244" width="206" height="22" rx="5" fill="#33b1dd" />
+  <text x="250" y="259" text-anchor="middle" font-size="9" fill="#ffffff">お気に入りに追加</text>
+  <text x="147" y="284" font-size="7.5" fill="#c9ced6">会員登録　ポイントについて　店舗一覧　ヘルプ</text>
+
+  <!-- どこが何なのか、作り手には全部わかっている -->
+  <g fill="#33b1dd">
+    <rect x="152" y="340" width="14" height="14" rx="3" />
+    <rect x="152" y="374" width="14" height="14" rx="3" />
+    <rect x="152" y="408" width="14" height="14" rx="3" />
+  </g>
+  <text x="182" y="354" font-size="24" fill="#1c8fb5">これが値段</text>
+  <text x="182" y="388" font-size="24" fill="#1c8fb5">ここは商品の説明</text>
+  <text x="182" y="422" font-size="24" fill="#1c8fb5">ここが注文ボタン</text>
+
+  <!-- ============ 初めての人が見ている画面 ============ -->
+  <text x="750" y="36" text-anchor="middle" font-size="30" font-weight="700" fill="#e0574a">初めての人が見ている画面</text>
+
+  <g filter="url(#fog)" opacity="0.5">
+    <rect x="635" y="58" width="230" height="250" rx="14" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+    <rect x="635" y="58" width="230" height="28" rx="14" fill="#f1f2f4" />
+    <rect x="635" y="72" width="230" height="14" fill="#f1f2f4" />
+    <text x="647" y="76" font-size="7.5" fill="#9aa1ab">ホーム ＞ メニュー ＞ ドリンク ＞ 詳細</text>
+    <rect x="647" y="92" width="206" height="16" rx="4" fill="#e7f5fb" />
+    <text x="750" y="104" text-anchor="middle" font-size="7.5" fill="#1c8fb5">＼ 今だけ！ 全品10%OFF ／</text>
+    <text x="647" y="126" font-size="10" fill="#202228">アイスコーヒー　￥500</text>
+    <text x="647" y="142" font-size="7.5" fill="#6b7078">当店自慢のアイスコーヒーは、エチオピア産とブラジル産の</text>
+    <text x="647" y="154" font-size="7.5" fill="#6b7078">豆を独自の配合でブレンドし、中深煎りに仕上げています。</text>
+    <text x="647" y="166" font-size="7.5" fill="#6b7078">抽出は一杯ずつハンドドリップでおこない、氷が溶けても味</text>
+    <text x="647" y="178" font-size="7.5" fill="#6b7078">が薄くならないよう濃いめに落としています。ミルクとガム</text>
+    <text x="647" y="190" font-size="7.5" fill="#6b7078">シロップは無料でお付けできますので店員にお申し付けくだ</text>
+    <text x="647" y="202" font-size="7.5" fill="#6b7078">さい。持ち帰り用のカップは紙製で、フタは別売りです。</text>
+    <text x="647" y="220" font-size="7.5" fill="#33b1dd">利用規約　よくある質問　注文　お問い合わせ　ヘルプ</text>
+    <text x="647" y="234" font-size="7.5" fill="#6b7078">サイズ：S ／ M ／ L　氷：多め ／ 普通 ／ 少なめ</text>
+    <rect x="647" y="244" width="206" height="22" rx="5" fill="#33b1dd" />
+    <text x="750" y="259" text-anchor="middle" font-size="9" fill="#ffffff">お気に入りに追加</text>
+    <text x="647" y="284" font-size="7.5" fill="#c9ced6">会員登録　ポイントについて　店舗一覧　ヘルプ</text>
+  </g>
+  <rect x="635" y="58" width="230" height="250" rx="14" fill="#9aa1ab" opacity="0.16" />
+  <rect x="635" y="58" width="230" height="250" rx="14" fill="none" stroke="#c9ced6" stroke-width="3" />
+  <text x="750" y="228" text-anchor="middle" font-size="120" font-weight="700" fill="#e0574a" opacity="0.72">？</text>
+
+  <!-- 迷っている声 -->
+  <rect x="596" y="344" width="308" height="64" rx="14" fill="#fdecea" stroke="#e0574a" stroke-width="3" />
+  <line x1="737" y1="344" x2="763" y2="344" stroke="#fdecea" stroke-width="5" />
+  <path d="M737 344 L750 320 L763 344" fill="#fdecea" stroke="#e0574a" stroke-width="3" stroke-linejoin="round" />
+  <text x="750" y="386" text-anchor="middle" font-size="24" fill="#e0574a">どうやって使うんだ…？</text>
+</svg>

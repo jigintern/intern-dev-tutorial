@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="1000" height="300" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="itf-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6b7078" />
+    </marker>
+  </defs>
+
+  <!-- ユーザー -->
+  <circle cx="110" cy="95" r="36" fill="#9aa1ab" />
+  <path d="M64 200 Q64 141 110 141 Q156 141 156 200 z" fill="#9aa1ab" />
+  <text x="110" y="252" text-anchor="middle" font-size="30" fill="#202228">ユーザー</text>
+
+  <line x1="196" y1="140" x2="336" y2="140" stroke="#6b7078" stroke-width="3" stroke-dasharray="9 6" marker-start="url(#itf-arrow)" marker-end="url(#itf-arrow)" />
+
+  <!-- UI: ユーザーが触れる面 -->
+  <rect x="356" y="40" width="290" height="200" rx="14" fill="#33b1dd" />
+  <text x="501" y="132" text-anchor="middle" font-size="58" font-weight="700" fill="#ffffff">UI</text>
+  <text x="501" y="184" text-anchor="middle" font-size="26" fill="#ffffff">画面・ボタン・音</text>
+  <text x="501" y="284" text-anchor="middle" font-size="27" fill="#1c8fb5">触れるのは、ここだけ</text>
+
+  <line x1="666" y1="140" x2="806" y2="140" stroke="#6b7078" stroke-width="3" stroke-dasharray="9 6" marker-start="url(#itf-arrow)" marker-end="url(#itf-arrow)" />
+
+  <!-- サービスのなかみ -->
+  <rect x="828" y="50" width="152" height="60" rx="8" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+  <text x="904" y="88" text-anchor="middle" font-size="25" fill="#6b7078">データ</text>
+  <rect x="828" y="126" width="152" height="60" rx="8" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+  <text x="904" y="164" text-anchor="middle" font-size="25" fill="#6b7078">プログラム</text>
+  <text x="904" y="252" text-anchor="middle" font-size="30" fill="#202228">サービス</text>
+</svg>

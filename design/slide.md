@@ -1,366 +1,390 @@
 ---
 marp: true
 theme: uncover
+size: 16:9
 paginate: true
+style: |
+  /* 見出しは2行になっても、行の長さが揃うようにする */
+  section h1,
+  section h2 {
+    letter-spacing: 1px;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  section li {
+    line-height: 1.5;
+  }
+
+  /* 見出しと本文、図のまわりの余白をそろえる */
+  section h2 {
+    margin: 0 0 0.5em;
+  }
+
+  section p:has(img) {
+    margin: 0.5em 0 0;
+  }
+
+  /* 箇条書きは内容の幅で中央に置き、見出しと中心をそろえる */
+  section ul,
+  section ol {
+    display: table;
+    margin: 0 auto 0.3em;
+  }
+
+  /* 箇条書きの点を、見出しと同じアクセントカラーの四角にする */
+  section ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  section ul > li {
+    padding-left: 1.1em;
+    position: relative;
+  }
+
+  section ul > li::before {
+    background: var(--color-highlight-heading);
+    border-radius: 3px;
+    content: "";
+    height: 0.36em;
+    left: 0;
+    position: absolute;
+    top: 0.6em;
+    width: 0.36em;
+  }
+
+  /* 番号は、丸バッジにして順序を目立たせる */
+  section ol {
+    counter-reset: item;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  section ol > li {
+    counter-increment: item;
+    padding-left: 1.9em;
+    position: relative;
+  }
+
+  section ol > li::before {
+    background: var(--color-highlight-heading);
+    border-radius: 50%;
+    color: var(--color-background);
+    content: counter(item);
+    font-size: 0.6em;
+    font-weight: 700;
+    height: 1.65em;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 1.65em;
+    position: absolute;
+    text-align: center;
+    top: 0.45em;
+    width: 1.65em;
+  }
+
+  /* 目次は行間を広げる */
+  section.agenda li {
+    margin-bottom: 0.4em;
+  }
+
+  /* 章の扉は、見出しを大きくしてアクセントカラーの下線を引く */
+  section.chapter h2 {
+    font-size: 2.1em;
+  }
+
+  section.chapter h2::after {
+    background: var(--color-highlight-heading);
+    border-radius: 3px;
+    content: "";
+    display: block;
+    height: 6px;
+    margin: 0.45em auto 0;
+    width: 2.2em;
+  }
+
+  /* 章の結論は、囲み枠にして「あとで戻ってくる場所」にする */
+  section.point h2 {
+    color: var(--color-header);
+    font-size: 1.1em;
+  }
+
+  section.point h2 + p {
+    background: var(--color-background-code);
+    border: 3px solid var(--color-highlight-heading);
+    border-radius: 12px;
+    display: table;
+    font-size: 1.35em;
+    font-weight: 700;
+    /* 見出しと同じ字間にしないと、中心がわずかにずれて見える */
+    letter-spacing: 1px;
+    line-height: 1.4;
+    margin: 0 auto;
+    padding: 0.7em 1em;
+    text-wrap: balance;
+  }
+
+  /* 結論の枠のあとに続く一言は、枠から少し離す */
+  section.point h2 + p + p {
+    margin-top: 0.8em;
+  }
+
+  /* 見出しのなかで、いちばん言いたい一語だけを大きくする */
+  section h2 .big {
+    color: var(--color-highlight-heading);
+    display: block;
+    font-size: 1.5em;
+    margin-top: 0.15em;
+  }
+
+  /* 説明や図をいっしょに置くスライドは、文字を小さくして1枚に収める */
+  section.small ul,
+  section.small ol {
+    font-size: 0.7em;
+  }
+
+  section.small h2 {
+    font-size: 1.5em;
+  }
+
+  section.small p {
+    font-size: 0.72em;
+  }
+
+  /* 説明の1行目は、そのページで扱う項目名として目立たせる */
+  section.small p strong {
+    color: var(--color-highlight-heading);
+  }
+
+  /* 図が横に3つ並ぶスライドは、箇条書きも図の列に合わせて横に並べる */
+  section.cols3 ol {
+    display: grid;
+    font-size: 0.56em;
+    gap: 0 0.6em;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto 0.4em;
+    width: 1000px;
+  }
+
+  /* 図のパネルと中心をそろえたいので、番号ごと列の中央に置く */
+  section.cols3 ol > li {
+    margin-bottom: 0;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  section.cols3 ol > li::before {
+    display: inline-block;
+    margin-right: 0.5em;
+    position: static;
+    vertical-align: middle;
+  }
+
+  /* 説明の行は左ぞろえのほうが読みやすい */
+  section.small li {
+    margin-bottom: 0.7em;
+    text-align: left;
+  }
+
+  section.small li strong {
+    color: var(--color-highlight-heading);
+  }
+
+  /* 見出しのなかで、キーワードだけ色を変える */
+  section h2 .key {
+    color: var(--color-highlight-heading);
+  }
 ---
+
+<!-- _paginate: false -->
 
 # 使いやすいUIデザイン
 
-<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->  
+---
+
+## この時間のゴール
+
+1. **UIの役割を理解する**
+2. **良いUIをつくるポイントを知る**
 
 ---
 
-## 目次
+<!-- _class: small -->
 
-1. UIとは
-2. UIを作ってみる
-3. UIデザインの流れ
-4. ビジュアルデザイン
+## ハンズオン①　まずは自由に描こう
 
----
+**お題：「アイスコーヒー（500円）を注文する画面」**<br>四角と文字だけでOK。いま思いつくままに描いてみましょう。
 
-<!-- header: 1. UIとは -->
-
-## 1. UIとは
+![height:300px](./imgs/fig-handson-1.svg)
 
 ---
 
-## User Interface (UI)
+<!-- _class: small -->
 
-UIは、ユーザーと情報の境界。情報をやり取りする
+## UIとは<br>「ユーザーとサービスをつなぐ<span class="key">接点</span>」
 
-![ui-sample](./imgs/design-ui-sample.png)
-
----
-
-## UIは、情報の**表示**と**操作**を提供する
-
-- ユーザーに**情報を表示**する
-- **情報の操作**をユーザーに提供する
-
-![height:150px](./imgs/design-ui.svg)
+![height:310px](./imgs/fig-interface.svg)
 
 ---
 
-## UIデザインとビジュアルデザインは別
+## 良いUI と 悪いUI の違い
 
-- ビジュアルデザインは、表現や装飾を重視
-  - 色や形、フォントなどを考える
-- UIデザインは、UserInterfaceの設計を重視
-  - 情報の表示と操作を考える
-
-今回は**UIデザイン**の話
+- **悪いUI：「どこを押せばいいかわからない…」**
+- **良いUI：「見た瞬間にすぐ操作できる！」**
 
 ---
 
-<!-- header: 2. UIを作ってみる -->
+<!-- _class: small -->
 
-## 早速UIを作ってみよう
+## よくある「悪いUI」の失敗パターン
 
----
+**ボタンの位置がわからない**<br>「注文する」など重要なボタンが<br>小さかったり、目立つボタンとすり替わっていると見つけられない。
 
-## ToDoアプリを考えてみる
-
----
-
-## やってみよう: ToDoアプリのUI
-
-- ToDo一覧を**見る**
-- 新しいToDoを**追加する**
-- 追加したToDoを**完了にする**
-- ToDoのタイトルと詳細を**書く**
-
-これらの機能が実現できるアプリ
-
----
-## 機能から**直接**UIを作ると、使いにくい
-
-- 同じ画面がたくさんある
-- ToDoがすぐ表示されない
-- 機能を選択してToDoが表示
-
-![bg contain right:40%](./imgs/design01.png)
+![height:355px](./imgs/fig-bad-button.svg)
 
 ---
 
-## 機能を**抽象化**してUIを作ると、使いやすい
+<!-- _class: small -->
 
+## よくある「悪いUI」の失敗パターン
 
-![bg contain right:40%](./imgs/design02.png)
+**文字が小さく読みにくい**<br>フォントが極端に小さい、または背景色と同化していて読めない。
 
----
-
-## 機能からオブジェクトを抽出する
-
-- オブジェクトを基準にUIを考える
-- 機能から直接UIを作らない
+![height:340px](./imgs/fig-bad-text.svg)
 
 ---
 
-## **オブジェクトを抽出**してから、UIを作ろう
+<!-- _class: small -->
+
+## よくある「悪いUI」の失敗パターン
+
+**要素の詰め込みすぎ**<br>説明文やリンクを画面いっぱいに詰め込むと、どこが大事なのか分からなくなる
+
+![height:350px](./imgs/fig-bad-crowded.svg)
 
 ---
 
-<!-- header: 3. UIデザインの流れ -->
+<!-- _class: small -->
 
-## 3. UIデザインの流れ
+## 同じ注文画面でも、こんなに変わる
 
----
-
-## UIデザインの流れの図
-
-![height:460px](./imgs/design-flow.svg)
+![height:345px](./imgs/fig-cafe-compare.svg)
 
 ---
 
-<!-- header: 3.1. UIデザインの流れ オブジェクト抽出 -->
+<!-- _class: small -->
 
-## 3.1 オブジェクト抽出
+## 良いUIをつくるポイント
 
-- 機能から**オブジェクト**を抽出
-- オブジェクトは、**属性**と**アクション**を持つ
-- わかる人向け: UMLのクラス図のようなイメージ
+- 画面の見た目や要素の並び順を整えること
+- 使いたい機能を、迷わずすぐ使えるようにする
+- ユーザーに「どう操作すればいいか」を考えさせない
 
----
-
-## オブジェクトとは、ユーザーが操作する対象物
-
-- オブジェクトの詳細やプロパティとして、属性を持つ
+![height:265px](./imgs/fig-ui-design.svg)
 
 ---
 
-## アクションは**C(R)UD**で考える
+<!-- _class: small -->
 
-CRUDは、Create Read Update Delete
+## 良いUIをつくるポイント①<span class="big">配置</span>
 
-- Readはビューで実現する。アクションにしない
+**いちばん押してほしいボタンを、大きく・目立つ場所に。**<br>「どこを押すの？」と探す時間をなくします。
 
----
-
-## ToDoアプリで、オブジェクト抽出
-
-- ToDo一覧を見る
-- 新しいToDoを追加する
-- 追加したToDoを完了にする
-- ToDoのタイトルと詳細を書く
+![height:255px](./imgs/fig-point-layout.svg)
 
 ---
 
-## ToDoアプリで、オブジェクトは**ToDo**だけ
+<!-- _class: small -->
 
-- **ToDo**一覧を見る
-- 新しい**ToDo**を追加する
-- 追加した**ToDo**を完了にする
-- **ToDo**のタイトルと詳細を書く
+## 良いUIをつくるポイント②<span class="big">文字</span>
 
----
+**商品名と値段は、離れて見ても読める大きさに。**<br>背景と文字の色にメリハリをつけると、ぐっと読みやすくなります。
 
-## ToDoアプリで、ToDoの属性は**タイトル・詳細・完了したか**
-
-- ToDo一覧を見る
-- 新しいToDoを追加する
-- 追加したToDoを**完了**にする
-- ToDoの**タイトル**と**詳細**を書く
+![height:255px](./imgs/fig-point-text.svg)
 
 ---
 
-## ToDoアプリで、ToDoのアクションは**Create・Update**
+<!-- _class: small -->
 
-- ToDo一覧を**見る** (Read)
-- 新しいToDoを**追加する** (Create)
-- 追加したToDoを**完了にする** (Update)
-- ToDoのタイトルと詳細を**書く** (Update)
+## 良いUIをつくるポイント③<span class="big">並び順</span>
 
----
+**関係のあるものは近づけて、ひとかたまりに。**<br>詰め込みすぎず、まわりに余白をとると迷わなくなります。
 
-## ToDoアプリのオブジェクトを抽出した結果
-
-- オブジェクトは、**ToDo**
-- ToDoの属性は、**タイトル・詳細・完了したか**
-- ToDoのアクションは、**Create・Update**
-
-![bg height:460px right:30%](./imgs/design-todo01.svg)
+![height:255px](./imgs/fig-point-order.svg)
 
 ---
 
-## オブジェクト抽出ができました
+<!-- _class: small -->
 
-![height:460px](./imgs/design-todo01.svg)
+## 配置・文字・並び順を意識すると、こうなる
 
----
-
-<!-- header: 3.2. UIデザインの流れ ビュー・ナビゲーション -->
-
-## 3.2. ビュー・ナビゲーション
+![height:340px](./imgs/fig-cafe-answer.svg)
 
 ---
 
-## ビューとは、ユーザーに情報を表示する領域
-
-例えば、リストやフォームやページなど
-ビューには、**コレクションビュー**と**シングルビュー**がある
+## 定番のレイアウトは<span class="big">どんどん真似していい</span>
 
 ---
 
-## コレクションビューは**同じオブジェクトを複数**表示する
+<!-- _class: small -->
 
-**Create**・**Delete**アクションを配置する
+## なぜ定番の形を真似していいのか？
 
-オブジェクトによっては、Updateアクションも配置
+- 「戻る」や「メニュー」は、どのアプリもだいたい同じ場所にある
+- 使い慣れた形なら、説明しなくても迷わず操作できる
+- 独自の配置よりも、みんなが知っている形がいちばん親切
 
----
-
-## シングルビューは**1つのオブジェクト**を表示する
-
-**Update**・**Delete**アクションを配置する
+![height:300px](./imgs/fig-layouts.svg)
 
 ---
 
-## ナビゲーションとは、ビュー同士の呼び出し関係
+<!-- _class: small -->
 
-どのビューからどのビューに遷移できるか
+## UI改善の第一歩は「ユーザー目線」
 
----
+**初めて使う人の気持ちになる**
 
-## まず、遷移できるナビゲーションを全て書き出す
-
-1. **コレクション**から**シングル**へナビゲーション
-2. 別オブジェクトからのナビゲーション
-
-![bg contain right:40%](./imgs/design-view.svg)
+![height:350px](./imgs/fig-first-time.svg)
 
 ---
 
-## その後、ビュー・ナビゲーションを削る
+<!-- _class: small -->
 
-- 複数のビューを1つのビューにまとめる
-- 必要のないナビゲーションをなくす
+## UI改善の第一歩は「ユーザー目線」
 
-![bg contain right:40%](./imgs/design-navigation.svg)
+**チームメンバーに触ってもらう**
 
----
-
-## ToDoアプリで、ビュー
-
-- ToDoリストが並ぶコレクションビュー
-- ToDoのタイトルと詳細があるシングルビュー
+![height:355px](./imgs/fig-team-test.svg)
 
 ---
 
-## ToDoアプリで、ナビゲーション
+<!-- _class: small cols3 -->
 
-![height:300px](./imgs/design-todo02.svg)
+## デザイン知識がなくてもできる3つの工夫
 
----
+1. 余白をしっかり取る
+2. 読みやすい色と文字
+3. 視線の流れに合わせる
 
-<!-- header: 3.3. UIデザインの流れ レイアウト-->
-
-## 3.3 レイアウト
-
----
-
-## ビュー・ナビゲーションから、レイアウトを考える
-
-- いわゆるワイヤーフレーム
-- ビューの数だけレイアウトを考える
-- 既存アプリを参考にしよう
+![width:1000px](./imgs/fig-three-tips.svg)
 
 ---
 
-## コレクションビューのレイアウト3種
+<!-- _class: small -->
 
-- リスト :scroll:
-- グリッド :hash:
-- マッピング :globe_with_meridians:
+## ハンズオン②<br>最初よりも意識して描いてみよう
 
-![bg contain right:50%](./imgs/design05.png)
+**お題：「映画のチケットを予約する画面」**<br>配置・文字・並び順を意識して、新しいページに描いてみましょう。
 
----
-
-## シングルビューのレイアウト3種
-
-- 属性とアクションだけ
-- 関連オブジェクトをプレビュー
-- 関連オブジェクトのコレクションビューを含む
-
-![bg contain right:40%](./imgs/design04.png)
+![height:300px](./imgs/fig-handson-2.svg)
 
 ---
 
-## アクションは**オブジェクトの近く**にレイアウトする
+<!-- _class: point -->
 
----
+## まとめ：迷わせないアプリを作ろう
 
-## やってみよう: ToDoアプリで、レイアウト
+UIデザインで一番重要なのは、<br>高度なテクニックではなく<br>「使う人への思いやり」です。
 
-| オブジェクト | ナビゲーション |
-| --- | --- |
-| ![height:300px](./imgs/design-todo01.svg) | ![height:300px](./imgs/design-todo02.svg) |
-
----
-
-## ToDoアプリで、レイアウト
-
-- ToDoリストが並ぶコレクションビュー
-- ToDoのタイトルと詳細があるシングルビュー
-
-![bg contain right](./imgs/design03.png)
-
----
-
-## UIデザインの流れのまとめ
-
-1. オブジェクト抽出
-2. ビュー・ナビゲーション
-3. レイアウト
-
----
-
-<!-- header: 4. ビジュアルデザイン -->
-
-## 4. ビジュアルデザイン
-
----
-
-## ビジュアルデザインは、UIの**見た目**をデザインする
-
----
-
-## ビジュアルデザインのポイント
-
-- 既存のビジュアルデザインを真似て作る
-- ビジュアルデザインを学ぶと個性が出せる
-- ただ、難しい
-
----
-
-## ビジュアルデザインの例
-
-- **デザイン4つの基本原則**
-  - コントラスト 反復 整列 近接
-- **デザインシステム**
-  - ビューやナビゲーション、ビジュアルデザインを体系立ててまとめたもの
-  - アプリ全体で一貫したデザインにできる
-
-例えば、デジタル庁のデザインシステムやMaterialDesign
-
----
-
-<!-- header: "" -->
-
-## まとめ
-
-- UIとは、情報の表示と操作を提供する
-- UIデザインは、オブジェクトから考える
-- UIデザインの流れは、オブジェクト抽出、ビュー・ナビゲーション、レイアウト
-- ビジュアルデザインは、UIの見た目をデザインする
-
----
-
-## 出典
-
-- デジタル庁デザインシステムウェブサイト <https://design.digital.go.jp/>
-- オブジェクト指向UIデザイン <https://amzn.asia/d/4vxk6h5>
-- ノンデザイナーズ・デザインブック <https://amzn.asia/d/6LvdOd9>
-- MaterialDesignGuidelines <https://m3.material.io/>
-- HumanInterfaceGuidelines <https://developer.apple.com/design/human-interface-guidelines>
+まずはチームの仲間と画面を見せ合いながら、<br>楽しく開発を進めていきましょう！

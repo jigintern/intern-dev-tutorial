@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 430" width="1120" height="430" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- そろっている位置を示す補助線 -->
+  <line x1="140" y1="54" x2="1100" y2="54" stroke="#e6e8ec" stroke-width="2" stroke-dasharray="8 6" />
+  <line x1="140" y1="342" x2="1100" y2="342" stroke="#e6e8ec" stroke-width="2" stroke-dasharray="8 6" />
+  <text x="128" y="62" text-anchor="end" font-size="32" fill="#6b7078">見出し</text>
+  <text x="128" y="350" text-anchor="end" font-size="32" fill="#6b7078">メニュー</text>
+
+  <!-- 一覧型 -->
+  <g transform="translate(150,30)">
+    <rect x="0" y="0" width="280" height="340" rx="16" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+    <rect x="0" y="0" width="280" height="48" rx="16" fill="#f1f2f4" />
+    <rect x="0" y="32" width="280" height="16" fill="#f1f2f4" />
+    <text x="20" y="33" font-size="24" fill="#6b7078">←</text>
+    <text x="52" y="32" font-size="24" font-weight="700" fill="#202228">備品一覧</text>
+
+    <rect x="22" y="72" width="40" height="40" rx="8" fill="#e6e8ec" />
+    <rect x="76" y="76" width="140" height="13" rx="6" fill="#c9ced6" />
+    <rect x="76" y="97" width="90" height="11" rx="5" fill="#e6e8ec" />
+    <rect x="22" y="132" width="40" height="40" rx="8" fill="#e6e8ec" />
+    <rect x="76" y="136" width="160" height="13" rx="6" fill="#c9ced6" />
+    <rect x="76" y="157" width="70" height="11" rx="5" fill="#e6e8ec" />
+    <rect x="22" y="192" width="40" height="40" rx="8" fill="#e6e8ec" />
+    <rect x="76" y="196" width="120" height="13" rx="6" fill="#c9ced6" />
+    <rect x="76" y="217" width="100" height="11" rx="5" fill="#e6e8ec" />
+    <rect x="22" y="252" width="40" height="40" rx="8" fill="#e6e8ec" />
+    <rect x="76" y="256" width="150" height="13" rx="6" fill="#c9ced6" />
+    <rect x="76" y="277" width="84" height="11" rx="5" fill="#e6e8ec" />
+
+    <line x1="0" y1="296" x2="280" y2="296" stroke="#e6e8ec" stroke-width="2" />
+    <circle cx="70" cy="318" r="13" fill="#33b1dd" />
+    <circle cx="140" cy="318" r="13" fill="#e6e8ec" />
+    <circle cx="210" cy="318" r="13" fill="#e6e8ec" />
+  </g>
+  <text x="290" y="410" text-anchor="middle" font-size="34" fill="#202228">一覧でならべる</text>
+
+  <!-- タブ型 -->
+  <g transform="translate(480,30)">
+    <rect x="0" y="0" width="280" height="340" rx="16" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+    <rect x="0" y="0" width="280" height="48" rx="16" fill="#f1f2f4" />
+    <rect x="0" y="32" width="280" height="16" fill="#f1f2f4" />
+    <text x="20" y="33" font-size="24" fill="#6b7078">←</text>
+    <text x="52" y="32" font-size="24" font-weight="700" fill="#202228">貸出状況</text>
+
+    <text x="52" y="84" text-anchor="middle" font-size="22" font-weight="700" fill="#1c8fb5">借りる</text>
+    <text x="140" y="84" text-anchor="middle" font-size="22" fill="#9aa1ab">返す</text>
+    <text x="228" y="84" text-anchor="middle" font-size="22" fill="#9aa1ab">履歴</text>
+    <line x1="22" y1="98" x2="258" y2="98" stroke="#e6e8ec" stroke-width="2" />
+    <rect x="22" y="96" width="60" height="4" rx="2" fill="#33b1dd" />
+
+    <rect x="22" y="126" width="236" height="14" rx="7" fill="#c9ced6" />
+    <rect x="22" y="154" width="196" height="12" rx="6" fill="#e6e8ec" />
+    <rect x="22" y="180" width="220" height="12" rx="6" fill="#e6e8ec" />
+    <rect x="22" y="206" width="170" height="12" rx="6" fill="#e6e8ec" />
+    <rect x="22" y="240" width="150" height="42" rx="10" fill="#33b1dd" />
+    <text x="97" y="267" text-anchor="middle" font-size="20" fill="#ffffff">借りる</text>
+
+    <line x1="0" y1="296" x2="280" y2="296" stroke="#e6e8ec" stroke-width="2" />
+    <circle cx="70" cy="318" r="13" fill="#33b1dd" />
+    <circle cx="140" cy="318" r="13" fill="#e6e8ec" />
+    <circle cx="210" cy="318" r="13" fill="#e6e8ec" />
+  </g>
+  <text x="620" y="410" text-anchor="middle" font-size="34" fill="#202228">タブで切り替える</text>
+
+  <!-- カード型 -->
+  <g transform="translate(810,30)">
+    <rect x="0" y="0" width="280" height="340" rx="16" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+    <rect x="0" y="0" width="280" height="48" rx="16" fill="#f1f2f4" />
+    <rect x="0" y="32" width="280" height="16" fill="#f1f2f4" />
+    <text x="20" y="33" font-size="24" fill="#6b7078">←</text>
+    <text x="52" y="32" font-size="24" font-weight="700" fill="#202228">カテゴリ</text>
+
+    <rect x="22" y="72" width="112" height="96" rx="10" fill="#ffffff" stroke="#e6e8ec" stroke-width="2" />
+    <rect x="36" y="86" width="84" height="46" rx="6" fill="#e6e8ec" />
+    <rect x="36" y="142" width="64" height="11" rx="5" fill="#c9ced6" />
+    <rect x="146" y="72" width="112" height="96" rx="10" fill="#ffffff" stroke="#e6e8ec" stroke-width="2" />
+    <rect x="160" y="86" width="84" height="46" rx="6" fill="#e6e8ec" />
+    <rect x="160" y="142" width="74" height="11" rx="5" fill="#c9ced6" />
+    <rect x="22" y="180" width="112" height="96" rx="10" fill="#ffffff" stroke="#e6e8ec" stroke-width="2" />
+    <rect x="36" y="194" width="84" height="46" rx="6" fill="#e6e8ec" />
+    <rect x="36" y="250" width="70" height="11" rx="5" fill="#c9ced6" />
+    <rect x="146" y="180" width="112" height="96" rx="10" fill="#ffffff" stroke="#e6e8ec" stroke-width="2" />
+    <rect x="160" y="194" width="84" height="46" rx="6" fill="#e6e8ec" />
+    <rect x="160" y="250" width="60" height="11" rx="5" fill="#c9ced6" />
+
+    <line x1="0" y1="296" x2="280" y2="296" stroke="#e6e8ec" stroke-width="2" />
+    <circle cx="70" cy="318" r="13" fill="#33b1dd" />
+    <circle cx="140" cy="318" r="13" fill="#e6e8ec" />
+    <circle cx="210" cy="318" r="13" fill="#e6e8ec" />
+  </g>
+  <text x="950" y="410" text-anchor="middle" font-size="34" fill="#202228">カードでならべる</text>
+</svg>
