@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 540" width="1168" height="540"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="540" fill="#ffffff"/>
+
+  <rect x="24" y="20" width="470" height="438" fill="#ffffff" stroke="#1c2126" stroke-width="3"/>
+  <text x="259" y="78" text-anchor="middle" font-size="44" font-weight="bold" fill="#1c2126">クライアント</text>
+  <text x="259" y="118" text-anchor="middle" font-size="32" fill="#5c6570">ブラウザが動かす</text>
+
+  <rect x="62" y="210" width="394" height="162" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <text x="259" y="264" text-anchor="middle" font-size="50" font-weight="bold" fill="#17558f">画面</text>
+  <text x="259" y="309" text-anchor="middle" font-size="34" fill="#5c6570">HTML・CSS</text>
+  <text x="259" y="351" text-anchor="middle" font-size="34" fill="#5c6570">JavaScript</text>
+
+  <text x="259" y="520" text-anchor="middle" font-size="40" font-weight="bold" fill="#5c6570">フロントエンド</text>
+
+  <line x1="524" y1="239" x2="600" y2="239" stroke="#5c6570" stroke-width="5"/>
+  <polygon points="520,239 540,229 540,249" fill="#5c6570"/>
+  <polygon points="604,239 584,229 584,249" fill="#5c6570"/>
+
+  <rect x="630" y="20" width="514" height="438" fill="#f2f1ed" stroke="#1c2126" stroke-width="3"/>
+  <text x="887" y="78" text-anchor="middle" font-size="44" font-weight="bold" fill="#1c2126">サーバー</text>
+  <text x="887" y="118" text-anchor="middle" font-size="32" fill="#5c6570">Deno が動かす</text>
+
+  <rect x="668" y="150" width="438" height="110" fill="#ffffff" stroke="#b8501e" stroke-width="3"/>
+  <text x="887" y="207" text-anchor="middle" font-size="50" font-weight="bold" fill="#b8501e">処理</text>
+  <text x="887" y="243" text-anchor="middle" font-size="34" fill="#5c6570">JavaScript</text>
+
+  <line x1="887" y1="282" x2="887" y2="300" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="887,268 878,286 896,286" fill="#5c6570"/>
+  <polygon points="887,314 878,296 896,296" fill="#5c6570"/>
+
+  <rect x="668" y="322" width="438" height="110" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
+  <text x="887" y="379" text-anchor="middle" font-size="50" font-weight="bold" fill="#2c6b4f">保存</text>
+  <text x="887" y="415" text-anchor="middle" font-size="34" fill="#5c6570">Deno KV</text>
+
+  <text x="887" y="520" text-anchor="middle" font-size="40" font-weight="bold" fill="#5c6570">バックエンド</text>
+
+</svg>

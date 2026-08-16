@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 520" width="1168" height="520"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="520" fill="#ffffff"/>
+
+  <line x1="584" y1="20" x2="584" y2="500" stroke="#cdcac1" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <text x="277" y="50" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">サーバーがなかったら</text>
+
+  <rect x="34" y="120" width="190" height="150" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="34" y="120" width="190" height="26" fill="#eef3f8"/>
+  <line x1="34" y1="146" x2="224" y2="146" stroke="#17558f" stroke-width="2"/>
+  <circle cx="60" cy="196" r="14" fill="#cdcac1"/>
+  <path d="M100,172 L200,172 A8,8 0 0 1 208,180 L208,212 A8,8 0 0 1 200,220
+           L100,220 A8,8 0 0 1 92,212 L92,204 L78,196 L92,188 L92,180
+           A8,8 0 0 1 100,172 Z"
+        fill="#f5f4f0" stroke="#8f8b82" stroke-width="2"/>
+
+  <line x1="232" y1="195" x2="314" y2="195" stroke="#cdcac1" stroke-width="5" stroke-dasharray="9 8"/>
+  <polygon points="324,195 308,186 308,204" fill="#cdcac1"/>
+  <line x1="253" y1="175" x2="293" y2="215" stroke="#1c2126" stroke-width="9"/>
+  <line x1="293" y1="175" x2="253" y2="215" stroke="#1c2126" stroke-width="9"/>
+
+  <rect x="330" y="120" width="190" height="150" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="330" y="120" width="190" height="26" fill="#eef3f8"/>
+  <line x1="330" y1="146" x2="520" y2="146" stroke="#17558f" stroke-width="2"/>
+
+  <circle cx="129" cy="320" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M103,378 Q103,344 129,344 Q155,344 155,378 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <text x="129" y="430" text-anchor="middle" font-size="40" fill="#5c6570">自分</text>
+
+  <circle cx="425" cy="320" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M399,378 Q399,344 425,344 Q451,344 451,378 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <text x="425" y="430" text-anchor="middle" font-size="40" fill="#5c6570">ほかの人</text>
+
+  <text x="277" y="500" text-anchor="middle" font-size="36" font-weight="bold" fill="#1c2126">ほかの人の画面に出てこない</text>
+
+  <text x="888" y="50" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">処理・保存も画面側にあったら</text>
+
+  <rect x="708" y="94" width="360" height="110" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="708" y="94" width="360" height="26" fill="#eef3f8"/>
+  <circle cx="726" cy="106" r="5" fill="#17558f"/>
+  <circle cx="742" cy="106" r="5" fill="#17558f"/>
+  <circle cx="758" cy="106" r="5" fill="#17558f"/>
+  <line x1="708" y1="120" x2="1068" y2="120" stroke="#17558f" stroke-width="2"/>
+  <text x="888" y="176" text-anchor="middle" font-size="40" fill="#1c2126">高評価  3</text>
+
+  <line x1="812" y1="224" x2="812" y2="252" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="812,266 803,248 821,248" fill="#5c6570"/>
+  <text x="840" y="256" font-size="40" fill="#5c6570">書き換え</text>
+
+  <rect x="708" y="282" width="360" height="110" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="708" y="282" width="360" height="26" fill="#eef3f8"/>
+  <circle cx="726" cy="294" r="5" fill="#17558f"/>
+  <circle cx="742" cy="294" r="5" fill="#17558f"/>
+  <circle cx="758" cy="294" r="5" fill="#17558f"/>
+  <line x1="708" y1="308" x2="1068" y2="308" stroke="#17558f" stroke-width="2"/>
+  <text x="888" y="364" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">高評価  99999</text>
+
+  <text x="888" y="500" text-anchor="middle" font-size="36" font-weight="bold" fill="#1c2126">いくらでも増やせる</text>
+
+</svg>

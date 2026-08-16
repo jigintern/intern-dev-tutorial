@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 420" width="1168" height="420"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="420" fill="#ffffff"/>
+
+  <rect x="450" y="0" width="710" height="408" fill="#f2f1ed"/>
+  <text x="805" y="40" text-anchor="middle" font-size="30" fill="#5c6570">サーバー側</text>
+
+  <g transform="translate(0,18)">
+
+  <rect x="484" y="44" width="180" height="332" fill="#ffffff" stroke="#b8501e" stroke-width="3"/>
+  <g fill="#ffffff" stroke="#b8501e" stroke-width="2">
+    <rect x="569" y="128" width="12" height="12" transform="rotate(0 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(45 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(90 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(135 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(180 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(225 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(270 575 160)"/>
+    <rect x="569" y="128" width="12" height="12" transform="rotate(315 575 160)"/>
+  </g>
+  <circle cx="575" cy="160" r="22" fill="#ffffff" stroke="#b8501e" stroke-width="2"/>
+  <circle cx="575" cy="160" r="8" fill="#ffffff" stroke="#b8501e" stroke-width="2"/>
+  <text x="574" y="252" text-anchor="middle" font-size="44" font-weight="bold" fill="#b8501e">処理</text>
+
+  <rect x="824" y="44" width="320" height="332" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
+  <rect x="824" y="44" width="320" height="66" fill="#eef4f0"/>
+  <line x1="824" y1="110" x2="1144" y2="110" stroke="#2c6b4f" stroke-width="2"/>
+  <text x="984" y="90" text-anchor="middle" font-size="44" font-weight="bold" fill="#2c6b4f">保存</text>
+  <rect x="862" y="202" width="244" height="52" fill="#ffffff" stroke="#8f8b82" stroke-width="2"/>
+  <text x="984" y="240" text-anchor="middle" font-size="32" fill="#1c2126">おもしろい！</text>
+
+  <text x="174" y="30" text-anchor="middle" font-size="32" fill="#5c6570">あなたの画面</text>
+  <rect x="24" y="44" width="300" height="140" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="24" y="44" width="300" height="28" fill="#eef3f8"/>
+  <circle cx="44" cy="58" r="5" fill="#17558f"/>
+  <circle cx="60" cy="58" r="5" fill="#17558f"/>
+  <circle cx="76" cy="58" r="5" fill="#17558f"/>
+  <line x1="24" y1="72" x2="324" y2="72" stroke="#17558f" stroke-width="2"/>
+  <circle cx="48" cy="130" r="16" fill="#cdcac1"/>
+  <path d="M96,104 L296,104 A10,10 0 0 1 306,114 L306,146 A10,10 0 0 1 296,156
+           L96,156 A10,10 0 0 1 86,146 L86,138 L68,130 L86,122 L86,114
+           A10,10 0 0 1 96,104 Z"
+        fill="#f5f4f0" stroke="#8f8b82" stroke-width="2"/>
+  <text x="102" y="142" font-size="32" fill="#1c2126">おもしろい！</text>
+
+  <text x="174" y="222" text-anchor="middle" font-size="32" fill="#5c6570">ほかの人の画面</text>
+  <rect x="24" y="236" width="300" height="140" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="24" y="236" width="300" height="28" fill="#eef3f8"/>
+  <circle cx="44" cy="250" r="5" fill="#17558f"/>
+  <circle cx="60" cy="250" r="5" fill="#17558f"/>
+  <circle cx="76" cy="250" r="5" fill="#17558f"/>
+  <line x1="24" y1="264" x2="324" y2="264" stroke="#17558f" stroke-width="2"/>
+  <circle cx="48" cy="322" r="16" fill="#cdcac1"/>
+  <path d="M96,296 L296,296 A10,10 0 0 1 306,306 L306,338 A10,10 0 0 1 296,348
+           L96,348 A10,10 0 0 1 86,338 L86,330 L68,322 L86,314 L86,306
+           A10,10 0 0 1 96,296 Z"
+        fill="#f5f4f0" stroke="#8f8b82" stroke-width="2"/>
+  <text x="102" y="334" font-size="32" fill="#1c2126">おもしろい！</text>
+
+  <text x="404" y="116" text-anchor="middle" font-size="34" fill="#1c2126">1 送る</text>
+  <line x1="324" y1="130" x2="470" y2="130" stroke="#8f8b82" stroke-width="3"/>
+  <polygon points="484,130 468,123 468,137" fill="#8f8b82"/>
+
+  <text x="744" y="116" text-anchor="middle" font-size="34" fill="#1c2126">2 しまう</text>
+  <line x1="664" y1="130" x2="810" y2="130" stroke="#8f8b82" stroke-width="3"/>
+  <polygon points="824,130 808,123 808,137" fill="#8f8b82"/>
+
+  <text x="744" y="308" text-anchor="middle" font-size="34" fill="#1c2126">3 出す</text>
+  <polygon points="664,322 680,315 680,329" fill="#8f8b82"/>
+  <line x1="678" y1="322" x2="824" y2="322" stroke="#8f8b82" stroke-width="3"/>
+
+  <text x="404" y="308" text-anchor="middle" font-size="34" fill="#1c2126">4 見せる</text>
+  <polygon points="324,322 340,315 340,329" fill="#8f8b82"/>
+  <line x1="338" y1="322" x2="484" y2="322" stroke="#8f8b82" stroke-width="3"/>
+
+  </g>
+</svg>

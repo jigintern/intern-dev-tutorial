@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 420" width="1168" height="420"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="420" fill="#ffffff"/>
+
+  <rect x="24" y="120" width="360" height="180" fill="#f7f6f3" stroke="#8f8b82" stroke-width="3"/>
+  <text x="204" y="228" text-anchor="middle" font-size="56" font-weight="bold" fill="#1c2126">HTML</text>
+
+  <rect x="404" y="120" width="360" height="180" fill="#f7f6f3" stroke="#8f8b82" stroke-width="3"/>
+  <text x="584" y="228" text-anchor="middle" font-size="56" font-weight="bold" fill="#1c2126">CSS</text>
+
+  <rect x="784" y="120" width="360" height="180" fill="#f7f6f3" stroke="#8f8b82" stroke-width="3"/>
+  <text x="964" y="228" text-anchor="middle" font-size="56" font-weight="bold" fill="#1c2126">JavaScript</text>
+
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 580" width="1168" height="580"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="-40" width="1168" height="560" fill="#ffffff"/>
+
+  <rect x="24" y="10" width="364" height="460" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+
+  <rect x="106" y="87" width="200" height="150" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="106" y="87" width="200" height="28" fill="#eef3f8"/>
+  <line x1="106" y1="115" x2="306" y2="115" stroke="#17558f" stroke-width="2"/>
+  <rect x="124" y="132" width="164" height="40" fill="#cfdced"/>
+  <rect x="124" y="188" width="164" height="8" fill="#17558f"/>
+  <rect x="124" y="208" width="112" height="8" fill="#17558f"/>
+
+  <text x="206" y="335" text-anchor="middle" font-size="52" font-weight="bold" fill="#17558f">画面</text>
+  <text x="206" y="394" text-anchor="middle" font-size="40" fill="#5c6570">見せる</text>
+
+  <rect x="760" y="10" width="26" height="460" fill="#f2f1ed"/>
+
+  <rect x="402" y="10" width="364" height="460" fill="#f2f1ed" stroke="#b8501e" stroke-width="3"/>
+
+  <g fill="#ffffff" stroke="#b8501e" stroke-width="3">
+    <rect x="570" y="84" width="28" height="28" transform="rotate(0 584 162)"/>
+    <rect x="570" y="84" width="28" height="28" transform="rotate(45 584 162)"/>
+    <rect x="570" y="84" width="28" height="28" transform="rotate(90 584 162)"/>
+    <rect x="570" y="84" width="28" height="28" transform="rotate(135 584 162)"/>
+    <rect x="570" y="84" width="28" height="28" transform="rotate(180 584 162)"/>
+    <rect x="570" y="84" width="28" height="28" transform="rotate(225 584 162)"/>
+    <rect x="570" y="84" width="28" height="28" transform="rotate(270 584 162)"/>
+    <rect x="570" y="84" width="28" height="28" transform="rotate(315 584 162)"/>
+  </g>
+  <circle cx="584" cy="162" r="54" fill="#ffffff" stroke="#b8501e" stroke-width="3"/>
+  <circle cx="584" cy="162" r="20" fill="#ffffff" stroke="#b8501e" stroke-width="3"/>
+
+  <text x="584" y="335" text-anchor="middle" font-size="52" font-weight="bold" fill="#b8501e">処理</text>
+  <text x="584" y="394" text-anchor="middle" font-size="40" fill="#5c6570">動かす</text>
+
+  <rect x="780" y="10" width="364" height="460" fill="#f2f1ed" stroke="#2c6b4f" stroke-width="3"/>
+
+  <path d="M890,110 L890,214 A72,23 0 0 0 1034,214 L1034,110"
+        fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
+  <ellipse cx="962" cy="110" rx="72" ry="23" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
+  <path d="M890,150 A72,23 0 0 0 1034,150" fill="none" stroke="#2c6b4f" stroke-width="2"/>
+  <path d="M890,182 A72,23 0 0 0 1034,182" fill="none" stroke="#2c6b4f" stroke-width="2"/>
+
+  <text x="962" y="335" text-anchor="middle" font-size="52" font-weight="bold" fill="#2c6b4f">保存</text>
+  <text x="962" y="394" text-anchor="middle" font-size="40" fill="#5c6570">覚える</text>
+
+  <text x="206" y="520" text-anchor="middle" font-size="38" font-weight="bold" fill="#1c2126">クライアント</text>
+  <text x="206" y="556" text-anchor="middle" font-size="30" fill="#5c6570">ユーザーから見える</text>
+
+  <text x="773" y="520" text-anchor="middle" font-size="38" font-weight="bold" fill="#1c2126">サーバー</text>
+  <text x="773" y="556" text-anchor="middle" font-size="30" fill="#5c6570">ユーザーから見えない</text>
+
+</svg>

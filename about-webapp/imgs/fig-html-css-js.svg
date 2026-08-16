@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 510" width="1168" height="510"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="510" fill="#ffffff"/>
+
+  <text x="188" y="56" text-anchor="middle" font-size="44" font-weight="bold" fill="#17558f">HTML</text>
+  <rect x="40" y="84" width="296" height="320" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <rect x="68" y="116" width="240" height="36" fill="#cdcac1"/>
+  <rect x="68" y="154" width="240" height="22" fill="#cdcac1"/>
+  <rect x="68" y="178" width="240" height="22" fill="#cdcac1"/>
+  <rect x="68" y="202" width="240" height="22" fill="#cdcac1"/>
+  <rect x="68" y="226" width="104" height="30" fill="#cdcac1"/>
+  <text x="188" y="484" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">骨組み</text>
+
+  <text x="392" y="260" text-anchor="middle" font-size="48" fill="#5c6570">＋</text>
+
+  <text x="596" y="56" text-anchor="middle" font-size="44" font-weight="bold" fill="#17558f">CSS</text>
+  <rect x="448" y="84" width="296" height="320" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <rect x="476" y="116" width="240" height="56" fill="#17558f" stroke="none"/>
+  <rect x="476" y="200" width="240" height="30" fill="#dfe6ee" stroke="none"/>
+  <rect x="476" y="246" width="176" height="30" fill="#dfe6ee" stroke="none"/>
+  <rect x="476" y="316" width="104" height="46" fill="#b8501e" stroke="none"/>
+  <text x="596" y="484" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">見た目</text>
+
+  <text x="800" y="260" text-anchor="middle" font-size="48" fill="#5c6570">＋</text>
+
+  <text x="1004" y="56" text-anchor="middle" font-size="44" font-weight="bold" fill="#17558f">JavaScript</text>
+  <rect x="856" y="84" width="296" height="320" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <rect x="884" y="116" width="240" height="56" fill="#17558f" stroke="none"/>
+  <rect x="884" y="200" width="240" height="30" fill="#dfe6ee" stroke="none"/>
+  <rect x="884" y="246" width="176" height="30" fill="#dfe6ee" stroke="none"/>
+  <rect x="884" y="316" width="104" height="46" fill="#b8501e" stroke="none"/>
+  <circle cx="936" cy="339" r="26" fill="none" stroke="#1c2126" stroke-width="3"/>
+  <circle cx="936" cy="339" r="40" fill="none" stroke="#1c2126" stroke-width="2" stroke-dasharray="5 6"/>
+  <text x="1004" y="484" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">押したら動く</text>
+
+</svg>

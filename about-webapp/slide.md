@@ -1,410 +1,387 @@
 ---
 marp: true
-theme: uncover
 paginate: true
+size: 16:9
 ---
+<style>
+/* 3色は「画面・処理・保存」専用。場所を囲む枠は黒 */
+:root {
+  --ink:   #1c2126;
+  --sub:   #5c6570;
+  --line:  #cdcac1;
+  --paper: #ffffff;
+  --view:  #17558f;
+  --logic: #b8501e;
+  --store: #2c6b4f;
+}
+section {
+  color-scheme: light;
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", "Meiryo", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 40px 56px;
+  /* 40px は本文の下限。守れないなら文字数を削る */
+  font-size: 40px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section > * { flex-shrink: 0; }
+section h1 { font-size: 60px; font-weight: 700; margin: 0 0 26px; letter-spacing: -.01em; color: var(--ink); }
+section h2 {
+  font-size: 50px; font-weight: 700; margin: 0 0 24px; color: var(--ink);
+  padding-bottom: 14px; border-bottom: 2px solid var(--line);
+}
+section h3 { font-size: 40px; font-weight: 700; margin: 0 0 12px; color: var(--sub); }
+section a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+section ul, section ol { margin: 0; }
+section > p { margin: 0; }
+section li { margin-bottom: 16px; }
+section li::marker { color: var(--sub); }
+strong { font-weight: 700; }
+.view  { color: var(--view); }
+.logic { color: var(--logic); }
+.store { color: var(--store); }
+.big  { font-size: 62px; font-weight: 700; line-height: 1.45; text-align: center; }
+.sub  { color: var(--sub); font-size: 40px; }
+.note {
+  border-top: 2px solid var(--ink);
+  margin-top: 24px; padding-top: 14px;
+  font-size: 40px; line-height: 1.5; color: #414851;
+}
+.lead { font-size: 54px; font-weight: 700; line-height: 1.45; }
+.point {
+  border: 3px solid var(--ink);
+  padding: 30px 32px;
+  font-size: 54px; font-weight: 700; line-height: 1.45;
+}
+.cols { display: flex; gap: 22px; align-items: stretch; margin: 6px 0; }
+.col  { flex: 1; min-width: 0; }
+.box {
+  border: 2px solid var(--line);
+  padding: 24px 22px;
+  font-size: 40px;
+  line-height: 1.5;
+}
+.box .label { font-size: 44px; font-weight: 700; display: block; margin-bottom: 10px; }
+.box.b-view  { border-color: var(--view); }
+.box.b-view  .label { color: var(--view); }
+.box.b-logic { border-color: var(--logic); }
+.box.b-logic .label { color: var(--logic); }
+.box.b-store { border-color: var(--store); }
+.box.b-store .label { color: var(--store); }
+.box.mute { border-color: var(--line); background: #f2f1ed; }
+.box.mute .label { color: var(--sub); }
+.recap4 { display: flex; gap: 18px; margin-top: 44px; }
+.recap4 .item { flex: 1; min-width: 0; }
+.recap4 img { display: block; width: 100%; height: auto; margin: 0;
+  border: 1px solid var(--line); background: #ffffff; }
+.recap4 .cap { font-size: 34px; text-align: center; color: var(--sub); margin-top: 10px; }
+/* default テーマの table 指定（display:block / max-content / 縞模様）を打ち消す */
+.tablewrap { width: 100%; }
+section table {
+  display: table;
+  font-size: 40px; border-collapse: collapse;
+  width: 100%; table-layout: fixed; margin: 0;
+}
+section table tr,
+section table tr:nth-child(2n) { background-color: transparent; border-top: none; }
+section th, section td {
+  border: 1px solid var(--line); padding: .35em .5em;
+  text-align: left; overflow-wrap: break-word;
+}
+section th { background: #f2f1ed; font-weight: 700; }
+section tbody th { background: #f7f6f3; font-weight: 400; }
+.c-view  { color: var(--view);  font-weight: 700; }
+.c-logic { color: var(--logic); font-weight: 700; }
+.c-store { color: var(--store); font-weight: 700; }
+section.title { border-top: 10px solid var(--ink); justify-content: center; }
+section.title h1 { font-size: 60px; margin-bottom: 0; }
+section.title h1 + p { margin-top: 20px; }
+section.chapter { justify-content: center; }
+section.chapter h1 { font-size: 54px; margin: 0; }
+section.chapter .sub { margin-top: 22px; }
+section.chapter .num {
+  color: var(--sub); font-size: 28px; font-weight: 700;
+  letter-spacing: .24em; margin-bottom: 16px;
+  font-family: ui-monospace, "SF Mono", monospace;
+}
+section.pic { padding: 36px; justify-content: center; align-items: center; }
+section.pic h3 { color: var(--ink); font-size: 40px; margin: 0 0 20px; text-align: center; }
+img { background: #ffffff; display: block; margin: 0 auto; max-width: 100%; }
+/* Marp は本文の絵文字を <img> に置き換える。上の img 指定で block になるのを戻す */
+img.emoji {
+  display: inline; margin: 0; background: none;
+  height: 1em; width: auto; vertical-align: -0.15em;
+}
+section.pic img { max-height: 470px; border: 1px solid var(--line); }
+section.title footer, section.chapter footer { display: none; }
+section::after { color: var(--sub); font-size: 16px; }
+</style>
+
+<!-- _class: title -->
 
 # Webアプリケーション概論
 
-<!-- > 想定時間: 90分 -->
-<!-- Author: Yamaji Toshiyuki (@haruyuki_16278) -->
+---
+
+## この1時間の目標
+
+<div class="point">
+2週間でつくる<strong>Webアプリケーション</strong>が<br>
+どんなものなのか、<strong>イメージをつかむ！</strong>
+</div>
 
 ---
 
-### 目次
+## わからないときは、授業スレへ
 
-1. Webアプリケーションとは
-2. Webアプリケーションの仕組み
-    1. Webアプリケーションのシステム構成
-    2. Web開発フレームワーク
-    3. Webアプリケーションを公開するためには
-3. まとめ
-4. 参考文献
+![](imgs/fig-thread.svg)
 
 ---
 
-## 1. Webアプリケーションとは
+## 今日は3本立て
+
+1. Webアプリケーションとは**何か**
+2. どんな**仕組み**で動いているのか
+3. 作るために**必要なもの**
 
 ---
 
-### Q. Webアプリケーションとは
+<!-- _class: chapter -->
+
+<div class="num">CHAPTER 1</div>
+
+# Webアプリケーションとは何か
 
 ---
 
-### Q. Webアプリケーションとは
+<div class="big">
+Webアプリケーションとは<br>ブラウザの中で動くアプリケーション
+</div>
 
-**ブラウザ上で動作するアプリケーションのこと**
+<div class="note">
+<strong>ブラウザ</strong>＝ Chrome、Safari、Edge など
+</div>
+
+---
+<div class="big">
+スマホの中に入ってる<br><strong>アプリ</strong>とのちがいは？
+</div>
 
 ---
 
-### Q. Webアプリケーションとは
+## ちがい① どうやって手元に届くか
 
-**ブラウザ上で動作するアプリケーションのこと**  
+![](imgs/fig-native-vs-web.svg)
 
-↕
+<div class="note">
+<strong>サーバー</strong>＝ 頼まれたものを渡してくれるコンピュータ
+</div>
 
-**各種OS上にインストールして利用するソフトウェア**
-
-*ネイティブアプリケーション*
+---
+<div class="big">
+<strong>Webサイト</strong>とのちがいは？
+</div>
 
 ---
 
-### 例えば？
+## ちがい② 読むだけか、操作できるか
+
+![](imgs/fig-site-vs-app.svg)
+
+---
+<div class="big">
+どんなものがある？
+</div>
 
 ---
 
-- 動画配信
+<!-- _class: pic -->
 
-![height:450](imgs/youtube.png)
+### 動画配信
 
----
-
-- EC
-
-![height:450](imgs/amazon.png)
+![height:470](imgs/youtube.png)
 
 ---
 
-- 地図
+<!-- _class: pic -->
 
-![height:450](imgs/google-map.png)
+### ネットショップ
 
----
-
-- ゲーム
-
-![height:450](imgs/game.png)
+![height:470](imgs/amazon.png)
 
 ---
 
-- 表示の動的な変化を伴うホームページ
+<!-- _class: pic -->
 
-![height:450](imgs/jigjp.site.png)
+### 地図
 
----
-
-すべて **Webアプリケーション** といえる
+![height:470](imgs/google-map.png)
 
 ---
 
-### インターンの目標
+<!-- _class: pic -->
 
-### **Webアプリケーションを作る！**
+### ゲーム
 
-<!-- そのためには世の中のWebアプリケーションがどのような仕組みで動作しているのかを知る必要があります。  
-この講義では現代で一般的に利用されるWebアプリケーションの構成と、その中で利用されるフレームワークを中心に解説します。 -->
+![height:470](imgs/game.png)
+
+---
+<div class="big">
+これ、ぜんぶ<br><strong>Webアプリケーション</strong>
+</div>
+
+<div class="recap4">
+<div class="item"><img src="imgs/youtube.png"><div class="cap">動画配信</div></div>
+<div class="item"><img src="imgs/amazon.png"><div class="cap">ネットショップ</div></div>
+<div class="item"><img src="imgs/google-map.png"><div class="cap">地図</div></div>
+<div class="item"><img src="imgs/game.png"><div class="cap">ゲーム</div></div>
+</div>
 
 ---
 
-**Webアプリケーション**は**どんな仕組みで動いている**の？
+<!-- _class: chapter -->
+
+<div class="num">CHAPTER 2</div>
+
+# どんな仕組みで動いているのか
 
 ---
 
-## 2. Webアプリケーションの仕組み
+## Webアプリケーションには、3つの役割がある
 
-- 2-1 Webアプリケーションのシステム構成
-  - 2-1-1 Web開発の技術スタック
-  - 2-1-2 フロントエンドとバックエンド
-- 2-2 Web開発フレームワーク
-  - 2-2-1 フロントエンドフレームワーク
-  - 2-2-2 バックエンドフレームワーク
-  - 2-2-3 フルスタックWebフレームワーク
-- 2-3 Webアプリケーションを公開するためには
-  - 2-3-1 コンテンツ配信とは
-  - 2-3-2 コンテンツ配信の方法
+![](imgs/fig-three-parts.svg)
+
+---
+## この3つ、実は2つに分けられる
+
+![](imgs/fig-three-parts-grouped.svg)
 
 ---
 
-### 2-1. Webアプリケーションのシステム構成
+## Webアプリケーションの仕組み
 
-- 2-1-1 Web開発の技術スタック
-- 2-1-2 フロントエンドとバックエンド
+![](imgs/fig-two-places.svg)
+
+---
+## YouTube だと
+
+![](imgs/fig-youtube-inside.svg)
 
 ---
 
-モダンなWebアプリケーションの構造
-**3層クライアントサーバーシステム**
+## YouTube で、コメントを送ったとき
 
----
-<!--
-3層クライアントサーバーシステムはプレゼンテーション層・アプリケーション層・データ層の3層からなるアーキテクチャ
-単純なクライアントサーバーシステムからサーバーでの処理をロジックとデータ操作で分割したイメージ
--->
-
-![height:270](imgs/3tier-cs-system.png)
-
----
-<!--
-図のようなデータフローになる
--->
-
-![height:600](imgs/3tier-data-flow.drawio.png)
+![](imgs/fig-youtube-scene.svg)
 
 ---
 
-#### 2-1-1. Web開発の技術スタック
+## こう動く
 
-- 技術スタック
-  - 開発に用いるフレームワークやツールなどの組合せのこと
-    - プログラミング言語、動作環境のOS、サーバー、サーバーサイドフレームワーク、サーバーサイドライブラリ、API、クライアントサイドフレームワーク、クライアントサイドライブラリ、クライアント、開発支援ツール、運用支援ツール、etc...
+![](imgs/fig-comment-flow.svg)
 
----
-
-##### 有名な技術スタック
-
-- LAMP/WAMP
-  - Linux/Windows Server, Apache HTTP Server, MySQL, PHP
-  - 比較的レガシーな構成でWeb上の情報が多い
-- MEAN/MERN/MEVN
-  - MongoDB, Express.js, Anguler/React/Vue, Node.js
-  - サーバーとクライアントを同じ言語で開発できる
+<div class="note">
+保存されることで、<strong>ほかの人にも共有できる</strong>。
+</div>
 
 ---
 
-##### LAMPスタック→3層クライアントサーバーシステム
+## もしも、、、
 
-| LAMPスタック | 3層C/Sシステム |
-| ------ | ------ |
-| Linux | - |
-| Apache HTTP Server | プレゼンテーション層 |
-| MySQL | データ層 |
-| PHP | アプリケーション層 |
+![](imgs/fig-if-not-split.svg)
 
-<!-- Linuxはこれらのソフトウェアが動作するインフラとなる -->
+---
+<div class="big">
+だから、2つに分けてある
+</div>
+
+![](imgs/fig-split.svg)
 
 ---
 
-##### Deno/Deno Deployを活用した技術スタックの例
+## 3層クライアントサーバーシステム
 
-**管理するものがDeno Deployとソースのみでシンプル**
-
-- クライアントサイド
-  - HTML/CSS/JS (バニラ)
-- サーバーサイド
-  - Deno HTTP Server APIs
-- サーバー
-  - Deno Deploy
+![](imgs/fig-3tier.svg)
 
 ---
 
-##### AWSを活用した技術スタックの例
+<!-- _class: chapter -->
 
-**Web上に情報が多くあり利用障壁が低い**
+<div class="num">CHAPTER 3</div>
 
-- クライアントサイドフレームワーク
-  - Angular
-- クライアントサイド構成
-  - Amazon CloudFront
-  - Amazon S3
-- サーバーサイド構成
-  - Amazon API Gateway
-    - AWS Lambda (Node.jsランタイム)
-  - Amazon DynamoDB
+# 作るために必要なもの
+
+---
+## 今回使う言語は、主にこの3つ！
+
+![](imgs/fig-three-languages.svg)
+
+<div class="note">
+<strong>JavaScript</strong> は、画面側でもサーバー側でも使います。
+</div>
+
+---
+## 書いたものを動かすのは
+
+![](imgs/fig-runtime.svg)
+
+<div class="note">
+<strong>Deno</strong> は、サーバー側で JavaScript を動かすものです。
+</div>
 
 ---
 
-##### Microsoft Azure を活用した技術スタックの例
+## 今回つかう技術
 
-**既存のMicrosoft製サービスと親和性が高い**
+![](imgs/fig-js-both.svg)
 
-- フルスタックフレームワーク
-  - Flask + Jinja2
-- サーバー
-  - Azure App Service (Pythonランタイム)
-  - Azure SQL Database
+<div class="note">
+画面は <strong>ブラウザ</strong>、サーバー側は <strong>Deno</strong> が動かします。
+</div>
 
 ---
 
-#### 2-1-2. フロントエンドとバックエンド
+## <span class="c-view">画面</span> は、この3つでつくる
+
+![](imgs/fig-html-css-js.svg)
 
 ---
 
-これまでに出た単語とほぼ対応する
+## <span class="c-store">保存</span> は、Deno KV に
 
+![](imgs/fig-data-kv.svg)
 
-**フロントエンド** = *クライアントサイド*
-**バックエンド** = *サーバーサイド*
-
----
-
-**フロントエンド**
-
-- 役割
-  - ユーザーに情報を提示する
-  - ユーザーの操作を処理する
-- 例) バックエンドから受け取ったデータの表示
-
-**バックエンド**
-
-- 役割
-  - フロントエンドが要求した処理を行う
-  - データの保存や取得を行う
-- 例) Webページから送信されたデータの処理
-
----
-<!-- 各種フレームワークの例をあげてみる -->
-### 2-2. Web開発フレームワーク
-
-- 2-2-1 フロントエンドフレームワーク
-- 2-2-2 バックエンドフレームワーク
-- 2-2-3 フルスタックWebフレームワーク
+<div class="note">
+<strong>Deno KV</strong> は Deno に入っている<strong>データベース</strong>です。
+</div>
 
 ---
 
-#### 2-2-1. フロントエンドフレームワーク
+## まとめ
 
-三大Webフレームワーク (JS系)
-
-- React
-- Vue.js
-- Angular
-
-他にも
-
-- Svelte
-- Solid
-- Lit
+![](imgs/fig-summary.svg)
 
 ---
 
-#### 2-2-2. バックエンドフレームワーク
+<!-- _class: title -->
+<!-- _paginate: false -->
 
-- Express (JS)
-- NestJS (JS)
-- Spring Boot (Java)
+# 質疑応答
 
----
-
-#### 2-2-3. フルスタックWebフレームワーク
-
-- Deno Fresh (JS)
-- Django (Python)
-- Flask + Jinja2 (Python)
-- Ruby on Rails (Ruby)
-- Laravel (PHP)
+<span class="sub">授業スレに来ているものから見てみます！<br>メンターが空いたタイミングで適宜返信していくので、<br>授業後に書いてもらっても大丈夫です◎</span>
 
 ---
 
-### 2-3. Webアプリケーションを公開するためには
+## 参考
 
-- 2-3-1 コンテンツ配信とは
-- 2-3-2 コンテンツ配信の方法
-
----
-
-#### 2-3-1. コンテンツ配信とは
+- [ウェブのしくみ（MDN）](https://developer.mozilla.org/ja/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works)
+- [ウェブアプリケーションとは?（AWS）](https://aws.amazon.com/jp/what-is/web-application/)
+- [Web三層構造の図解](https://kitsune.blog/web-system-structure)
 
 ---
+## Tips
 
-コンテンツは何らかの方法で配信され
-ユーザーがアクセス可能な状態にある必要がある
+![](imgs/fig-other-stacks.svg)
 
-- ※ コンテンツ:
-　アプリケーションやWebページ、画像、動画など
-
----
-
-アプリケーションをユーザーが利用するには
-**ユーザーにアプリケーションを届ける仕組み**が必要
-
-![height:450](imgs/delivery-actor.drawio.png)
-
----
-
-例えば：スマホアプリ
-各種アプリストアを通してユーザーに届けられる
-
-![height:450](imgs/smartphone-application-delivery.drawio.png)
-
----
-
-**では Webアプリケーション は？**
-
----
-
-アプリケーションの実行に必要な情報を
-**Webサーバーから配信する**ことでユーザーから利用可能に
-
-![height:450](imgs/web-application-delivery.drawio.png)
-
----
-
-#### 2-3-2. コンテンツ配信の方法
-
----
-
-実際の構成の例：Deno Deployを利用する場合
-
-![height:400](imgs/deno-deploy.drawio.png)
-
----
-
-実際の構成の例：オンプレミスの場合
-
-<!-- オンプレ構成でサーバーを公開してNGiNXなどを利用した構成 -->
-
-![height:350](imgs/httpserver.drawio.png)
-
----
-
-より詳細には...
-
-![height:500](imgs/httpserver-withdns.drawio.png)
-
----
-
-実際の構成の例：クラウドを利用する場合(AWS)
-
-![height:400](imgs/aws.drawio.png)
-
----
-
-## 3. まとめ
-
----
-
-- Webアプリケーションとは
-  - **ブラウザ上で動作するアプリケーションのこと**
-
-- 世の中のWebアプリケーションはどんな仕組みの上で成り立っているのか
-  - *3層クライアントサーバーシステム*
-  - *フロントエンドとバックエンド*
-  - *フレームワーク*
-  - *コンテンツ配信*
-
----
-
-- **これからWebアプリケーションを作っていくために**
-  - ***まずはDeno Deployで作ってみる*** ←イマココ
-    - 構成がシンプル
-    - コンテンツ配信やフレームワークを
-      意識しなくていい
-
----
-
-*インターンがおわったあと*...
-
-- フレームワークに挑戦する
-  - Deno Fresh など
-- 静的サイトを作る
-  - フレームワーク・コンテンツ配信
-- フルスタック開発へ...
-
----
-
-### ようこそ、Webアプリケーションの世界へ
-
----
-
-## 4. 参考文献
-
-- [ウェブアプリケーションとは? - ウェブアプリケーションの説明 - AWS](https://aws.amazon.com/jp/what-is/web-application/)
-- [3層クライアントサーバシステムとは？概要と仕組みを理解する](https://www.learning-nao.com/?p=224)
-- [クライアントサイドフレームワークの概要 - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Introduction)
-- [CDNとは？コンテンツ配信の方法とCDNの仕組み｜コラム｜クラウドソリューション｜サービス｜法人のお客さま｜NTT東日本](https://business.ntt-east.co.jp/content/cloudsolution/column-66.html)
-
----
-
-## 4. 参考文献
-
-- [サーバーサイドウェブフレームワーク - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks)

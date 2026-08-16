@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 510" width="1168" height="510"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="510" fill="#ffffff"/>
+
+  <g transform="translate(0,17)">
+
+  <rect x="150" y="142" width="868" height="318" fill="#f2f1ed"/>
+  <text x="184" y="186" font-size="30" fill="#5c6570">サーバー</text>
+
+  <rect x="184" y="16" width="800" height="76" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <line x1="404" y1="16" x2="404" y2="92" stroke="#cdcac1" stroke-width="2"/>
+  <text x="214" y="70" font-size="52" font-weight="bold" fill="#17558f">画面</text>
+  <text x="440" y="66" font-size="40" fill="#1c2126">プレゼンテーション層</text>
+
+  <line x1="584" y1="128" x2="584" y2="170" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="584,116 574,132 594,132" fill="#5c6570"/>
+  <polygon points="584,182 574,166 594,166" fill="#5c6570"/>
+
+  <rect x="184" y="206" width="800" height="76" fill="#ffffff" stroke="#b8501e" stroke-width="3"/>
+  <line x1="404" y1="206" x2="404" y2="282" stroke="#cdcac1" stroke-width="2"/>
+  <text x="214" y="260" font-size="52" font-weight="bold" fill="#b8501e">処理</text>
+  <text x="440" y="256" font-size="40" fill="#1c2126">アプリケーション層</text>
+
+  <line x1="584" y1="306" x2="584" y2="326" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="584,294 574,310 594,310" fill="#5c6570"/>
+  <polygon points="584,338 574,322 594,322" fill="#5c6570"/>
+
+  <rect x="184" y="350" width="800" height="76" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
+  <line x1="404" y1="350" x2="404" y2="426" stroke="#cdcac1" stroke-width="2"/>
+  <text x="214" y="404" font-size="52" font-weight="bold" fill="#2c6b4f">保存</text>
+  <text x="440" y="400" font-size="40" fill="#1c2126">データ層</text>
+
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 402" width="1168" height="402"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="402" fill="#ffffff"/>
+
+  <text x="552" y="50" text-anchor="middle" font-size="36" fill="#5c6570">つかうもの</text>
+  <text x="992" y="50" text-anchor="middle" font-size="36" fill="#5c6570">動かす環境</text>
+
+  <rect x="264" y="172" width="880" height="204" fill="#f2f1ed"/>
+
+  <rect x="24" y="70"  width="240" height="102" fill="#eef3f8"/>
+  <rect x="24" y="172" width="240" height="102" fill="#fbf0ea"/>
+  <rect x="24" y="274" width="240" height="102" fill="#eef4f0"/>
+
+  <rect x="24" y="70" width="1120" height="306" fill="none" stroke="#8f8b82" stroke-width="3"/>
+  <line x1="264" y1="70" x2="264" y2="376" stroke="#8f8b82" stroke-width="2"/>
+  <line x1="840" y1="70" x2="840" y2="376" stroke="#8f8b82" stroke-width="2"/>
+  <line x1="24" y1="172" x2="1144" y2="172" stroke="#8f8b82" stroke-width="2"/>
+  <line x1="24" y1="274" x2="840" y2="274" stroke="#8f8b82" stroke-width="2"/>
+
+  <text x="144" y="134" text-anchor="middle" font-size="48" font-weight="bold" fill="#17558f">画面</text>
+  <text x="144" y="236" text-anchor="middle" font-size="48" font-weight="bold" fill="#b8501e">処理</text>
+  <text x="144" y="338" text-anchor="middle" font-size="48" font-weight="bold" fill="#2c6b4f">保存</text>
+
+  <text x="552" y="133" text-anchor="middle" font-size="40" fill="#1c2126">HTML・CSS・JavaScript</text>
+  <text x="552" y="235" text-anchor="middle" font-size="40" fill="#1c2126">JavaScript</text>
+  <text x="552" y="337" text-anchor="middle" font-size="40" fill="#1c2126">Deno KV</text>
+
+  <text x="992" y="133" text-anchor="middle" font-size="40" fill="#1c2126">ブラウザ</text>
+  <text x="992" y="288" text-anchor="middle" font-size="40" fill="#1c2126">Deno</text>
+
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 420" width="1168" height="420"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="420" fill="#ffffff"/>
+
+  <line x1="584" y1="10" x2="584" y2="412" stroke="#cdcac1" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <rect x="117" y="14" width="320" height="76" fill="#ffffff" stroke="#5c6570" stroke-width="2"/>
+  <text x="277" y="66" text-anchor="middle" font-size="40" fill="#1c2126">スマホアプリ</text>
+
+  <line x1="277" y1="96" x2="277" y2="124" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="277,140 268,122 286,122" fill="#5c6570"/>
+
+  <rect x="117" y="152" width="320" height="84" fill="#f2f1ed" stroke="#1c2126" stroke-width="3"/>
+  <text x="277" y="208" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">アプリストア</text>
+
+  <line x1="277" y1="236" x2="277" y2="264" stroke="#5c6570" stroke-width="3"/>
+  <line x1="157" y1="264" x2="397" y2="264" stroke="#5c6570" stroke-width="3"/>
+  <line x1="157" y1="264" x2="157" y2="292" stroke="#5c6570" stroke-width="3"/>
+  <line x1="277" y1="264" x2="277" y2="292" stroke="#5c6570" stroke-width="3"/>
+  <line x1="397" y1="264" x2="397" y2="292" stroke="#5c6570" stroke-width="3"/>
+  <polygon points="157,304 149,288 165,288" fill="#5c6570"/>
+  <polygon points="277,304 269,288 285,288" fill="#5c6570"/>
+  <polygon points="397,304 389,288 405,288" fill="#5c6570"/>
+
+  <circle cx="157" cy="340" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M131,410 Q131,372 157,372 Q183,372 183,410 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <circle cx="277" cy="340" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M251,410 Q251,372 277,372 Q303,372 303,410 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <circle cx="397" cy="340" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M371,410 Q371,372 397,372 Q423,372 423,410 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+
+  <rect x="658" y="14" width="460" height="76" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <text x="888" y="66" text-anchor="middle" font-size="40" fill="#1c2126">Webアプリケーション</text>
+
+  <line x1="888" y1="96" x2="888" y2="124" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="888,140 879,122 897,122" fill="#5c6570"/>
+
+  <rect x="658" y="152" width="460" height="84" fill="#f2f1ed" stroke="#17558f" stroke-width="3"/>
+  <text x="888" y="208" text-anchor="middle" font-size="40" font-weight="bold" fill="#17558f">Webサーバー</text>
+
+  <line x1="888" y1="236" x2="888" y2="264" stroke="#5c6570" stroke-width="3"/>
+  <line x1="768" y1="264" x2="1008" y2="264" stroke="#5c6570" stroke-width="3"/>
+  <line x1="768" y1="264" x2="768" y2="292" stroke="#5c6570" stroke-width="3"/>
+  <line x1="888" y1="264" x2="888" y2="292" stroke="#5c6570" stroke-width="3"/>
+  <line x1="1008" y1="264" x2="1008" y2="292" stroke="#5c6570" stroke-width="3"/>
+  <polygon points="768,304 760,288 776,288" fill="#5c6570"/>
+  <polygon points="888,304 880,288 896,288" fill="#5c6570"/>
+  <polygon points="1008,304 1000,288 1016,288" fill="#5c6570"/>
+
+  <circle cx="768" cy="340" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M742,410 Q742,372 768,372 Q794,372 794,410 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <circle cx="888" cy="340" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M862,410 Q862,372 888,372 Q914,372 914,410 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <circle cx="1008" cy="340" r="20" fill="none" stroke="#5c6570" stroke-width="2"/>
+  <path d="M982,410 Q982,372 1008,372 Q1034,372 1034,410 Z" fill="none" stroke="#5c6570" stroke-width="2"/>
+
+</svg>

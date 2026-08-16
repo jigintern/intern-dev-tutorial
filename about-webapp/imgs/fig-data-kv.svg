@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 420" width="1168" height="420"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="420" fill="#ffffff"/>
+
+  <rect x="120" y="24" width="928" height="316" fill="#f2f1ed" stroke="#1c2126" stroke-width="3"/>
+  <text x="584" y="74" text-anchor="middle" font-size="40" font-weight="bold" fill="#1c2126">サーバー</text>
+
+  <rect x="164" y="98" width="840" height="182" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
+  <rect x="164" y="98" width="840" height="54" fill="#eef4f0"/>
+  <line x1="164" y1="152" x2="1004" y2="152" stroke="#2c6b4f" stroke-width="2"/>
+  <text x="584" y="138" text-anchor="middle" font-size="40" font-weight="bold" fill="#2c6b4f">Deno KV</text>
+
+  <circle cx="220" cy="180" r="14" fill="#cdcac1"/>
+  <text x="252" y="192" font-size="32" fill="#1c2126">おもしろい！</text>
+
+  <circle cx="220" cy="216" r="14" fill="#b0aca2"/>
+  <text x="252" y="228" font-size="32" fill="#1c2126">神回だった</text>
+
+  <circle cx="220" cy="252" r="14" fill="#8f8b82"/>
+  <text x="252" y="264" font-size="32" fill="#1c2126">ここ好き</text>
+
+  <text x="584" y="322" text-anchor="middle" font-size="30" fill="#5c6570">動かしているのは Deno</text>
+
+  <text x="584" y="392" text-anchor="middle" font-size="44" font-weight="bold" fill="#1c2126">みんなのデータがここに集まる</text>
+
+</svg>
