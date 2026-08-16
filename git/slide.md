@@ -547,13 +547,13 @@ SlackやGitHub上でのコメントなど、適宜チーム内で決定した方
 
 ---
 
-###### 7. Pull Requestの作成者は、「Merge pull request」をクリックして、Pull Requestを元のブランチに結合します
+###### 7-1. Pull Requestの作成者は、「Merge pull request」をクリックして、Pull Requestを元のブランチに結合します
 
 ![height:460px](./imgs/screen-shots/26_merge_pull_request.png)
 
 ---
 
-###### 7. Pull Requestの作成者は、「Merge pull request」をクリックして、Pull Requestを元のブランチに結合します
+###### 7-2. Pull Requestが結合され、「Merged」と表示されることを確認します
 
 ![height:460px](./imgs/screen-shots/27_merged_pull_request.png)
 
