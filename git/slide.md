@@ -648,7 +648,7 @@ _できるようになったことを、振り返ろう_
 <style scoped>
 section {
     font-size: 35px;
-    line-height: 80px;
+    line-height: 70px;
 }
 </style>
 
@@ -659,6 +659,7 @@ section {
 5. push: 作業の成果をGitHubにアップロードして共有する
 6. Pull Request: 枝分かれした成果を結合する
 7. review: 他の開発者の作業内容を確認する
+8. fetch / pull: GitHubリポジトリの変更部分をダウンロードする
 
 ---
 
