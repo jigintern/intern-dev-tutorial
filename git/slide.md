@@ -273,7 +273,7 @@ Zoomのチャット欄にも記載します
 
 ### ダウンロードできてそうですね
 
-![bg contain brightness:50%](./imgs/screen-shots/07_view_cloned_files.png)
+![bg contain opacity:20%](./imgs/screen-shots/07_view_cloned_files.png)
 
 ---
 
@@ -425,7 +425,7 @@ header: 2-4. log: 作業の履歴を確認しよう
 
 ### よさそうですね
 
-![bg contain brightness:50%](./imgs/screen-shots/17_source_control_graph.png)
+![bg contain opacity:20%](./imgs/screen-shots/17_source_control_graph.png)
 
 ---
 
@@ -665,4 +665,4 @@ section {
 
 お疲れ様でした！
 
-![bg height:550px brightness:30%](./imgs/materials/06_mermaid_all.svg)
+![bg height:550px opacity:20%](./imgs/materials/06_mermaid_all.svg)
