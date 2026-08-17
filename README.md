@@ -21,6 +21,7 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
   - [DOCS.md](./html-css/DOCS.md)
 - Denoについて: deno
   - [README.md](./deno/README.md)
+  - [スライド](https://jigintern.github.io/intern-dev-tutorial/deno/deno-slide.html)
 - クライアント・サーバの通信: transfer-protocol
   - [README.md](./transfer-protocol/README.md)
 - APIハンズオン: api
