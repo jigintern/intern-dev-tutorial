@@ -9,8 +9,8 @@
 
 ### 1-1. データベースとは何か？
 
-> データベースとは、構造化した情報またはデータの組織的な集合であり、通常はコンピューター・システムに電子的に格納されています。  
-> 出典: https://www.oracle.com/jp/database/what-is-database/
+> データベースは、情報を保存、管理、取得するための構造化されたシステムです。  
+> 出典: https://cloud.google.com/discover/databases?hl=ja
 
 データベースは、データを構造化して保存するためのシステムです。  
 データの保存が必要となる多くのアプリケーションで使用されています。ファイル等に単純に保存する場合と比較してデータが扱いやすくなっています。
@@ -30,7 +30,7 @@ MongoDBやDynamoDB、Cloud Firestoreなどが代表的です。
 
 ### 1-2. Deno KVとは何か？
 
-Deno KVは、Deno Land Inc.から提供されているDeno用NoSQLデータベースです。key-valueデータベースに分類されます。Deno公式から提供されていることもあり、Denoから比較的容易に利用できます。β版なので機能は限定的ですが、個人開発程度であれば、十分な性能を発揮してくれるでしょう。
+Deno KVは、Deno Land Inc.から提供されているDeno用NoSQLデータベースです。key-valueデータベースに分類されます。Deno公式から提供されていることもあり、Denoから比較的容易に利用できます。開発途上の機能なので仕様が変わる可能性はありますが、個人開発程度であれば、十分な性能を発揮してくれるでしょう。
 
 Deno KVでは、以下のような形式でデータを保存します。ここでは、学校の名簿を想定して例を記載しています。  
 keyに対してvalueが一意に紐づくため、keyとvalueのデータ構造は慎重に決定しましょう。
@@ -50,7 +50,7 @@ keyに対してvalueが一意に紐づくため、keyとvalueのデータ構造�
 
 *Deno KVを実際に使ってみよう！*
 
-### 2-0. Deno Deployで新規Playgroundを作成しよう
+### 2-0. 実践の準備をしよう
 
 Deno Deployには、Denoのコードを簡単に記述・実行・デプロイできるPlaygroundという機能が搭載されています。ここでは、簡単のためPlaygroundを使用してみましょう。
 
@@ -63,15 +63,15 @@ Deno Deployには、Denoのコードを簡単に記述・実行・デプロイ�
 <details>
 <summary>練習: DenoのPlaygroundを作ってみよう</summary>
 
-1. [Deno Deploy](https://deno.com/deploy)にログインします
+1. [Deno Deploy](https://console.deno.com)にログインします
 
-2. ページ右側の「New Playground」をクリックします
-![](./imgs/201_create_play_ground.png)
+2. 「Apps」ページの「New Playground」をクリックします
+![](./imgs/201_create_playground.png)
 
 3. 以下のような画面が開けばOKです
-![](./imgs/202_empty_play_ground.png)
+![](./imgs/202_empty_playground.png)
 
-4. 画面左側のコードを以下のように書き換えて、「Media Type」をTSからJSに変更して、「Save & Deploy」をクリックします
+4. 画面中央のコードを以下のように書き換えて、「Deploy」をクリックします
 
 ```js
 Deno.serve(async(req) => {
@@ -79,12 +79,29 @@ Deno.serve(async(req) => {
 });
 ```
 
-5. 画面右側のブラウザが書き換わればOKです
+5. 画面右側の「PREVIEW」に「Hello Deno」と表示されればOKです
 
-6. [Deno Deployのホーム画面](https://dash.deno.com/account/overview)を開き、作成したアプリケーションを開きます
+</details>
 
-7. 以下のような画面が開けばOKです。この画面を（ここでは便宜上）Project画面と呼びます
-![](./imgs/203_play_ground_dashboard.png)
+<details>
+<summary>練習: Deno KVのデータベースを用意しよう</summary>
+
+Deno KVを使うには、データベースを作成して、Playgroundに紐づけます。
+
+1. 「Apps」ページから作成したPlaygroundを開き、画面左のメニューから「Databases」を選びます
+
+2. 「Deno KV」の「+ Attach」をクリックします
+![](./imgs/203_attach_kv.png)
+
+3. 「Select a KV database」を開き、「+ Provision new Deno KV」を選びます
+
+4. 「Slug」に`deno-kv-tutorial`と入力します。「Write Region」はそのままで構いません
+![](./imgs/204_provision_kv.png)
+
+5. 「Provision Deno KV」をクリックし、続けて「Attach database」をクリックします
+
+6. 「Instance」に作成したデータベースが表示されればOKです
+![](./imgs/205_attached_kv.png)
 
 </details>
 
@@ -119,7 +136,8 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに「Kv {}」と表示されていることを確認します
+2. 「Deploy」をクリックして、画面下部の「LOGS」に「Kv {}」と表示されていることを確認します
+![](./imgs/206_init_kv_log.png)
 
 </details>
 
@@ -144,13 +162,9 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認します
+2. 「Deploy」をクリックして、ログに`{ ok: true, versionstamp: "..." }`と表示されていることを確認します
 
-3. Deno DeployのProject画面から、Deno KVに保存された値を確認します
-
-4. 以下のようになっていたらOKです
-![](./imgs/205_kv_tab.png)
-![](./imgs/206_kv_data_viewer.png)
+> Topic: `versionstamp`は、そのデータが何番目の更新で書き込まれたかを表す値です。同じkeyを更新すると変化します
 
 </details>
 
@@ -176,9 +190,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認します
-
-3. Deno DeployのProject画面から、Deno KVの更新された値を確認します
+2. 「Deploy」をクリックして、ログの`versionstamp`が先程と変わっていることを確認します
 
 </details>
 
@@ -209,9 +221,9 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに保存ログが表示されていることを確認します
+2. 「Deploy」をクリックして、エラーが出ていないことを確認します
 
-3. Deno DeployのProject画面から、Deno KVの更新された値を確認します
+> Topic: ここで追加したデータは、次の2-2で取得して確認します
 
 </details>
 
@@ -268,7 +280,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
+2. 「Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 </details>
 
@@ -297,7 +309,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
+2. 「Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 </details>
 
@@ -327,7 +339,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
+2. 「Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 3. `list`では、範囲指定のデータを取得することもできます。`key: ["student", 1]~["student", 2]`のデータを取得してみましょう
 
@@ -354,7 +366,7 @@ Deno.serve(async(req) => {
 });
 ```
 
-4. 「Save & Deploy」をクリックして、ログに取得された値が出力されるのを確認します
+4. 「Deploy」をクリックして、ログに取得された値が出力されるのを確認します
 
 </details>
 
@@ -367,10 +379,8 @@ Deno KVに保存したデータを削除してみましょう。データの削�
 const kv = await Deno.openKv();
 
 // データを削除
-const result = await kv.delete(["hoge"]);
-
-// レスポンスを表示
-console.log(result);
+// setと異なり、戻り値はありません
+await kv.delete(["hoge"]);
 ```
 
 <details>
@@ -394,9 +404,17 @@ Deno.serve(async(req) => {
 });
 ```
 
-2. 「Save & Deploy」をクリックします
+2. 削除されたことを確認するために、`get`で読み出すコードを書き加えます
 
-3. Deno DeployのProject画面から、Deno KVの値が削除されていることを確認します
+```diff
+    // データを削除
+    await kv.delete(["student", 1]);
++
++   const deletedResult = await kv.get(["student", 1]);
++   console.log("deleted_result: ", deletedResult);
+```
+
+3. 「Deploy」をクリックして、ログの`value`が`null`になっていることを確認します
 
 </details>
 
