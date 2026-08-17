@@ -807,14 +807,14 @@ DenoがGitHubのリポジトリを読んでいいか、確認されます。初�
 <br>
 
 <div class="steps">
-  <div><strong>静的サイト</strong><span> — 置いてあるファイルを、そのまま返すだけ</span></div>
-  <div><strong>動的アプリ</strong><span> — アクセスのたびに、コードを動かす</span></div>
+  <div><strong>Static Site</strong><span>（静的サイト） — 置いてあるファイルを、そのまま返すだけ</span></div>
+  <div><strong>Dynamic App</strong><span>（動的アプリ） — アクセスのたびに、コードを動かす</span></div>
 </div>
 
-### このアプリは「**動的**」です
+### このアプリは「**Dynamic App**」です
 
 <div class="note tight">
-<code>server.js</code> が文言を作って返すので、あちらのPCで<strong>動かしてもらう</strong>必要があります
+<code>server.js</code> が文言を作って返すので、あちらの置き場所で<strong>動かしてもらう</strong>必要があります
 </div>
 
 ---
