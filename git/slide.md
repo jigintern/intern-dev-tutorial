@@ -195,8 +195,6 @@ VSCodeを入れればすぐ使えます
 
 <!--
 _header: ""
-backgroundColor: #222
-color: #FFF
 -->
 
 ## 2. VSCodeのGit機能を触ってみよう
