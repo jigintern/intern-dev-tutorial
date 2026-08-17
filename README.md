@@ -16,9 +16,11 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
 - JavaScriptを始めよう: javascript
   - [README.md](./javascript/README.md)
   - [DOCS.md](./javascript/DOCS.md)
+  - [スライド](https://jigintern.github.io/intern-dev-tutorial/javascript-slide/slide.html)
 - HTML/CSSを始めよう: html-css
   - [README.md](./html-css/README.md)
   - [DOCS.md](./html-css/DOCS.md)
+  - [スライド](https://jigintern.github.io/intern-dev-tutorial/html-css-slide/slide.html)
 - Denoについて: deno
   - [README.md](./deno/README.md)
 - クライアント・サーバの通信: transfer-protocol
