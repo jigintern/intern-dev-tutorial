@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 384" width="1000" height="384" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="cmp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#33b1dd" />
+    </marker>
+  </defs>
+
+  <!-- 悪い例 -->
+  <text x="190" y="30" text-anchor="middle" font-size="28" font-weight="700" fill="#e0574a">これだと迷う</text>
+  <rect x="60" y="48" width="260" height="320" rx="16" fill="#ffffff" stroke="#c9ced6" stroke-width="3" />
+  <rect x="60" y="48" width="260" height="34" rx="16" fill="#f1f2f4" />
+  <rect x="60" y="66" width="260" height="16" fill="#f1f2f4" />
+  <text x="76" y="72" font-size="9" fill="#9aa1ab">ホーム ＞ メニュー ＞ ドリンク ＞ 詳細</text>
+  <rect x="76" y="92" width="228" height="22" rx="5" fill="#e7f5fb" />
+  <text x="190" y="107" text-anchor="middle" font-size="9" fill="#1c8fb5">＼ 今だけ！ 全品10%OFF ／</text>
+  <text x="76" y="134" font-size="11" fill="#202228">アイスコーヒー　￥500</text>
+  <text x="76" y="154" font-size="9" fill="#6b7078">当店自慢のアイスコーヒーは、エチオピア産とブラジル産の</text>
+  <text x="76" y="170" font-size="9" fill="#6b7078">豆を独自の配合でブレンドし、中深煎りに仕上げています。</text>
+  <text x="76" y="186" font-size="9" fill="#6b7078">抽出は一杯ずつハンドドリップでおこない、氷が溶けても味</text>
+  <text x="76" y="202" font-size="9" fill="#6b7078">が薄くならないよう濃いめに落としています。ミルクとガム</text>
+  <text x="76" y="218" font-size="9" fill="#6b7078">シロップは無料でお付けできますので、店員にお申し付けく</text>
+  <text x="76" y="234" font-size="9" fill="#6b7078">ださい。持ち帰り用のカップは紙製で、フタとストローは別</text>
+  <text x="76" y="250" font-size="9" fill="#6b7078">売りです。混雑時はお時間をいただく場合がございます。</text>
+  <text x="76" y="272" font-size="9" fill="#33b1dd">利用規約　よくある質問　お問い合わせ　会員登録</text>
+  <text x="76" y="290" font-size="9" fill="#6b7078">サイズ：S ／ M ／ L　　氷：多め ／ 普通 ／ 少なめ</text>
+  <text x="76" y="308" font-size="9" fill="#33b1dd">キャンペーン　新商品　ランキング　設定　ヘルプ</text>
+  <rect x="244" y="326" width="60" height="24" rx="4" fill="#f7f8f9" stroke="#d3d6db" stroke-width="1" />
+  <text x="274" y="343" text-anchor="middle" font-size="12" fill="#c9ced6">注文</text>
+
+  <line x1="350" y1="208" x2="412" y2="208" stroke="#33b1dd" stroke-width="4" marker-end="url(#cmp-arrow)" />
+
+  <!-- 良い例 -->
+  <text x="570" y="30" text-anchor="middle" font-size="28" font-weight="700" fill="#1c8fb5">これなら迷わない</text>
+  <rect x="440" y="48" width="260" height="320" rx="16" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <rect x="440" y="48" width="260" height="46" rx="16" fill="#f1f2f4" />
+  <rect x="440" y="72" width="260" height="22" fill="#f1f2f4" />
+  <text x="462" y="82" font-size="20" font-weight="700" fill="#202228">カフェ　注文</text>
+  <rect x="462" y="112" width="216" height="84" rx="8" fill="#e6e8ec" />
+  <text x="462" y="228" font-size="23" fill="#202228">アイスコーヒー</text>
+  <text x="462" y="254" font-size="15" fill="#6b7078">すっきり飲みやすい中深煎り</text>
+  <text x="462" y="292" font-size="30" font-weight="700" fill="#202228">￥500</text>
+  <rect x="462" y="306" width="216" height="46" rx="10" fill="#33b1dd" />
+  <text x="570" y="337" text-anchor="middle" font-size="22" fill="#ffffff">注文する</text>
+
+  <!-- 何が変わったのか -->
+  <circle cx="748" cy="122" r="15" fill="#33b1dd" />
+  <text x="748" y="130" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">1</text>
+  <text x="774" y="131" font-size="25" fill="#202228">注文ボタンが大きい</text>
+  <circle cx="748" cy="196" r="15" fill="#33b1dd" />
+  <text x="748" y="204" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">2</text>
+  <text x="774" y="205" font-size="25" fill="#202228">文字が読みやすい</text>
+  <circle cx="748" cy="270" r="15" fill="#33b1dd" />
+  <text x="748" y="278" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">3</text>
+  <text x="774" y="279" font-size="25" fill="#202228">説明は短く、要点だけ</text>
+</svg>

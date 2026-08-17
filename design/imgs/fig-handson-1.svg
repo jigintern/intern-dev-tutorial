@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" width="1000" height="380" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- スケッチブック -->
+  <rect x="40" y="70" width="320" height="250" rx="10" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+  <line x1="40" y1="106" x2="360" y2="106" stroke="#e6e8ec" stroke-width="2" />
+  <g stroke="#9aa1ab" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M80 58 L80 88" />
+    <path d="M130 58 L130 88" />
+    <path d="M180 58 L180 88" />
+    <path d="M230 58 L230 88" />
+    <path d="M280 58 L280 88" />
+    <path d="M320 58 L320 88" />
+  </g>
+
+  <!-- 手描きのあと -->
+  <g stroke="#c9ced6" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M80 144 L230 142" />
+    <path d="M80 174 L190 176" />
+  </g>
+  <rect x="80" y="204" width="120" height="70" rx="6" fill="none" stroke="#c9ced6" stroke-width="4" />
+
+  <!-- えんぴつ -->
+  <g transform="translate(248,210) rotate(38)">
+    <rect x="0" y="0" width="26" height="96" rx="4" fill="#f1f2f4" stroke="#9aa1ab" stroke-width="3" />
+    <path d="M0 96 L26 96 L13 124 z" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" stroke-linejoin="round" />
+    <path d="M6 116 L20 116 L13 124 z" fill="#6b7078" />
+  </g>
+
+  <!-- 制限時間 -->
+  <rect x="430" y="30" width="164" height="60" rx="30" fill="#33b1dd" />
+  <text x="512" y="72" text-anchor="middle" font-size="32" font-weight="700" fill="#ffffff">3分</text>
+
+  <!-- 画面に入れるもの -->
+  <text x="430" y="142" font-size="30" font-weight="700" fill="#202228">画面に入れるもの</text>
+  <g fill="#33b1dd">
+    <rect x="432" y="176" width="15" height="15" rx="3" />
+    <rect x="432" y="218" width="15" height="15" rx="3" />
+    <rect x="432" y="260" width="15" height="15" rx="3" />
+    <rect x="432" y="302" width="15" height="15" rx="3" />
+    <rect x="722" y="176" width="15" height="15" rx="3" />
+    <rect x="722" y="218" width="15" height="15" rx="3" />
+    <rect x="722" y="260" width="15" height="15" rx="3" />
+  </g>
+  <text x="468" y="191" font-size="28" fill="#202228">商品の画像</text>
+  <text x="468" y="233" font-size="28" fill="#202228">商品名</text>
+  <text x="468" y="275" font-size="28" fill="#202228">商品の説明</text>
+  <text x="468" y="317" font-size="28" fill="#202228">値段（500円）</text>
+  <text x="758" y="191" font-size="28" fill="#202228">個数</text>
+  <text x="758" y="233" font-size="28" fill="#202228">お気に入り登録</text>
+  <text x="758" y="275" font-size="28" fill="#202228">注文ボタン</text>
+
+  <text x="690" y="360" text-anchor="middle" font-size="24" fill="#1c8fb5">この7つが入っていればOK</text>
+</svg>

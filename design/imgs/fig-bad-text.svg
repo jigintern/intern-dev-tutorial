@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 374" width="940" height="374" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 文字が小さすぎる注文画面 -->
+  <text x="240" y="42" text-anchor="middle" font-size="29" font-weight="700" fill="#e0574a">小さすぎる</text>
+  <rect x="60" y="64" width="360" height="252" rx="14" fill="#ffffff" stroke="#c9ced6" stroke-width="3" />
+  <text x="88" y="104" font-size="11" font-weight="700" fill="#6b7078">カフェ　注文</text>
+  <rect x="88" y="118" width="120" height="54" rx="4" fill="#e6e8ec" />
+  <text x="88" y="192" font-size="11" fill="#6b7078">アイスコーヒー</text>
+  <text x="88" y="210" font-size="11" fill="#6b7078">￥500　／　サイズ M</text>
+  <text x="88" y="228" font-size="11" fill="#6b7078">ミルク・ガムシロップは無料です</text>
+  <rect x="88" y="246" width="70" height="24" rx="5" fill="#33b1dd" />
+  <text x="123" y="263" text-anchor="middle" font-size="11" fill="#ffffff">注文する</text>
+  <text x="240" y="354" text-anchor="middle" font-size="26" fill="#e0574a">近づかないと読めない</text>
+
+  <!-- 背景と同化している注文画面 -->
+  <text x="700" y="42" text-anchor="middle" font-size="29" font-weight="700" fill="#e0574a">背景と同化している</text>
+  <rect x="520" y="64" width="360" height="252" rx="14" fill="#eef0f3" stroke="#c9ced6" stroke-width="3" />
+  <text x="556" y="118" font-size="27" font-weight="700" fill="#dfe3e8">カフェ　注文</text>
+  <text x="556" y="164" font-size="24" fill="#dfe3e8">アイスコーヒー</text>
+  <text x="556" y="204" font-size="24" fill="#dfe3e8">￥500</text>
+  <rect x="556" y="232" width="160" height="48" rx="8" fill="#e6e8ec" />
+  <text x="636" y="263" text-anchor="middle" font-size="22" fill="#dfe3e8">注文する</text>
+  <text x="700" y="354" text-anchor="middle" font-size="26" fill="#e0574a">あるのに、見えない</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 330" width="1020" height="330" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="uid-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6b7078" />
+    </marker>
+  </defs>
+
+  <!-- 使う人の、やりたいこと -->
+  <rect x="10" y="30" width="176" height="60" rx="12" fill="#e7f5fb" stroke="#33b1dd" stroke-width="3" />
+  <text x="98" y="72" text-anchor="middle" font-size="30" fill="#1c8fb5">注文したい</text>
+  <line x1="85" y1="90" x2="111" y2="90" stroke="#e7f5fb" stroke-width="5" />
+  <path d="M85 90 L95 114 L111 90" fill="#e7f5fb" stroke="#33b1dd" stroke-width="3" stroke-linejoin="round" />
+  <circle cx="98" cy="162" r="30" fill="#9aa1ab" />
+  <path d="M62 250 Q62 204 98 204 Q134 204 134 250 z" fill="#9aa1ab" />
+  <text x="98" y="292" text-anchor="middle" font-size="30" fill="#202228">やりたいこと</text>
+
+  <line x1="200" y1="160" x2="264" y2="160" stroke="#6b7078" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#uid-arrow)" />
+
+  <!-- 整えた画面 -->
+  <rect x="288" y="24" width="272" height="252" rx="16" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+  <rect x="288" y="24" width="272" height="46" rx="16" fill="#f1f2f4" />
+  <rect x="288" y="50" width="272" height="20" fill="#f1f2f4" />
+  <text x="310" y="57" font-size="23" font-weight="700" fill="#202228">カフェ　注文</text>
+
+  <rect x="312" y="94" width="40" height="40" rx="8" fill="#e6e8ec" />
+  <rect x="366" y="98" width="130" height="14" rx="7" fill="#c9ced6" />
+  <rect x="366" y="120" width="80" height="11" rx="5" fill="#e6e8ec" />
+  <rect x="312" y="150" width="40" height="40" rx="8" fill="#e6e8ec" />
+  <rect x="366" y="154" width="150" height="14" rx="7" fill="#c9ced6" />
+  <rect x="366" y="176" width="96" height="11" rx="5" fill="#e6e8ec" />
+
+  <rect x="312" y="212" width="224" height="46" rx="10" fill="#33b1dd" />
+  <text x="424" y="243" text-anchor="middle" font-size="24" fill="#ffffff">注文する</text>
+  <text x="424" y="310" text-anchor="middle" font-size="28" fill="#1c8fb5">どこに何を置くかを整える</text>
+
+  <line x1="584" y1="160" x2="648" y2="160" stroke="#6b7078" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#uid-arrow)" />
+
+  <!-- 迷わず操作できる -->
+  <circle cx="800" cy="130" r="52" fill="#e7f5fb" stroke="#33b1dd" stroke-width="3" />
+  <path d="M775 130 L794 150 L828 110" fill="none" stroke="#1c8fb5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="800" y="232" text-anchor="middle" font-size="36" font-weight="700" fill="#202228">迷わず操作できる</text>
+  <text x="800" y="278" text-anchor="middle" font-size="28" fill="#1c8fb5">＝ 考えさせない</text>
+</svg>

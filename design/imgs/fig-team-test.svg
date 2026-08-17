@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 400" width="840" height="400" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 触ってもらった人の感想 -->
+  <rect x="26" y="40" width="348" height="116" rx="14" fill="#e7f5fb" stroke="#33b1dd" stroke-width="3" />
+  <text x="200" y="86" text-anchor="middle" font-size="26" fill="#1c8fb5">ここのボタン、</text>
+  <text x="200" y="126" text-anchor="middle" font-size="26" fill="#1c8fb5">小さくて押しづらいかも</text>
+  <line x1="187" y1="156" x2="213" y2="156" stroke="#e7f5fb" stroke-width="5" />
+  <path d="M187 156 L197 180 L213 156" fill="#e7f5fb" stroke="#33b1dd" stroke-width="3" stroke-linejoin="round" />
+  <circle cx="200" cy="240" r="32" fill="#9aa1ab" />
+  <path d="M160 332 Q160 282 200 282 Q240 282 240 332 z" fill="#9aa1ab" />
+  <text x="200" y="384" text-anchor="middle" font-size="30" fill="#202228">チームの人</text>
+
+  <!-- 実際に触ってもらう画面 -->
+  <rect x="500" y="50" width="200" height="290" rx="18" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+  <rect x="500" y="50" width="200" height="46" rx="18" fill="#f1f2f4" />
+  <rect x="500" y="76" width="200" height="20" fill="#f1f2f4" />
+  <rect x="522" y="64" width="90" height="14" rx="7" fill="#c9ced6" />
+  <rect x="522" y="122" width="156" height="13" rx="6" fill="#c9ced6" />
+  <rect x="522" y="148" width="112" height="11" rx="5" fill="#e6e8ec" />
+  <rect x="522" y="174" width="140" height="11" rx="5" fill="#e6e8ec" />
+
+  <!-- 小さくて押しづらいボタン -->
+  <rect x="600" y="284" width="76" height="26" rx="6" fill="#33b1dd" />
+  <rect x="588" y="272" width="100" height="50" rx="10" fill="none" stroke="#e0574a" stroke-width="3" stroke-dasharray="8 6" />
+
+  <text x="600" y="384" text-anchor="middle" font-size="26" fill="#1c8fb5">自分では気づけないことが見つかる</text>
+</svg>
