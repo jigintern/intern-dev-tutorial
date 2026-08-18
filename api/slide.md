@@ -498,48 +498,6 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 ---
 
-## ふつうは 役割ごとに分かれている
-
-<div class="layers">
-  <div class="lrow">
-    <span class="llabel">大きなサービス</span>
-    <span class="lbox">ブラウザ</span><span class="larrow">→</span>
-    <span class="lbox">Webサーバー<em>ファイルを返す</em></span><span class="larrow">→</span>
-    <span class="lbox">アプリサーバー<em>APIに答える</em></span><span class="larrow">→</span>
-    <span class="lbox">DB<em>データを持つ</em></span>
-  </div>
-  <div class="lrow on">
-    <span class="llabel">今日のアプリ</span>
-    <span class="lbox">ブラウザ</span><span class="larrow">→</span>
-    <span class="lbox">server.js<em>ファイルもAPIも ぜんぶ 1ファイルで</em></span>
-  </div>
-</div>
-
-<div class="note tight">
-教科書で見る図は上 でも<strong>小さいうちは1つで足りる</strong><br>
-分けるのは 規模が大きくなってから
-</div>
-
----
-
-## ほんとうに4回きている
-
-昨日 サーバーを動かしたとき ターミナルにこう出ていた
-
-```
-/
-/styles.css
-/index.js
-/welcome-message
-```
-
-<div class="note tight">
-まとめて1回では返ってこない<br>
-<strong>HTMLを受け取ってから 中に書いてあるものを順に取りに行く</strong>
-</div>
-
----
-
 ## 自分のサイトで見てみよう
 
 <div class="steps">
@@ -552,64 +510,6 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 <div class="note tight">
 前の章でGitHubを見たのと同じ道具を <strong>自分のアプリに向ける</strong><br>
 <code>welcome-message</code> を押して <strong>Response</strong> を見ると 返ってきた中身が見られる
-</div>
-
----
-
-## Initiator の列を見ると 誰が呼んだかが分かる
-
-| Name | Initiator | 誰が呼んだか |
-| --- | --- | --- |
-| 自分のURL | `Other` | 自分でアドレスバーに入れた |
-| `styles.css` | `(index):8` | `index.html` の8行目 |
-| `index.js` | `(index):9` | `index.html` の9行目 |
-| `welcome-message` | `index.js:1` | `index.js` の1行目 |
-
-<div class="note tight">
-最初の1回以外は <strong>前に受け取ったファイルが次を呼んでいる</strong><br>
-だから まとめて1回にはならない
-</div>
-
----
-
-## だから追加するのは`serveDir`の「上」
-
-```js
-  return serveDir(req, {     // ← ここで終わってしまう
-    fsRoot: "public",
-  });
-
-  if (pathname === "/greeting") {   // ← ここには絶対に来ない
-    return new Response("Hello!!");
-  }
-```
-
-<div class="note tight">
-<code>return</code> は「返しておわり」の意味<br>
-下に書いたAPIには<span class="ng">一生たどりつかない</span>
-</div>
-
----
-
-<!-- _class: big -->
-
-昨日の書き換えで
-みんなの`server.js`は
-**中身が違う**
-
----
-
-## だから 行番号ではなく「目印」で示す
-
-<div class="steps">
-  <div>資料には行番号を書いていない</div>
-  <div class="on">かわりに <code>return serveDir(</code> という<strong>目印</strong>で場所を示す</div>
-  <div>この行はほぼ全員に残っている <span>消したら昨日ページが出なくなっている</span></div>
-</div>
-
-<div class="note tight">
-昨日 何をどう書き換えていても <strong>同じ手順で進められる</strong><br>
-書き換えたものは消さず 足していくだけ
 </div>
 
 ---
@@ -663,6 +563,72 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 <div class="note tight">
 今日書くJSは <code>api.js</code> に<strong>新しくつくる</strong><br>
 だから昨日書いた <code>index.js</code> と <code>styles.css</code> は<span class="ng">開かない</span>
+</div>
+
+---
+
+## だから追加するのは`serveDir`の「上」
+
+```js
+  return serveDir(req, {     // ← ここで終わってしまう
+    fsRoot: "public",
+  });
+
+  if (pathname === "/greeting") {   // ← ここには絶対に来ない
+    return new Response("Hello!!");
+  }
+```
+
+<div class="note tight">
+<code>return</code> は「返しておわり」の意味<br>
+下に書いたAPIには<span class="ng">一生たどりつかない</span>
+</div>
+
+---
+
+<!-- _class: big -->
+
+昨日の書き換えで
+みんなの`server.js`は
+**中身が違う**
+
+---
+
+## だから 行番号ではなく「目印」で示す
+
+<div class="steps">
+  <div>資料には行番号を書いていない</div>
+  <div class="on">かわりに <code>return serveDir(</code> という<strong>目印</strong>で場所を示す</div>
+  <div>この行はほぼ全員に残っている <span>消したら昨日ページが出なくなっている</span></div>
+</div>
+
+<div class="note tight">
+昨日 何をどう書き換えていても <strong>同じ手順で進められる</strong><br>
+書き換えたものは消さず 足していくだけ
+</div>
+
+---
+
+## ふつうは 役割ごとに分かれている
+
+<div class="layers">
+  <div class="lrow">
+    <span class="llabel">大きなサービス</span>
+    <span class="lbox">ブラウザ</span><span class="larrow">→</span>
+    <span class="lbox">Webサーバー<em>ファイルを返す</em></span><span class="larrow">→</span>
+    <span class="lbox">アプリサーバー<em>APIに答える</em></span><span class="larrow">→</span>
+    <span class="lbox">DB<em>データを持つ</em></span>
+  </div>
+  <div class="lrow on">
+    <span class="llabel">今日のアプリ</span>
+    <span class="lbox">ブラウザ</span><span class="larrow">→</span>
+    <span class="lbox">server.js<em>ファイルもAPIも ぜんぶ 1ファイルで</em></span>
+  </div>
+</div>
+
+<div class="note tight">
+教科書で見る図は上 でも<strong>小さいうちは1つで足りる</strong><br>
+分けるのは 規模が大きくなってから
 </div>
 
 ---
