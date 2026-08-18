@@ -128,6 +128,16 @@ style: |
     font-weight: bold;
   }
   .ng { color: #e12d39; font-weight: bold; }
+  /* --- 強調用ハイライト --- */
+  .steps div strong.hl,
+  strong.hl {
+    background: #4dc0b5;
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 28px;
+  }
   /* --- スクリーンショット --- */
   .shot { margin-top: 28px; text-align: center; }
   .shot img {
@@ -530,8 +540,8 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 <div class="steps">
   <div>通信が来た</div>
-  <div><span class="step">1</span> GETで <code>/welcome-message</code> か？ <span>→ <strong>バックエンドの情報</strong>を返す</span></div>
-  <div class="on"><span class="step">2</span> どれでもない → <code>serveDir</code> が <strong>ブラウザの構成要素</strong>を返す</div>
+  <div><span class="step">1</span> GETで <code>/welcome-message</code> か？ → <strong class="hl">バックエンドの情報</strong> を返す</div>
+  <div class="on"><span class="step">2</span> どれでもない → <code>serveDir</code> が <strong class="hl">ブラウザの構成要素</strong> を返す</div>
 </div>
 
 <div class="note tight">
