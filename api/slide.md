@@ -128,6 +128,51 @@ style: |
     font-weight: bold;
   }
   .ng { color: #e12d39; font-weight: bold; }
+  /* --- 三層構造との対比 --- */
+  .layers { margin-top: 44px; }
+  .lrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 40px;
+  }
+  .lrow .llabel {
+    width: 168px;
+    font-size: 23px;
+    font-weight: bold;
+    color: #9aa5b1;
+    flex-shrink: 0;
+  }
+  .lrow.on .llabel { color: #0b8f82; }
+  .lrow .lbox {
+    border: 3px solid #cbd2d9;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #7b8794;
+    text-align: center;
+    line-height: 1.25;
+  }
+  .lrow .lbox em {
+    display: block;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: normal;
+    color: #9aa5b1;
+    margin-top: 3px;
+  }
+  .lrow.on .lbox {
+    border-color: #0b8f82;
+    background: #f0fdfa;
+    color: #0b8f82;
+  }
+  .lrow.on .lbox em { color: #0b8f82; }
+  .lrow .larrow {
+    font-size: 22px;
+    color: #4dc0b5;
+    font-weight: bold;
+  }
   /* --- 利点の予告 --- */
   .benefits { margin-top: 66px; }
   .benefits div {
@@ -433,6 +478,30 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 <div class="note tight">
 4回とも同じ形 <strong>レスポンスボディに中身が入って返ってくる</strong><br>
 違うのは <strong>ファイルから読んだか コードに書いたか</strong>だけ
+</div>
+
+---
+
+## 大きなサービスでは 分かれている
+
+<div class="layers">
+  <div class="lrow">
+    <span class="llabel">大きなサービス</span>
+    <span class="lbox">ブラウザ</span><span class="larrow">→</span>
+    <span class="lbox">Webサーバー<em>ファイルを返す</em></span><span class="larrow">→</span>
+    <span class="lbox">アプリサーバー<em>APIに答える</em></span><span class="larrow">→</span>
+    <span class="lbox">DB<em>データを持つ</em></span>
+  </div>
+  <div class="lrow on">
+    <span class="llabel">今日のアプリ</span>
+    <span class="lbox">ブラウザ</span><span class="larrow">→</span>
+    <span class="lbox">server.js<em>ファイルもAPIも ぜんぶ 1ファイルで</em></span>
+  </div>
+</div>
+
+<div class="note tight">
+教科書で見る図は上 でも<strong>小さいうちは1つで足りる</strong><br>
+分けるのは 規模が大きくなってから
 </div>
 
 ---
