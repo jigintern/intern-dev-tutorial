@@ -443,7 +443,7 @@ if (req.method === "GET" && pathname === "/greeting-me") {
 
 ---
 
-## これが今日の作業台
+## これが昨日の最初の形
 
 ```js
 import { serveDir } from "jsr:@std/http/file-server";
@@ -461,7 +461,8 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 ```
 
 <div class="note tight">
-昨日の <code>server.js</code> 中身は書き換えていても <strong>形はこれ</strong>
+テンプレートから始まったときの <code>server.js</code><br>
+書き換えたのは中身だけ <strong>形はこのまま残っている</strong>
 </div>
 
 ---
