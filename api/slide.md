@@ -451,6 +451,22 @@ if (req.method === "GET" && pathname === "/greeting-me") {
 
 ---
 
+## 昨日デプロイしたアプリに 足していく
+
+<div class="steps">
+  <div><span class="step">1</span> 昨日クローンしたフォルダを開く <span>例: deno-app</span></div>
+  <div><span class="step">2</span> <code>server.js</code> に窓口を4つ足す</div>
+  <div class="on"><span class="step">3</span> push すると <strong>自動でデプロイされる</strong> <span>昨日のような設定は要らない</span></div>
+  <div><span class="step">4</span> 昨日のURLに <code>/profile</code> を付けると <strong>スマホからも叩ける</strong></div>
+</div>
+
+<div class="note tight">
+作業するのは<strong>自分のリポジトリ</strong><br>
+教材リポジトリ（<code>intern-dev-tutorial</code>）<span class="ng">ではない</span>
+</div>
+
+---
+
 ## 4本とも同じ進め方
 
 <div class="steps">
@@ -475,8 +491,8 @@ if (req.method === "GET" && pathname === "/greeting-me") {
 | `public/index.html` | `</body>` の**直前に足す** |
 
 <div class="note tight">
-<code>index.js</code> と <code>styles.css</code> は開かない<br>
-昨日書き換えたものは<span class="ng">消さず</span> 足していくだけ
+今日書くJSは <code>api.js</code> に<strong>新しくつくる</strong><br>
+だから昨日書いた <code>index.js</code> と <code>styles.css</code> は<span class="ng">開かない</span>
 </div>
 
 ---
