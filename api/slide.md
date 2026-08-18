@@ -354,7 +354,7 @@ style: |
 <div class="goal">自分のアプリに<br>自分でAPIを1本増やせるようになる</div>
 
 <div class="note">
-前の章で勉強したHTTPを、今日は実際にコードで書きます
+前の章で勉強したHTTPを 今日は実際にコードで書く
 </div>
 
 ---
@@ -369,7 +369,7 @@ style: |
 </div>
 
 <div class="note tight">
-だんだん「情報のやりとり」が増えていきます
+だんだん「情報のやりとり」が増えていく
 </div>
 
 ---
@@ -381,7 +381,7 @@ style: |
 
 ---
 
-## 名前が、そのまま意味です
+## 名前がそのまま意味
 
 <div class="acronym">
   <div class="arow">
@@ -396,7 +396,7 @@ style: |
     <span class="ini">I</span><span class="eng">nterface</span>
     <span class="jp">入り口・出口</span>
   </div>
-  <div class="sum">アプリを、プログラムから使うための<strong>入り口と出口</strong></div>
+  <div class="sum">アプリをプログラムから使うための<strong>入り口と出口</strong></div>
 </div>
 
 ---
@@ -419,13 +419,13 @@ style: |
 </div>
 
 <div class="note tight">
-中身がどう動いているかは見えません。<br>
-<strong>入り口と出口だけが決まっている</strong>。これがインターフェースです
+中身がどう動いているかは見えない<br>
+<strong>入り口と出口だけが決まっている</strong> これがインターフェース
 </div>
 
 ---
 
-## だから、中身を知らなくても使えます
+## だから中身を知らなくても使える
 
 <div class="hcap">
   <span class="c1"></span>
@@ -449,13 +449,13 @@ style: |
 </div>
 
 <div class="note tight">
-使う側が書くのは<strong>1行</strong>。<br>
-自分で気象観測をしなくても、天気を出すアプリがつくれます
+使う側が書くのは<strong>1行</strong><br>
+自分で気象観測をしなくても 天気を出すアプリがつくれる
 </div>
 
 ---
 
-## もうひとつの利点: 見せたくないものを隠せる
+## もうひとつの利点 見せたくないものを隠せる
 
 <div class="row tight">
   <div class="box">
@@ -475,13 +475,13 @@ style: |
 </div>
 
 <div class="note tight">
-パスワードの照合・APIキー・データベースの情報は、<strong>全部この右側に置きます</strong>。<br>
-この見えない側を<strong>バックエンド</strong>と呼びます
+パスワードの照合 APIキー データベースの情報は <strong>全部この右側に置く</strong><br>
+この見えない側を<strong>バックエンド</strong>と呼ぶ
 </div>
 
 ---
 
-## 約束で決めるのは、いつも同じ4つ
+## 約束で決めるのはいつも同じ4つ
 
 | 決めること | 例 |
 | --- | --- |
@@ -491,7 +491,7 @@ style: |
 | 何が返るか | `Hello, taro` |
 
 <div class="note tight">
-2番目のGETとPOSTが、前の章でやったやつです
+2番目のGETとPOSTが 前の章でやったやつ
 </div>
 
 ---
@@ -503,7 +503,7 @@ style: |
 
 ---
 
-## 昨日、ページを開いたとき何が起きていたか
+## 昨日ページを開いたとき何が起きていたか
 
 | ブラウザがやったこと | 誰が答えたか |
 | --- | --- |
@@ -513,17 +513,17 @@ style: |
 | `/welcome-message` を叩く | `server.js` が文字を返した |
 
 <div class="note tight">
-<strong>4回とも、同じ server.js が答えています</strong>
+<strong>4回とも同じ server.js が答えている</strong>
 </div>
 
 ---
 
-## 上から順に「自分の担当か」を見ています
+## 上から順に「自分の担当か」を見ている
 
 <div class="steps">
   <div>通信が来た</div>
-  <div><span class="step">1</span> <code>/welcome-message</code> ですか？ <span>→ はい なら 返して<strong>おわり</strong></span></div>
-  <div><span class="step">2</span> <code>/greeting</code> ですか？ <span>→ はい なら 返して<strong>おわり</strong></span></div>
+  <div><span class="step">1</span> GETで <code>/welcome-message</code> か？ <span>→ はい なら 返して<strong>おわり</strong></span></div>
+  <div><span class="step">2</span> GETで <code>/greeting</code> か？ <span>→ はい なら 返して<strong>おわり</strong></span></div>
   <div class="on"><span class="step">3</span> どれでもない → <code>serveDir</code> がファイルを探して返す</div>
 </div>
 
@@ -533,7 +533,7 @@ style: |
 
 ---
 
-## だから、追加するのは`serveDir`の「上」
+## だから追加するのは`serveDir`の「上」
 
 ```js
   return serveDir(req, {     // ← ここで終わってしまう
@@ -546,8 +546,8 @@ style: |
 ```
 
 <div class="note tight">
-<code>return</code> は「返しておわり」の意味。<br>
-下に書いたAPIには<span class="ng">一生たどりつきません</span>
+<code>return</code> は「返しておわり」の意味<br>
+下に書いたAPIには<span class="ng">一生たどりつかない</span>
 </div>
 
 ---
@@ -555,11 +555,11 @@ style: |
 <!-- _class: chapter -->
 <!-- _header: '' -->
 
-# 3. 手を動かします
+# 3. 手を動かす
 
 ---
 
-## 4本とも、同じ進め方です
+## 4本とも同じ進め方
 
 <div class="steps">
   <div><span class="step">1</span> <strong>サーバー側</strong>に書く</div>
@@ -569,7 +569,7 @@ style: |
 </div>
 
 <div class="note tight">
-2番を挟むと、動かないとき<strong>どちらが原因か</strong>を自分で切り分けられます
+2番を挟むと 動かないとき<strong>どちらが原因か</strong>を自分で切り分けられる
 </div>
 
 ---
@@ -579,37 +579,37 @@ style: |
 | ファイル | 今日の扱い |
 | --- | --- |
 | `server.js` | `return serveDir(` の**上に足す** |
-| `public/api.js` | **新しくつくる**。今日書くJSは全部ここ |
+| `public/api.js` | **新しくつくる** 今日書くJSは全部ここ |
 | `public/index.html` | `</body>` の**直前に足す** |
 
 <div class="note tight">
-<code>index.js</code> と <code>styles.css</code> は開きません。<br>
-昨日書き換えたものは<span class="ng">消さず</span>、足していくだけです
+<code>index.js</code> と <code>styles.css</code> は開かない<br>
+昨日書き換えたものは<span class="ng">消さず</span> 足していくだけ
 </div>
 
 ---
 
-## 4章の山場: JSON
+## 4章の山場 JSON
 
-文字だけだと、2つの情報を返すのが苦しい
+文字だけだと 2つの情報を返すのが苦しい
 
 ```js
 return new Response("たにぐち,ラーメン");   // 受け取る側が , で切る…
 ```
 
-JSONなら、キーで取り出せる
+JSONならキーで取り出せる
 
 ```js
 return Response.json({ name: "たにぐち", favorite: "ラーメン" });
 ```
 
 <div class="note tight">
-<strong>実際のWebアプリのAPIは、ほとんどこの形です</strong>
+<strong>実際のWebアプリのAPIはほとんどこの形</strong>
 </div>
 
 ---
 
-## 受け取り方も1か所だけ変わります
+## 受け取り方も1か所だけ変わる
 
 ```js
 await response.text()   // 文字として受け取る（2章・3章）
@@ -618,12 +618,12 @@ await response.json()   // JSONとして受け取る（4章）
 
 <div class="note">
 <code>json()</code> で受け取ると <code>data.name</code> のように<br>
-<strong>キーを指定して取り出せます</strong>
+<strong>キーを指定して取り出せる</strong>
 </div>
 
 ---
 
-## 約束は、両側セットです
+## 約束は両側セット
 
 <div class="row tight">
   <div class="box">
@@ -641,13 +641,13 @@ await response.json()   // JSONとして受け取る（4章）
 
 <div class="urlrow">
   <span class="path">undefined</span>
-  <span class="caption">片方だけ直しても動きません</span>
+  <span class="caption">片方だけ直しても動かない</span>
 </div>
 
 ---
 
 <!-- _class: lead -->
 
-# はじめましょう
+# はじめよう
 
-READMEを開いてください
+READMEを開く
