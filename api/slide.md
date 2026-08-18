@@ -620,7 +620,7 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 <div class="steps">
   <div><span class="step">1</span> 昨日クローンしたフォルダを開く <span>例: deno-app</span></div>
   <div><span class="step">2</span> <code>server.js</code> に窓口を4つ足す</div>
-  <div class="on"><span class="step">3</span> push すると <strong>自動でデプロイされる</strong> <span>昨日のような設定は要らない</span></div>
+  <div class="on"><span class="step">3</span> <strong>直すたびに push する</strong> <span>今日は自分のPCでは動かさない 昨日のURLで確かめる</span></div>
   <div><span class="step">4</span> 昨日のURLに <code>/profile</code> を付けると <strong>スマホからも叩ける</strong></div>
 </div>
 
@@ -635,13 +635,15 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 <div class="steps">
   <div><span class="step">1</span> <strong>サーバー側</strong>に書く</div>
-  <div class="on"><span class="step">2</span> <strong>ブラウザのURL直打ち</strong>で確かめる</div>
-  <div><span class="step">3</span> <strong>ブラウザ側</strong>に書く</div>
-  <div><span class="step">4</span> ボタンで確かめる</div>
+  <div class="on"><span class="step">2</span> <strong>push</strong> する</div>
+  <div class="on"><span class="step">3</span> <strong>ブラウザのURL直打ち</strong>で確かめる</div>
+  <div><span class="step">4</span> <strong>ブラウザ側</strong>に書く</div>
+  <div class="on"><span class="step">5</span> <strong>push</strong> して ボタンで確かめる</div>
 </div>
 
 <div class="note tight">
-2番を挟むと 動かないとき<strong>どちらが原因か</strong>を自分で切り分けられる
+保存しただけでは <span class="ng">反映されない</span> 動いているのは<strong>GitHubに置いたコード</strong><br>
+URL直打ちを挟むと 動かないとき<strong>どちらが原因か</strong>を自分で切り分けられる
 </div>
 
 ---
