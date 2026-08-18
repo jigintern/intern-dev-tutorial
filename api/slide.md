@@ -55,12 +55,6 @@ style: |
     margin-top: 36px;
   }
   .note.tight { margin-top: 18px; }
-  .goal {
-    font-size: 52px;
-    font-weight: bold;
-    color: #0b8f82;
-    margin: 30px 0;
-  }
   /* --- 図用 --- */
   .row {
     display: flex;
@@ -114,62 +108,6 @@ style: |
   }
   .arrowlabel .arrow { display: block; line-height: 1; }
   .dim { opacity: 0.35; }
-  /* --- ブラウザの形 --- */
-  .browser {
-    width: 360px;
-    border: 4px solid #7b8794;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #fff;
-  }
-  .browser .bar {
-    background: #cbd2d9;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .browser .dot {
-    width: 13px; height: 13px;
-    border-radius: 50%;
-    background: #9aa5b1;
-    display: inline-block;
-  }
-  .browser .barlabel {
-    margin-left: 14px;
-    font-size: 20px;
-    color: #52606d;
-  }
-  .browser .screen {
-    padding: 24px 20px;
-    min-height: 120px;
-    text-align: center;
-  }
-  .browser .screen .big {
-    font-size: 30px;
-    font-weight: bold;
-    color: #3e4c59;
-  }
-  .browser .screen .ok { color: #0b8f82; }
-  /* --- サーバー（雲）の形 --- */
-  .cloud { width: 340px; }
-  .cloud .body {
-    border: 4px solid #0b8f82;
-    background: #f0fdfa;
-    border-radius: 60px;
-    padding: 28px 24px;
-    min-height: 118px;
-    text-align: center;
-    font-weight: bold;
-    color: #0b8f82;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .cloud .caption {
-    text-align: center; font-size: 20px;
-    color: #0b8f82; margin-top: 12px; font-weight: bold;
-  }
   /* --- 手順リスト --- */
   .steps { margin-top: 26px; }
   .steps div {
@@ -182,23 +120,6 @@ style: |
   .steps div.on {
     color: #0b8f82;
     font-weight: bold;
-  }
-  /* --- エンドポイント表示 --- */
-  .urlrow {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 34px;
-    font-weight: bold;
-    color: #3e4c59;
-  }
-  .urlrow .origin { color: #9aa5b1; }
-  .urlrow .path { color: #0b8f82; }
-  .urlrow .caption {
-    display: block;
-    font-size: 21px;
-    font-weight: normal;
-    color: #7b8794;
-    margin-top: 14px;
   }
   .ng { color: #e12d39; font-weight: bold; }
   /* --- 略語の分解 --- */
@@ -360,18 +281,6 @@ style: |
 <!-- _header: '' -->
 
 # はじめてのAPI
-
----
-
-## 今日のゴール
-
-<br>
-
-<div class="goal">自分のアプリに<br>自分でAPIを1本増やせるようになる</div>
-
-<div class="note">
-前の章で勉強したHTTPを 今日は実際にコードで書く
-</div>
 
 ---
 
@@ -588,63 +497,6 @@ style: |
 <div class="note tight">
 <code>index.js</code> と <code>styles.css</code> は開かない<br>
 昨日書き換えたものは<span class="ng">消さず</span> 足していくだけ
-</div>
-
----
-
-## 4章の山場 JSON
-
-文字だけだと 2つの情報を返すのが苦しい
-
-```js
-return new Response("たにぐち,ラーメン");   // 受け取る側が , で切る…
-```
-
-JSONならキーで取り出せる
-
-```js
-return Response.json({ name: "たにぐち", favorite: "ラーメン" });
-```
-
-<div class="note tight">
-<strong>実際のWebアプリのAPIはほとんどこの形</strong>
-</div>
-
----
-
-## 受け取り方も1か所だけ変わる
-
-```js
-await response.text()   // 文字として受け取る（2章・3章）
-await response.json()   // JSONとして受け取る（4章）
-```
-
-<div class="note">
-<code>json()</code> で受け取ると <code>data.name</code> のように<br>
-<strong>キーを指定して取り出せる</strong>
-</div>
-
----
-
-## 形が合わないと繋がらない
-
-<div class="row tight">
-  <div class="box">
-    <span class="label">server.js</span>
-    <code>name</code> で返す
-  </div>
-  <div class="arrowlabel">
-    <span class="arrow">≠</span>
-  </div>
-  <div class="box">
-    <span class="label">api.js</span>
-    <code>data.userName</code> を探す
-  </div>
-</div>
-
-<div class="urlrow">
-  <span class="path">undefined</span>
-  <span class="caption">ルールは両側セット 片方だけ直しても動かない</span>
 </div>
 
 ---
