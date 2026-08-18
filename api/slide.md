@@ -2,7 +2,7 @@
 marp: true
 theme: default
 paginate: true
-header: 'はじめてのAPI'
+header: 'APIハンズオン'
 style: |
   section {
     font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
@@ -359,7 +359,7 @@ style: |
 <!-- _paginate: false -->
 <!-- _header: '' -->
 
-# はじめてのAPI
+# APIハンズオン
 
 ---
 
