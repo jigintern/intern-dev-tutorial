@@ -128,6 +128,24 @@ style: |
     font-weight: bold;
   }
   .ng { color: #e12d39; font-weight: bold; }
+  /* --- 利点の予告 --- */
+  .benefits { margin-top: 66px; }
+  .benefits div {
+    font-size: 38px;
+    font-weight: bold;
+    color: #3e4c59;
+    margin-bottom: 38px;
+  }
+  .benefits .bnum {
+    display: inline-block;
+    background: #4dc0b5;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 8px;
+    padding: 7px 18px;
+    margin-right: 22px;
+    vertical-align: middle;
+  }
   /* --- 略語の分解 --- */
   .acronym { margin-top: 44px; }
   .arow {
@@ -285,7 +303,16 @@ inter（間） + face（面） ＝ <strong>間にある面</strong> 厚みのな
 
 ---
 
-## だから中身を知らなくても使える
+## 窓口があると うれしいことが2つ
+
+<div class="benefits">
+  <div><span class="bnum">利点1</span> 中身を知らなくても使える</div>
+  <div><span class="bnum">利点2</span> 見せたくないものを隠せる</div>
+</div>
+
+---
+
+## 利点1 中身を知らなくても使える
 
 | | 裏側でやっていること | 自分が書くこと |
 | --- | --- | --- |
@@ -300,7 +327,7 @@ inter（間） + face（面） ＝ <strong>間にある面</strong> 厚みのな
 
 ---
 
-## もうひとつの利点 見せたくないものを隠せる
+## 利点2 見せたくないものを隠せる
 
 <div class="row tight">
   <div class="box">
@@ -447,7 +474,7 @@ if (req.method === "GET" && pathname === "/greeting-me") {
 <!-- _class: chapter -->
 <!-- _header: '' -->
 
-# 3. 手を動かす
+# 3. APIハンズオン
 
 ---
 
