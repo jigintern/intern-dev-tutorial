@@ -249,43 +249,67 @@ style: |
     text-align: center;
   }
   .sum strong { color: #0b8f82; }
-  /* --- 入り口と出口の図 --- */
+  /* --- 窓口の図 --- */
   .io {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
-    gap: 28px;
-    margin-top: 50px;
+    gap: 0;
+    margin-top: 46px;
   }
   .io .ioside {
     border: 4px solid #7b8794;
     border-radius: 16px;
-    padding: 30px 26px;
+    padding: 34px 26px;
     font-size: 28px;
     font-weight: bold;
     color: #3e4c59;
-    min-width: 210px;
+    min-width: 200px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .io .ioside.api {
     border-color: #0b8f82;
     background: #f0fdfa;
     color: #0b8f82;
   }
-  .io .iomid { min-width: 330px; }
+  /* 真ん中の「面」 */
+  .io .counter {
+    width: 300px;
+    border-left: 7px solid #4dc0b5;
+    border-right: 7px solid #4dc0b5;
+    background: #f0fdfa;
+    padding: 14px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  .io .countertitle {
+    position: absolute;
+    top: -34px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #0b8f82;
+  }
   .io .ioline {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 12px 0;
+    margin: 7px 0;
   }
   .io .iolabel {
-    font-size: 24px;
+    font-size: 23px;
     font-weight: bold;
     color: #0b8f82;
   }
   .io .ioarrow {
-    font-size: 30px;
+    font-size: 26px;
     color: #4dc0b5;
     letter-spacing: -2px;
     line-height: 1.1;
@@ -377,7 +401,7 @@ style: |
 <!-- _class: chapter -->
 <!-- _header: '' -->
 
-# 1. APIは「約束」
+# 1. APIとは何か
 
 ---
 
@@ -394,33 +418,34 @@ style: |
   </div>
   <div class="arow on">
     <span class="ini">I</span><span class="eng">nterface</span>
-    <span class="jp">入り口・出口</span>
+    <span class="jp">窓口</span>
   </div>
-  <div class="sum">アプリをプログラムから使うための<strong>入り口と出口</strong></div>
+  <div class="sum">アプリをプログラムから使うための<strong>窓口</strong></div>
 </div>
 
 ---
 
-## インターフェース ＝ 入り口と出口
+## インターフェース ＝ 窓口
 
 <div class="io">
   <div class="ioside">ブラウザ</div>
-  <div class="iomid">
+  <div class="counter">
+    <div class="countertitle">inter（間） + face（面）</div>
     <div class="ioline">
-      <span class="iolabel">お願い（入り口）</span>
-      <span class="ioarrow">───────▶</span>
+      <span class="iolabel">決まった形で頼む</span>
+      <span class="ioarrow">──────▶</span>
     </div>
     <div class="ioline">
-      <span class="ioarrow">◀───────</span>
-      <span class="iolabel">返事（出口）</span>
+      <span class="ioarrow">◀──────</span>
+      <span class="iolabel">答えが返る</span>
     </div>
   </div>
   <div class="ioside api">server.js</div>
 </div>
 
 <div class="note tight">
-中身がどう動いているかは見えない<br>
-<strong>入り口と出口だけが決まっている</strong> これがインターフェース
+銀行や役所の窓口と同じ<br>
+<strong>中で何をしているかは見えない</strong> けれど 決まった形で頼めば答えが返る
 </div>
 
 ---
@@ -481,7 +506,7 @@ style: |
 
 ---
 
-## 約束で決めるのはいつも同じ4つ
+## 決めごとは いつも同じ4つ
 
 | 決めること | 例 |
 | --- | --- |
@@ -623,7 +648,7 @@ await response.json()   // JSONとして受け取る（4章）
 
 ---
 
-## 約束は両側セット
+## 形が合わないと繋がらない
 
 <div class="row tight">
   <div class="box">
@@ -641,7 +666,7 @@ await response.json()   // JSONとして受け取る（4章）
 
 <div class="urlrow">
   <span class="path">undefined</span>
-  <span class="caption">片方だけ直しても動かない</span>
+  <span class="caption">決めごとは両側セット 片方だけ直しても動かない</span>
 </div>
 
 ---
