@@ -128,6 +128,14 @@ style: |
     font-weight: bold;
   }
   .ng { color: #e12d39; font-weight: bold; }
+  /* --- スクリーンショット --- */
+  .shot { margin-top: 28px; text-align: center; }
+  .shot img {
+    max-height: 300px;
+    max-width: 100%;
+    border: 3px solid #cbd2d9;
+    border-radius: 10px;
+  }
   /* --- server.js が2種類を返す図 --- */
   .split { margin-top: 40px; text-align: center; }
   .split .stop {
@@ -575,15 +583,17 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 ## 自分のサイトで見てみよう
 
 <div class="steps">
-  <div><span class="step">1</span> ブラウザで <strong>開発者ツール</strong>を開く <span>F12 または 右クリック → 検証</span></div>
-  <div><span class="step">2</span> <strong>Network</strong> タブを開く</div>
-  <div><span class="step">3</span> ページを再読み込みする</div>
-  <div class="on"><span class="step">4</span> 一覧に <strong>4行</strong>ならぶ</div>
+  <div><span class="step">1</span> <strong>開発者ツール</strong>（F12）→ <strong>Network</strong> タブ</div>
+  <div class="on"><span class="step">2</span> ページを再読み込みすると <strong>4行ならぶ</strong></div>
+</div>
+
+<div class="shot">
+  <img src="./imgs/network-tab.png" alt="NetworkタブにHTML CSS JS APIの4行が並んでいる">
 </div>
 
 <div class="note tight">
-前の章でGitHubを見たのと同じ道具を <strong>自分のアプリに向ける</strong><br>
-<code>welcome-message</code> を押して <strong>Response</strong> を見ると 返ってきた中身が見られる
+<code>Initiator</code> を見ると <strong>誰が呼んだか</strong>が分かる<br>
+<code>styles.css</code> と <code>index.js</code> は <code>(index)</code> から つまり<strong>HTMLが呼んでいる</strong>
 </div>
 
 ---
