@@ -525,7 +525,7 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 ---
 
-## 自分の目で見てみよう
+## 自分のサイトで見てみよう
 
 <div class="steps">
   <div><span class="step">1</span> ブラウザで <strong>開発者ツール</strong>を開く <span>F12 または 右クリック → 検証</span></div>
@@ -537,6 +537,22 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 <div class="note tight">
 前の章でGitHubを見たのと同じ道具を <strong>自分のアプリに向ける</strong><br>
 <code>welcome-message</code> を押して <strong>Response</strong> を見ると 返ってきた中身が見られる
+</div>
+
+---
+
+## Initiator の列を見ると 誰が呼んだかが分かる
+
+| Name | Initiator | 誰が呼んだか |
+| --- | --- | --- |
+| 自分のURL | `Other` | 自分でアドレスバーに入れた |
+| `styles.css` | `(index):8` | `index.html` の8行目 |
+| `index.js` | `(index):9` | `index.html` の9行目 |
+| `welcome-message` | `index.js:1` | `index.js` の1行目 |
+
+<div class="note tight">
+最初の1回以外は <strong>前に受け取ったファイルが次を呼んでいる</strong><br>
+だから まとめて1回にはならない
 </div>
 
 ---

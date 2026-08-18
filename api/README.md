@@ -266,16 +266,30 @@ return new Response(content);
 
 一覧に、こんな行が並びます。
 
-| Name | Type | 何が返ってきたか |
-| --- | --- | --- |
-| `localhost` | document | `index.html`の中身 |
-| `styles.css` | stylesheet | CSS の中身 |
-| `index.js` | script | JavaScript の中身 |
-| `welcome-message` | fetch | 「jig インターンへようこそ！」の文字 |
+| Name | Type | Initiator | 何が返ってきたか |
+| --- | --- | --- | --- |
+| `localhost`（自分の URL） | document | `Other` | `index.html`の中身 |
+| `styles.css` | stylesheet | `(index):8` | CSS の中身 |
+| `index.js` | script | `(index):9` | JavaScript の中身 |
+| `welcome-message` | fetch | `index.js:1` | 「jig インターンへようこそ！」の文字 |
 
 **4 行あるのが、4 回やりとりした証拠です。**
 
+そして**`Initiator`の列を見てください。**「誰がこのリクエストを起こしたか」が書かれています。
+
+- 1 行目は`Other` … 自分でアドレスバーに URL を入れたから
+- `styles.css`は`(index):8` … `index.html`の**8 行目**が呼んだ
+- `index.js`は`(index):9` … `index.html`の**9 行目**が呼んだ
+- `welcome-message`は`index.js:1` … `index.js`の**1 行目**が呼んだ
+
+**最初の 1 回以外は、前に受け取ったファイルが次を呼んでいます。**さっき説明した「HTML を受け取ってから、中に書いてあるものを順に取りに行く」が、この列に出ています。
+
 `welcome-message`の行をクリックして、**Response**タブ（または「応答」）を開いてみてください。返ってきた文字がそのまま見られます。
+
+> [!TIP]
+> `Size`の列が`(memory cache)`や`(disk cache)`になっている行は、**サーバーに取りに行かず手元の控えを使った**という意味です。
+> 2 回目以降の再読み込みでは、変わっていないファイルはこうなります。
+> ターミナルにパスが出ないときは、これが理由かもしれません。`Cmd + Shift + R`（強制再読み込み）で毎回取りに行かせられます。
 
 > [!TIP]
 > この**Network タブ**は、今日ずっと使えます。
