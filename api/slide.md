@@ -471,18 +471,18 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 <div class="steps">
   <div>通信が来た</div>
-  <div><span class="step">1</span> GETで <code>/welcome-message</code> か？ <span>→ はい なら 返して<strong>おわり</strong></span></div>
-  <div class="on"><span class="step">2</span> どれでもない → <code>serveDir</code> がファイルを探して返す</div>
+  <div><span class="step">1</span> GETで <code>/welcome-message</code> か？ <span>→ <strong>バックエンドの情報</strong>を返す</span></div>
+  <div class="on"><span class="step">2</span> どれでもない → <code>serveDir</code> が <strong>ブラウザの構成要素</strong>を返す</div>
 </div>
 
 <div class="note tight">
-一番下の <code>serveDir</code> は「どれにも当たらなかったとき」の受け皿<br>
-今日は この<strong>あいだ</strong>に窓口を足していく
+つまり <code>server.js</code> は <strong>フロントの構成要素</strong>（HTML / CSS / JS）も<br>
+<strong>バックエンドの情報</strong>も どちらも返している
 </div>
 
 ---
 
-## 昨日ページを開いたとき 4回きていた
+## 構成要素は 1つずつ 4回に分けて返る
 
 | 叩かれたURL | 上から順に見た結果 | 返ってきたもの |
 | --- | --- | --- |
@@ -492,8 +492,8 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 | `/welcome-message` | **1番目のifに当たった** | 「ようこそ」の文字 |
 
 <div class="note tight">
-3回は <code>serveDir</code> が返して APIに当たったのは<strong>1回だけ</strong><br>
-どれも同じ <code>server.js</code> が 同じ形で返している
+3回は <strong>フロントの構成要素</strong> 1回は <strong>バックエンドの情報</strong><br>
+どちらも同じ <code>server.js</code> が 同じ形で返している
 </div>
 
 ---
