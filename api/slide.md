@@ -506,9 +506,9 @@ style: |
 
 ---
 
-## 決めごとは いつも同じ4つ
+## 窓口のルールは この4つ
 
-| 決めること | 例 |
+| これがルール | 例 |
 | --- | --- |
 | どのURLか | `/greeting-me` |
 | どのメソッドか | `GET` |
@@ -516,6 +516,7 @@ style: |
 | 何が返るか | `Hello, taro` |
 
 <div class="note tight">
+この4つが決まっていれば <strong>別々の人がつくっても繋がる</strong><br>
 2番目のGETとPOSTが 前の章でやったやつ
 </div>
 
@@ -666,7 +667,7 @@ await response.json()   // JSONとして受け取る（4章）
 
 <div class="urlrow">
   <span class="path">undefined</span>
-  <span class="caption">決めごとは両側セット 片方だけ直しても動かない</span>
+  <span class="caption">ルールは両側セット 片方だけ直しても動かない</span>
 </div>
 
 ---
