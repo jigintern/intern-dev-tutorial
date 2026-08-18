@@ -200,15 +200,6 @@ style: |
     color: #7b8794;
     margin-top: 14px;
   }
-  /* --- 3つのAPI一覧 --- */
-  .apilist { margin-top: 30px; }
-  .apilist div {
-    font-size: 27px;
-    color: #3e4c59;
-    line-height: 1.9;
-  }
-  .apilist code { color: #0b8f82; font-weight: bold; }
-  .apilist span { color: #7b8794; font-size: 23px; }
   .ng { color: #e12d39; font-weight: bold; }
   /* --- 略語の分解 --- */
   .acronym { margin-top: 44px; }
@@ -230,9 +221,10 @@ style: |
     font-weight: bold;
     color: #3e4c59;
     letter-spacing: 0.01em;
+    width: 300px;
   }
   .arow .jp {
-    margin-left: auto;
+    margin-left: 24px;
     font-size: 30px;
     color: #616e7c;
   }
@@ -379,21 +371,6 @@ style: |
 
 <div class="note">
 前の章で勉強したHTTPを 今日は実際にコードで書く
-</div>
-
----
-
-## 今日つくるAPIは4本
-
-<div class="apilist">
-  <div><code>GET /greeting</code> <span>… 決まった文字を返す</span></div>
-  <div><code>GET /greeting-me?name=taro</code> <span>… 渡した名前を使って返す</span></div>
-  <div><code>GET /profile</code> <span>… <strong>JSON</strong>を返す</span></div>
-  <div><code>POST /auth</code> <span>… 送ったパスワードを確かめる</span></div>
-</div>
-
-<div class="note tight">
-だんだん「情報のやりとり」が増えていく
 </div>
 
 ---
