@@ -206,14 +206,28 @@ Deno.serve(async (req) => {
 
 昨日ブラウザで`localhost:8000`を開いたときも、ここに来ていました。しかも 1 回ではありません。
 
-| ブラウザがやったこと | 誰が答えたか |
-| --- | --- |
-| `/`を開く | `server.js` が`index.html`を返した |
-| `index.html`の中の`styles.css`を読み込む | `server.js` が返した |
-| `index.html`の中の`index.js`を読み込む | `server.js` が返した |
-| `index.js`が`/welcome-message`を叩く | `server.js` が文字を返した |
+| ブラウザが求めたもの | 中身のもとは | 答えたのは |
+| --- | --- | --- |
+| `index.html` | `public`フォルダのファイル | `server.js` |
+| `styles.css` | `public`フォルダのファイル | `server.js` |
+| `index.js` | `public`フォルダのファイル | `server.js` |
+| `/welcome-message` | `server.js`に書いた文字 | `server.js` |
 
 **4 回とも、同じ`server.js`が答えています。**
+
+そして**4 回とも、返ってくる形は同じ**です。前の章で出てきた**レスポンスボディ**に中身が入って返ってきています。ファイルだから特別、ということはありません。
+
+`serveDir`がやっているのは、こういうことです。
+
+```js
+// ファイルを読んで、その中身をレスポンスに入れて返している
+const content = await Deno.readFile("public/index.html");
+return new Response(content);
+```
+
+これは`new Response("jigインターンへようこそ！")`と**同じ形**ですね。
+
+つまり違いは、**中身をファイルから読んだか、コードに書いたか**だけです。
 
 「HTML や CSS を返す係」と「API に答える係」は、大きなサービスでは別のプログラムに分けることもあります。でも今つくっているアプリでは、**この 1 ファイルが全部を受け止めています。**
 

@@ -400,16 +400,16 @@ if (req.method === "GET" && pathname === "/greeting-me") {
 
 ## 昨日ページを開いたとき何が起きていたか
 
-| ブラウザが求めたもの | 種類 | 答えたのは |
+| ブラウザが求めたもの | 中身のもとは | 答えたのは |
 | --- | --- | --- |
-| `index.html` | ファイル | `server.js` |
-| `styles.css` | ファイル | `server.js` |
-| `index.js` | ファイル | `server.js` |
-| `/welcome-message` | **API** | `server.js` |
+| `index.html` | `public` のファイル | `server.js` |
+| `styles.css` | `public` のファイル | `server.js` |
+| `index.js` | `public` のファイル | `server.js` |
+| `/welcome-message` | `server.js` に書いた文字 | `server.js` |
 
 <div class="note tight">
-ページを1回開くだけで <strong>4回</strong>のやりとりが起きていた<br>
-ファイルを返す係とAPIに答える係が <strong>同じ server.js</strong>
+4回とも同じ形 <strong>レスポンスボディに中身が入って返ってくる</strong><br>
+違うのは <strong>ファイルから読んだか コードに書いたか</strong>だけ
 </div>
 
 ---
