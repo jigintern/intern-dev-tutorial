@@ -39,7 +39,13 @@ style: |
   h1 strong, h2 strong, h3 strong, h4 strong { color: #0b8f82; }
   code { font-size: 0.9em; }
   pre { font-size: 24px; line-height: 1.5; }
-  table { font-size: 26px; }
+  table {
+    font-size: 26px;
+    margin: 0 auto;
+  }
+  th, td { padding: 13px 18px; }
+  td:first-child, th:first-child { white-space: nowrap; }
+  td code { white-space: nowrap; }
   .step {
     display: inline-block;
     background: #4dc0b5;
@@ -283,9 +289,9 @@ inter（間） + face（面） ＝ <strong>間にある面</strong> 厚みのな
 
 | | 裏側でやっていること | 自分が書くこと |
 | --- | --- | --- |
-| **天気** | 世界中の観測データを集めて スパコンで何時間も計算 | `fetch("/weather?city=fukui")` |
-| **地図** | 膨大な画像データから その地点の1枚を切り出す | `fetch("/map?lat=36&lng=136")` |
-| **翻訳** | 大量の文章で学習したモデルで推論 | `fetch("/translate?text=...")` |
+| **天気** | 観測データを集めて スパコンで計算 | `fetch("/weather")` |
+| **地図** | 膨大な画像から その地点を切り出す | `fetch("/map")` |
+| **翻訳** | 大量の文章で学習したモデルで推論 | `fetch("/translate")` |
 
 <div class="note tight">
 左は<strong>知らなくていい</strong> 書くのは右の<strong>1行</strong>だけ<br>
@@ -367,15 +373,16 @@ if (req.method === "GET" && pathname === "/greeting-me") {
 
 ## 昨日ページを開いたとき何が起きていたか
 
-| ブラウザがやったこと | 誰が答えたか |
-| --- | --- |
-| `/` を開く | `server.js` が `index.html` を返した |
-| `styles.css` を読み込む | `server.js` が返した |
-| `index.js` を読み込む | `server.js` が返した |
-| `/welcome-message` を叩く | `server.js` が文字を返した |
+| ブラウザが求めたもの | 種類 | 答えたのは |
+| --- | --- | --- |
+| `index.html` | ファイル | `server.js` |
+| `styles.css` | ファイル | `server.js` |
+| `index.js` | ファイル | `server.js` |
+| `/welcome-message` | **API** | `server.js` |
 
 <div class="note tight">
-<strong>4回とも同じ server.js が答えている</strong>
+ページを1回開くだけで <strong>4回</strong>のやりとりが起きていた<br>
+ファイルを返す係とAPIに答える係が <strong>同じ server.js</strong>
 </div>
 
 ---
