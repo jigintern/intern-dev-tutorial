@@ -1,0 +1,329 @@
+/* @theme jig */
+/*
+ * jig 勉強会スライド共通テーマ。
+ */
+@import 'default';
+
+/* ===== レイアウト基盤 ===== */
+section {
+  font-size: 26px;
+  place-content: center stretch;
+  position: relative;
+}
+section:not(.lead) > h2:first-child {
+  position: absolute;
+  top: 90px;
+  left: 40px;
+  right: 40px;
+  margin: 0;
+}
+section.tight {
+  place-content: start stretch;
+  padding-top: 140px;
+}
+section.tight > *:not(h2):first-of-type {
+  margin-top: 0;
+}
+section.lead h1 {
+  color: #3f51b5;
+}
+section.lead img {
+  display: block;
+  margin: 0 auto;
+}
+section h2 {
+  color: #3f51b5;
+  border-bottom: 2px solid #3f51b5;
+  padding-bottom: 4px;
+}
+code {
+  background: #eceff1;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+pre {
+  font-size: 1em;
+  position: relative;
+}
+mark {
+  background: #fff176;
+  color: inherit;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px #fff176;
+}
+table {
+  font-size: 0.86em;
+}
+
+/* ===== 進行タグ ===== */
+.tag-write {
+  display: inline-block;
+  background: #3f51b5;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-right: 6px;
+}
+.tag-unlock {
+  display: inline-block;
+  background: #78909c;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-right: 6px;
+}
+.tag-verify {
+  display: inline-block;
+  border: 1.5px solid #2e7d32;
+  color: #2e7d32;
+  padding: 1px 9px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-right: 6px;
+}
+.match {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* ===== 意味づけブロック ===== */
+.note {
+  background: #fff8e1;
+  border-left: 4px solid #ffb300;
+  padding: 8px 14px;
+  margin: 8px 0;
+}
+.rescue {
+  background: #e8f0fe;
+  border-left: 4px solid #1976d2;
+  padding: 8px 14px;
+  margin: 8px 0;
+  font-size: 0.92em;
+}
+details.hint {
+  background: #f3f4f6;
+  border-left: 4px solid #90a4ae;
+  padding: 8px 14px;
+  margin: 8px 0;
+  font-size: 0.92em;
+}
+.task {
+  background: #eef2ff;
+  border-left: 4px solid #3f51b5;
+  padding: 8px 16px;
+  margin: 16px 0;
+}
+.hint-box {
+  background: #f3f4f6;
+  border-left: 4px solid #90a4ae;
+  padding: 8px 16px;
+  margin: 16px 0;
+  font-size: 0.92em;
+}
+.choices {
+  background: #f6f0fa;
+  border-left: 4px solid #7b4fa8;
+  padding: 5px 16px;
+  margin: 8px 0;
+}
+.choices > *:first-child { margin-top: 0; }
+.choices > *:last-child { margin-bottom: 0; }
+.task ul, .hint-box ul { padding-left: 1.4em; margin: 4px 0; }
+.task li, .hint-box li { margin: 3px 0; }
+.syntax {
+  background: #f1f8f9;
+  border-left: 4px solid #00897b;
+  padding: 8px 16px;
+  margin: 16px 0;
+}
+.syntax > *:first-child { margin-top: 0; }
+.syntax > *:last-child { margin-bottom: 0; }
+.aside {
+  border-left: 3px solid #cfd8dc;
+  padding: 0 14px;
+  margin: 12px 0;
+  font-size: 0.92em;
+  color: #455a64;
+}
+.aside > *:first-child { margin-top: 0; }
+.aside > *:last-child { margin-bottom: 0; }
+.task > *:first-child, .hint-box > *:first-child { margin-top: 0; }
+.task > *:last-child, .hint-box > *:last-child, details.hint > *:last-child { margin-bottom: 0; }
+.task > p:first-child, .hint-box > p:first-child { font-weight: bold; }
+.task > p:first-child { color: #283593; }
+.hint-box > p:first-child { color: #37474f; }
+details.hint > summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #37474f;
+}
+
+/* ===== 図・2 カラムレイアウト ===== */
+.fig-row { display: flex; gap: 16px; justify-content: center; align-items: flex-start; }
+.fig-row > p { margin: 0; }
+.split { display: flex; gap: 24px; align-items: flex-start; }
+.split > * { min-width: 0; }
+.split-main { flex: 1 1 64%; }
+.split-side { flex: 1 1 36%; }
+.split pre { font-size: 0.92em; }
+.split.code-lg pre { font-size: 1em; }
+.split.side-wide .split-main { flex: 1 1 56%; }
+.split.side-wide .split-side { flex: 1 1 44%; font-size: 0.9em; }
+.split > * > *:first-child { margin-top: 0; }
+
+/* ===== 演習タイマー（JS は各 slide.md 末尾の <script>） ===== */
+.timer-box {
+  position: absolute; top: 24px; right: 32px;
+  display: flex; align-items: center; gap: 8px;
+  user-select: none;
+  z-index: 10;
+}
+.timer {
+  font-size: 40px; font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  color: #888;
+  cursor: pointer;
+  padding: 2px 12px; border-radius: 8px;
+  background: rgba(0,0,0,0.04);
+  line-height: 1.2;
+}
+.timer.running { color: #e33; }
+.timer.warn    { color: #f80; }
+.timer.done    {
+  color: #fff; background: #e33;
+  animation: timer-done-flash 0.8s step-end infinite;
+}
+.timer-btn {
+  font-size: 18px; font-weight: bold;
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 2px solid #888; background: white; color: #888;
+  cursor: pointer; line-height: 1; padding: 0;
+}
+.timer-btn:hover { background: #eee; }
+section.break .timer-box {
+  position: static;
+  justify-content: center;
+  margin: 24px 0;
+}
+section.break .timer { font-size: 120px; padding: 4px 32px; }
+section.break .timer-btn { width: 44px; height: 44px; font-size: 24px; }
+@keyframes timer-done-flash {
+  50% { color: #e33; background: rgba(0,0,0,0.04); }
+}
+
+/* ===== コードコピーボタン（JS は各 slide.md 末尾の <script>） ===== */
+.copy-btn {
+  position: absolute; top: 6px; right: 6px;
+  font-size: 12px; line-height: 1;
+  padding: 4px 8px; border-radius: 4px;
+  border: 1px solid #b0bec5; background: #fff; color: #607d8b;
+  cursor: pointer; opacity: 0; transition: opacity 0.15s;
+}
+pre:hover .copy-btn, .copy-btn:focus { opacity: 1; }
+.copy-btn.copied { color: #2e7d32; border-color: #2e7d32; }
+
+/* ===== インライン playground（JS は各 slide.md 末尾の <script>） =====
+   <div class="playground" data-mode="console|dom"> にコードフェンスを入れると、
+   スライドを離れずに編集→実行できるミニ実行環境になる。console モードは
+   console.log の出力を、dom モードは描画結果＋console を表示する。 */
+/* 左にコード欄＋ツールバー、右に実行結果、の 2 カラム。実行前は右カラムに
+   プレースホルダ（.pg-hint）を出しておき、実行してもレイアウトが動かないようにする。 */
+.playground {
+  border: 1px solid #c5cae9;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #f5f6fb;
+  margin: 0.4em 0;
+  display: grid;
+  --pg-left: 60%; /* 左（コード）カラムの幅。境目のドラッグで書き換わる */
+  grid-template-columns: var(--pg-left) 8px 1fr;
+  grid-template-areas:
+    "editor gutter output"
+    "bar    gutter output";
+  column-gap: 6px;
+  align-items: start;
+}
+.pg-editor { grid-area: editor; }
+.pg-bar    { grid-area: bar; }
+.pg-out    { grid-area: output; }
+.pg-hint   { grid-area: output; }
+/* 左右カラムの境目。ドラッグで幅を変えられる。 */
+.pg-gutter {
+  grid-area: gutter; align-self: stretch; min-height: 28px;
+  cursor: col-resize; background: #c5cae9;
+  border-radius: 3px; position: relative;
+}
+.pg-gutter::before {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  width: 2px; height: 22px; transform: translate(-50%, -50%);
+  background: #fff; border-radius: 2px; opacity: 0.8;
+}
+.pg-gutter:hover, .playground.pg-dragging .pg-gutter { background: #3f51b5; }
+.playground.pg-dragging { user-select: none; }
+.playground.pg-dragging iframe { pointer-events: none; }
+/* playground のコードは常に編集可能な欄（.pg-editor）で表示する。Marp が生成する
+   コードブロック（<pre> / marp-core が差し替える <marp-pre>）はソース取得専用に隠し、
+   フォーカス前後で見た目・レイアウトが一切変わらないようにする。 */
+.playground > pre,
+.playground > marp-pre { display: none; }
+.pg-bar { display: flex; gap: 8px; margin-top: 6px; }
+.pg-bar button {
+  font-size: 0.7em; line-height: 1;
+  padding: 5px 11px; border-radius: 5px;
+  border: 1px solid #3f51b5; background: #fff; color: #3f51b5;
+  cursor: pointer;
+}
+.pg-bar .pg-run { background: #3f51b5; color: #fff; }
+.pg-bar button:hover { filter: brightness(0.96); }
+.pg-editor {
+  display: block; width: 100%; box-sizing: border-box;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95em; line-height: 1.5;
+  border: 1px solid #cfd8dc; border-radius: 6px;
+  padding: 8px 10px; resize: vertical;
+  background: #fff; color: #263238;
+}
+.pg-out { margin-top: 0; }
+.pg-hint {
+  font-size: 0.66em; line-height: 1.4; color: #7986cb;
+  padding: 10px 12px; border: 1px dashed #c5cae9; border-radius: 6px;
+  background: #fff;
+}
+.pg-frame {
+  display: block; width: 100%; border: 1px solid #cfd8dc;
+  border-radius: 6px; background: #fff;
+}
+.pg-frame-hidden { display: none; }
+.pg-console {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95em; line-height: 1.5;
+  background: #1e272c; color: #cfd8dc;
+  border-radius: 6px; padding: 6px 10px; margin-top: 6px;
+  max-height: 140px; overflow: auto;
+  white-space: pre-wrap; word-break: break-word;
+}
+.pg-console:empty { display: none; }
+.pg-line { padding: 1px 0; }
+.pg-line.pg-warn { color: #ffca28; }
+.pg-line.pg-error { color: #ff8a80; }
+/* 実行結果（プレビュー）の高さ調整バー。iframe を直接 resize すると iframe が
+   pointer を奪って掴めないため、コード欄と同じ発想で専用バーをドラッグして高さを変える
+   （挙動は各 slide.md 末尾 <script> の pg-vgrip、横方向の .pg-gutter と対の実装）。 */
+.pg-vgrip {
+  height: 12px; margin-top: 4px; cursor: ns-resize;
+  background: #c5cae9; border-radius: 3px; position: relative;
+  touch-action: none; /* ドラッグをブラウザのスクロール／パンに横取りさせない */
+}
+.pg-vgrip::before {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 24px; height: 2px; transform: translate(-50%, -50%);
+  background: #fff; border-radius: 2px; opacity: 0.8;
+}
+.pg-vgrip:hover, .playground.pg-vdragging .pg-vgrip { background: #3f51b5; }
+.playground.pg-vdragging { user-select: none; }
+.playground.pg-vdragging iframe { pointer-events: none; }
