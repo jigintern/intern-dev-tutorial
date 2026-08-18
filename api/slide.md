@@ -210,6 +210,134 @@ style: |
   .apilist code { color: #0b8f82; font-weight: bold; }
   .apilist span { color: #7b8794; font-size: 23px; }
   .ng { color: #e12d39; font-weight: bold; }
+  /* --- 略語の分解 --- */
+  .acronym { margin-top: 44px; }
+  .arow {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+    margin-bottom: 24px;
+  }
+  .arow .ini {
+    font-size: 68px;
+    font-weight: bold;
+    color: #4dc0b5;
+    line-height: 1;
+    width: 52px;
+  }
+  .arow .eng {
+    font-size: 40px;
+    font-weight: bold;
+    color: #3e4c59;
+    letter-spacing: 0.01em;
+  }
+  .arow .jp {
+    margin-left: auto;
+    font-size: 30px;
+    color: #616e7c;
+  }
+  .arow.on .ini { color: #0b8f82; }
+  .arow.on .eng { color: #0b8f82; }
+  .arow.on .jp { color: #0b8f82; font-weight: bold; }
+  .sum {
+    margin-top: 6px;
+    padding-top: 26px;
+    border-top: 3px solid #cbd2d9;
+    font-size: 34px;
+    font-weight: bold;
+    color: #3e4c59;
+    text-align: center;
+  }
+  .sum strong { color: #0b8f82; }
+  /* --- 入り口と出口の図 --- */
+  .io {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 50px;
+  }
+  .io .ioside {
+    border: 4px solid #7b8794;
+    border-radius: 16px;
+    padding: 30px 26px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #3e4c59;
+    min-width: 210px;
+    text-align: center;
+  }
+  .io .ioside.api {
+    border-color: #0b8f82;
+    background: #f0fdfa;
+    color: #0b8f82;
+  }
+  .io .iomid { min-width: 330px; }
+  .io .ioline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 12px 0;
+  }
+  .io .iolabel {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0b8f82;
+  }
+  .io .ioarrow {
+    font-size: 30px;
+    color: #4dc0b5;
+    letter-spacing: -2px;
+    line-height: 1.1;
+  }
+  /* --- 中身を知らなくても使える --- */
+  .hide { margin-top: 40px; }
+  .hrow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 26px;
+    gap: 20px;
+  }
+  .hrow .hlabel {
+    font-size: 27px;
+    font-weight: bold;
+    color: #3e4c59;
+    width: 92px;
+    flex-shrink: 0;
+  }
+  .hrow .hback {
+    font-size: 21px;
+    color: #9aa5b1;
+    line-height: 1.5;
+    width: 330px;
+    flex-shrink: 0;
+  }
+  .hrow .hwall {
+    font-size: 19px;
+    font-weight: bold;
+    color: #4dc0b5;
+    border-left: 5px solid #4dc0b5;
+    padding-left: 12px;
+    flex-shrink: 0;
+  }
+  .hrow .hfront {
+    font-family: monospace;
+    font-size: 23px;
+    font-weight: bold;
+    color: #0b8f82;
+    background: #f0fdfa;
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+  .hcap {
+    display: flex;
+    gap: 20px;
+    margin-top: 4px;
+    font-size: 20px;
+    color: #7b8794;
+  }
+  .hcap .c1 { width: 92px; flex-shrink: 0; }
+  .hcap .c2 { width: 330px; flex-shrink: 0; }
 ---
 <!-- _class: lead -->
 <!-- _paginate: false -->
@@ -253,29 +381,102 @@ style: |
 
 ---
 
-## ブラウザとサーバーは、別のプログラム
+## 名前が、そのまま意味です
 
-<div class="row tight">
-  <div class="browser">
-    <div class="bar">
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="barlabel">ブラウザ</span>
+<div class="acronym">
+  <div class="arow">
+    <span class="ini">A</span><span class="eng">pplication</span>
+    <span class="jp">アプリケーションを</span>
+  </div>
+  <div class="arow">
+    <span class="ini">P</span><span class="eng">rogramming</span>
+    <span class="jp">プログラムから使うための</span>
+  </div>
+  <div class="arow on">
+    <span class="ini">I</span><span class="eng">nterface</span>
+    <span class="jp">入り口・出口</span>
+  </div>
+  <div class="sum">アプリを、プログラムから使うための<strong>入り口と出口</strong></div>
+</div>
+
+---
+
+## インターフェース ＝ 入り口と出口
+
+<div class="io">
+  <div class="ioside">ブラウザ</div>
+  <div class="iomid">
+    <div class="ioline">
+      <span class="iolabel">お願い（入り口）</span>
+      <span class="ioarrow">───────▶</span>
     </div>
-    <div class="screen">
-      <div class="big">画面を表示する</div>
+    <div class="ioline">
+      <span class="ioarrow">◀───────</span>
+      <span class="iolabel">返事（出口）</span>
     </div>
   </div>
-  <div class="arrowlabel">
-    <span class="arrow">⇄</span>
-    約束
+  <div class="ioside api">server.js</div>
+</div>
+
+<div class="note tight">
+中身がどう動いているかは見えません。<br>
+<strong>入り口と出口だけが決まっている</strong>。これがインターフェースです
+</div>
+
+---
+
+## だから、中身を知らなくても使えます
+
+<div class="hcap">
+  <span class="c1"></span>
+  <span class="c2">裏側でやっていること</span>
+  <span>自分が書くこと</span>
+</div>
+
+<div class="hide">
+  <div class="hrow">
+    <span class="hlabel">天気</span>
+    <span class="hback">世界中の観測データを集めて<br>スパコンで何時間も計算している</span>
+    <span class="hwall">API</span>
+    <span class="hfront">fetch("/weather?city=fukui")</span>
   </div>
-  <div class="cloud">
-    <div class="body">サーバー<br>server.js</div>
+  <div class="hrow">
+    <span class="hlabel">地図</span>
+    <span class="hback">膨大な画像データの中から<br>その地点の1枚を切り出している</span>
+    <span class="hwall">API</span>
+    <span class="hfront">fetch("/map?lat=36&lng=136")</span>
   </div>
 </div>
 
 <div class="note tight">
-お互いの中身は直接さわれない。だから間に<strong>約束</strong>を置く
+使う側が書くのは<strong>1行</strong>。<br>
+自分で気象観測をしなくても、天気を出すアプリがつくれます
+</div>
+
+---
+
+## もうひとつの利点: 見せたくないものを隠せる
+
+<div class="row tight">
+  <div class="box">
+    <span class="label">ブラウザ側</span>
+    index.html / api.js
+    <div class="inner">開発者ツールで<br><strong>誰でも中身が見える</strong></div>
+  </div>
+  <div class="arrowlabel">
+    <span class="arrow">⇄</span>
+    API
+  </div>
+  <div class="box api">
+    <span class="label">サーバー側</span>
+    server.js
+    <div class="inner">中身は<br><strong>誰にも見えない</strong></div>
+  </div>
+</div>
+
+<div class="note tight">
+パスワードの照合・APIキー・データベースの情報は、<strong>全部この右側に置きます</strong>。<br>
+この見えない側を<strong>バックエンド</strong>と呼びます
 </div>
 
 ---
@@ -317,14 +518,6 @@ style: |
 
 ---
 
-<!-- _class: big -->
-
-HTMLを返す係と
-APIに答える係は
-**同じファイル**
-
----
-
 ## 上から順に「自分の担当か」を見ています
 
 <div class="steps">
@@ -359,14 +552,6 @@ APIに答える係は
 
 ---
 
-<!-- _class: big -->
-
-今日は必ず
-**`return serveDir(` の上**
-に足していきます
-
----
-
 <!-- _class: chapter -->
 <!-- _header: '' -->
 
@@ -398,16 +583,9 @@ APIに答える係は
 | `public/index.html` | `</body>` の**直前に足す** |
 
 <div class="note tight">
-<code>index.js</code> と <code>styles.css</code> は開きません
+<code>index.js</code> と <code>styles.css</code> は開きません。<br>
+昨日書き換えたものは<span class="ng">消さず</span>、足していくだけです
 </div>
-
----
-
-<!-- _class: big -->
-
-昨日書き換えたものは
-<span class="ng">消しません</span>
-足していくだけです
 
 ---
 
