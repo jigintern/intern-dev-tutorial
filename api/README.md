@@ -77,6 +77,12 @@ Listening on http://0.0.0.0:8000/ (http://localhost:8000/)
 
 # 1. そもそも API とは
 
+このセクションにはスライド資料があります。
+
+- [スライド資料](https://jigintern.github.io/intern-dev-tutorial/api/api-slide.html)
+- [PDF資料](https://jigintern.github.io/intern-dev-tutorial/api/api-slide.pdf)
+- [テキスト資料](./slide.md)
+
 **Application Programming Interface**の略です。
 
 アプリケーションが別のアプリケーションの機能を呼び出すために使用するインターフェースのことを指します。

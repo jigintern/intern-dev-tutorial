@@ -28,6 +28,7 @@ jig.jp のインターンで勉強会に使う資料のリポジトリです。
   - [README.md](./transfer-protocol/README.md)
 - APIハンズオン: api
   - [README.md](./api/README.md)
+  - [スライド](https://jigintern.github.io/intern-dev-tutorial/api/api-slide.html)
 - Deno KV: deno-kv
   - [README.md](./deno-kv/README.md)
   - [docs.md](./deno-kv/docs.md)
