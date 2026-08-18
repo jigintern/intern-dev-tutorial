@@ -467,6 +467,21 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 ---
 
+## 上から順に「自分の担当か」を見ている
+
+<div class="steps">
+  <div>通信が来た</div>
+  <div><span class="step">1</span> GETで <code>/welcome-message</code> か？ <span>→ はい なら 返して<strong>おわり</strong></span></div>
+  <div class="on"><span class="step">2</span> どれでもない → <code>serveDir</code> がファイルを探して返す</div>
+</div>
+
+<div class="note tight">
+一番下の <code>serveDir</code> は「どれにも当たらなかったとき」の受け皿<br>
+今日は この<strong>あいだ</strong>に窓口を足していく
+</div>
+
+---
+
 ## 昨日ページを開いたとき何が起きていたか
 
 | 叩かれたURL | 返ってきたもの | 中身のもとは |
@@ -483,7 +498,7 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 ---
 
-## 大きなサービスでは 分かれている
+## ふつうは 役割ごとに分かれている
 
 <div class="layers">
   <div class="lrow">
@@ -553,35 +568,6 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 <div class="note tight">
 最初の1回以外は <strong>前に受け取ったファイルが次を呼んでいる</strong><br>
 だから まとめて1回にはならない
-</div>
-
----
-
-## 見る場所が2つある
-
-| どこで見る | 何が見えるか |
-| --- | --- |
-| **ターミナル** <span>サーバー側</span> | どのパスが叩かれたか |
-| **Network** <span>ブラウザ側</span> | 何を送って 何が返ってきたか |
-
-<div class="note tight">
-どちらからも <strong>サーバーの中でやっている処理は見えない</strong><br>
-見えるのは窓口でのやりとりだけ これが<strong>インターフェース</strong>
-</div>
-
----
-
-## 上から順に「自分の担当か」を見ている
-
-<div class="steps">
-  <div>通信が来た</div>
-  <div><span class="step">1</span> GETで <code>/welcome-message</code> か？ <span>→ はい なら 返して<strong>おわり</strong></span></div>
-  <div><span class="step">2</span> GETで <code>/greeting</code> か？ <span>→ はい なら 返して<strong>おわり</strong></span></div>
-  <div class="on"><span class="step">3</span> どれでもない → <code>serveDir</code> がファイルを探して返す</div>
-</div>
-
-<div class="note tight">
-一番下の <code>serveDir</code> は「どれにも当たらなかったとき」の受け皿
 </div>
 
 ---
