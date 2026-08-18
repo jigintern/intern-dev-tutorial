@@ -482,18 +482,18 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 ---
 
-## 昨日ページを開いたとき何が起きていたか
+## 昨日ページを開いたとき 4回きていた
 
-| 叩かれたURL | 返ってきたもの | 中身のもとは |
+| 叩かれたURL | 上から順に見た結果 | 返ってきたもの |
 | --- | --- | --- |
-| `/` | `index.html` の中身 | `public` のファイル |
-| `/styles.css` | CSS | `public` のファイル |
-| `/index.js` | JavaScript | `public` のファイル |
-| `/welcome-message` | 「ようこそ」の文字 | `server.js` のコード |
+| `/` | どれにも当たらない → `serveDir` | `index.html` |
+| `/styles.css` | どれにも当たらない → `serveDir` | CSS |
+| `/index.js` | どれにも当たらない → `serveDir` | JavaScript |
+| `/welcome-message` | **1番目のifに当たった** | 「ようこそ」の文字 |
 
 <div class="note tight">
-4回とも <code>server.js</code> が答えて <strong>返ってくる形も同じ</strong><br>
-違うのは <strong>ファイルから読んだか コードに書いたか</strong>だけ
+3回は <code>serveDir</code> が返して APIに当たったのは<strong>1回だけ</strong><br>
+どれも同じ <code>server.js</code> が 同じ形で返している
 </div>
 
 ---
@@ -562,73 +562,7 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 <div class="note tight">
 今日書くJSは <code>api.js</code> に<strong>新しくつくる</strong><br>
-だから昨日書いた <code>index.js</code> と <code>styles.css</code> は<span class="ng">開かない</span>
-</div>
-
----
-
-## だから追加するのは`serveDir`の「上」
-
-```js
-  return serveDir(req, {     // ← ここで終わってしまう
-    fsRoot: "public",
-  });
-
-  if (pathname === "/greeting") {   // ← ここには絶対に来ない
-    return new Response("Hello!!");
-  }
-```
-
-<div class="note tight">
-<code>return</code> は「返しておわり」の意味<br>
-下に書いたAPIには<span class="ng">一生たどりつかない</span>
-</div>
-
----
-
-<!-- _class: big -->
-
-昨日の書き換えで
-みんなの`server.js`は
-**中身が違う**
-
----
-
-## だから 行番号ではなく「目印」で示す
-
-<div class="steps">
-  <div>資料には行番号を書いていない</div>
-  <div class="on">かわりに <code>return serveDir(</code> という<strong>目印</strong>で場所を示す</div>
-  <div>この行はほぼ全員に残っている <span>消したら昨日ページが出なくなっている</span></div>
-</div>
-
-<div class="note tight">
-昨日 何をどう書き換えていても <strong>同じ手順で進められる</strong><br>
-書き換えたものは消さず 足していくだけ
-</div>
-
----
-
-## ふつうは 役割ごとに分かれている
-
-<div class="layers">
-  <div class="lrow">
-    <span class="llabel">大きなサービス</span>
-    <span class="lbox">ブラウザ</span><span class="larrow">→</span>
-    <span class="lbox">Webサーバー<em>ファイルを返す</em></span><span class="larrow">→</span>
-    <span class="lbox">アプリサーバー<em>APIに答える</em></span><span class="larrow">→</span>
-    <span class="lbox">DB<em>データを持つ</em></span>
-  </div>
-  <div class="lrow on">
-    <span class="llabel">今日のアプリ</span>
-    <span class="lbox">ブラウザ</span><span class="larrow">→</span>
-    <span class="lbox">server.js<em>ファイルもAPIも ぜんぶ 1ファイルで</em></span>
-  </div>
-</div>
-
-<div class="note tight">
-教科書で見る図は上 でも<strong>小さいうちは1つで足りる</strong><br>
-分けるのは 規模が大きくなってから
+<code>serveDir</code> より下に書くと<span class="ng">たどりつかない</span>ので 必ず<strong>その上</strong>へ
 </div>
 
 ---
