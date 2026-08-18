@@ -190,91 +190,40 @@ style: |
   }
   /* 真ん中の「面」 */
   .io .counter {
-    width: 300px;
-    border-left: 7px solid #4dc0b5;
-    border-right: 7px solid #4dc0b5;
+    width: 360px;
+    border-left: 8px solid #4dc0b5;
+    border-right: 8px solid #4dc0b5;
     background: #f0fdfa;
-    padding: 14px 0;
+    padding: 20px 0 14px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
   }
   .io .countertitle {
-    position: absolute;
-    top: -34px;
-    left: 0;
-    right: 0;
     text-align: center;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: bold;
     color: #0b8f82;
+    margin-bottom: 12px;
   }
   .io .ioline {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 7px 0;
+    margin: 10px 0;
   }
   .io .iolabel {
-    font-size: 23px;
+    font-size: 25px;
     font-weight: bold;
     color: #0b8f82;
   }
   .io .ioarrow {
-    font-size: 26px;
+    font-size: 30px;
     color: #4dc0b5;
     letter-spacing: -2px;
     line-height: 1.1;
   }
-  /* --- 中身を知らなくても使える --- */
-  .hide { margin-top: 40px; }
-  .hrow {
-    display: flex;
-    align-items: center;
-    margin-bottom: 26px;
-    gap: 20px;
-  }
-  .hrow .hlabel {
-    font-size: 27px;
-    font-weight: bold;
-    color: #3e4c59;
-    width: 92px;
-    flex-shrink: 0;
-  }
-  .hrow .hback {
-    font-size: 21px;
-    color: #9aa5b1;
-    line-height: 1.5;
-    width: 330px;
-    flex-shrink: 0;
-  }
-  .hrow .hwall {
-    font-size: 19px;
-    font-weight: bold;
-    color: #4dc0b5;
-    border-left: 5px solid #4dc0b5;
-    padding-left: 12px;
-    flex-shrink: 0;
-  }
-  .hrow .hfront {
-    font-family: monospace;
-    font-size: 23px;
-    font-weight: bold;
-    color: #0b8f82;
-    background: #f0fdfa;
-    border-radius: 8px;
-    padding: 12px 16px;
-  }
-  .hcap {
-    display: flex;
-    gap: 20px;
-    margin-top: 4px;
-    font-size: 20px;
-    color: #7b8794;
-  }
-  .hcap .c1 { width: 92px; flex-shrink: 0; }
-  .hcap .c2 { width: 330px; flex-shrink: 0; }
 ---
 <!-- _class: lead -->
 <!-- _paginate: false -->
@@ -316,7 +265,7 @@ style: |
 <div class="io">
   <div class="ioside">ブラウザ</div>
   <div class="counter">
-    <div class="countertitle">inter（間） + face（面）</div>
+    <div class="countertitle">窓口</div>
     <div class="ioline">
       <span class="iolabel">決まった形で頼む</span>
       <span class="ioarrow">──────▶</span>
@@ -330,37 +279,22 @@ style: |
 </div>
 
 <div class="note tight">
-銀行や役所の窓口と同じ<br>
-<strong>中で何をしているかは見えない</strong> けれど 決まった形で頼めば答えが返る
+inter（間） + face（面） ＝ <strong>間にある面</strong><br>
+銀行や役所の窓口と同じで <strong>中で何をしているかは見えない</strong>
 </div>
 
 ---
 
 ## だから中身を知らなくても使える
 
-<div class="hcap">
-  <span class="c1"></span>
-  <span class="c2">裏側でやっていること</span>
-  <span>自分が書くこと</span>
-</div>
-
-<div class="hide">
-  <div class="hrow">
-    <span class="hlabel">天気</span>
-    <span class="hback">世界中の観測データを集めて<br>スパコンで何時間も計算している</span>
-    <span class="hwall">API</span>
-    <span class="hfront">fetch("/weather?city=fukui")</span>
-  </div>
-  <div class="hrow">
-    <span class="hlabel">地図</span>
-    <span class="hback">膨大な画像データの中から<br>その地点の1枚を切り出している</span>
-    <span class="hwall">API</span>
-    <span class="hfront">fetch("/map?lat=36&lng=136")</span>
-  </div>
-</div>
+| | 裏側でやっていること | 自分が書くこと |
+| --- | --- | --- |
+| **天気** | 世界中の観測データを集めて スパコンで何時間も計算 | `fetch("/weather?city=fukui")` |
+| **地図** | 膨大な画像データから その地点の1枚を切り出す | `fetch("/map?lat=36&lng=136")` |
+| **翻訳** | 大量の文章で学習したモデルで推論 | `fetch("/translate?text=...")` |
 
 <div class="note tight">
-使う側が書くのは<strong>1行</strong><br>
+左は<strong>知らなくていい</strong> 書くのは右の<strong>1行</strong>だけ<br>
 自分で気象観測をしなくても 天気を出すアプリがつくれる
 </div>
 
@@ -394,16 +328,38 @@ style: |
 
 ## 窓口のルールは この4つ
 
-| これがルール | 例 |
-| --- | --- |
-| どのURLか | `/greeting-me` |
-| どのメソッドか | `GET` |
-| 何を渡すか | `name` |
-| 何が返るか | `Hello, taro` |
+| | これがルール | 例 |
+| --- | --- | --- |
+| ① | どのURLか | `/greeting-me` |
+| ② | どのメソッドか | `GET` |
+| ③ | 何を渡すか | `name` |
+| ④ | 何が返るか | `Hello, taro` |
 
 <div class="note tight">
 この4つが決まっていれば <strong>別々の人がつくっても繋がる</strong><br>
-2番目のGETとPOSTが 前の章でやったやつ
+②のGETとPOSTが 前の章でやったやつ
+</div>
+
+---
+
+## 4つを組み合わせると コードになる
+
+```js
+// server.js
+if (req.method === "GET" && pathname === "/greeting-me") {
+//      ② メソッド                    ① URL
+
+  const name = new URL(req.url).searchParams.get("name");
+//                                    ③ 渡されたもの を受け取る
+
+  return new Response("Hello, " + name);
+//                    ④ 返すもの
+}
+```
+
+<div class="note tight">
+今日書くのは これだけ<br>
+4本とも <strong>①②③④のどれかが変わるだけ</strong>
 </div>
 
 ---
@@ -460,6 +416,29 @@ style: |
 <div class="note tight">
 <code>return</code> は「返しておわり」の意味<br>
 下に書いたAPIには<span class="ng">一生たどりつかない</span>
+</div>
+
+---
+
+<!-- _class: big -->
+
+昨日の書き換えで
+みんなの`server.js`は
+**中身が違う**
+
+---
+
+## だから 行番号ではなく「目印」で示す
+
+<div class="steps">
+  <div>資料には行番号を書いていない</div>
+  <div class="on">かわりに <code>return serveDir(</code> という<strong>目印</strong>で場所を示す</div>
+  <div>この行はほぼ全員に残っている <span>消したら昨日ページが出なくなっている</span></div>
+</div>
+
+<div class="note tight">
+昨日 何をどう書き換えていても <strong>同じ手順で進められる</strong><br>
+書き換えたものは消さず 足していくだけ
 </div>
 
 ---
