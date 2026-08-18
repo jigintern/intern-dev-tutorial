@@ -75,9 +75,34 @@
 
 `public/index.js`と`public/styles.css`も開きません。
 
-**既存のファイルに足すのは`server.js`の 1 か所だけです。**
+**既存のファイルに足すのは`server.js`の 1 か所だけです。場所はここ。**
 
-- `server.js` → `return serveDir(`の**すぐ上**
+```js
+import { serveDir } from "jsr:@std/http@1.1.3/file-server";
+
+Deno.serve((req) => {
+  const pathname = new URL(req.url).pathname;
+  console.log(pathname);
+
+  if (req.method === "GET" && pathname === "/welcome-message") {
+    return new Response("jigインターンへようこそ！");
+  }
+
+  // ====================================
+  //   ここ！
+  //   今日足すのは、ぜんぶこの場所です
+  // ====================================
+
+  return serveDir(req, {          // ← この行の「すぐ上」
+    fsRoot: "public",
+    urlRoot: "",
+    showDirListing: true,
+    enableCors: true,
+  });
+});
+```
+
+上のほう（`/welcome-message`のあたり）は、昨日書き換えた人はもっと違う形になっているはずです。**そこは気にしなくて大丈夫です。**探すのは`return serveDir(`の 1 行だけ。それを見つけたら、そのすぐ上に足します。
 
 昨日、それぞれ好きなように書き換えたので、**`server.js`の中身は人によって違います。**返す文言を変えた人、自分でルーティングを足した人、Claude に手伝ってもらって整えた人もいるはずです。
 
