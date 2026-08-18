@@ -211,7 +211,6 @@ style: |
   .apilist span { color: #7b8794; font-size: 23px; }
   .ng { color: #e12d39; font-weight: bold; }
 ---
-
 <!-- _class: lead -->
 <!-- _paginate: false -->
 <!-- _header: '' -->
@@ -224,111 +223,37 @@ style: |
 
 <br>
 
-<div class="goal">昨日つくったアプリに<br>自分でAPIを追加する</div>
+<div class="goal">自分のアプリに<br>自分でAPIを1本増やせるようになる</div>
 
 <div class="note">
-昨日は「スマホで見られる」まで。今日は、その先です
+前の章で勉強したHTTPを、今日は実際にコードで書きます
 </div>
 
 ---
 
-<!-- _class: big -->
+## 今日つくるAPIは4本
 
-昨日、みんなのアプリは
-**インターネットに公開されました**
-
----
-
-## でも、まだ「見えるだけ」です
-
-<div class="row">
-  <div class="browser">
-    <div class="bar">
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="barlabel">自分のアプリ</span>
-    </div>
-    <div class="screen">
-      <div class="big">ようこそ！</div>
-    </div>
-  </div>
+<div class="apilist">
+  <div><code>GET /greeting</code> <span>… 決まった文字を返す</span></div>
+  <div><code>GET /greeting-me?name=taro</code> <span>… 渡した名前を使って返す</span></div>
+  <div><code>GET /profile</code> <span>… <strong>JSON</strong>を返す</span></div>
+  <div><code>POST /auth</code> <span>… 送ったパスワードを確かめる</span></div>
 </div>
 
-<div class="note">
-開くと文字が出る。それだけでした
+<div class="note tight">
+だんだん「情報のやりとり」が増えていきます
 </div>
-
----
-
-<!-- _class: big -->
-
-今日は
-**「動く」**
-ようにします
 
 ---
 
 <!-- _class: chapter -->
 <!-- _header: '' -->
 
-# 1. APIとは何か
+# 1. APIは「約束」
 
 ---
 
-<!-- _class: big -->
-
-**Application**
-**Programming**
-**Interface**
-
----
-
-## アプリが、別のアプリの機能を呼び出す仕組み
-
-<div class="row">
-  <div class="box">
-    <span class="label">自分のアプリ</span>
-    天気を表示したい
-  </div>
-  <div class="arrowlabel">
-    <span class="arrow">→</span>
-    呼び出す
-  </div>
-  <div class="box api">
-    <span class="label">気象庁のアプリ</span>
-    天気のデータ
-  </div>
-</div>
-
-<div class="note">
-自分で気象観測をしなくても、天気を表示するアプリが作れます
-</div>
-
----
-
-## 中身を知らなくても、使えます
-
-<div class="row">
-  <div class="box">
-    <span class="label">呼び出す側</span>
-    「東京の天気を教えて」
-    <div class="inner">どうやって調べているかは<br><strong>知らなくていい</strong></div>
-  </div>
-  <div class="arrowlabel">
-    <span class="arrow">→</span>
-  </div>
-  <div class="box api">
-    <span class="label">API</span>
-    「晴れです」
-  </div>
-</div>
-
-<div class="note">
-呼び出す側は、APIの裏側にあるコードを意識しなくて済みます
-</div>
-
----
-
-## Webアプリでは「サーバーへの問い合わせ」
+## ブラウザとサーバーは、別のプログラム
 
 <div class="row tight">
   <div class="browser">
@@ -342,16 +267,30 @@ style: |
   </div>
   <div class="arrowlabel">
     <span class="arrow">⇄</span>
-    やりとり
+    約束
   </div>
   <div class="cloud">
     <div class="body">サーバー<br>server.js</div>
-    <div class="caption">＝ みんなが昨日書いたコード</div>
   </div>
 </div>
 
 <div class="note tight">
-今日つくるのは、この右側です
+お互いの中身は直接さわれない。だから間に<strong>約束</strong>を置く
+</div>
+
+---
+
+## 約束で決めるのは、いつも同じ4つ
+
+| 決めること | 例 |
+| --- | --- |
+| どのURLか | `/greeting-me` |
+| どのメソッドか | `GET` |
+| 何を渡すか | `name` |
+| 何が返るか | `Hello, taro` |
+
+<div class="note tight">
+2番目のGETとPOSTが、前の章でやったやつです
 </div>
 
 ---
@@ -359,108 +298,93 @@ style: |
 <!-- _class: chapter -->
 <!-- _header: '' -->
 
-# 2. 実はもう、<br>APIを叩いています
+# 2. server.jsは<br>全部の入口
 
 ---
 
-## 昨日の`public/index.js`を見てみましょう
+## 昨日、ページを開いたとき何が起きていたか
 
-```js
-const message = await fetch("/welcome-message")
-document.querySelector("#welcomeMessage").innerText = await message.text()
-```
-
-<div class="note">
-たった2行。この1行目が、<strong>APIを呼び出しているコード</strong>です
-</div>
-
----
-
-## 画面に文字が出るまでの流れ
-
-<div class="steps">
-  <div><span class="step">1</span> ブラウザがページを開く</div>
-  <div class="on"><span class="step">2</span> ブラウザが<code>/welcome-message</code>に問い合わせる</div>
-  <div><span class="step">3</span> サーバーが文字を返す</div>
-  <div><span class="step">4</span> ブラウザが、返ってきた文字を画面に入れる</div>
-</div>
+| ブラウザがやったこと | 誰が答えたか |
+| --- | --- |
+| `/` を開く | `server.js` が `index.html` を返した |
+| `styles.css` を読み込む | `server.js` が返した |
+| `index.js` を読み込む | `server.js` が返した |
+| `/welcome-message` を叩く | `server.js` が文字を返した |
 
 <div class="note tight">
-2番が、API呼び出しです
-</div>
-
----
-
-## 答えているのは`server.js`のここ
-
-```js
-if (req.method === "GET" && pathname === "/welcome-message") {
-  return new Response("jigインターンへようこそ！");
-}
-```
-
-<div class="note">
-昨日「文言を変えてみよう」で書き換えたのは、<br>
-まさに<strong>このAPIの中身</strong>でした
+<strong>4回とも、同じ server.js が答えています</strong>
 </div>
 
 ---
 
 <!-- _class: big -->
 
-つまり昨日の時点で、
-**APIを持ったアプリ**
-ができていました
+HTMLを返す係と
+APIに答える係は
+**同じファイル**
 
 ---
 
-## エンドポイント ＝ APIの接続先
+## 上から順に「自分の担当か」を見ています
 
-<div class="urlrow">
-  <span class="origin">http://localhost:8000</span><span class="path">/welcome-message</span>
-  <span class="caption">オリジン ＋ パス</span>
+<div class="steps">
+  <div>通信が来た</div>
+  <div><span class="step">1</span> <code>/welcome-message</code> ですか？ <span>→ はい なら 返して<strong>おわり</strong></span></div>
+  <div><span class="step">2</span> <code>/greeting</code> ですか？ <span>→ はい なら 返して<strong>おわり</strong></span></div>
+  <div class="on"><span class="step">3</span> どれでもない → <code>serveDir</code> がファイルを探して返す</div>
 </div>
 
-<div class="note">
-オリジンは基本同じなので、<code>/welcome-message</code>の部分だけを<br>
-「エンドポイント」と呼ぶことがあります
+<div class="note tight">
+一番下の <code>serveDir</code> は「どれにも当たらなかったとき」の受け皿
 </div>
+
+---
+
+## だから、追加するのは`serveDir`の「上」
+
+```js
+  return serveDir(req, {     // ← ここで終わってしまう
+    fsRoot: "public",
+  });
+
+  if (pathname === "/greeting") {   // ← ここには絶対に来ない
+    return new Response("Hello!!");
+  }
+```
+
+<div class="note tight">
+<code>return</code> は「返しておわり」の意味。<br>
+下に書いたAPIには<span class="ng">一生たどりつきません</span>
+</div>
+
+---
+
+<!-- _class: big -->
+
+今日は必ず
+**`return serveDir(` の上**
+に足していきます
 
 ---
 
 <!-- _class: chapter -->
 <!-- _header: '' -->
 
-# 3. 今日つくるAPI
+# 3. 手を動かします
 
 ---
 
-## 3つ、追加します
-
-<div class="apilist">
-  <div><code>GET /greeting</code> <span>… <code>Hello!!</code>が返ってくる</span></div>
-  <div><code>GET /greeting-me?name=taro</code> <span>… <code>Hello, taro</code>が返ってくる</span></div>
-  <div><code>POST /auth</code> <span>… パスワードがあっているか答える</span></div>
-</div>
-
-<div class="note">
-だんだん「情報を渡す」ようになっていきます
-</div>
-
----
-
-## 進め方は、3つとも同じです
+## 4本とも、同じ進め方です
 
 <div class="steps">
-  <div><span class="step">1</span> <strong>サーバー側</strong>にAPIを書く</div>
+  <div><span class="step">1</span> <strong>サーバー側</strong>に書く</div>
   <div class="on"><span class="step">2</span> <strong>ブラウザのURL直打ち</strong>で確かめる</div>
-  <div><span class="step">3</span> <strong>ブラウザ側</strong>から叩くコードを書く</div>
-  <div><span class="step">4</span> ボタンを押して確かめる</div>
+  <div><span class="step">3</span> <strong>ブラウザ側</strong>に書く</div>
+  <div><span class="step">4</span> ボタンで確かめる</div>
 </div>
 
 <div class="note tight">
-2番を挟むのが大事。動かないとき、<br>
-<strong>サーバーとブラウザのどちらが原因か</strong>を自分で切り分けられます
+2番を挟むと、動かないとき<strong>どちらが原因か</strong>を自分で切り分けられます
 </div>
 
 ---
@@ -469,12 +393,12 @@ if (req.method === "GET" && pathname === "/welcome-message") {
 
 | ファイル | 今日の扱い |
 | --- | --- |
-| `public/api.js` | **新しく作る**。今日書くJSは全部ここ |
-| `public/index.html` | `</body>`の直前に**足すだけ** |
-| `server.js` | `return serveDir(`の**上に足すだけ** |
+| `server.js` | `return serveDir(` の**上に足す** |
+| `public/api.js` | **新しくつくる**。今日書くJSは全部ここ |
+| `public/index.html` | `</body>` の**直前に足す** |
 
 <div class="note tight">
-<code>index.js</code>と<code>styles.css</code>は開きません
+<code>index.js</code> と <code>styles.css</code> は開きません
 </div>
 
 ---
@@ -487,30 +411,59 @@ if (req.method === "GET" && pathname === "/welcome-message") {
 
 ---
 
-## 最後に、もう一度公開します
+## 4章の山場: JSON
+
+文字だけだと、2つの情報を返すのが苦しい
+
+```js
+return new Response("たにぐち,ラーメン");   // 受け取る側が , で切る…
+```
+
+JSONなら、キーで取り出せる
+
+```js
+return Response.json({ name: "たにぐち", favorite: "ラーメン" });
+```
+
+<div class="note tight">
+<strong>実際のWebアプリのAPIは、ほとんどこの形です</strong>
+</div>
+
+---
+
+## 受け取り方も1か所だけ変わります
+
+```js
+await response.text()   // 文字として受け取る（2章・3章）
+await response.json()   // JSONとして受け取る（4章）
+```
+
+<div class="note">
+<code>json()</code> で受け取ると <code>data.name</code> のように<br>
+<strong>キーを指定して取り出せます</strong>
+</div>
+
+---
+
+## 約束は、両側セットです
 
 <div class="row tight">
-  <div class="browser">
-    <div class="bar">
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="barlabel">スマホ</span>
-    </div>
-    <div class="screen">
-      <div class="big ok">Hello!!</div>
-    </div>
+  <div class="box">
+    <span class="label">server.js</span>
+    <code>name</code> で返す
   </div>
   <div class="arrowlabel">
-    <span class="arrow">←</span>
-    返事
+    <span class="arrow">≠</span>
   </div>
-  <div class="cloud">
-    <div class="body">自分のサーバー</div>
-    <div class="caption">Deno Deploy</div>
+  <div class="box">
+    <span class="label">api.js</span>
+    <code>data.userName</code> を探す
   </div>
 </div>
 
-<div class="note tight">
-ボタンを押すと、インターネットの向こう側が答えてくれます
+<div class="urlrow">
+  <span class="path">undefined</span>
+  <span class="caption">片方だけ直しても動きません</span>
 </div>
 
 ---

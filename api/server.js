@@ -13,18 +13,23 @@ Deno.serve(async (req) => {
   }
 
   if (req.method === "GET" && pathname === "/greeting-me") {
-    const param = new URL(req.url).searchParams.get("name");
-    return new Response("Hello, " + param);
+    const name = new URL(req.url).searchParams.get("name");
+    return new Response("Hello, " + name);
+  }
+
+  if (req.method === "GET" && pathname === "/profile") {
+    return Response.json({
+      name: "たにぐち",
+      favorite: "ラーメン",
+    });
   }
 
   if (req.method === "POST" && pathname === "/auth") {
-    const reqJson = await req.json();
-    const pass = reqJson.pass;
-    if (pass === "jigjp") {
-      return new Response("Authentication Successful!!");
-    } else {
-      return new Response("Authentication Failure");
+    const body = await req.json();
+    if (body.password === "jigjp") {
+      return Response.json({ ok: true, message: "ログインできました" });
     }
+    return Response.json({ ok: false, message: "パスワードが違います" });
   }
 
   return serveDir(req, {
