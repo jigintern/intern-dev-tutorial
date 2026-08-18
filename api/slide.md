@@ -398,6 +398,29 @@ if (req.method === "GET" && pathname === "/greeting-me") {
 
 ---
 
+## これが今日の作業台
+
+```js
+import { serveDir } from "jsr:@std/http/file-server";
+
+Deno.serve((req) => {                    // 通信は全部ここに来る
+  const pathname = new URL(req.url).pathname;
+  console.log(pathname);                 // 叩かれたパスを表示
+
+  if (req.method === "GET" && pathname === "/welcome-message") {
+    return new Response("jigインターンへようこそ！");
+  }
+
+  return serveDir(req, { fsRoot: "public", ... });
+});
+```
+
+<div class="note tight">
+昨日の <code>server.js</code> 中身は書き換えていても <strong>形はこれ</strong>
+</div>
+
+---
+
 ## 昨日ページを開いたとき何が起きていたか
 
 | ブラウザが求めたもの | 中身のもとは | 答えたのは |
@@ -410,6 +433,40 @@ if (req.method === "GET" && pathname === "/greeting-me") {
 <div class="note tight">
 4回とも同じ形 <strong>レスポンスボディに中身が入って返ってくる</strong><br>
 違うのは <strong>ファイルから読んだか コードに書いたか</strong>だけ
+</div>
+
+---
+
+## ほんとうに4回きている
+
+昨日 サーバーを動かしたとき ターミナルにこう出ていた
+
+```
+/
+/styles.css
+/index.js
+/welcome-message
+```
+
+<div class="note tight">
+まとめて1回では返ってこない<br>
+<strong>HTMLを受け取ってから 中に書いてあるものを順に取りに行く</strong>
+</div>
+
+---
+
+## 自分の目で見てみよう
+
+<div class="steps">
+  <div><span class="step">1</span> ブラウザで <strong>開発者ツール</strong>を開く <span>F12 または 右クリック → 検証</span></div>
+  <div><span class="step">2</span> <strong>Network</strong> タブを開く</div>
+  <div><span class="step">3</span> ページを再読み込みする</div>
+  <div class="on"><span class="step">4</span> 一覧に <strong>4行</strong>ならぶ</div>
+</div>
+
+<div class="note tight">
+前の章でGitHubを見たのと同じ道具を <strong>自分のアプリに向ける</strong><br>
+<code>welcome-message</code> を押して <strong>Response</strong> を見ると 返ってきた中身が見られる
 </div>
 
 ---
