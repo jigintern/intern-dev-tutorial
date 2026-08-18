@@ -446,7 +446,7 @@ inter（間） + face（面） ＝ <strong>間にある面</strong> 厚みのな
 <div class="row tight">
   <div class="box">
     <span class="label">ブラウザ側</span>
-    index.html / api.js
+    api.html / api.js
     <div class="inner">開発者ツールで<br><strong>誰でも中身が見える</strong></div>
   </div>
   <div class="arrowlabel">
@@ -469,12 +469,12 @@ inter（間） + face（面） ＝ <strong>間にある面</strong> 厚みのな
 
 ## 窓口のルールは この4つ
 
-| | これがルール | 例 |
+| | これがルール | 今日つくるもの |
 | --- | --- | --- |
-| ① | どのURLか | `/greeting-me` |
-| ② | どのメソッドか | `GET` |
-| ③ | 何を渡すか | `name` |
-| ④ | 何が返るか | `Hello, taro` |
+| ① | どのURLか | `/auth` |
+| ② | どのメソッドか | **`POST`** |
+| ③ | 何を渡すか | `password` |
+| ④ | 何が返るか | `{ ok, message }` |
 
 <div class="note tight">
 この4つが決まっていれば <strong>別々の人がつくっても繋がる</strong><br>
@@ -487,20 +487,20 @@ inter（間） + face（面） ＝ <strong>間にある面</strong> 厚みのな
 
 ```js
 // server.js
-if (req.method === "GET" && pathname === "/greeting-me") {
-//      ② メソッド                    ① URL
+if (req.method === "POST" && pathname === "/auth") {
+//      ② メソッド                     ① URL
 
-  const name = new URL(req.url).searchParams.get("name");
-//                                    ③ 渡されたもの を受け取る
+  const body = await req.json();
+//      ③ 送られたもの を受け取る
 
-  return new Response("Hello, " + name);
-//                    ④ 返すもの
+  return Response.json({ ok: true, message: "ログインできました" });
+//                     ④ 返すもの
 }
 ```
 
 <div class="note tight">
-今日書くのは これだけ<br>
-4本とも <strong>①②③④のどれかが変わるだけ</strong>
+今日書くのは <strong>これだけ</strong><br>
+API を増やすときも ①②③④を決めるだけ
 </div>
 
 ---
@@ -619,9 +619,9 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 <div class="steps">
   <div><span class="step">1</span> 昨日クローンしたフォルダを開く <span>例: deno-app</span></div>
-  <div><span class="step">2</span> <code>server.js</code> に窓口を4つ足す</div>
+  <div><span class="step">2</span> <code>server.js</code> に窓口を<strong>1つ</strong>足す</div>
   <div class="on"><span class="step">3</span> <strong>直すたびに push する</strong> <span>今日は自分のPCでは動かさない 昨日のURLで確かめる</span></div>
-  <div><span class="step">4</span> 昨日のURLに <code>/profile</code> を付けると <strong>スマホからも叩ける</strong></div>
+  <div><span class="step">4</span> 昨日のURLに <code>/api.html</code> を付けると <strong>スマホからも使える</strong></div>
 </div>
 
 <div class="note tight">
@@ -631,19 +631,17 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 ---
 
-## 4本とも同じ進め方
+## 進め方
 
 <div class="steps">
-  <div><span class="step">1</span> <strong>サーバー側</strong>に書く</div>
-  <div class="on"><span class="step">2</span> <strong>push</strong> する</div>
-  <div class="on"><span class="step">3</span> <strong>ブラウザのURL直打ち</strong>で確かめる</div>
-  <div><span class="step">4</span> <strong>ブラウザ側</strong>に書く</div>
-  <div class="on"><span class="step">5</span> <strong>push</strong> して ボタンで確かめる</div>
+  <div><span class="step">1</span> <strong>サーバー側</strong>に書く <span>server.js</span></div>
+  <div><span class="step">2</span> <strong>ブラウザ側</strong>を新しくつくる <span>api.html / api.js</span></div>
+  <div class="on"><span class="step">3</span> <strong>push</strong> する</div>
+  <div><span class="step">4</span> <code>/api.html</code> を開いて ボタンで確かめる</div>
 </div>
 
 <div class="note tight">
-保存しただけでは <span class="ng">反映されない</span> 動いているのは<strong>GitHubに置いたコード</strong><br>
-URL直打ちを挟むと 動かないとき<strong>どちらが原因か</strong>を自分で切り分けられる
+保存しただけでは <span class="ng">反映されない</span> 動いているのは<strong>GitHubに置いたコード</strong>
 </div>
 
 ---
@@ -653,11 +651,11 @@ URL直打ちを挟むと 動かないとき<strong>どちらが原因か</strong
 | ファイル | 今日の扱い |
 | --- | --- |
 | `server.js` | `return serveDir(` の**上に足す** |
+| `public/api.html` | **新しくつくる** 今日の画面 |
 | `public/api.js` | **新しくつくる** 今日書くJSは全部ここ |
-| `public/index.html` | `</body>` の**直前に足す** |
 
 <div class="note tight">
-今日書くJSは <code>api.js</code> に<strong>新しくつくる</strong><br>
+昨日の <code>index.html</code> は <span class="ng">触らない</span> <strong>別のページ</strong>をつくる<br>
 <code>serveDir</code> より下に書くと<span class="ng">たどりつかない</span>ので 必ず<strong>その上</strong>へ
 </div>
 
