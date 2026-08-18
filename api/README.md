@@ -210,12 +210,12 @@ Deno.serve(async (req) => {
 
 昨日ブラウザで`localhost:8000`を開いたときも、ここに来ていました。しかも 1 回ではありません。
 
-| ブラウザが求めたもの | 中身のもとは | 答えたのは |
+| 叩かれた URL | 返ってきたもの | 中身のもとは |
 | --- | --- | --- |
-| `index.html` | `public`フォルダのファイル | `server.js` |
-| `styles.css` | `public`フォルダのファイル | `server.js` |
-| `index.js` | `public`フォルダのファイル | `server.js` |
-| `/welcome-message` | `server.js`に書いた文字 | `server.js` |
+| `/` | `index.html`の中身 | `public`フォルダのファイル |
+| `/styles.css` | CSS | `public`フォルダのファイル |
+| `/index.js` | JavaScript | `public`フォルダのファイル |
+| `/welcome-message` | 「jig インターンへようこそ！」の文字 | `server.js`のコード |
 
 **4 回とも、同じ`server.js`が答えています。**
 

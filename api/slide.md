@@ -469,15 +469,15 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 ## 昨日ページを開いたとき何が起きていたか
 
-| ブラウザが求めたもの | 中身のもとは | 答えたのは |
+| 叩かれたURL | 返ってきたもの | 中身のもとは |
 | --- | --- | --- |
-| `index.html` | `public` のファイル | `server.js` |
-| `styles.css` | `public` のファイル | `server.js` |
-| `index.js` | `public` のファイル | `server.js` |
-| `/welcome-message` | `server.js` に書いた文字 | `server.js` |
+| `/` | `index.html` の中身 | `public` のファイル |
+| `/styles.css` | CSS | `public` のファイル |
+| `/index.js` | JavaScript | `public` のファイル |
+| `/welcome-message` | 「ようこそ」の文字 | `server.js` のコード |
 
 <div class="note tight">
-4回とも同じ形 <strong>レスポンスボディに中身が入って返ってくる</strong><br>
+4回とも <code>server.js</code> が答えて <strong>返ってくる形も同じ</strong><br>
 違うのは <strong>ファイルから読んだか コードに書いたか</strong>だけ
 </div>
 
