@@ -51,13 +51,14 @@
 - [8. うまくいかないときは](#8-うまくいかないときは)
 - [9. 今日書いたコードの全体](#9-今日書いたコードの全体)
 
-# 0. このセクションの目標
+# 0. スライド
 
-このセクションのゴールはひとつです。
-
-**自分のアプリに、自分で API を 1 本増やせるようになる**
-
-前の章で、HTTP の仕組みを勉強しました。今日は、それを使って**実際に手を動かします。**
+> [!NOTE]
+> このセクションにはスライド資料があります。
+>
+> - [スライド資料](https://jigintern.github.io/intern-dev-tutorial/api/api-slide.html)
+> - [PDF資料](https://jigintern.github.io/intern-dev-tutorial/api/api-slide.pdf)
+> - [テキスト資料](./slide.md)
 
 ## 0-0. 今日の流れ
 
@@ -220,12 +221,6 @@ if (req.method === "GET" && pathname === "/greeting-me") {
 | 4 章 | `/profile` | GET | なし | **JSON** |
 | 5 章 | `/auth` | **POST** | `password`（ボディ） | **JSON** |
 
-> [!NOTE]
-> このセクションにはスライド資料があります。
->
-> - [スライド資料](https://jigintern.github.io/intern-dev-tutorial/api/api-slide.html)
-> - [PDF資料](https://jigintern.github.io/intern-dev-tutorial/api/api-slide.pdf)
-> - [テキスト資料](./slide.md)
 
 ## 1-2. `server.js` は、全部の入口
 
