@@ -663,6 +663,4 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 <!-- _class: lead -->
 
-# はじめよう
-
-READMEを開く
+# READMEへ！
