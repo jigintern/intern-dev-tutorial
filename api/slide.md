@@ -128,6 +128,57 @@ style: |
     font-weight: bold;
   }
   .ng { color: #e12d39; font-weight: bold; }
+  /* --- server.js が2種類を返す図 --- */
+  .split { margin-top: 40px; text-align: center; }
+  .split .stop {
+    display: inline-block;
+    border: 4px solid #0b8f82;
+    background: #f0fdfa;
+    border-radius: 14px;
+    padding: 16px 46px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #0b8f82;
+  }
+  .split .sarrows {
+    display: flex;
+    justify-content: center;
+    gap: 330px;
+    font-size: 34px;
+    color: #4dc0b5;
+    line-height: 1.1;
+    margin: 6px 0 2px;
+  }
+  .split .srow {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+  }
+  .split .sbox {
+    border: 3px solid #9aa5b1;
+    border-radius: 12px;
+    padding: 18px 24px;
+    width: 380px;
+    text-align: center;
+  }
+  .split .sbox.api {
+    border-color: #0b8f82;
+    background: #f0fdfa;
+  }
+  .split .sbox .stitle {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #3e4c59;
+    margin-bottom: 12px;
+  }
+  .split .sbox.api .stitle { color: #0b8f82; }
+  .split .sbox .sitems {
+    display: block;
+    font-size: 21px;
+    color: #7b8794;
+    line-height: 1.7;
+  }
   /* --- 三層構造との対比 --- */
   .layers { margin-top: 44px; }
   .lrow {
@@ -476,8 +527,31 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 </div>
 
 <div class="note tight">
-つまり <code>server.js</code> は <strong>フロントの構成要素</strong>（HTML / CSS / JS）も<br>
-<strong>バックエンドの情報</strong>も どちらも返している
+一番下の <code>serveDir</code> は「どれにも当たらなかったとき」の受け皿
+</div>
+
+---
+
+## フロントの構成要素も server.js が返している
+
+<div class="split">
+  <div class="stop">server.js</div>
+  <div class="sarrows"><span>↙</span><span>↘</span></div>
+  <div class="srow">
+    <div class="sbox">
+      <span class="stitle">フロントの構成要素</span>
+      <span class="sitems"><code>index.html</code> / <code>styles.css</code><br><code>index.js</code></span>
+    </div>
+    <div class="sbox api">
+      <span class="stitle">バックエンドの情報</span>
+      <span class="sitems"><code>/welcome-message</code><br>の文字</span>
+    </div>
+  </div>
+</div>
+
+<div class="note tight">
+画面をつくる部品も データも <strong>同じ入口から 同じ形で返る</strong><br>
+だから 1ファイルで両方できている
 </div>
 
 ---
