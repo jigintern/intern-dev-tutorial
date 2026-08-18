@@ -1834,6 +1834,22 @@ HTML（構造）× CSS（見た目）× JavaScript（動き）で、ページが
 
 ---
 
+<!-- _class: lead -->
+
+## 最後にやってみよう
+
+# 自己紹介サイトに動きをつけよう！
+
+さっき作った自己紹介サイトを、Claude Code を相棒に JavaScript でよりリッチに。
+
+<div class="timer-box" data-seconds="600">
+  <button class="timer-btn" data-delta="-60">−</button>
+  <div class="timer"></div>
+  <button class="timer-btn" data-delta="60">＋</button>
+</div>
+
+---
+
 <!-- _class: tight -->
 
 ## 学んだことを振り返る

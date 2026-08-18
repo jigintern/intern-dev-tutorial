@@ -1413,6 +1413,22 @@ HTML に書かれていない「状態」や、要素にもスタイリングを
 
 ---
 
+<!-- _class: lead -->
+
+## 最後にやってみよう
+
+# 自己紹介 Web サイトを作ってみよう！
+
+Claude Code を相棒に、今日学んだ HTML と CSS で。
+
+<div class="timer-box" data-seconds="600">
+  <button class="timer-btn" data-delta="-60">−</button>
+  <div class="timer"></div>
+  <button class="timer-btn" data-delta="60">＋</button>
+</div>
+
+---
+
 <!-- _class: tight -->
 
 ## 体験したことを振り返る
