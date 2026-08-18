@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 450" width="1080" height="450" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="ext-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#202228" />
+    </marker>
+  </defs>
+
+  <!-- 見出し -->
+  <circle cx="83" cy="44" r="20" fill="#33b1dd" />
+  <text x="83" y="53" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">1</text>
+  <text x="195" y="53" text-anchor="middle" font-size="24" fill="#202228">名詞に線を引く</text>
+
+  <circle cx="419" cy="44" r="20" fill="#33b1dd" />
+  <text x="419" y="53" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">2</text>
+  <text x="555" y="53" text-anchor="middle" font-size="24" fill="#202228">同じものをまとめる</text>
+
+  <circle cx="713" cy="44" r="20" fill="#33b1dd" />
+  <text x="713" y="53" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">3</text>
+  <text x="885" y="53" text-anchor="middle" font-size="24" fill="#202228">属性とアクションに分ける</text>
+
+  <!-- ① 仕様の4行に線を引く -->
+  <rect x="163" y="99" width="52" height="30" rx="15" fill="none" stroke="#6b7078" stroke-width="2" stroke-dasharray="4 3" />
+  <rect x="187" y="153" width="100" height="30" rx="15" fill="none" stroke="#6b7078" stroke-width="2" stroke-dasharray="4 3" />
+  <rect x="211" y="207" width="124" height="30" rx="15" fill="none" stroke="#6b7078" stroke-width="2" stroke-dasharray="4 3" />
+  <rect x="307" y="261" width="52" height="30" rx="15" fill="none" stroke="#6b7078" stroke-width="2" stroke-dasharray="4 3" />
+
+  <text x="40" y="120" font-size="24" fill="#202228">ToDo</text>
+  <text x="90" y="120" font-size="24" fill="#202228">一覧を</text>
+  <text x="162" y="120" font-size="24" fill="#202228">見る</text>
+  <line x1="40" y1="131" x2="90" y2="131" stroke="#33b1dd" stroke-width="3" />
+
+  <text x="40" y="174" font-size="24" fill="#202228">新しい</text>
+  <text x="112" y="174" font-size="24" fill="#202228">ToDo</text>
+  <text x="162" y="174" font-size="24" fill="#202228">を</text>
+  <text x="186" y="174" font-size="24" fill="#202228">追加する</text>
+  <line x1="112" y1="185" x2="162" y2="185" stroke="#33b1dd" stroke-width="3" />
+
+  <text x="40" y="228" font-size="24" fill="#202228">追加した</text>
+  <text x="136" y="228" font-size="24" fill="#202228">ToDo</text>
+  <text x="186" y="228" font-size="24" fill="#202228">を</text>
+  <text x="210" y="228" font-size="24" fill="#202228">完了にする</text>
+  <line x1="136" y1="239" x2="186" y2="239" stroke="#33b1dd" stroke-width="3" />
+
+  <text x="40" y="282" font-size="24" fill="#202228">ToDo</text>
+  <text x="90" y="282" font-size="24" fill="#202228">の</text>
+  <text x="114" y="282" font-size="24" fill="#202228">タイトル</text>
+  <text x="210" y="282" font-size="24" fill="#202228">と</text>
+  <text x="234" y="282" font-size="24" fill="#202228">詳細</text>
+  <text x="282" y="282" font-size="24" fill="#202228">を</text>
+  <text x="306" y="282" font-size="24" fill="#202228">書く</text>
+  <line x1="40" y1="293" x2="90" y2="293" stroke="#33b1dd" stroke-width="3" />
+  <line x1="114" y1="293" x2="210" y2="293" stroke="#33b1dd" stroke-width="3" />
+  <line x1="234" y1="293" x2="282" y2="293" stroke="#33b1dd" stroke-width="3" />
+
+  <!-- 凡例 -->
+  <line x1="40" y1="326" x2="72" y2="326" stroke="#33b1dd" stroke-width="3" />
+  <text x="82" y="334" font-size="22" fill="#6b7078">モノ（名詞）</text>
+  <rect x="40" y="352" width="32" height="26" rx="13" fill="none" stroke="#6b7078" stroke-width="2" stroke-dasharray="4 3" />
+  <text x="82" y="371" font-size="22" fill="#6b7078">すること（動詞）</text>
+
+  <line x1="385" y1="200" x2="435" y2="200" stroke="#202228" stroke-width="3" marker-end="url(#ext-arrow)" />
+
+  <!-- ② 同じものをまとめる -->
+  <rect x="465" y="150" width="180" height="100" rx="10" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <text x="555" y="212" text-anchor="middle" font-size="34" font-weight="700" fill="#202228">ToDo</text>
+  <text x="555" y="300" text-anchor="middle" font-size="24" fill="#6b7078">モノは1つだけ</text>
+
+  <line x1="685" y1="200" x2="745" y2="200" stroke="#202228" stroke-width="3" marker-end="url(#ext-arrow)" />
+
+  <!-- ③ 属性とアクションに分ける -->
+  <rect x="775" y="100" width="220" height="280" rx="10" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <path d="M775 110 a10 10 0 0 1 10 -10 h200 a10 10 0 0 1 10 10 v44 h-220 z" fill="#33b1dd" />
+  <text x="885" y="138" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">ToDo</text>
+
+  <text x="795" y="180" font-size="20" fill="#6b7078">属性</text>
+  <rect x="795" y="196" width="170" height="11" rx="5" fill="#e3e6ea" />
+  <rect x="795" y="220" width="170" height="11" rx="5" fill="#e3e6ea" />
+  <rect x="795" y="244" width="170" height="11" rx="5" fill="#e3e6ea" />
+
+  <path d="M775 268 h220 v102 a10 10 0 0 1 -10 10 h-200 a10 10 0 0 1 -10 -10 z" fill="#f1f2f4" />
+  <line x1="775" y1="268" x2="995" y2="268" stroke="#33b1dd" stroke-width="2" />
+  <text x="795" y="298" font-size="20" fill="#6b7078">アクション</text>
+  <rect x="795" y="314" width="170" height="11" rx="5" fill="#e3e6ea" />
+  <rect x="795" y="342" width="170" height="11" rx="5" fill="#e3e6ea" />
+
+  <text x="885" y="422" text-anchor="middle" font-size="24" fill="#6b7078">中身は、このあと埋める</text>
+</svg>

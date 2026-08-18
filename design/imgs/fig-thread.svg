@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 520" width="1168" height="520" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+
+  <!-- デザインは「センスの有無」に見えるので、この講義でこそ質問のハードルが上がる。
+       「質問していい」と口で言うだけでは動かないため、書き込まれた状態を先に見せる。
+
+       3件は開始前に自分でシードする文面そのもの。空のスレには誰も書かない。
+       種類を分けてあるのは、質問だけを並べると質問しか書けないように見えるため。
+         絵が下手だけど大丈夫かな      → 弱音でいい（この講義でいちばん多い不安）
+         オブジェクトがよくわからない  → わからないと書いていい
+         一覧と詳細に分けるの、たしかに！ → 気づきでもいい
+       3件とも今日この資料で扱う言葉にしてある（オブジェクト／一覧・詳細）。 -->
+
+  <rect x="0" y="0" width="1168" height="520" fill="#ffffff" />
+
+  <!-- スレの枠 -->
+  <rect x="44" y="10" width="1080" height="500" fill="#ffffff" stroke="#6b7078" stroke-width="3" />
+  <rect x="44" y="10" width="1080" height="64" fill="#f1f2f4" />
+  <line x1="44" y1="74" x2="1124" y2="74" stroke="#6b7078" stroke-width="3" />
+  <text x="76" y="52" font-size="36" font-weight="700" fill="#6b7078"># 授業スレ</text>
+
+  <!-- 1人目 -->
+  <rect x="76" y="96" width="40" height="40" rx="6" fill="#e3e6ea" />
+  <circle cx="96" cy="109" r="7" fill="#9aa1ab" />
+  <path d="M85,130 Q85,118 96,118 Q107,118 107,130 Z" fill="#9aa1ab" />
+  <text x="136" y="122" font-size="36" font-weight="700" fill="#202228">mori</text>
+  <text x="252" y="122" font-size="26" fill="#9aa1ab">16:05</text>
+  <text x="136" y="174" font-size="40" fill="#202228">絵が下手だけど大丈夫かな</text>
+
+  <rect x="136" y="192" width="152" height="36" rx="18" fill="#ffffff" stroke="#d3d6db" stroke-width="2" />
+  <text x="152" y="217" font-size="22" font-weight="700" fill="#e01e5a">それな！</text>
+  <text x="262" y="217" font-size="22" fill="#6b7078">1</text>
+
+  <rect x="298" y="192" width="92" height="36" rx="18" fill="#ffffff" stroke="#d3d6db" stroke-width="2" />
+  <text x="314" y="219" font-size="24">😭</text>
+  <text x="360" y="217" font-size="22" fill="#6b7078">2</text>
+
+  <rect x="400" y="192" width="56" height="36" rx="18" fill="#ffffff" stroke="#d3d6db" stroke-width="2" />
+  <text x="428" y="220" text-anchor="middle" font-size="28" fill="#9aa1ab">+</text>
+
+  <!-- 2人目 -->
+  <rect x="76" y="252" width="40" height="40" rx="6" fill="#9aa1ab" />
+  <circle cx="96" cy="265" r="7" fill="#ffffff" />
+  <path d="M85,286 Q85,274 96,274 Q107,274 107,286 Z" fill="#ffffff" />
+  <text x="136" y="278" font-size="36" font-weight="700" fill="#202228">yama</text>
+  <text x="252" y="278" font-size="26" fill="#9aa1ab">16:08</text>
+  <text x="136" y="330" font-size="40" fill="#202228">オブジェクトがよくわからない</text>
+
+  <!-- 3人目 -->
+  <rect x="76" y="362" width="40" height="40" rx="6" fill="#6b7078" />
+  <circle cx="96" cy="375" r="7" fill="#ffffff" />
+  <path d="M85,396 Q85,384 96,384 Q107,384 107,396 Z" fill="#ffffff" />
+  <text x="136" y="388" font-size="36" font-weight="700" fill="#202228">aoki</text>
+  <text x="252" y="388" font-size="26" fill="#9aa1ab">16:11</text>
+  <text x="136" y="440" font-size="40" fill="#202228">一覧と詳細に分けるの、たしかに！</text>
+
+  <rect x="136" y="458" width="92" height="36" rx="18" fill="#ffffff" stroke="#d3d6db" stroke-width="2" />
+  <text x="152" y="485" font-size="24">🙌</text>
+  <text x="198" y="483" font-size="22" fill="#6b7078">3</text>
+
+  <rect x="238" y="458" width="56" height="36" rx="18" fill="#ffffff" stroke="#d3d6db" stroke-width="2" />
+  <text x="266" y="486" text-anchor="middle" font-size="28" fill="#9aa1ab">+</text>
+</svg>
