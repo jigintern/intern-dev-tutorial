@@ -162,59 +162,43 @@ style: |
     text-align: center;
   }
   .sum strong { color: #0b8f82; }
-  /* --- 窓口の図 --- */
+  /* --- 窓口の図（窓口 = サーバー側の表面。線1本で描く） --- */
   .io {
     display: flex;
-    align-items: stretch;
+    align-items: flex-end;
     justify-content: center;
     gap: 0;
-    margin-top: 46px;
+    margin-top: 56px;
   }
   .io .ioside {
     border: 4px solid #7b8794;
     border-radius: 16px;
-    padding: 34px 26px;
+    padding: 42px 30px;
     font-size: 28px;
     font-weight: bold;
     color: #3e4c59;
-    min-width: 200px;
+    min-width: 190px;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
+  /* サーバー側。左辺だけを太くして、それを窓口として見せる */
   .io .ioside.api {
-    border-color: #0b8f82;
+    border: 4px solid #0b8f82;
+    border-left: 14px solid #4dc0b5;
     background: #f0fdfa;
     color: #0b8f82;
   }
-  /* 真ん中の「面」 */
-  .io .counter {
-    width: 360px;
-    border-left: 8px solid #4dc0b5;
-    border-right: 8px solid #4dc0b5;
-    background: #f0fdfa;
-    padding: 20px 0 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-  }
-  .io .countertitle {
-    text-align: center;
-    font-size: 26px;
-    font-weight: bold;
-    color: #0b8f82;
-    margin-bottom: 12px;
+  .io .arrows {
+    width: 300px;
+    padding: 0 14px 14px;
   }
   .io .ioline {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 0;
+    margin: 14px 0;
   }
   .io .iolabel {
-    font-size: 25px;
+    font-size: 24px;
     font-weight: bold;
     color: #0b8f82;
   }
@@ -223,6 +207,14 @@ style: |
     color: #4dc0b5;
     letter-spacing: -2px;
     line-height: 1.1;
+  }
+  .io .gatelabel {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0b8f82;
+    margin-left: -6px;
+    margin-bottom: 10px;
+    white-space: nowrap;
   }
 ---
 <!-- _class: lead -->
@@ -264,8 +256,7 @@ style: |
 
 <div class="io">
   <div class="ioside">ブラウザ</div>
-  <div class="counter">
-    <div class="countertitle">窓口</div>
+  <div class="arrows">
     <div class="ioline">
       <span class="iolabel">決まった形で頼む</span>
       <span class="ioarrow">──────▶</span>
@@ -275,12 +266,15 @@ style: |
       <span class="iolabel">答えが返る</span>
     </div>
   </div>
-  <div class="ioside api">server.js</div>
+  <div>
+    <div class="gatelabel">↓ この面が窓口 ＝ API</div>
+    <div class="ioside api">server.js</div>
+  </div>
 </div>
 
 <div class="note tight">
-inter（間） + face（面） ＝ <strong>間にある面</strong><br>
-銀行や役所の窓口と同じで <strong>中で何をしているかは見えない</strong>
+inter（間） + face（面） ＝ <strong>間にある面</strong> 厚みのない1枚の面<br>
+窓口は<strong>サーバー側の表面</strong> 銀行の窓口が銀行の一部なのと同じ
 </div>
 
 ---
