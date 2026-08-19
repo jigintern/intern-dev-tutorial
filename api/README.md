@@ -1,325 +1,80 @@
-# そもそもAPIとは
-
-Application Programming Interfaceの略。  
-
-アプリケーションが別のアプリケーションの機能を呼び出すために使用するインターフェース。  
-
-すでに実装されているアプリケーションのAPIの呼び出しを行うことで、無駄な実装をする必要がなくなる。  
-
-また、呼び出し側はAPIの裏側にあるコードの動作を意識せず使用することができる。  
-
-主にAPIという言葉が使用されるのは webアプリケーションにおけるサーバ側の処理の呼び出しであるが、APIはこれに限らずOSとアプリケーションの間や、Javaなどのライブラリでも使用される。
-
-# 実際にAPIを叩いてみる
-このハンズオンは`api`ディレクトリで行う(サーバも`api`ディレクトリで起動する)。  
-サンプルコードにボタンを追加し、そのボタンを押したらサーバの`/welcome-message`[エンドポイント](#tips%E3%82%A8%E3%83%B3%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88)を叩くコードを用意する。  
-
-まずは以下のコードを`/public/index.html`のbodyタグ中に追加し、`message(click me)`と書かれたボタンを用意する。  
- 
-
-```html
-  <div>
-    <h1 id="welcome_message"></h1>
-    <button id="welcome_button">message(click me)</button>
-  </div>
-```
-
-サーバで用意したAPIのエンドポイントを叩くには **fetch API**を使用する。  
-
-使い方はシンプルで`fetch("{叩きたいエンドポイント}")`と書けば好きなAPIのエンドポイントを叩くことができる。  
-なお、`fetch`は非同期処理を行うので、通信が終了するまで(データが返ってくるまで)待ちたい場合は`await`をつける必要がある。  
-ボタンがクリックされたらAPIを叩き、戻り値を先ほど用意した、`welcome_message`のidを持つh1タグに表示する。  
-
-先ほど追加したコードの下に以下のコードを追加する
-```html
-  <script type="module">
-    document.getElementById("welcome_button").onclick = async () => {
-      const response = await fetch("/welcome-message");
-      document.getElementById("welcome_message").innerText = await response.text();
-    };
-  </script>
-```
-
-これでクライアントからAPIを叩く実装ができたので、実際に動かしてみる。
-
-まず、`api`ディレクトリで `deno run -A --watch server.js`を実行。  
-次に、ブラウザを開いて`localhost:8000`にアクセスし、ボタンを押してみる(ページが開けない場合はターミナルにエラーが出ていないか確認)。  
-最後に、ボタンを押して`jigインターンへようこそ！`が表示されていれば成功。
-
-> ### TIPS:エンドポイント
-> APIの呼び出し側から見て、APIの接続先を指す。
-> 例えば、APIを`http://hoge.com/fuga`と`http://hoge.com/piyo`(それぞれの処理は異なる)で呼び出せる場合、このそれぞれをエンドポイントと呼ぶ。
-> なお、APIのオリジン(プロトコルとホストとポート名をまとめたもの、今回の例では`http://hoge.com`にあたる)は基本同一であるため、オリジン以降の`/fuga`や`/piyo`のみでエンドポイントと呼ぶことがある。
-
-# APIを追加してみる
-
-APIの叩き方がわかったところで、今度はサーバー側に手を入れてAPIを追加してみる。
-
-## GETメソッドでAPIを追加し、叩く
-
-まず初めにクエリパラメータなしのGETメソッドのAPIを作成する。  
-
-動作としては`/greeting`のエンドポイントを叩くとHelloが返ってくるAPIを作成する。  
-以下のコードを`server.js`に追加する。
-
-```javascript
-
-  if (req.method === "GET" && pathname === "/greeting") {
-    return new Response("Hello!!")
-  }
-```
-`req.method`でクライアントが使用したメソッドを取得することができる。  
-アクセス先のパスは`URL`クラスの`pathname`プロパティにあるため、これを確認することで叩かれたエンドポイントを判定することができる。(パスの取得はサンプルプログラムを流用)
-
-これでサーバ側に新たなAPIを生やすことができたので、今度はクライアント側にこれを叩く実装を追加する。  
-
-先ほどのAPIを叩いてみるのコードを参考に実装する。  
-
-以下に一例を載せておく。
-
-<details><summary>クライアントのコード</summary><div>
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-  <div>
-    <h1 id="welcome_message"></h1>
-    <button id="welcome_button">message(click me)</button>
-  </div>
-
-  <!-- /greetingのAPIを叩く用のボタン -->
-  <div>
-    <button id="greeting">Hello</button>
-  </div>
-
-  Server:<span id="server_response"></span>
-
-  <script type="module">
-
-    document.getElementById("welcome_button").onclick = async () => {
-      const response = await fetch("/welcome-message");
-      document.getElementById("welcome_message").innerText = await response.text();
-    };
-    
-    // greetingを叩くためのjavascriptの実装
-    document.getElementById("greeting").onclick = async () => {
-      const response = await fetch("/greeting");
-      document.getElementById("server_response").innerText = await response.text();
-    };
-  </script>
-</body>
-
-</html>
-```
-
-</div></details>
-
-実装ができたら、実際にブラウザで開いてボタンを押してみる。  
-想定したレスポンスがあれば成功。  
-もし表示されない場合は開発者ツールを開いてコンソールのタブにエラーが出ていないか確認する。  
-コンソールにエンドポイント名の404のエラーがあり、間違いなくそのエンドポイントが実装されている場合は、denoの再起動で直る可能性がある。
-
-
-## GETメソッドをクエリパラメータ付きで追加し、叩く
-
-次にGETメソッドをクエリパラメータ付きで叩くAPIを実装する。  
-先ほど作ったAPIは消さずに追加していく。
-
-仕様としては`/greeting-me`というエンドポイントを作成。  
-これにクエリパラメータ`name`をつけて送信すると`Hello, {name}`を返す。  
-クライアント側ではテキストボックスとボタンを表示し、ボタンが押されたら入力された値をクエリパラメータとして送信する。
-
-まずサーバ側から実装する。  
-クライアントから送られてきたクエリパラメータは以下のように取得できる。  
-
-```javascript
-const param = new URL(req.url).searchParams.get("クエリパラメータ名");
-```
-
-上記を参考に、リクエストを受け取って仕様を満たすようなレスポンスを返す処理を追加する。  
-以下に実装の一例を示す。
-
-```javascript
-  if (req.method === "GET" && pathname === "/greeting-me") {
-    const param = new URL(req.url).searchParams.get("name");
-    return new Response("Hello, " + param);
-  }
-```
-
-続いてクライアント側を実装する。  
-今回は入力した名前をクエリパラメータとして渡すので、入力欄の作成とそれを送信するボタンを作成する。
-
-```html
-  <input type="text" id="name">
-  <button id="greeting_me"> greeting me </button>
-```
-
-入力された内容をクエリパラメータとして、GETリクエストを送るコードを用意する。
-
-```javascript
-    // greeting-meを叩くためのjavascriptの実装
-    document.getElementById("greeting_me").onclick = async () => {
-      const name = document.getElementById("name").value;
-      const response = await fetch("/greeting-me?name=" + name);
-      document.getElementById("server_response").innerText = await response.text();
-    };
-```
-
-ここまで実装したら、動作確認を行う。  
-
-作成した入力フォームに適当な名前を入れて、ボタンを押し、レスポンスが表示されるのを確認する。  
-
-
-## POSTメソッドをペイロードありで叩く
-
-続いて、POSTメソッドを利用して認証のようなものを作る。
-
-エンドポイントは`/auth`とし、ペイロードの中に`pass`というパラメータを持たせる。  
-サーバ側であらかじめ決めたパスワードと一致していれば`Authentication Successful!!`を返し、異なっていたら`Authentication Failure`を返す。
-
-まず、サーバの方から実装する。  
-
-POSTメソッドで送信されたパラメータは以下のような実装で取得することができる。
-
-```javascript
-    const reqJson = await req.json();
-    const pass = reqJson.pass
-```
-
-`json()`メソッドでリクエストのbodyに入ってるjson形式のデータを取り出すことができる。  
-しかし、これが非同期で行われるため、`await`を利用して一度jsonとして全てのbodyのデータを取り出し、その後必要なパラメータを取り出す流れで行う。  
-
-パラメータが取り出せたら、そのパスワードとハードコーディングしたパスワードを比較して、一致しているかどうかで処理を変える。  
-
-以下にサーバ側のコードの実装の一例を示す。
-
-```javascript
-  if (req.method === "POST" && pathname === "/auth") {
-    const reqJson = await req.json();
-    const pass = reqJson.pass
-    if (pass === "jigjp") {
-      return new Response("Authentication Successful!!")
-    }else{
-      return new Response("Authentication Failure")
-    }
-  }
-```
-
-次にクライアント側の実装を行う。  
-
-まず、先ほどまでの実装を参考にパスワードの入力欄とAPIを叩くボタンを作成する。  
-入力欄はパスワードを扱いたいので `type=password`とする。  
-
-fetch APIでPOSTメソッドを利用する場合、第二引数のオプション指定でメソッドを指定する必要がある。  
-また、今回はbodyも送信し、その中身はJSONで送るため、以下のようになる。
-
-```javascript
-      const response = await fetch("/auth", {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({pass: pass})
-      });
-```
-
-最後に今までの実装を参考に、レスポンスを表示する。
-
-これでPOSTのAPI実装とクライアントの実装が完了したため、実際に動作確認を行う。
-
-
-
-# 終わりに
-
-最後に、ここまでの実装を終えたクライアントのコードをサーバのコードを一例として載せておく。  
-もちろんこれと異なっていても、意図した動作を行えるのであれば問題ない。
-
-<details><summary>クライアントのコード</summary><div>
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-  <div>
-    <h1 id="welcome_message"></h1>
-    <button id="welcome_button">message(click me)</button>
-  </div>
-
-  <!-- /greetingのAPIを叩く用のボタン -->
-  <div>
-    <button id="greeting">Hello</button>
-  </div>
-
-  <!-- /greeting_meのAPIを叩く用のボタン -->
-  <div>
-    <input type="text" id="name">
-    <button id="greeting_me"> greeting me </button>
-  </div>
-
-  <!-- /authのAPIを叩く用のボタンと入力欄 -->
-  <div>
-    <input type="password" id="password">
-    <button id="auth">Authentication</button>
-  </div>
-
-  Server:<span id="server_response"></span>
-
-
-  <script type="module">
-
-    document.getElementById("welcome_button").onclick = async () => {
-      const response = await fetch("/welcome-message");
-      document.getElementById("welcome_message").innerText = await response.text();
-    };
-    
-    // greetingを叩くためのjavascriptの実装
-    document.getElementById("greeting").onclick = async () => {
-      const response = await fetch("/greeting");
-      document.getElementById("server_response").innerText = await response.text();
-    };
-
-    // greeting_meを叩くためのjavascriptの実装
-    document.getElementById("greeting_me").onclick = async () => {
-      const name = document.getElementById("name").value;
-      const response = await fetch("/greeting-me?name=" + name);
-      document.getElementById("server_response").innerText = await response.text();
-    };
-
-    // authを叩くためのjavascriptの実装
-    document.getElementById("auth").onclick = async () => {
-      const pass = document.getElementById("password").value;
-      const response = await fetch("/auth", {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({pass: pass})
-      });
-      document.getElementById("server_response").innerText = await response.text();
-    };
-  </script>
-</body>
-
-</html>
-```
-
-</div></details>
-
-<details><summary>サーバーのコード</summary><div>
-
-```javascript
-import { serveDir } from "jsr:@std/http@^1.0.17";
-
-Deno.serve(async (req) => {
+# API ハンズオン
+
+- [0. スライド](#0-スライド)
+  - [0-0. 今日の流れ](#0-0-今日の流れ)
+  - [0-1. 今日さわるファイル](#0-1-今日さわるファイル)
+  - [0-2. デプロイしたアプリを開く](#0-2-デプロイしたアプリを開く)
+  - [0-3. 直したら、毎回 push します](#0-3-直したら毎回-push-します)
+- [1. 情報を送る API をつくる](#1-情報を送る-api-をつくる)
+  - [1-1. `server.js` に `/auth` を追加する](#1-1-serverjs-に-auth-を追加する)
+  - [1-2. `public/api.html` をつくる](#1-2-publicapihtml-をつくる)
+  - [1-3. `public/api.js` をつくる](#1-3-publicapijs-をつくる)
+  - [1-4. push する](#1-4-push-する)
+  - [1-5. `/api.html` を開いて確認する](#1-5-apihtml-を開いて確認する)
+- [2. (発展) もっとやってみる](#2-発展-もっとやってみる)
+  - [2-1. 送ったものを開発者ツールで見てみる](#2-1-送ったものを開発者ツールで見てみる)
+  - [2-2. スマホから叩いてみる](#2-2-スマホから叩いてみる)
+  - [2-3. GET の API を 1 本](#2-3-get-の-api-を-1-本)
+  - [2-4. お題の例](#2-4-お題の例)
+  - [2-5. 見つからないときは 404 を返す](#2-5-見つからないときは-404-を返す)
+- [3. うまくいかないときは](#3-うまくいかないときは)
+- [4. 今日書いたコードの全体](#4-今日書いたコードの全体)
+
+# 0. スライド
+
+> [!NOTE]
+> このセクションにはスライド資料があります。
+>
+> - [スライド資料](https://jigintern.github.io/intern-dev-tutorial/api/api-slide.html)
+> - [PDF資料](https://jigintern.github.io/intern-dev-tutorial/api/api-slide.pdf)
+> - [テキスト資料](./slide.md)
+
+## 0-0. 今日の流れ
+
+「API とは何か」と「`server.js`が何をしているファイルなのか」は、**スライドで説明したとおり**です。ここからは手を動かします。
+
+**つくる API は`/auth`の 1 本だけです。** パスワードを**送って**、あっているかどうかを返してもらう API です。
+
+手順は 5 つ。
+
+| | やること |
+| --- | --- |
+| [1-1](#1-1-serverjs-に-auth-を追加する) | `server.js`に窓口を足す |
+| [1-2](#1-2-publicapihtml-をつくる) | `public/api.html`を新しくつくる |
+| [1-3](#1-3-publicapijs-をつくる) | `public/api.js`を新しくつくる |
+| [1-4](#1-4-push-する) | **push する** |
+| [1-5](#1-5-apihtml-を開いて確認する) | ブラウザで`/api.html`を開いて確認する |
+
+そのあと、時間があれば [2. (発展)](#2-発展-もっとやってみる) に進みます。
+
+> [!NOTE]
+> **実は、API を使うのは、これが初めてではありません。**
+> Deno のセクションでつくったページは`index.js`から`fetch("/welcome-message")`で文字を受け取っていました。あれが**受け取るだけ**の API です。今日やるのは**送る側**です。
+>
+> なお、この資料では「API を**叩く**」という言い方をします。**API にリクエストを送る**という意味です。
+
+> [!IMPORTANT]
+> 今日は、[Deno のセクション](../deno/README.md)で作った**自分のリポジトリ**の中で作業します。
+> この教材リポジトリ（`intern-dev-tutorial`）ではありません。
+
+## 0-1. 今日さわるファイル
+
+3 つです。そのうち 2 つは、これから新しくつくります。
+
+| ファイル | 今日の扱い |
+| --- | --- |
+| `server.js` | `return serveDir(`の行の**上に足す**だけ |
+| `public/api.html` | **新しくつくる**。今日の画面はここ |
+| `public/api.js` | **新しくつくる**。今日書く JavaScript は全部ここ |
+
+`public/index.html`・`public/index.js`・`public/styles.css`は**今日は開きません**。これまでにつくったページはそのまま残して、今日の分は`api.html`という**別のページ**につくります。これまでの成果を壊す心配がありません。
+
+**既存のファイルに足すのは`server.js`の 1 か所だけです。場所はここ。**
+
+```js
+import { serveDir } from "jsr:@std/http@1.1.3/file-server";
+
+Deno.serve((req) => {
   const pathname = new URL(req.url).pathname;
   console.log(pathname);
 
@@ -327,33 +82,708 @@ Deno.serve(async (req) => {
     return new Response("jigインターンへようこそ！");
   }
 
-  if (req.method === "GET" && pathname === "/greeting") {
-    return new Response("Hello!!")
-  }
+  // ====================================
+  //   ここ！
+  //   今日足すのは、ぜんぶこの場所です
+  // ====================================
 
-  if (req.method === "GET" && pathname === "/greeting-me") {
-    const param = new URL(req.url).searchParams.get("name");
-    return new Response("Hello, " + param);
-  }
-
-  if (req.method === "POST" && pathname === "/auth") {
-    const reqJson = await req.json();
-    const pass = reqJson.pass
-    if (pass === "jigjp") {
-      return new Response("Authentication Successful!!")
-    }else{
-      return new Response("Authentication Failure")
-    }
-  }
-  return serveDir(req, {
+  return serveDir(req, {          // ← この行の「すぐ上」
     fsRoot: "public",
     urlRoot: "",
     showDirListing: true,
     enableCors: true,
   });
 });
+```
 
+**なぜ「上」なのか。**`return`は「ここで返して、おわり」という意味だからです。`return serveDir(`より下に書いたものには、一生たどりつきません。
+
+Deno のセクションでそれぞれ好きなように書き換えたので、**`server.js`の中身は人によって違います**。だからこの資料には**行番号を書いていません**。かわりの目印が`return serveDir(`の 1 行です。この行は消すとページが表示されなくなるので、**デプロイできた人には必ず残っています。**
+
+## 0-2. デプロイしたアプリを開く
+
+### 手順
+
+1. VSCode で、Deno のセクションでクローンしたフォルダ（例: `deno-app`）を開く
+2. ブラウザで **<https://deno.com/deploy>** を開いて、**自分のアプリのページ**を表示する
+3. そこに出ている URL を開く（Deno のセクションでデプロイしたページです）
+
+発行された URL は、こういう形をしています。
+
+```
+https://アプリ名.置き場所の名前.deno.net
+```
+
+### こうなっていれば成功
+
+Deno のセクションでつくったページが表示されます。
+
+**この 2 つのタブは、今日ずっと開いたままにしておいてください。**
+
+| タブ | 何に使うか |
+| --- | --- |
+| 自分のアプリ（`.deno.net`） | 今日つくるページも API も、全部この URL の後ろにくっつけて開きます |
+| [Deno Deploy](https://deno.com/deploy) | push したあとの**デプロイの進み具合**と、サーバー側の**ログ**を見ます |
+
+> [!NOTE]
+> この資料では、あなたの URL のことを`https://自分のURL`と書きます。
+> 出てきたら、自分の URL に読み替えてください。
+
+## 0-3. 直したら、毎回 push します
+
+**今日は、自分の PC でサーバーを動かしません**。書いたコードは、`https://自分のURL`で動いているものを直接見て確認します。
+
+ただし、あちらで動いているのは**GitHub に置いてあるコード**です。VSCode で保存しただけでは、まだ自分の PC の中にあるだけで、あちらには何も届いていません。
+
+```
+VSCode で保存          ← まだ自分のPCの中
+    ↓
+commit → push          ← ここでGitHubに届く
+    ↓
+GitHub
+    ↓  自動でデプロイ（1〜2分かかる）
+https://自分のURL に反映
+```
+
+つまり、**書き換えるたびに commit と push が必要です。**
+
+### 毎回やる手順
+
+1. VSCode で`Cmd + S`（Windows は `Ctrl + S`）で保存する
+2. 左側の**ソース管理**（Source Control）タブを開く
+3. **変更したファイルの横の`+`ボタンを押す**（ステージする）
+4. メッセージを書いて **commit** する
+5. **push** する
+6. **1〜2 分待つ**（[Deno Deploy](https://deno.com/deploy) の自分のアプリのページで、新しいビルドに**緑のチェックが付けば反映済み**です）
+7. ブラウザで`Cmd + Shift + R`（Windows は `Ctrl + Shift + R`）で強制再読み込みして確認する
+
+やり方を忘れた人はこちらを見てください。
+
+- [2-3. commit: 作業前と後の差分を記録しよう](../git/docs.md#2-3-commit-作業前と後の差分を記録しよう)
+- [2-5. push: 作業の成果を Github にアップロードして共有しよう](../git/docs.md#2-5-push-作業の成果をgithubにアップロードして共有しよう)
+
+準備は終わりです。手を動かしていきましょう。
+
+# 1. 情報を送る API をつくる
+
+**`/auth`にパスワードを送ると、あっているかどうかが返ってくる**API をつくります。
+
+なぜパスワードなのか。スライドで見た「**利点 2 見せたくないものを隠せる**」を、実際にやってみるためです。ブラウザ側のコードは開発者ツールで誰でも中身を見られますが、サーバー側（`server.js`）の中身は見えません。だから**パスワードの照合はサーバー側でやります。**
+
+そして、送るときに使うのが`POST`です。前の章で勉強したとおり、`GET`で渡した情報は**URL に出ます**。もし`GET`でパスワードを送ったら、こうなってしまいます。
+
+```
+https://自分のURL/auth?password=jigjp
+```
+
+**丸見えです**。アドレスバーにも、ブラウザの履歴にも残ります。`POST`は情報を URL ではなく**body**に入れて送るので、URL には出ません。だから今日は`POST`を使います。
+
+つくるものはこの 4 つです。
+
+| | これがルール | 今日の場合 |
+| --- | --- | --- |
+| ① | どの URL か | `/auth` |
+| ② | どのメソッドか | **`POST`** |
+| ③ | 何を渡すか | `password`（body に JSON で） |
+| ④ | 何が返るか | `{ ok, message }`（**JSON**） |
+
+## 1-1. `server.js` に `/auth` を追加する
+
+### 手順
+
+1. `server.js`を開く
+2. ファイルの**上のほう**にある`Deno.serve((req) => {`に`async`を足して、こう書き換える
+
+```js
+Deno.serve(async (req) => {
+```
+
+3. ファイルの**下のほう**にある`return serveDir(req, {`を探して、その行の**すぐ上**に以下を貼る
+
+```js
+  if (req.method === "POST" && pathname === "/auth") {
+    const body = await req.json();
+    if (body.password === "jigjp") {
+      return Response.json({ ok: true, message: "ログインできました" });
+    }
+    return Response.json({ ok: false, message: "パスワードが違います" });
+  }
+
+```
+
+4. `Cmd + S`で保存する
+
+> [!IMPORTANT]
+> **手順 2 の`async`が、今日いちばん間違えやすいところです。**
+> **今日、すでにある行を書き換えるのはここだけ**でもあります。忘れずに足してください。
+
+### こうなっていれば成功
+
+貼ったあと、あなたの`server.js`はこう見えます。`...`の部分は人によって違います。**これまでに書き換えた内容はそのままで大丈夫です。**
+
+```js
+Deno.serve(async (req) => {          // ← async を足した
+  const pathname = new URL(req.url).pathname;
+  console.log(pathname);
+
+  if (req.method === "GET" && pathname === "/welcome-message") {
+    return new Response("...");
+  }
+
+  if (req.method === "POST" && pathname === "/auth") {
+    const body = await req.json();
+    if (body.password === "jigjp") {
+      return Response.json({ ok: true, message: "ログインできました" });
+    }
+    return Response.json({ ok: false, message: "パスワードが違います" });
+  }
+
+  return serveDir(req, {
+    fsRoot: "public",
+```
+
+### 書いたコードの意味
+
+- `req.method === "POST"`で、**POST で来たときだけ**動くようにしています。前の章で勉強した`GET`と`POST`が、ここに出てきます
+- `pathname`に、叩かれた URL のパス（`/auth`の部分）が入っています
+- `await req.json()`で、**body に入っている JSON を取り出します**
+- `body.password`が`jigjp`と同じかどうかで、返す内容を変えています
+- `return`したら、そこで**おわり**です。合っていれば 1 つ目を返して終了、違っていれば下の行に進みます
+
+**`async`を足したのは、この`await req.json()`のためです。**`await`は`async`が付いた関数の中でしか使えません。`fetch`で`await`を使ったときも`async () => {`とセットになっていました。**`await`と`async`はセットです。**
+
+そして返し方です。もとからある`/welcome-message`は文字を 1 つ返していました。今日は **JSON** を返します。
+
+```js
+new Response("文字")            // 文字を返す（これまで）
+Response.json({ キー: 値 })     // JSONを返す（今日）
+```
+
+`{ }`の中に`キー: 値`をカンマで区切って並べます。今回は`ok`と`message`の 2 つを返しています。**1 回のやりとりで、複数の情報をまとめて返せる**のが JSON です。実際の Web アプリの API は、ほとんどこの形です。
+
+## 1-2. `public/api.html` をつくる
+
+次に、今日の画面をつくります。**すでにある`index.html`とは別の、新しいページです。**
+
+### 手順
+
+1. VSCode の左側で、`public`フォルダを**右クリック**する
+2. 「**新しいファイル**」を選ぶ
+3. `api.html`と入力して Enter
+4. 開いた空のファイルに、以下を**全部**貼る
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API ハンズオン</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <h1>ログイン</h1>
+
+    <div>
+      <input type="password" id="passwordInput" placeholder="パスワード">
+      <button id="authButton">ログイン</button>
+      <span id="authResult"></span>
+    </div>
+
+    <script type="module" src="./api.js"></script>
+  </body>
+</html>
+```
+
+5. `Cmd + S`で保存する
+
+### こうなっていれば成功
+
+VSCode の左側の`public`フォルダの中に、`api.html`が並んでいます。
+
+```
+public
+├── api.html    ← 今つくった
+├── index.html
+├── index.js
+└── styles.css
+```
+
+### 書いたコードの意味
+
+- `type="password"`にすると、打った文字が`●●●`で隠れます
+- `<link rel="stylesheet" href="./styles.css">`で、すでにある CSS をそのまま使い回しています
+- `<script type="module" src="./api.js"></script>`で、次につくる`api.js`を読み込みます
+
+## 1-3. `public/api.js` をつくる
+
+今日書く JavaScript を入れるファイルを、新しくつくります。
+
+### 手順
+
+1. VSCode の左側で、`public`フォルダを**右クリック**する
+2. 「**新しいファイル**」を選ぶ
+3. `api.js`と入力して Enter
+4. 開いた空のファイルに、以下を**全部**貼る
+
+```js
+document.querySelector("#authButton").onclick = async () => {
+  const password = document.querySelector("#passwordInput").value;
+  const response = await fetch("/auth", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password: password }),
+  });
+  const data = await response.json();
+  document.querySelector("#authResult").innerText = data.message;
+};
+```
+
+5. `Cmd + S`で保存する
+
+### 書いたコードの意味
+
+- `document.querySelector("#authButton")`で、`id`が`authButton`のボタンを取ってきます
+- `.onclick = async () => { ... }`で、そのボタンが押されたときの処理を登録します
+- `document.querySelector("#passwordInput").value`で、入力欄に打たれた文字を取り出します
+
+そして`fetch`です。これまでは`fetch("/welcome-message")`だけでした。今日は 2 番目に`{ }`が増えています。**POST で送るときは、これが必要です。**
+
+| 書いたもの | 意味 |
+| --- | --- |
+| `method: "POST"` | POST で送る |
+| `headers: { "Content-Type": "application/json" }` | 「これから JSON を送ります」とサーバーに伝える |
+| `body: JSON.stringify({ password: password })` | 送りたい中身。`JSON.stringify()`で JSON の文字に変換する |
+
+`{ password: password }`は、左が**送るときのキー名**、右が**上の行で取り出した変数**です。たまたま同じ名前にしているだけで、役割は違います。この**キー名は、受け取る`server.js`側（`body.password`）とそろえます。**
+
+受け取り方も、これまでと 1 か所だけ違います。
+
+```js
+await response.text()   // 文字として受け取る（これまで）
+await response.json()   // JSONとして受け取る（今日）
+```
+
+`response.json()`で受け取ると、`data.ok`や`data.message`のように**キーを指定して取り出せます。**
+
+```js
+const data = await response.json();
+data.ok        // true
+data.message   // "ログインできました"
+```
+
+## 1-4. push する
+
+3 つのファイルが揃いました。まとめて公開します。
+
+### 手順
+
+1. **commit して push する**（[0-3](#0-3-直したら毎回-push-します) の手順）
+2. 1〜2 分待つ
+
+> [!IMPORTANT]
+> **`public/api.html`と`public/api.js`の`+`を押すのを忘れないでください。**
+> どちらも新しいファイルです。新しいファイルは`+`（ステージ）を押さないと commit に入らず、GitHub に届きません。
+
+## 1-5. `/api.html` を開いて確認する
+
+つくったページは、**もとのページとは別の URL です**。トップページを開いても出てきません。
+
+| 開く URL | 表示されるもの |
+| --- | --- |
+| `https://自分のURL` | `index.html` … もとのページ |
+| `https://自分のURL/api.html` | `api.html` … **今日つくったページ** |
+
+### 手順
+
+1. ブラウザのアドレスバーに、以下を直接入力して Enter
+
+```
+https://自分のURL/api.html
+```
+
+   **後ろの`/api.html`を忘れずに**。これがないと、もとのページが開くだけでボタンはありません
+
+2. 入力欄に`jigjp`と打って`ログイン`ボタンを押す
+3. 次に、わざと違うパスワードを打ってボタンを押す
+
+### こうなっていれば成功
+
+- `jigjp`のとき → `ログインできました`
+- 違うとき → `パスワードが違います`
+
+**API が完成しました**。送った情報でサーバーが判断して、その結果が返ってきています。
+
+うまくいかない人は [3. うまくいかないときは](#3-うまくいかないときは) を見てください。
+
+> [!NOTE]
+> **なぜ`/api.html`で開けるのでしょうか。**
+> `public`の中に置いたファイルは、**URL の後ろにファイル名を付ける**と開けます。
+> `https://自分のURL/api.html`を開くと、`server.js`の`if`はどれにも当たりません。どれにも当たらなかったときの受け皿が、一番下の`serveDir`です。これが`public/api.html`を探して返してくれます。
+> **ページを開くのも、API を叩くのも、同じ窓口へのリクエストです**。違うのは、誰が答えるかだけです。
+
+> [!NOTE]
+> 今回はパスワードを`server.js`に直接書きました（**ハードコーディング**といいます）。これは練習用です。本物のアプリでこれをやると、GitHub にパスワードが公開されてしまいます。
+> ちゃんと扱う方法は [ログインハンズオン](../did-login/README.md) にあります。
+
+# 2. (発展) もっとやってみる
+
+## 2-1. 送ったものを開発者ツールで見てみる
+
+せっかくなので、`POST`で送ったパスワードが URL に出ていないことを確認しましょう。
+
+### 手順
+
+1. 開発者ツールを開く（`F12`、または右クリック →「検証」）
+2. **Network**タブを開く
+3. ボタンをもう一度押す
+4. 一覧に出てきた`auth`をクリックする
+5. **Payload**タブ（または**ペイロード**）を開く
+
+### こうなっていれば成功
+
+`password`が body に入っていて、**URL には出ていない**ことが確認できます。前の章で見た GitHub のログインと同じ形です。
+
+**Response**タブを開けば、返ってきた JSON もそのまま見られます。
+
+## 2-2. スマホから叩いてみる
+
+つくった API は、**もう公開されています**。push した時点でインターネットに出ているので、改めて公開する作業はありません。
+
+つまり、**この URL は自分の PC 以外からも叩けます**。確かめてみましょう。
+
+### 手順
+
+1. スマホのブラウザで`https://自分のURL/api.html`を開く
+2. `jigjp`と打ってボタンを押す
+
+### こうなっていれば成功
+
+PC と同じように`ログインできました`と表示されます。
+
+**自分のつくった API が、インターネットに公開されています**。この URL を教えれば、他の人のプログラムからも叩けます。
+
+> [!TIP]
+> もとのページ（`https://自分のURL`）も、そのまま残っています。
+> `index.html`を触らなかったので、**2 つのページが 1 つのアプリの中に並んでいる**状態です。
+> `index.html`にリンクを 1 行足せば、もとのページから今日のページに飛べます。
+>
+> ```html
+> <a href="./api.html">APIハンズオンのページへ</a>
+> ```
+
+## 2-3. GET の API を 1 本
+
+ここまでで、API のつくり方は 4 パターン覚えました。
+
+| パターン | 使うもの |
+| --- | --- |
+| 決まったものを返す | `new Response("文字")` |
+| まとめて返す | `Response.json({ ... })` |
+| 送られたものを受け取る | `await req.json()` |
+| 送る側から呼ぶ | `fetch(URL, { method, headers, body })` |
+
+今日つくったのは`POST`でした。もう 1 つのメソッド、`GET`もやってみましょう。
+
+**`/greeting-me`に`name`を渡すと、`Hello, {渡した名前}`が返ってくる**API です。渡す方法は、前の章で勉強した**クエリパラメータ**です。URL の後ろに`?name=taro`のようにくっつけます。
+
+### 手順
+
+1. `server.js`の`return serveDir(req, {`の**すぐ上**に、以下を貼る
+
+```js
+  if (req.method === "GET" && pathname === "/greeting-me") {
+    const name = new URL(req.url).searchParams.get("name");
+    return new Response("Hello, " + name);
+  }
+
+```
+
+2. `Cmd + S`で保存して、**push する**
+3. 1〜2 分待って、ブラウザのアドレスバーに以下を入力して Enter
+
+```
+https://自分のURL/greeting-me?name=taro
+```
+
+4. `taro`の部分を自分の名前に変えて、もう一度 Enter
+
+### こうなっていれば成功
+
+1 回目は`Hello, taro`、2 回目は`Hello, 自分の名前`と表示されます。**URL を変えると返事が変わりました。**
+
+### GET はブラウザだけで確認できます
+
+気づいたでしょうか。**ボタンをつくらずに動作確認ができました。**
+
+`GET`はアドレスバーに URL を入れるだけで叩けるので、**サーバー側だけを先に確かめられます**。動かないときに「サーバーが悪いのか、ブラウザ側が悪いのか」を自分で切り分けられるので、これは覚えておくと便利です。
+
+逆に`POST`の API は、アドレスバーからは叩けません。アドレスバーに URL を入れる操作が`GET`だからです。だから`/auth`はブラウザ側をつくってから確認しました。
+
+### 書いたコードの意味
+
+```js
+new URL(req.url).searchParams.get("name")
+```
+
+これで、クエリパラメータの`name`の中身を取り出せます。`?name=taro`で来たら`taro`が入ります。`Hello, null`と出たら、URL の`?name=`を書き忘れています。
+
+### ボタンからも叩くには
+
+`api.html`の`</body>`の**すぐ上**（`<script>`の行より上）に足します。
+
+```html
+    <div>
+      <input type="text" id="nameInput">
+      <button id="greetingMeButton">greeting me</button>
+      <span id="greetingMeResult"></span>
+    </div>
+```
+
+`api.js`の**いちばん下**に足します。
+
+```js
+
+document.querySelector("#greetingMeButton").onclick = async () => {
+  const name = document.querySelector("#nameInput").value;
+  const response = await fetch("/greeting-me?name=" + name);
+  document.querySelector("#greetingMeResult").innerText = await response.text();
+};
+```
+
+`GET`なので`fetch`は URL 1 つだけ。受け取るのは文字なので`response.text()`です。
+
+## 2-4. お題の例
+
+思いつかない人は、この中から選んでください。手順は同じで、`server.js`に足して push、URL 直打ちで確認、必要ならボタンを置く、です。
+
+**やさしい**
+
+- `/today` … 今日の気分を JSON で返す
+- `/lucky` … 好きな数字を返す
+
+**ふつう**
+
+- `/double?number=5` … 渡された数字を 2 倍にして返す
+  - ヒント: `Number(受け取った値) * 2`
+- `/count?text=あいうえお` … 渡された文字が何文字か返す
+  - ヒント: `受け取った値.length`
+
+**むずかしい**
+
+- `/dice` … 1〜6 のランダムな数字を返す
+  - ヒント: `Math.floor(Math.random() * 6) + 1`
+- `/greeting-time` … 時間帯によって「おはよう」「こんにちは」「こんばんは」を返す
+  - ヒント: `new Date().getHours()`
+
+## 2-5. 見つからないときは 404 を返す
+
+いまつくった API は、いつでも成功したことになっています。
+
+Deno のセクションで、存在しない URL を開くと`Not Found`と出ましたね。あれは`404`という**ステータスコード**です。前の章で名前だけ出てきたものです。
+
+自分の API でも返せます。
+
+```js
+  if (req.method === "GET" && pathname === "/profile") {
+    const name = new URL(req.url).searchParams.get("name");
+    if (name !== "taniguchi") {
+      return Response.json({ message: "そんな人はいません" }, { status: 404 });
+    }
+    return Response.json({ name: "たにぐち", favorite: "ラーメン" });
+  }
+```
+
+`Response.json()`の 2 番目に`{ status: 404 }`を渡すだけです。
+
+**なぜ必要か**。ブラウザ側が「うまくいったのか、失敗したのか」を判断できるようになります。
+
+```js
+const response = await fetch("/profile?name=hoge");
+if (!response.ok) {
+  document.querySelector("#profileResult").innerText = "見つかりませんでした";
+  return;
+}
+```
+
+`response.ok`は、ステータスコードが 200 番台なら`true`、404 などなら`false`になります。
+
+**エラーも、API のルールの一部です。**
+
+# 3. うまくいかないときは
+
+## まず、中を覗ける場所が 2 つあります
+
+**見えるものが違います。**
+
+| どこで見るか | 何が見えるか | 開き方 |
+| --- | --- | --- |
+| **Deno Deploy の Logs**（サーバー側） | どのパスが叩かれたか | [Deno Deploy](https://deno.com/deploy) で自分のアプリのページ → **Logs** |
+| **開発者ツールの Console / Network**（ブラウザ側） | エラーと、何を送って何が返ってきたか | `F12`（または右クリック →「検証」） |
+
+Logs に出ているパスの一覧は、`server.js`の`console.log(pathname)`が出しています。**叩かれたパスを毎回表示している**ので、ここを見れば「ちゃんと叩けているか」が分かります。
+
+```shell
+/
+/styles.css
+/index.js
+/welcome-message
+```
+
+この 2 つは**切り分けの道具**です。ボタンを押して動かないときはこう考えてください。
+
+- ログに何も出ない → **リクエストがサーバーに届いていない**（ブラウザ側の問題）
+- ログには出るのに画面が変わらない → **届いてはいる**（サーバーの返し方か、ブラウザの受け取り方の問題）
+
+## 症状ごとの対処
+
+### 直したのに、何も変わらない
+
+いちばん多いのがこれです。今日は**保存しただけでは反映されません。** この 3 つを順に疑ってください。
+
+1. push できていない（ソース管理タブに変更が残っていないか）
+2. デプロイがまだ終わっていない（あと 1 分待つ）
+3. ブラウザが古いものを覚えている（`Cmd + Shift + R`で強制再読み込み）
+
+手順は [0-3](#0-3-直したら毎回-push-します) にあります。
+
+### ページ全体が表示されなくなった
+
+**`async`の書き忘れです。** `server.js`が壊れていて、サーバーが起動できていません。API だけでなく、これまでにつくったページも表示されなくなるので、いちばん焦るパターンです。
+
+[Deno Deploy](https://deno.com/deploy) の **Logs** に、こう出ています。
+
+```shell
+error: Uncaught SyntaxError: Unexpected reserved word
+    const body = await req.json();
+```
+
+[1-1](#1-1-serverjs-に-auth-を追加する) に戻って`Deno.serve(async (req) => {`に直し、もう一度 push すれば元に戻ります。**壊れっぱなしにはなりません。**
+
+### ボタンも入力欄も出てこない
+
+もとのページを開いています。URL の後ろに`/api.html`が付いているか確認してください。
+
+### ページ自体が `Not Found`
+
+`api.html`が push できていません。新しいファイルなので、ソース管理タブで`+`を押す必要があります（[1-4](#1-4-push-する)）。GitHub の自分のリポジトリのページを開いて、`public`の中に`api.html`があるか確認してください。
+
+### ボタンを押しても何も起きない
+
+開発者ツール（`F12`）の**Console**タブを見てください。出ているものと、その意味です。
+
+| Console に出ているもの | 意味と対処 |
+| --- | --- |
+| `Cannot set properties of null` | `api.html`の`id`と`api.js`の`#〇〇`が違います。見比べてください |
+| `Failed to load resource: api.js` | `api.js`が push できていません。ソース管理タブで`+`を押したか確認してください |
+
+### `undefined` と表示される
+
+**キー名がズレています。今日いちばんズレやすいところです。** 送る側と受け取る側で名前をそろえてください。
+
+```
+api.js      body: JSON.stringify({ password: password })
+                                    ↑ ここと
+server.js   if (body.password === "jigjp")
+                      ↑ ここが同じ名前
+```
+
+返すときも同じです。`server.js`の`message`と、`api.js`の`data.message`をそろえます。**片方だけ直しても動きません。必ず両方セットで。**
+
+### `server.js` に `return serveDir(` が見当たらない
+
+これまでの書き換えで消してしまったのかもしれません。以下のコマンドで`server.js`だけを最初の状態に戻せます。
+
+```shell
+curl -O https://raw.githubusercontent.com/jigintern/template-deno-dev/main/server.js
+```
+
+> [!WARNING]
+> このコマンドは`server.js`を**上書きします**。これまでに書き換えた文言も、今日つくった API も消えます。
+> 実行する前に声をかけてください。
+
+### どうしても直らない
+
+遠慮なく声をかけてください。
+
+# 4. 今日書いたコードの全体
+
+<details><summary>public/api.html（全体）</summary><div>
+
+今日新しくつくったファイルなので、全体を載せます。
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API ハンズオン</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <h1>ログイン</h1>
+
+    <div>
+      <input type="password" id="passwordInput" placeholder="パスワード">
+      <button id="authButton">ログイン</button>
+      <span id="authResult"></span>
+    </div>
+
+    <script type="module" src="./api.js"></script>
+  </body>
+</html>
 ```
 
 </div></details>
 
+<details><summary>public/api.js（全体）</summary><div>
+
+こちらも今日新しくつくったファイルです。
+
+```js
+document.querySelector("#authButton").onclick = async () => {
+  const password = document.querySelector("#passwordInput").value;
+  const response = await fetch("/auth", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password: password }),
+  });
+  const data = await response.json();
+  document.querySelector("#authResult").innerText = data.message;
+};
+```
+
+</div></details>
+
+<details><summary>server.js に足したもの</summary><div>
+
+> [!IMPORTANT]
+> `server.js`は**全体を載せません**。これまでの書き換えで、中身が人それぞれ違うからです。
+> ここにあるのは**今日足した部分だけ**です。まるごとコピーせず、自分の`server.js`と見比べてください。
+
+まず、1 行だけ書き換えました。
+
+```js
+Deno.serve(async (req) => {
+```
+
+そして、以下が`return serveDir(`より**上**にあれば完成です。
+
+```js
+  if (req.method === "POST" && pathname === "/auth") {
+    const body = await req.json();
+    if (body.password === "jigjp") {
+      return Response.json({ ok: true, message: "ログインできました" });
+    }
+    return Response.json({ ok: false, message: "パスワードが違います" });
+  }
+```
+
+</div></details>
+
+`public/index.html`は今日は触っていません。もとのページはそのまま残っています。
+
+完成形の見本は、この教材リポジトリの [`api`](.) フォルダにも置いてあります。困ったときに見比べてみてください。
+
+次は [Deno KV](../deno-kv/README.md) で、送られたデータを**保存**できるようにします。今日つくった`/auth`のようなデータは、サーバーを再起動すると消えてしまいますが、その解決編です。

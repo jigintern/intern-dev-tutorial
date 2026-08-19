@@ -34,6 +34,8 @@ jobs:
             output_name: deno-slide
           - slide: transfer-protocol
             output_name: transfer-protocol-slide
+          - slide: api
+            output_name: api-slide
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -49,7 +51,11 @@ jobs:
         run: npm install -g @marp-team/marp-cli
 
       - name: Make Directory
-        run: mkdir dest && cp -r ./${{ matrix.slide }}/imgs ./dest/imgs
+        run: |
+          mkdir dest
+          if [ -d "./${{ matrix.slide }}/imgs" ]; then
+            cp -r ./${{ matrix.slide }}/imgs ./dest/imgs
+          fi
 
       - name: Build Marp PDF
         run: marp ${{ matrix.slide }}/slide.md

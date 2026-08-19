@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API ハンズオン</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <h1>ログイン</h1>
+
+    <div>
+      <input type="password" id="passwordInput" placeholder="パスワード">
+      <button id="authButton">ログイン</button>
+      <span id="authResult"></span>
+    </div>
+
+    <!-- 発展: GET の API -->
+    <div>
+      <input type="text" id="nameInput">
+      <button id="greetingMeButton">greeting me</button>
+      <span id="greetingMeResult"></span>
+    </div>
+
+    <script type="module" src="./api.js"></script>
+  </body>
+</html>
