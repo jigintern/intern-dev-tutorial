@@ -418,8 +418,132 @@ Deno.serve(async(req) => {
 
 </details>
 
-<!--
 ## 3. 補足編
 
 *Deno KVのデータを、管理画面から見てみよう！*
--->
+
+### 3-1. 管理画面はなぜ必要か
+
+2章では、保存したデータを`console.log`で確認していました。
+この方法だと、確認したいデータが増えるたびにコードを書き足してデプロイし直すことになります。
+今どんなデータが入っているのか、その全体像も分かりません。
+
+そこで、Deno KVのデータを一覧できる管理画面を使います。
+[deno-kv-manager](https://github.com/jigintern/deno-kv-manager)は、Deno KVのデータを一覧・編集・削除できる管理画面です。
+自分のPCで起動して、Deno Deploy上のDeno KVに接続して使います。
+
+- 使う場面: 保存されているデータを一覧で確認したい、動作確認用のデータを手で用意したい、間違えて入れたデータを消したい
+- 使わない場面: アプリケーションの動作としてデータを読み書きする場合。こちらは2章で学んだ`set`/`get`/`delete`をコードに書きます
+
+### 3-2. 管理画面を起動しよう
+
+<details>
+<summary>練習: deno-kv-managerを起動してみよう</summary>
+
+1. リポジトリをクローンします
+
+```sh
+git clone https://github.com/jigintern/deno-kv-manager.git
+cd deno-kv-manager
+```
+
+2. 管理画面を起動します
+
+```sh
+deno run -A --unstable-kv server.ts
+```
+
+3. ブラウザで<http://localhost:8080>を開き、以下のような画面が表示されればOKです
+![](./imgs/301_kv_manager_top.png)
+
+> Topic: 起動したままにしておくと、この後の手順で使えます。終了したいときはターミナルで`Ctrl + C`を押します
+
+</details>
+
+### 3-3. Playgroundのデータベースに接続しよう
+
+管理画面からDeno KVに接続するには、次の2つが必要です。
+
+- 接続URL: どのデータベースに繋ぐかを指定するURL。2-0で作成したデータベースのDatabase IDから組み立てます
+- アクセストークン: 接続してよい利用者かを確かめるための文字列。Deno Deployのコンソールで発行します
+
+接続URLは、Database IDを次の形に当てはめたものです。
+
+```
+https://api.deno.com/v2/databases/<Database ID>/connect
+```
+
+<details>
+<summary>練習: Database IDを調べよう</summary>
+
+1. [Deno Deploy](https://console.deno.com)で、2-0で作成したPlaygroundを開きます
+
+2. 画面左のメニューから「Databases」を選びます
+
+3. Databases一覧に表示されている、`deno-kv-tutorial`のDatabase IDをコピーします
+
+4. コピーしたIDを当てはめて、接続URLを組み立てておきます
+
+</details>
+
+<details>
+<summary>練習: アクセストークンを発行しよう</summary>
+
+1. [アクセストークンのページ](https://console.deno.com/account/access-tokens)を開きます
+
+2. 「New Access Token」をクリックし、説明欄に`deno-kv-manager`と入力して発行します
+
+3. 表示されたトークンをコピーします
+
+> Topic: トークンは発行時にしか表示されません。閉じてしまった場合は、新しく発行し直してください
+
+> Warning: アクセストークンは、あなたのDeno Deployアカウントを操作できる文字列です。他の人に見せたり、GitHubのリポジトリに含めたりしないでください
+
+</details>
+
+<details>
+<summary>練習: 管理画面からデータを見てみよう</summary>
+
+1. 管理画面の左下にある入力欄へ、組み立てた接続URLとアクセストークンを入力します
+
+2. 「最新状態の取得」をクリックします
+
+3. 2章で保存した`["student", ...]`と`["teacher", ...]`のデータが表示されればOKです
+
+> Topic: 2-3で`["student", 1]`を削除しているため、`student`は2〜4の3件だけが表示されます
+
+</details>
+
+### 3-4. 管理画面からデータを編集してみよう
+
+管理画面では、データの追加・更新・削除ができます。
+コードを書き換えてデプロイし直さなくても、その場でデータを直せます。
+
+キーとバリューは、どちらもJSON形式で表示されます。
+2章で`kv.set(["student", 2], { name: "佐藤" })`と保存したデータは、キーが`["student",2]`、バリューが`{ "name": "佐藤" }`として並びます。
+右端の「型」は、バリューをどの型として保存するかの指定です。
+オブジェクトなら`json`、文字列なら`string`、数値なら`number`を選びます。
+
+<details>
+<summary>練習: データを更新してみよう</summary>
+
+1. `["teacher", 1]`の行のバリューを、`{ "name": "じぐ校長" }`に書き換えます。「型」は`json`のままにしておきます
+
+2. その行の「更新対象」にチェックが付いていることを確認して、「指定行の更新」をクリックします
+
+3. 「最新状態の取得」をクリックして、バリューが変わっていることを確認します
+
+</details>
+
+<details>
+<summary>練習: データを削除してみよう</summary>
+
+1. `["teacher", 2]`の行の「更新対象」にチェックを付けます
+
+2. 「指定行の削除」をクリックします
+
+3. 「最新状態の取得」をクリックして、その行が消えていることを確認します
+
+> Warning: 「全削除」は、接続先のDeno KVに入っているデータをすべて消します。確認のダイアログでOKを選ぶと元に戻せないので、接続先を確かめてから実行してください
+
+</details>
