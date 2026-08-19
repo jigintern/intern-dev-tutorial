@@ -32,6 +32,8 @@ jobs:
             output_name: about-webapp-slide
           - slide: deno
             output_name: deno-slide
+          - slide: transfer-protocol
+            output_name: transfer-protocol-slide
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
