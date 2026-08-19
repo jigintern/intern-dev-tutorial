@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 540" width="1168" height="540"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="540" fill="#ffffff"/>
+
+  <!-- HTTP method -->
+  <rect x="24" y="20" width="1120" height="110" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <text x="60" y="72" font-size="34" font-weight="bold" fill="#17558f">HTTPメソッド</text>
+  <text x="60" y="112" font-size="30" fill="#414851">更新・個人情報なら POST、取得だけなら GET</text>
+
+  <!-- header -->
+  <rect x="24" y="148" width="1120" height="110" fill="#ffffff" stroke="#b8501e" stroke-width="3"/>
+  <text x="60" y="200" font-size="34" font-weight="bold" fill="#b8501e">ヘッダ</text>
+  <text x="60" y="240" font-size="30" fill="#414851">基本はブラウザが自動で付与。自分で足さなくてよい</text>
+
+  <!-- CORS -->
+  <rect x="24" y="276" width="1120" height="110" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
+  <text x="60" y="328" font-size="34" font-weight="bold" fill="#2c6b4f">CORS</text>
+  <text x="60" y="368" font-size="30" fill="#414851">外部APIを叩くときに設定。fetch なら mode を cors に</text>
+
+  <!-- closing note -->
+  <rect x="24" y="404" width="1120" height="110" fill="#f2f1ed" stroke="#1c2126" stroke-width="3"/>
+  <text x="584" y="456" text-anchor="middle" font-size="32" font-weight="bold" fill="#1c2126">まずは GET / POST から。</text>
+  <text x="584" y="496" text-anchor="middle" font-size="30" fill="#414851">残りは実装に慣れてきてから使えばよい</text>
+
+</svg>

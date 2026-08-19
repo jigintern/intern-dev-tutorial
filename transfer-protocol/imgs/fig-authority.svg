@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 360" width="1168" height="360"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="360" fill="#ffffff"/>
+
+  <!-- URL: authority part highlighted -->
+  <text x="130" y="120" font-size="32" font-weight="bold"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <tspan fill="#c3bfb4">http://</tspan><tspan fill="#b8501e">hoge:pass@example.com:8080</tspan><tspan fill="#c3bfb4">/hoge</tspan>
+  </text>
+
+  <!-- bracket under authority -->
+  <path d="M264,146 L264,164 L764,164 L764,146" fill="none" stroke="#b8501e" stroke-width="3"/>
+  <line x1="514" y1="164" x2="514" y2="188" stroke="#b8501e" stroke-width="3"/>
+
+  <text x="514" y="238" text-anchor="middle" font-size="46" font-weight="bold" fill="#b8501e">オーソリティ</text>
+  <text x="514" y="292" text-anchor="middle" font-size="30" fill="#5c6570">ユーザー情報 ＋ ホスト ＋ ポート</text>
+
+</svg>

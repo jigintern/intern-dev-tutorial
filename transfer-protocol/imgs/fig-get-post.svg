@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 520" width="1168" height="520"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="520" fill="#ffffff"/>
+
+  <!-- GET -->
+  <rect x="24" y="16" width="536" height="488" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="24" y="16" width="536" height="86" fill="#eef3f8"/>
+  <text x="292" y="76" text-anchor="middle" font-size="54" font-weight="bold" fill="#17558f">GET</text>
+
+  <text x="60" y="168" font-size="36" font-weight="bold" fill="#1c2126">データを取得する</text>
+  <text x="60" y="238" font-size="32" fill="#414851">・ クエリパラメータで送る</text>
+  <text x="60" y="288" font-size="32" fill="#414851">・ URLに付くので人に見える</text>
+  <text x="60" y="338" font-size="32" fill="#414851">・ 秘密の情報は送らない</text>
+
+  <rect x="60" y="392" width="440" height="76" fill="#eef3f8" stroke="#17558f" stroke-width="2"/>
+  <text x="280" y="440" text-anchor="middle" font-size="34" font-weight="bold" fill="#17558f">べき等・安全</text>
+
+  <!-- POST -->
+  <rect x="608" y="16" width="536" height="488" fill="#ffffff" stroke="#b8501e" stroke-width="3"/>
+  <rect x="608" y="16" width="536" height="86" fill="#faf0e9"/>
+  <text x="876" y="76" text-anchor="middle" font-size="54" font-weight="bold" fill="#b8501e">POST</text>
+
+  <text x="644" y="168" font-size="36" font-weight="bold" fill="#1c2126">データを更新する</text>
+  <text x="644" y="238" font-size="32" fill="#414851">・ ペイロードをbodyで送る</text>
+  <text x="644" y="288" font-size="32" fill="#414851">・ URLには出ない</text>
+  <text x="644" y="338" font-size="32" fill="#414851">・ ただし暗号化はしない</text>
+
+  <rect x="644" y="392" width="440" height="76" fill="#faf0e9" stroke="#b8501e" stroke-width="2"/>
+  <text x="864" y="440" text-anchor="middle" font-size="34" font-weight="bold" fill="#b8501e">べき等でない・安全でない</text>
+
+</svg>
