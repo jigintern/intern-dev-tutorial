@@ -301,7 +301,7 @@ URL は、インターネット上の<br>リソースへの<strong>あて先</st
 <div class="col">
 <div class="box mute">
 <span class="label">仕様上のメソッド</span>
-GET / POST / PUT / DELETE / HEAD / CONNECT / OPTION / TRACE / PATCH
+GET / POST / PUT / DELETE など
 </div>
 </div>
 </div>
