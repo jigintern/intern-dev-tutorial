@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 470" width="1168" height="470"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="470" fill="#ffffff"/>
+
+  <!-- browser in the middle -->
+  <rect x="454" y="150" width="260" height="170" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="454" y="150" width="260" height="32" fill="#eef3f8"/>
+  <circle cx="476" cy="166" r="6" fill="#17558f"/>
+  <circle cx="496" cy="166" r="6" fill="#17558f"/>
+  <circle cx="516" cy="166" r="6" fill="#17558f"/>
+  <text x="584" y="258" text-anchor="middle" font-size="40" font-weight="bold" fill="#17558f">ブラウザ</text>
+  <text x="584" y="300" text-anchor="middle" font-size="26" fill="#5c6570">example.com</text>
+
+  <!-- same origin (left) OK -->
+  <rect x="40" y="176" width="300" height="118" fill="#eef4f0" stroke="#2c6b4f" stroke-width="3"/>
+  <text x="190" y="228" text-anchor="middle" font-size="34" font-weight="bold" fill="#2c6b4f">同じオリジン</text>
+  <text x="190" y="270" text-anchor="middle" font-size="26" fill="#5c6570">example.com</text>
+
+  <line x1="340" y1="235" x2="446" y2="235" stroke="#2c6b4f" stroke-width="5"/>
+  <polygon points="454,235 440,227 440,243" fill="#2c6b4f"/>
+  <circle cx="397" cy="200" r="20" fill="#2c6b4f"/>
+  <path d="M388,200 L395,207 L407,193" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- different origin (right) blocked -->
+  <rect x="828" y="176" width="300" height="118" fill="#f2f1ed" stroke="#8f8b82" stroke-width="3"/>
+  <text x="978" y="228" text-anchor="middle" font-size="34" font-weight="bold" fill="#5c6570">別のオリジン</text>
+  <text x="978" y="270" text-anchor="middle" font-size="26" fill="#5c6570">other.com</text>
+
+  <line x1="722" y1="235" x2="820" y2="235" stroke="#c0392b" stroke-width="5" stroke-dasharray="10 8"/>
+  <line x1="768" y1="205" x2="768" y2="265" stroke="#c0392b" stroke-width="6"/>
+  <circle cx="783" cy="188" r="20" fill="#c0392b"/>
+  <path d="M775,180 L791,196 M791,180 L775,196" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+
+  <text x="584" y="404" text-anchor="middle" font-size="34" font-weight="bold" fill="#1c2126">同一オリジンポリシー</text>
+  <text x="584" y="446" text-anchor="middle" font-size="28" fill="#5c6570">異なるオリジン間の送受信は、標準ではブロックされる</text>
+
+</svg>

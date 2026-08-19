@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 420" width="1168" height="420"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="420" fill="#ffffff"/>
+
+  <!-- HTTP (plain) -->
+  <rect x="40" y="40" width="520" height="360" fill="#ffffff" stroke="#c0392b" stroke-width="3"/>
+  <rect x="40" y="40" width="520" height="88" fill="#fbecea"/>
+  <text x="300" y="102" text-anchor="middle" font-size="50" font-weight="bold" fill="#c0392b">HTTP</text>
+
+  <rect x="110" y="188" width="380" height="96" fill="#ffffff" stroke="#8f8b82" stroke-width="2"/>
+  <text x="300" y="248" text-anchor="middle" font-size="40" fill="#1c2126"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace">password</text>
+
+  <text x="300" y="344" text-anchor="middle" font-size="30" font-weight="bold" fill="#c0392b">中身がまる見え</text>
+
+  <!-- HTTPS (encrypted) -->
+  <rect x="608" y="40" width="520" height="360" fill="#ffffff" stroke="#2c6b4f" stroke-width="3"/>
+  <rect x="608" y="40" width="520" height="88" fill="#eaf3ee"/>
+  <text x="868" y="102" text-anchor="middle" font-size="50" font-weight="bold" fill="#2c6b4f">HTTPS</text>
+
+  <!-- lock icon -->
+  <rect x="690" y="212" width="52" height="44" rx="6" fill="#2c6b4f"/>
+  <path d="M700,212 v-12 a16,16 0 0 1 32,0 v12" fill="none" stroke="#2c6b4f" stroke-width="6"/>
+  <rect x="762" y="188" width="278" height="96" fill="#ffffff" stroke="#8f8b82" stroke-width="2"/>
+  <text x="901" y="248" text-anchor="middle" font-size="40" fill="#5c6570"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace">x8#@k2!</text>
+
+  <text x="868" y="344" text-anchor="middle" font-size="30" font-weight="bold" fill="#2c6b4f">暗号化されて読めない</text>
+
+</svg>

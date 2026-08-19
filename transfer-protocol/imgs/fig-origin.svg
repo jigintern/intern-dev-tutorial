@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 340" width="1168" height="340"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="340" fill="#ffffff"/>
+
+  <!-- URL: origin part highlighted -->
+  <text x="150" y="120" font-size="34" font-weight="bold"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <tspan fill="#b8501e">http://example.com:8080</tspan><tspan fill="#c3bfb4">/hoge/index.html</tspan>
+  </text>
+
+  <!-- bracket under origin -->
+  <path d="M150,146 L150,164 L590,164 L590,146" fill="none" stroke="#b8501e" stroke-width="3"/>
+  <line x1="370" y1="164" x2="370" y2="188" stroke="#b8501e" stroke-width="3"/>
+
+  <text x="370" y="238" text-anchor="middle" font-size="46" font-weight="bold" fill="#b8501e">オリジン</text>
+  <text x="370" y="292" text-anchor="middle" font-size="32" fill="#5c6570">スキーム ＋ ドメイン ＋ ポート</text>
+
+</svg>
