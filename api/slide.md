@@ -512,7 +512,7 @@ API を増やすときも ①②③④を決めるだけ
 
 ---
 
-## これが昨日の最初の形
+## これがテンプレートの最初の形
 
 ```js
 import { serveDir } from "jsr:@std/http/file-server";
@@ -541,7 +541,7 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 <div class="steps">
   <div>通信が来た</div>
   <div><span class="step">1</span> GETで <code>/welcome-message</code> か？ → <strong class="hl">バックエンドの情報</strong> を返す</div>
-  <div class="on"><span class="step">2</span> どれでもない → <code>serveDir</code> が <strong class="hl">ブラウザの構成要素</strong> を返す</div>
+  <div class="on"><span class="step">2</span> どれでもない → <code>serveDir</code> が <strong class="hl"><code>public</code> の中のファイル</strong> を返す</div>
 </div>
 
 <div class="note tight">
@@ -550,14 +550,14 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 ---
 
-## フロントの構成要素も server.js が返している
+## <code>public</code> の中のファイルも server.js が返している
 
 <div class="split">
   <div class="stop">server.js</div>
   <div class="sarrows"><span>↙</span><span>↘</span></div>
   <div class="srow">
     <div class="sbox">
-      <span class="stitle">フロントの構成要素</span>
+      <span class="stitle"><code>public</code> の中のファイル</span>
       <span class="sitems"><code>index.html</code> / <code>styles.css</code><br><code>index.js</code></span>
     </div>
     <div class="sbox api">
@@ -574,7 +574,7 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 ---
 
-## 構成要素は 1つずつ 4回に分けて返る
+## 1つずつ 4回に分けて返る
 
 | 叩かれたURL | 上から順に見た結果 | 返ってきたもの |
 | --- | --- | --- |
@@ -584,7 +584,7 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 | `/welcome-message` | **1番目のifに当たった** | 「ようこそ」の文字 |
 
 <div class="note tight">
-3回は <strong>フロントの構成要素</strong> 1回は <strong>バックエンドの情報</strong><br>
+3回は <strong><code>public</code> の中のファイル</strong> 1回は <strong>バックエンドの情報</strong><br>
 どちらも同じ <code>server.js</code> が 同じ形で返している
 </div>
 
@@ -615,13 +615,13 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 
 ---
 
-## 昨日デプロイしたアプリに 足していく
+## デプロイしたアプリに 足していく
 
 <div class="steps">
-  <div><span class="step">1</span> 昨日クローンしたフォルダを開く <span>例: deno-app</span></div>
+  <div><span class="step">1</span> クローンしたフォルダを開く <span>例: deno-app</span></div>
   <div><span class="step">2</span> <code>server.js</code> に窓口を<strong>1つ</strong>足す</div>
-  <div class="on"><span class="step">3</span> <strong>直すたびに push する</strong> <span>今日は自分のPCでは動かさない 昨日のURLで確かめる</span></div>
-  <div><span class="step">4</span> 昨日のURLに <code>/api.html</code> を付けると <strong>スマホからも使える</strong></div>
+  <div class="on"><span class="step">3</span> <strong>直すたびに push する</strong> <span>今日は自分のPCでは動かさない デプロイ先のURLで確かめる</span></div>
+  <div><span class="step">4</span> デプロイ先のURLに <code>/api.html</code> を付けると <strong>スマホからも使える</strong></div>
 </div>
 
 <div class="note tight">
@@ -655,7 +655,7 @@ Deno.serve((req) => {                    // 通信は全部ここに来る
 | `public/api.js` | **新しくつくる** 今日書くJSは全部ここ |
 
 <div class="note tight">
-昨日の <code>index.html</code> は <span class="ng">触らない</span> <strong>別のページ</strong>をつくる<br>
+もとの <code>index.html</code> は <span class="ng">触らない</span> <strong>別のページ</strong>をつくる<br>
 <code>serveDir</code> より下に書くと<span class="ng">たどりつかない</span>ので 必ず<strong>その上</strong>へ
 </div>
 
