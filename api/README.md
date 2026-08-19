@@ -6,7 +6,6 @@
   - [0-2. デプロイしたアプリを開く](#0-2-デプロイしたアプリを開く)
   - [0-3. 直したら、毎回 push します](#0-3-直したら毎回-push-します)
   - [0-4. 見る場所は 2 つあります](#0-4-見る場所は-2-つあります)
-  - [0-5. なぜ `serveDir` の「上」なのか](#0-5-なぜ-servedir-の上なのか)
 - [1. 情報を送る API をつくる](#1-情報を送る-api-をつくる)
   - [1-1. 今日のページをつくる](#1-1-今日のページをつくる)
   - [1-2. `server.js` の 1 行を書き換える](#1-2-serverjs-の-1-行を書き換える)
@@ -53,6 +52,8 @@
 > **実は、API を使うのは、これが初めてではありません。**
 > Deno のセクションでつくったページは`index.js`から`fetch("/welcome-message")`で文字を受け取っていました。あれが**受け取るだけ**の API です。
 > 今日やるのは**送る側**です。ブラウザからサーバーへ情報を渡して、その結果を返してもらいます。
+>
+> なお、この資料では「API を**叩く**」という言い方をします。**API にリクエストを送る**という意味です。
 
 > [!IMPORTANT]
 > 今日は、[Deno のセクション](../deno/README.md)で作った**自分のリポジトリ**の中で作業します。
@@ -104,6 +105,8 @@ Deno.serve((req) => {
 
 上のほう（`/welcome-message`のあたり）は、Deno のセクションで書き換えた人はもっと違う形になっているはずです。**そこは気にしなくて大丈夫です**。探すのは`return serveDir(`の 1 行だけ。それを見つけたら、そのすぐ上に足します。
 
+**なぜ「上」なのか。**`return`は「ここで返して、おわり」という意味だからです。`return serveDir(`より下に書いたものには、一生たどりつきません。
+
 Deno のセクションで、それぞれ好きなように書き換えたので、**`server.js`の中身は人によって違います**。返す文言を変えた人、自分でルーティングを足した人、Claude に手伝ってもらって整えた人もいるはずです。
 
 なので、この資料には**行番号を書いていません。**「15 行目に足してください」と書いても、人によってそこが違う場所になってしまうからです。かわりに使うのが、上の`return serveDir(`という**目印**です。この行は、消してしまうとページが表示されなくなるので、**デプロイできた人には必ず残っています。**
@@ -153,8 +156,13 @@ Deno のセクションでつくったページが表示されます。
 ただし、あちらで動いているのは**GitHub に置いてあるコード**です。VSCode で保存しただけでは、まだ自分の PC の中にあるだけで、あちらには何も届いていません。
 
 ```
-VSCodeで保存  →  commit  →  push  →  GitHub  →  自動でデプロイ  →  https://自分のURL に反映
-   手元                                            1〜2分
+VSCode で保存          ← まだ自分のPCの中
+    ↓
+commit → push          ← ここでGitHubに届く
+    ↓
+GitHub
+    ↓  自動でデプロイ（1〜2分かかる）
+https://自分のURL に反映
 ```
 
 つまり、**書き換えるたびに commit と push が必要です。**
@@ -194,6 +202,9 @@ push したあと、デプロイが終わったかどうかは [Deno Deploy](htt
 
 ## 0-4. 見る場所は 2 つあります
 
+> [!NOTE]
+> **ここは、いま覚えなくて大丈夫です**。動かなくて困ったときに戻ってきてください。
+
 うまく動かないとき、中を覗ける場所が 2 つあります。**見えるものが違います。**
 
 | どこで見るか | 何が見えるか |
@@ -219,28 +230,6 @@ push したあと、デプロイが終わったかどうかは [Deno Deploy](htt
 >
 > - ログに何も出ない → **リクエストがサーバーに届いていない**（ブラウザ側の問題）
 > - ログには出るのに画面が変わらない → **届いてはいる**（サーバーの返し方か、ブラウザの受け取り方の問題）
-
-そして大事なのは、**どちらからも「サーバーの中でやっている処理」は見えない**ということです。
-
-`/welcome-message`が文字を返していることは分かりますが、**それをどうやって決めたのかは、外からは見えません。**`server.js`を開かないと分かりません。
-
-これがスライドで見た**窓口**です。外から見えるのは窓口でのやりとりだけ。だから、見せたくないものはサーバー側に置けるわけです。**今日つくる`/auth`が、まさにこれです。**
-
-## 0-5. なぜ `serveDir` の「上」なのか
-
-`server.js`に足すときは、必ず`return serveDir(`の**上**です。理由は`return`が「ここで返して、おわり」という意味だからです。
-
-```js
-  return serveDir(req, {     // ← ここで終わってしまう
-    fsRoot: "public",
-  });
-
-  if (pathname === "/auth") {       // ← ここには絶対に来ない
-    return new Response("Hello!!");
-  }
-```
-
-`serveDir`より下に書いた API には、**一生たどりつきません。**
 
 これで準備は終わりです。これまでどう書き換えていても、**全員が同じ手順で進められます**。手を動かしていきましょう。
 
@@ -296,7 +285,7 @@ https://自分のURL/auth?password=jigjp
 
     <div>
       <input type="password" id="passwordInput" placeholder="パスワード">
-      <button id="authButton">Authentication</button>
+      <button id="authButton">ログイン</button>
       <span id="authResult"></span>
     </div>
 
@@ -328,7 +317,7 @@ public
 > [!NOTE]
 > **このページは、どうやって表示されるのでしょうか。**
 > あとで`https://自分のURL/api.html`を開くと、`server.js`の`if`はどれにも当たりません。
-> なので[0-5](#0-5-なぜ-servedir-の上なのか)で見たとおり、一番下の`serveDir`が受け皿になって`public/api.html`を返します。
+> どれにも当たらなかったときの受け皿が、一番下の`serveDir`です。これが`public/api.html`を探して返してくれます。
 > **ページを開くのも、API を叩くのも、同じ窓口へのリクエストです**。違うのは、誰が答えるかだけです。
 
 ## 1-2. `server.js` の 1 行を書き換える
@@ -355,7 +344,9 @@ Deno.serve(async (req) => {
 
 ### なぜ必要か
 
-このあと`await req.json()`と書きます。`await`は、`async`が付いた関数の中でしか使えません。
+このあと`await req.json()`と書きます。**`await`は、`async`が付いた関数の中でしか使えません。**
+
+`Deno.serve`に渡している`(req) => { ... }`の部分が、その関数です。この中に`await`を書くので、頭に`async`が要ります。
 
 `fetch`で`await`を使ったときも、`async () => {`とセットになっていました。**`await`と`async`はセットです。**
 
@@ -428,6 +419,7 @@ Deno.serve(async (req) => {          // ← 1-2 で async を足した
 - `pathname`に、叩かれた URL のパス（`/auth`の部分）が入っています
 - `await req.json()`で、**body に入っている JSON を取り出します**
 - `body.password`が`jigjp`と同じかどうかで、返す内容を変えています
+- `return`したら、そこで**おわり**です。合っていれば 1 つ目を返して終了、違っていれば下の行に進みます
 
 そして返し方です。もとからある`/welcome-message`は文字を 1 つ返していました。今日は **JSON** を返します。
 
@@ -483,6 +475,20 @@ document.querySelector("#authButton").onclick = async () => {
 | `headers: { "Content-Type": "application/json" }` | 「これから JSON を送ります」とサーバーに伝える |
 | `body: JSON.stringify({ password: password })` | 送りたい中身。`JSON.stringify()`で JSON の文字に変換する |
 
+`{ password: password }`は、左が**送るときのキー名**、右が**上の行で取り出した変数**です。たまたま同じ名前にしているだけで、役割は違います。
+
+> [!IMPORTANT]
+> **送るときのキー名と、受け取るときのキー名は、そろえます**。今日いちばんズレやすいところです。
+>
+> ```
+> api.js      body: JSON.stringify({ password: password })
+>                                     ↑ ここと
+> server.js   if (body.password === "jigjp")
+>                       ↑ ここが同じ名前
+> ```
+>
+> 片方だけ`pass`に変えると、サーバー側は`undefined`を受け取ります。**直すときは必ず両方セットで。**
+
 受け取り方も、これまでと 1 か所だけ違います。
 
 ```js
@@ -513,7 +519,7 @@ data.message   // "ログインできました"
 https://自分のURL/api.html
 ```
 
-4. 入力欄に`jigjp`と打って`Authentication`ボタンを押す
+4. 入力欄に`jigjp`と打って`ログイン`ボタンを押す
 5. 次に、わざと違うパスワードを打ってボタンを押す
 
 ### こうなっていれば成功
@@ -802,7 +808,7 @@ curl -O https://raw.githubusercontent.com/jigintern/template-deno-dev/main/serve
 
     <div>
       <input type="password" id="passwordInput" placeholder="パスワード">
-      <button id="authButton">Authentication</button>
+      <button id="authButton">ログイン</button>
       <span id="authResult"></span>
     </div>
 
