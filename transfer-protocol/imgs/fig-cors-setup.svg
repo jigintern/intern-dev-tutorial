@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 356" width="1168" height="356"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="356" fill="#ffffff"/>
+
+  <!-- headings -->
+  <text x="270" y="72" text-anchor="middle" font-size="30" font-weight="bold" fill="#5c6570">① JS を読み込む場所</text>
+  <text x="918" y="72" text-anchor="middle" font-size="30" font-weight="bold" fill="#5c6570">② API のある場所</text>
+
+  <!-- browser (client.js, :8000) -->
+  <rect x="40" y="100" width="460" height="236" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="40" y="100" width="460" height="46" fill="#eef3f8"/>
+  <circle cx="66" cy="123" r="6" fill="#17558f"/>
+  <circle cx="86" cy="123" r="6" fill="#17558f"/>
+  <circle cx="106" cy="123" r="6" fill="#17558f"/>
+  <line x1="40" y1="146" x2="500" y2="146" stroke="#17558f" stroke-width="2"/>
+  <text x="140" y="132" font-size="24" font-weight="bold"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <tspan fill="#5c6570">http://localhost:</tspan><tspan fill="#17558f">8000</tspan>
+  </text>
+  <rect x="100" y="192" width="340" height="100" fill="#f7f6f3" stroke="#8f8b82" stroke-width="2"/>
+  <text x="270" y="234" text-anchor="middle" font-size="32" fill="#1c2126">index.html</text>
+  <text x="270" y="274" text-anchor="middle" font-size="28" fill="#5c6570">＋ script（JS）</text>
+
+  <!-- server (server.js, :3000) -->
+  <rect x="708" y="100" width="420" height="236" fill="#f2f1ed" stroke="#b8501e" stroke-width="3"/>
+  <rect x="708" y="100" width="420" height="46" fill="#faf0e9"/>
+  <line x1="708" y1="146" x2="1128" y2="146" stroke="#b8501e" stroke-width="2"/>
+  <text x="740" y="132" font-size="24" font-weight="bold"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <tspan fill="#5c6570">http://localhost:</tspan><tspan fill="#b8501e">3000</tspan>
+  </text>
+  <rect x="768" y="192" width="300" height="100" fill="#ffffff" stroke="#b8501e" stroke-width="2"/>
+  <text x="918" y="234" text-anchor="middle" font-size="32" fill="#1c2126">server.js</text>
+  <text x="918" y="274" text-anchor="middle" font-size="28" fill="#b8501e">API</text>
+
+  <!-- fetch arrow -->
+  <text x="604" y="200" text-anchor="middle" font-size="28" font-weight="bold" fill="#1c2126">fetch()</text>
+  <line x1="500" y1="224" x2="694" y2="224" stroke="#5c6570" stroke-width="5"/>
+  <polygon points="708,224 690,214 690,234" fill="#5c6570"/>
+  <text x="604" y="266" text-anchor="middle" font-size="26" fill="#5c6570">呼び出す</text>
+
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 540" width="1168" height="540"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="540" fill="#ffffff"/>
+
+  <!-- Request -->
+  <rect x="24" y="16" width="536" height="508" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <text x="292" y="72" text-anchor="middle" font-size="44" font-weight="bold" fill="#17558f">リクエスト</text>
+
+  <rect x="60" y="104" width="464" height="60" fill="#eef3f8" stroke="#17558f" stroke-width="2"/>
+  <text x="292" y="143" text-anchor="middle" font-size="32" fill="#1c2126">メソッド（GET / POST）</text>
+  <rect x="60" y="176" width="464" height="60" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <text x="292" y="215" text-anchor="middle" font-size="32" fill="#1c2126">パス</text>
+  <rect x="60" y="248" width="464" height="60" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <text x="292" y="287" text-anchor="middle" font-size="32" fill="#1c2126">プロトコルバージョン</text>
+  <rect x="60" y="320" width="464" height="60" fill="#ffffff" stroke="#17558f" stroke-width="2"/>
+  <text x="292" y="359" text-anchor="middle" font-size="32" fill="#1c2126">リクエストヘッダ</text>
+  <rect x="60" y="392" width="464" height="60" fill="#f7f6f3" stroke="#8f8b82" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="292" y="431" text-anchor="middle" font-size="32" fill="#5c6570">body（POSTのとき）</text>
+
+  <!-- Response -->
+  <rect x="608" y="16" width="536" height="508" fill="#f2f1ed" stroke="#b8501e" stroke-width="3"/>
+  <text x="876" y="72" text-anchor="middle" font-size="44" font-weight="bold" fill="#b8501e">レスポンス</text>
+
+  <rect x="644" y="104" width="464" height="60" fill="#ffffff" stroke="#b8501e" stroke-width="2"/>
+  <text x="876" y="143" text-anchor="middle" font-size="32" fill="#1c2126">プロトコルバージョン</text>
+  <rect x="644" y="176" width="464" height="60" fill="#ffffff" stroke="#b8501e" stroke-width="2"/>
+  <text x="876" y="215" text-anchor="middle" font-size="32" fill="#1c2126">ステータスコード（200 など）</text>
+  <rect x="644" y="248" width="464" height="60" fill="#ffffff" stroke="#b8501e" stroke-width="2"/>
+  <text x="876" y="287" text-anchor="middle" font-size="32" fill="#1c2126">ステータスメッセージ（OK など）</text>
+  <rect x="644" y="320" width="464" height="60" fill="#ffffff" stroke="#b8501e" stroke-width="2"/>
+  <text x="876" y="359" text-anchor="middle" font-size="32" fill="#1c2126">レスポンスヘッダ</text>
+  <rect x="644" y="392" width="464" height="60" fill="#f7f6f3" stroke="#8f8b82" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="876" y="431" text-anchor="middle" font-size="32" fill="#5c6570">レスポンスボディ（省略可）</text>
+
+</svg>

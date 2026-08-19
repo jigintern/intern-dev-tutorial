@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 520" width="1168" height="520"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="520" fill="#ffffff"/>
+
+  <!-- URL string (color-coded) -->
+  <text x="584" y="120" text-anchor="middle" font-size="30" font-weight="bold"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <tspan fill="#17558f">http</tspan><tspan fill="#8f8b82">://</tspan><tspan fill="#b8501e">example.com</tspan><tspan fill="#8f8b82">:</tspan><tspan fill="#2c6b4f">8080</tspan><tspan fill="#4a4f57">/hoge/index.html</tspan><tspan fill="#8a5a2b">?name=Taro</tspan><tspan fill="#6a4c93">#profile</tspan>
+  </text>
+  <line x1="80" y1="150" x2="1088" y2="150" stroke="#cdcac1" stroke-width="2"/>
+
+  <!-- legend: left column -->
+  <rect x="96" y="196" width="28" height="28" fill="#17558f"/>
+  <text x="140" y="219" font-size="30" font-weight="bold" fill="#1c2126">スキーム</text>
+  <text x="140" y="256" font-size="26" fill="#5c6570">通信のプロトコル ・ http</text>
+
+  <rect x="96" y="300" width="28" height="28" fill="#b8501e"/>
+  <text x="140" y="323" font-size="30" font-weight="bold" fill="#1c2126">ドメイン</text>
+  <text x="140" y="360" font-size="26" fill="#5c6570">接続先のアドレス ・ example.com</text>
+
+  <rect x="96" y="404" width="28" height="28" fill="#2c6b4f"/>
+  <text x="140" y="427" font-size="30" font-weight="bold" fill="#1c2126">ポート</text>
+  <text x="140" y="464" font-size="26" fill="#5c6570">サーバのポート番号 ・ 8080（省略可）</text>
+
+  <!-- legend: right column -->
+  <rect x="608" y="196" width="28" height="28" fill="#4a4f57"/>
+  <text x="652" y="219" font-size="30" font-weight="bold" fill="#1c2126">パス</text>
+  <text x="652" y="256" font-size="26" fill="#5c6570">サーバ内の場所 ・ /hoge/index.html</text>
+
+  <rect x="608" y="300" width="28" height="28" fill="#8a5a2b"/>
+  <text x="652" y="323" font-size="30" font-weight="bold" fill="#1c2126">クエリパラメータ</text>
+  <text x="652" y="360" font-size="26" fill="#5c6570">URLに乗せて渡すデータ ・ name=Taro</text>
+
+  <rect x="608" y="404" width="28" height="28" fill="#6a4c93"/>
+  <text x="652" y="427" font-size="30" font-weight="bold" fill="#1c2126">アンカーリンク</text>
+  <text x="652" y="464" font-size="26" fill="#5c6570">ページ内の特定の場所 ・ #profile</text>
+
+</svg>

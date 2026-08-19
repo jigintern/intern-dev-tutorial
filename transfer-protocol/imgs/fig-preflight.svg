@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 400" width="1168" height="400"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="400" fill="#ffffff"/>
+
+  <!-- preflight group background (behind lifelines) -->
+  <rect x="60" y="92" width="1048" height="138" fill="#f7f6f3" stroke="#cdcac1" stroke-width="2"/>
+
+  <!-- lifelines -->
+  <rect x="120" y="10" width="300" height="64" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <text x="270" y="52" text-anchor="middle" font-size="34" font-weight="bold" fill="#17558f">クライアント</text>
+  <line x1="270" y1="74" x2="270" y2="384" stroke="#17558f" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <rect x="748" y="10" width="300" height="64" fill="#f2f1ed" stroke="#b8501e" stroke-width="3"/>
+  <text x="898" y="52" text-anchor="middle" font-size="34" font-weight="bold" fill="#b8501e">サーバー</text>
+  <line x1="898" y1="74" x2="898" y2="384" stroke="#b8501e" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <text x="86" y="161" font-size="22" font-weight="bold" fill="#8f8b82"
+        text-anchor="middle" transform="rotate(-90 86 161)">プリフライト</text>
+
+  <!-- 1. OPTIONS request -->
+  <text x="584" y="120" text-anchor="middle" font-size="28" font-weight="bold" fill="#1c2126">① OPTIONS で問い合わせ</text>
+  <line x1="270" y1="144" x2="884" y2="144" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="898,144 882,136 882,152" fill="#5c6570"/>
+
+  <!-- 2. allow response -->
+  <text x="584" y="188" text-anchor="middle" font-size="28" font-weight="bold" fill="#1c2126">② 許可を返す</text>
+  <line x1="898" y1="210" x2="284" y2="210" stroke="#2c6b4f" stroke-width="4"/>
+  <polygon points="270,210 286,202 286,218" fill="#2c6b4f"/>
+
+  <!-- 3. actual request -->
+  <text x="584" y="272" text-anchor="middle" font-size="28" font-weight="bold" fill="#1c2126">③ 本リクエスト（POST など）</text>
+  <line x1="270" y1="296" x2="884" y2="296" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="898,296 882,288 882,304" fill="#5c6570"/>
+
+  <!-- 4. response -->
+  <text x="584" y="348" text-anchor="middle" font-size="28" font-weight="bold" fill="#1c2126">④ レスポンス</text>
+  <line x1="898" y1="370" x2="284" y2="370" stroke="#2c6b4f" stroke-width="4"/>
+  <polygon points="270,370 286,362 286,378" fill="#2c6b4f"/>
+
+</svg>

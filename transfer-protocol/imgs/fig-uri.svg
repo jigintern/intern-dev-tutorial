@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 400" width="1168" height="400"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="400" fill="#ffffff"/>
+
+  <!-- outer URI box -->
+  <rect x="120" y="70" width="928" height="300" fill="#ffffff" stroke="#1c2126" stroke-width="3"/>
+  <text x="584" y="128" text-anchor="middle" font-size="38" font-weight="bold" fill="#1c2126">URI（リソースを識別する仕組みの総称）</text>
+
+  <!-- URL (highlighted) -->
+  <rect x="180" y="176" width="380" height="158" fill="#eef3f8" stroke="#17558f" stroke-width="3"/>
+  <text x="370" y="250" text-anchor="middle" font-size="46" font-weight="bold" fill="#17558f">URL</text>
+  <text x="370" y="300" text-anchor="middle" font-size="28" fill="#5c6570">場所で示す</text>
+
+  <!-- URN (muted) -->
+  <rect x="608" y="176" width="380" height="158" fill="#f7f6f3" stroke="#8f8b82" stroke-width="3"/>
+  <text x="798" y="250" text-anchor="middle" font-size="46" font-weight="bold" fill="#5c6570">URN</text>
+  <text x="798" y="300" text-anchor="middle" font-size="28" fill="#5c6570">名前で示す</text>
+
+</svg>

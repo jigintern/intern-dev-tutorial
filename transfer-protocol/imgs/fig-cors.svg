@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168 400" width="1168" height="400"
+     font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif">
+
+  <rect x="0" y="0" width="1168" height="400" fill="#ffffff"/>
+
+  <!-- headers -->
+  <text x="200" y="42" text-anchor="middle" font-size="32" font-weight="bold" fill="#17558f">クライアント</text>
+  <text x="200" y="76" text-anchor="middle" font-size="24" fill="#5c6570">localhost:8000</text>
+  <text x="968" y="42" text-anchor="middle" font-size="32" font-weight="bold" fill="#b8501e">サーバー</text>
+  <text x="968" y="76" text-anchor="middle" font-size="24" fill="#5c6570">localhost:3000</text>
+
+  <!-- boxes -->
+  <rect x="60" y="96" width="280" height="280" fill="#ffffff" stroke="#17558f" stroke-width="3"/>
+  <rect x="828" y="96" width="280" height="280" fill="#f2f1ed" stroke="#b8501e" stroke-width="3"/>
+
+  <!-- row 1: no header -> blocked -->
+  <text x="584" y="140" text-anchor="middle" font-size="28" fill="#1c2126">/cors（ヘッダなし）</text>
+  <line x1="340" y1="166" x2="828" y2="166" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="828,166 812,158 812,174" fill="#5c6570"/>
+  <line x1="828" y1="200" x2="360" y2="200" stroke="#c0392b" stroke-width="4" stroke-dasharray="10 8"/>
+  <circle cx="584" cy="200" r="19" fill="#c0392b"/>
+  <path d="M576,192 L592,208 M592,192 L576,208" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  <text x="584" y="252" text-anchor="middle" font-size="26" font-weight="bold" fill="#c0392b">ブロックされエラー</text>
+
+  <line x1="60" y1="282" x2="1108" y2="282" stroke="#cdcac1" stroke-width="2"/>
+
+  <!-- row 2: with header -> ok -->
+  <text x="584" y="316" text-anchor="middle" font-size="28" fill="#1c2126">/cors-additional-header</text>
+  <line x1="340" y1="340" x2="828" y2="340" stroke="#5c6570" stroke-width="4"/>
+  <polygon points="828,340 812,332 812,348" fill="#5c6570"/>
+  <text x="590" y="366" text-anchor="middle" font-size="22" fill="#2c6b4f">Access-Control-Allow-Origin: *</text>
+  <line x1="828" y1="372" x2="360" y2="372" stroke="#2c6b4f" stroke-width="4"/>
+  <polygon points="340,372 356,364 356,380" fill="#2c6b4f"/>
+  <circle cx="300" cy="372" r="17" fill="#2c6b4f"/>
+  <path d="M292,372 L298,378 L309,366" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg>
