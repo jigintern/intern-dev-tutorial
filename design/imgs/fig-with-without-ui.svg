@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 400" width="1140" height="400" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 見せるだけ -->
+  <text x="260" y="46" text-anchor="middle" font-size="40" font-weight="700" fill="#6b7078">見せるだけ</text>
+  <rect x="40" y="80" width="440" height="220" rx="12" fill="#ffffff" stroke="#d3d6db" stroke-width="3" />
+  <text x="80" y="152" font-size="36" fill="#202228">お米を買う</text>
+  <text x="80" y="212" font-size="36" fill="#202228">にんじんを買う</text>
+  <text x="80" y="272" font-size="36" fill="#202228">ジャガイモを買う</text>
+  <text x="260" y="366" text-anchor="middle" font-size="34" fill="#6b7078">見ることしかできない</text>
+
+  <!-- 見せる＋操作 -->
+  <text x="880" y="46" text-anchor="middle" font-size="40" font-weight="700" fill="#1c8fb5">見せる＋操作</text>
+  <rect x="660" y="80" width="440" height="220" rx="12" fill="#ffffff" stroke="#33b1dd" stroke-width="4" />
+
+  <rect x="700" y="120" width="40" height="40" rx="8" fill="#33b1dd" />
+  <path d="M709 140 l8 9 l14 -16" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="760" y="152" font-size="36" fill="#202228">お米を買う</text>
+
+  <rect x="700" y="180" width="40" height="40" rx="8" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+  <text x="760" y="212" font-size="36" fill="#202228">にんじんを買う</text>
+
+  <rect x="700" y="240" width="40" height="40" rx="8" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+  <text x="760" y="272" font-size="36" fill="#202228">ジャガイモを買う</text>
+
+  <text x="880" y="366" text-anchor="middle" font-size="34" fill="#1c8fb5">押して、操作できる</text>
+</svg>

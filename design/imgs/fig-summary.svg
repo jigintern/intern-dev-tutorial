@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 300" width="1020" height="300" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="sum-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6b7078" />
+    </marker>
+  </defs>
+
+  <!-- 1. UIは接点（中心 170） -->
+  <circle cx="52" cy="98" r="22" fill="#9aa1ab" />
+  <path d="M24 170 Q24 130 52 130 Q80 130 80 170 z" fill="#9aa1ab" />
+  <text x="52" y="212" text-anchor="middle" font-size="19" fill="#6b7078">ユーザー</text>
+
+  <line x1="92" y1="124" x2="122" y2="124" stroke="#6b7078" stroke-width="2.5" stroke-dasharray="7 5" marker-start="url(#sum-arrow)" marker-end="url(#sum-arrow)" />
+
+  <rect x="130" y="58" width="80" height="132" rx="10" fill="#33b1dd" />
+  <text x="170" y="136" text-anchor="middle" font-size="36" font-weight="700" fill="#ffffff">UI</text>
+
+  <line x1="218" y1="124" x2="248" y2="124" stroke="#6b7078" stroke-width="2.5" stroke-dasharray="7 5" marker-start="url(#sum-arrow)" marker-end="url(#sum-arrow)" />
+
+  <rect x="262" y="68" width="58" height="48" rx="6" fill="#ffffff" stroke="#9aa1ab" stroke-width="2.5" />
+  <rect x="262" y="132" width="58" height="48" rx="6" fill="#ffffff" stroke="#9aa1ab" stroke-width="2.5" />
+  <text x="291" y="212" text-anchor="middle" font-size="19" fill="#6b7078">サービス</text>
+
+  <text x="170" y="262" text-anchor="middle" font-size="24" fill="#1c8fb5">見た目ではなく、接点</text>
+
+  <line x1="340" y1="50" x2="340" y2="272" stroke="#e6e8ec" stroke-width="2" />
+
+  <!-- 2. 3つで整える（中心 510） -->
+  <rect x="395" y="58" width="118" height="132" rx="10" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <rect x="409" y="74" width="60" height="12" rx="6" fill="#c9ced6" />
+  <rect x="409" y="102" width="90" height="9" rx="4" fill="#e6e8ec" />
+  <rect x="409" y="120" width="70" height="9" rx="4" fill="#e6e8ec" />
+  <rect x="409" y="150" width="90" height="26" rx="7" fill="#33b1dd" />
+
+  <rect x="535" y="80" width="11" height="11" rx="3" fill="#33b1dd" />
+  <text x="556" y="91" font-size="22" fill="#202228">配置</text>
+  <rect x="535" y="120" width="11" height="11" rx="3" fill="#33b1dd" />
+  <text x="556" y="131" font-size="22" fill="#202228">文字</text>
+  <rect x="535" y="160" width="11" height="11" rx="3" fill="#33b1dd" />
+  <text x="556" y="171" font-size="22" fill="#202228">並び順</text>
+
+  <text x="510" y="262" text-anchor="middle" font-size="24" fill="#1c8fb5">この3つで整える</text>
+
+  <line x1="680" y1="50" x2="680" y2="272" stroke="#e6e8ec" stroke-width="2" />
+
+  <!-- 3. 使う人の目で見直す（中心 850） -->
+  <rect x="770" y="58" width="118" height="132" rx="10" fill="#ffffff" stroke="#c9ced6" stroke-width="3" />
+  <rect x="784" y="74" width="60" height="12" rx="6" fill="#c9ced6" />
+  <rect x="784" y="102" width="90" height="9" rx="4" fill="#e6e8ec" />
+  <rect x="784" y="120" width="70" height="9" rx="4" fill="#e6e8ec" />
+  <rect x="784" y="150" width="90" height="26" rx="7" fill="#33b1dd" />
+
+  <!-- 虫めがねで、あとから見直すことを表す -->
+  <circle cx="898" cy="152" r="32" fill="#ffffff" fill-opacity="0.85" stroke="#1c8fb5" stroke-width="5" />
+  <line x1="921" y1="175" x2="948" y2="202" stroke="#1c8fb5" stroke-width="7" stroke-linecap="round" />
+
+  <text x="850" y="262" text-anchor="middle" font-size="24" fill="#1c8fb5">使う人の目で見直す</text>
+</svg>

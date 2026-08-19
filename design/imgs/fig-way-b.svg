@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 540" width="400" height="540" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 画面の外枠 -->
+  <rect x="10" y="10" width="380" height="520" rx="14" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+
+  <!-- ヘッダー -->
+  <path d="M10 24 a14 14 0 0 1 14 -14 h352 a14 14 0 0 1 14 14 v66 h-380 z" fill="#33b1dd" />
+  <text x="200" y="65" text-anchor="middle" font-size="32" font-weight="700" fill="#ffffff">ToDo</text>
+
+  <!-- いま押した行を目立たせる -->
+  <rect x="11" y="174" width="378" height="64" fill="#e8f6fc" />
+
+  <!-- お米を買う（完了） -->
+  <rect x="44" y="125" width="34" height="34" rx="6" fill="#33b1dd" />
+  <path d="M52 142 l7 8 l12 -14" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="100" y="151" font-size="26" fill="#202228">お米を買う</text>
+  <line x1="30" y1="174" x2="370" y2="174" stroke="#eceef1" stroke-width="2" />
+
+  <!-- にんじんを買う（いま押した） -->
+  <rect x="44" y="189" width="34" height="34" rx="6" fill="#33b1dd" />
+  <path d="M52 206 l7 8 l12 -14" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="61" cy="206" r="30" fill="none" stroke="#33b1dd" stroke-width="3" />
+  <text x="100" y="215" font-size="26" fill="#202228">にんじんを買う</text>
+  <line x1="30" y1="238" x2="370" y2="238" stroke="#eceef1" stroke-width="2" />
+
+  <!-- ジャガイモを買う -->
+  <rect x="44" y="253" width="34" height="34" rx="6" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+  <text x="100" y="279" font-size="26" fill="#202228">ジャガイモを買う</text>
+  <line x1="30" y1="302" x2="370" y2="302" stroke="#eceef1" stroke-width="2" />
+
+  <!-- 玉ねぎを買う -->
+  <rect x="44" y="317" width="34" height="34" rx="6" fill="#ffffff" stroke="#9aa1ab" stroke-width="3" />
+  <text x="100" y="343" font-size="26" fill="#202228">玉ねぎを買う</text>
+</svg>

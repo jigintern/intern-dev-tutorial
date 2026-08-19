@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="ord-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6b7078" />
+    </marker>
+    <marker id="ord-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#33b1dd" />
+    </marker>
+  </defs>
+
+  <!-- ============ 先に、やること ============ -->
+  <rect x="20" y="50" width="460" height="330" rx="12" fill="#fafafa" stroke="#e3e6ea" stroke-width="2" />
+  <text x="250" y="84" text-anchor="middle" font-size="36" font-weight="700" fill="#6b7078">先に、やること（レジ）</text>
+
+  <!-- 棚 -->
+  <rect x="40" y="145" width="120" height="135" rx="6" fill="#ffffff" stroke="#d3d6db" stroke-width="2" />
+  <rect x="52" y="157" width="44" height="36" rx="3" fill="#d3d6db" />
+  <rect x="104" y="157" width="44" height="36" rx="3" fill="#d3d6db" />
+  <rect x="52" y="199" width="44" height="36" rx="3" fill="#d3d6db" />
+  <rect x="104" y="199" width="44" height="36" rx="3" fill="#d3d6db" />
+  <rect x="52" y="241" width="44" height="36" rx="3" fill="#d3d6db" />
+  <rect x="104" y="241" width="44" height="36" rx="3" fill="#d3d6db" />
+
+  <!-- 吹き出し -->
+  <rect x="236" y="104" width="130" height="46" rx="10" fill="#ffffff" stroke="#6b7078" stroke-width="2" />
+  <path d="M293 150 L309 150 L297 166 z" fill="#ffffff" stroke="#6b7078" stroke-width="2" />
+  <text x="301" y="136" text-anchor="middle" font-size="32" fill="#202228">買う！</text>
+  <circle cx="210" cy="127" r="19" fill="#6b7078" />
+  <text x="210" y="136" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">1</text>
+
+  <!-- 人 -->
+  <circle cx="301" cy="180" r="15" fill="#ffffff" stroke="#202228" stroke-width="3" />
+  <path d="M301 195 V235 M281 210 H321 M301 235 L286 263 M301 235 L316 263" fill="none" stroke="#202228" stroke-width="3" stroke-linecap="round" />
+
+  <!-- レジ -->
+  <rect x="350" y="185" width="120" height="95" rx="6" fill="#ffffff" stroke="#d3d6db" stroke-width="2" />
+  <text x="410" y="241" text-anchor="middle" font-size="32" fill="#6b7078">レジ</text>
+
+  <!-- 探しに戻る -->
+  <path d="M278 288 Q215 332 170 294" fill="none" stroke="#6b7078" stroke-width="3" marker-end="url(#ord-arrow)" />
+  <circle cx="238" cy="337" r="19" fill="#6b7078" />
+  <text x="238" y="346" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">2</text>
+  <text x="272" y="346" font-size="34" fill="#6b7078">探しに戻る</text>
+
+  <!-- ============ 先に、モノ ============ -->
+  <rect x="520" y="50" width="460" height="330" rx="12" fill="#e8f6fc" stroke="#33b1dd" stroke-width="2" />
+  <text x="750" y="84" text-anchor="middle" font-size="36" font-weight="700" fill="#1c8fb5">先に、モノ（商品）</text>
+
+  <!-- 棚（1つ手に取ったので空きがある） -->
+  <rect x="545" y="145" width="120" height="135" rx="6" fill="#ffffff" stroke="#33b1dd" stroke-width="2" />
+  <rect x="557" y="157" width="44" height="36" rx="3" fill="#d3d6db" />
+  <rect x="609" y="157" width="44" height="36" rx="3" fill="none" stroke="#d3d6db" stroke-width="2" stroke-dasharray="5 4" />
+  <rect x="557" y="199" width="44" height="36" rx="3" fill="#d3d6db" />
+  <rect x="609" y="199" width="44" height="36" rx="3" fill="#d3d6db" />
+  <rect x="557" y="241" width="44" height="36" rx="3" fill="#d3d6db" />
+  <rect x="609" y="241" width="44" height="36" rx="3" fill="#d3d6db" />
+  <circle cx="690" cy="165" r="19" fill="#33b1dd" />
+  <text x="690" y="174" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">1</text>
+
+  <!-- 人（手に商品を持っている） -->
+  <circle cx="730" cy="180" r="15" fill="#ffffff" stroke="#202228" stroke-width="3" />
+  <path d="M730 195 V235 M710 210 H750 M730 235 L715 263 M730 235 L745 263" fill="none" stroke="#202228" stroke-width="3" stroke-linecap="round" />
+  <rect x="748" y="196" width="34" height="28" rx="3" fill="#33b1dd" />
+
+  <!-- レジへ -->
+  <line x1="770" y1="300" x2="832" y2="300" stroke="#33b1dd" stroke-width="3" marker-end="url(#ord-arrow-accent)" />
+  <circle cx="760" cy="337" r="19" fill="#33b1dd" />
+  <text x="760" y="346" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">2</text>
+  <text x="794" y="346" font-size="34" fill="#1c8fb5">レジへ運ぶ</text>
+
+  <!-- レジ -->
+  <rect x="845" y="185" width="120" height="95" rx="6" fill="#ffffff" stroke="#33b1dd" stroke-width="2" />
+  <text x="905" y="241" text-anchor="middle" font-size="32" fill="#1c8fb5">レジ</text>
+
+  <text x="500" y="442" text-anchor="middle" font-size="40" font-weight="700" fill="#1c8fb5">UIも同じ。先にモノ、あとでやること</text>
+</svg>

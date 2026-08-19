@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 490" width="760" height="490" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <defs>
+    <marker id="view-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#202228" />
+    </marker>
+    <marker id="view-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#33b1dd" />
+    </marker>
+  </defs>
+
+  <!-- オブジェクトA -->
+  <rect x="20" y="60" width="320" height="400" rx="14" fill="none" stroke="#c9ced6" stroke-width="2" stroke-dasharray="8 6" />
+  <text x="180" y="42" text-anchor="middle" font-size="26" fill="#6b7078">ToDo</text>
+  <rect x="60" y="100" width="240" height="100" rx="10" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="180" y="158" text-anchor="middle" font-size="26" fill="#202228">コレクション</text>
+  <rect x="60" y="320" width="240" height="100" rx="10" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="180" y="378" text-anchor="middle" font-size="26" fill="#202228">シングル</text>
+  <line x1="180" y1="210" x2="180" y2="310" stroke="#202228" stroke-width="3" marker-start="url(#view-arrow)" marker-end="url(#view-arrow)" />
+
+  <!-- オブジェクトB -->
+  <rect x="420" y="60" width="320" height="400" rx="14" fill="none" stroke="#c9ced6" stroke-width="2" stroke-dasharray="8 6" />
+  <text x="580" y="42" text-anchor="middle" font-size="26" fill="#6b7078">ユーザー</text>
+  <rect x="460" y="100" width="240" height="100" rx="10" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="580" y="158" text-anchor="middle" font-size="26" fill="#202228">コレクション</text>
+  <rect x="460" y="320" width="240" height="100" rx="10" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="580" y="378" text-anchor="middle" font-size="26" fill="#202228">シングル</text>
+  <line x1="580" y1="210" x2="580" y2="310" stroke="#202228" stroke-width="3" marker-start="url(#view-arrow)" marker-end="url(#view-arrow)" />
+
+  <!-- 別オブジェクトへのナビゲーション -->
+  <line x1="310" y1="370" x2="450" y2="370" stroke="#33b1dd" stroke-width="3" marker-end="url(#view-arrow-accent)" />
+
+  <!-- 本文の番号と対応させる -->
+  <circle cx="140" cy="260" r="22" fill="#33b1dd" />
+  <text x="140" y="269" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">1</text>
+  <circle cx="540" cy="260" r="22" fill="#33b1dd" />
+  <text x="540" y="269" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">1</text>
+  <circle cx="380" cy="325" r="22" fill="#33b1dd" />
+  <text x="380" y="334" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">2</text>
+</svg>

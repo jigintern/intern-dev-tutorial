@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <!-- 学生が描いた画面（機能が並ぶ）と、ToDoが並ぶ画面。
+       その構造がそのまま出てくる日常の例として、お店のメニューを使う。
+       左は現実に存在しない形。だから笑って納得できる。
+       コンビニのたとえ（レジに手ぶらで行く）は、そんな行動を誰も
+       とらないので対比として効かなかった。ここは「並んでいるものが
+       ちがう」という一覧そのものの比較にしてある -->
+
+  <!-- ============ やることが並んだメニュー ============ -->
+  <rect x="40" y="50" width="380" height="380" rx="6" fill="#ffffff" stroke="#9aa1ab" stroke-width="2" />
+  <text x="230" y="104" text-anchor="middle" font-size="34" font-weight="700" fill="#202228">メニュー</text>
+  <line x1="80" y1="124" x2="380" y2="124" stroke="#d3d6db" stroke-width="2" />
+
+  <rect x="95" y="154" width="270" height="64" rx="8" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="230" y="196" text-anchor="middle" font-size="30" fill="#202228">注文する</text>
+
+  <rect x="95" y="244" width="270" height="64" rx="8" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="230" y="286" text-anchor="middle" font-size="30" fill="#202228">会計する</text>
+
+  <rect x="95" y="334" width="270" height="64" rx="8" fill="#f1f2f4" stroke="#d3d6db" stroke-width="2" />
+  <text x="230" y="376" text-anchor="middle" font-size="30" fill="#202228">店員を呼ぶ</text>
+
+  <text x="230" y="470" text-anchor="middle" font-size="32" fill="#6b7078">見たことがない</text>
+
+  <!-- ============ 料理が並んだメニュー ============ -->
+  <rect x="580" y="50" width="380" height="380" rx="6" fill="#ffffff" stroke="#33b1dd" stroke-width="3" />
+  <text x="770" y="104" text-anchor="middle" font-size="34" font-weight="700" fill="#202228">メニュー</text>
+  <line x1="620" y1="124" x2="920" y2="124" stroke="#d3d6db" stroke-width="2" />
+
+  <text x="620" y="190" font-size="30" fill="#202228">ラーメン</text>
+  <text x="920" y="190" text-anchor="end" font-size="30" fill="#6b7078">800円</text>
+  <line x1="620" y1="212" x2="920" y2="212" stroke="#eceef1" stroke-width="2" />
+
+  <text x="620" y="270" font-size="30" fill="#202228">餃子</text>
+  <text x="920" y="270" text-anchor="end" font-size="30" fill="#6b7078">400円</text>
+  <line x1="620" y1="292" x2="920" y2="292" stroke="#eceef1" stroke-width="2" />
+
+  <text x="620" y="350" font-size="30" fill="#202228">チャーハン</text>
+  <text x="920" y="350" text-anchor="end" font-size="30" fill="#6b7078">700円</text>
+
+  <text x="770" y="470" text-anchor="middle" font-size="32" fill="#6b7078">いつも見ている</text>
+
+  <!-- ============ 結び ============ -->
+  <text x="500" y="522" text-anchor="middle" font-size="34" font-weight="700" fill="#1c8fb5">一覧に並ぶのは、いつもモノ</text>
+</svg>
