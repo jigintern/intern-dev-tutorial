@@ -129,7 +129,7 @@ section::after { color: var(--sub); font-size: 16px; }
 ## この1時間の目標
 
 <div class="point">
-2週間でつくる<strong>Webアプリケーション</strong>が<br>
+インターンシップでつくる<strong>Webアプリケーション</strong>とは<br>
 どんなものなのか、<strong>イメージをつかむ！</strong>
 </div>
 
